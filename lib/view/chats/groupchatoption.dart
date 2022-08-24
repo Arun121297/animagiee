@@ -1,0 +1,97 @@
+import 'package:animagieeui/config/extension.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../../config/colorconfig.dart';
+import '../../controller/controller.dart';
+
+class Group_Chat_Option_UI extends StatefulWidget {
+  const Group_Chat_Option_UI({Key? key}) : super(key: key);
+
+  @override
+  State<Group_Chat_Option_UI> createState() => _Group_Chat_Option_UIState();
+}
+
+class _Group_Chat_Option_UIState extends State<Group_Chat_Option_UI> {
+  Controller controller = Get.put(Controller());
+  @override
+  Widget build(BuildContext context) {
+    return Obx(() {
+      return Visibility(
+        visible: controller.chatoption.value,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: Container(
+                height: 12.0.hp,
+                //  108,
+                width: 30.0.wp,
+                //  113,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      child: Text(
+                        "Edit Group",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 8.0.sp,
+                            color: buttonColor1_CL,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      endIndent: 10,
+                      indent: 10,
+                    ),
+                    Container(
+                      child: Text(
+                        "Mute Notification",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 8.0.sp,
+                            color: buttonColor1_CL,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                    // Divider(
+                    //   endIndent: 10,
+                    //   indent: 10,
+                    // ),
+                    // Container(
+                    //   child: Text(
+                    //     "Clear Chat",
+                    //     style: GoogleFonts.poppins(
+                    //       textStyle: TextStyle(
+                    //         fontSize: 8.0.sp,
+                    //         color: buttonColor1_CL,
+                    //         fontWeight: FontWeight.w500,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    });
+  }
+}
