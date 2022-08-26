@@ -24,6 +24,7 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      // color: Colors.orange,
       height: MediaQuery.of(context).size.height - 250,
       child: ListView.builder(
         scrollDirection: Axis.vertical,

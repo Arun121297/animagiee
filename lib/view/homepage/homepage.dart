@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import '../../controller/controller.dart';
 
 import '../createpost/usercreatepost.dart';
+import '../doctor/doctor.dart';
+import '../profilepage/myprofile.dart';
 import 'adminpost.dart';
 import '../homeAppBar/appbar.dart';
 import '../bottombarfile/bottomnavibar.dart';
@@ -43,7 +45,13 @@ class _Home_PageState extends State<Home_Page> {
   // }
   Controller controller = Get.put(Controller());
 
-  List wid = [Homepage_Wid(), Community_Page_UI(), UserProfile_CreatePost_UI()];
+  List wid = [
+    Homepage_Wid(),
+    Community_Page_UI(),
+    UserProfile_CreatePost_UI(),
+    Doctor(),
+    My_Profile_UI()
+  ];
   // int selectedIndex1 = 0;
   @override
   Widget build(BuildContext context) {

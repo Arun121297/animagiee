@@ -28,3 +28,10 @@ const Color descriptionText_CL = Color.fromRGBO(170, 171, 171, 1);
 //chat
 const Color content1_CL = Color.fromRGBO(149, 149, 149, 1);
 const Color sendBox_CL = Color.fromRGBO(124, 123, 123, 1);
+
+///doctor
+const Color doctor_CL = Color.fromRGBO(86, 80, 69, 1);
+
+///
+///profile
+const Color boxcolor_CL = Color.fromRGBO(244, 244, 244, 1);

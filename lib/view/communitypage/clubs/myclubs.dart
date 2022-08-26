@@ -141,7 +141,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                       style: GoogleFonts.poppins(
                                         textStyle: TextStyle(
                                           fontSize: 9.0.sp,
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),

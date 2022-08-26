@@ -176,6 +176,9 @@ class _User_ProfileState extends State<User_Profile> {
                     child: Text("Communities"))
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 Container(

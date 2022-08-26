@@ -166,6 +166,9 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                 )
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 Container(
