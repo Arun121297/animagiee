@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../config/colorconfig.dart';
 import '../view/homeAppBar/backbutton.dart';
@@ -42,6 +45,12 @@ class Controller extends GetxController {
   List communitylist = [];
   RxBool chatoption = false.obs;
   //
+  RxBool profilechangebool = false.obs;
+  RxBool appoinmentdetailshide = true.obs;
+  RxBool podcastplayblutton = false.obs;
+
+  File file = File("");
+
   communityNext(fun) {
     return GestureDetector(
       onTap: () {

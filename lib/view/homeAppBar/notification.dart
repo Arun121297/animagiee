@@ -2,6 +2,9 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+
+import '../Notification/Notification.dart';
 
 class Notification_UI extends StatefulWidget {
   const Notification_UI({Key? key}) : super(key: key);
@@ -15,12 +18,17 @@ class _Notification_UIState extends State<Notification_UI> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        // height: 5.2.hp,
-        width: 5.2.wp,
-        // height: 19,
-        // width: 19,
-        child: Image.asset("images/notification.png"),
+      child: GestureDetector(
+        onTap: () {
+          Get.to(Notification_Content_Design_UI());
+        },
+        child: Container(
+          // height: 5.2.hp,
+          width: 5.2.wp,
+          // height: 19,
+          // width: 19,
+          child: Image.asset("images/notification.png"),
+        ),
       ),
     );
   }

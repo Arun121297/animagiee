@@ -33,8 +33,10 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
                 color: sendBox_CL,
               )),
           Container(
-            width: 195,
-            height: 40,
+            width: 45.0.wp,
+            // 195,
+            height: 4.0.hp,
+            //  40,
             child: TextField(
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -46,6 +48,9 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
                     fontWeight: FontWeight.w500,
                   )),
             ),
+          ),
+          SizedBox(
+            width: 4.0.wp,
           ),
           IconButton(
               onPressed: () {},

@@ -29,11 +29,13 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
             children: [
               controller.chatapp("New Group", context),
               SizedBox(
-                height: 26,
+                height: 4.0.hp,
+                //  26,
               ),
               Align(alignment: Alignment.center, child: chat_Search_UI()),
               SizedBox(
-                height: 32,
+                height: 4.0.hp,
+                // 32,
               ),
               Container(
                 // alignment: Alignment.center,
@@ -43,10 +45,12 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                   children: [
                     CircleAvatar(),
                     SizedBox(
-                      width: 17,
+                      width: 3.0.wp,
+                      //  17,
                     ),
                     Container(
-                      width: 260,
+                      width: 75.0.wp,
+                      // 260,
                       child: TextField(
                         decoration: const InputDecoration(
                             border: UnderlineInputBorder(),
@@ -78,7 +82,8 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
               ),
               Divider(),
               SizedBox(
-                height: 360,
+                height: 50.0.hp,
+                //  360,
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: 5,

@@ -44,10 +44,16 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
           ), //BoxShadow
         ],
       ),
-      height: 9.5.hp,
+      height: 56,
+      // 6.0.hp,
       // 72,
       child: BottomNavigationBar(
+        selectedFontSize: 0,
+        iconSize: 20.0,
         showSelectedLabels: false,
+        selectedLabelStyle: TextStyle(fontSize: 0),
+        unselectedLabelStyle: TextStyle(fontSize: 0),
+        // landscapeLayout: BottomNavigationBarLandscapeLayout.ce,
         showUnselectedLabels: false,
         currentIndex: controller.selectedIndex.value,
         selectedItemColor: Colors.amber[800],
@@ -56,7 +62,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 4.2.hp,
+              height: 5.9.hp,
               //  51,
               width: 10.0.wp,
               //  38,
@@ -64,7 +70,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
               decoration: BoxDecoration(
                   color: controller.selectedIndex.value == 0
                       ? Colors.black
-                      : Colors.white,
+                      : Colors.transparent,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20))),
@@ -73,14 +79,14 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
                 color: controller.selectedIndex.value == 0
                     ? Colors.white
                     : Colors.black,
-                size: 19.0.sp,
+                // size: 19.0.sp,
               ),
             ),
           ),
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 4.2.hp,
+              height: 5.9.hp,
               //  51,
               width: 10.0.wp,
               //  38,
@@ -88,7 +94,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
               decoration: BoxDecoration(
                   color: controller.selectedIndex.value == 1
                       ? Colors.black
-                      : Colors.white,
+                      : Colors.transparent,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20))),
@@ -97,14 +103,14 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
                 color: controller.selectedIndex.value == 1
                     ? Colors.white
                     : Colors.black,
-                size: 19.0.sp,
+                // size: 19.0.sp,
               ),
             ),
           ),
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 4.2.hp,
+              height: 5.9.hp,
               //  51,
               width: 10.0.wp,
               //  38,
@@ -112,7 +118,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
               decoration: BoxDecoration(
                   color: controller.selectedIndex.value == 2
                       ? Colors.black
-                      : Colors.white,
+                      : Colors.transparent,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20))),
@@ -121,14 +127,14 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
                 color: controller.selectedIndex.value == 2
                     ? Colors.white
                     : Colors.black,
-                size: 19.0.sp,
+                // size: 19.0.sp,
               ),
             ),
           ),
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 4.2.hp,
+              height: 5.9.hp,
               //  51,
               width: 10.0.wp,
               //  38,
@@ -138,7 +144,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
                   //     image: AssetImage("images\stethoscope.png")),
                   color: controller.selectedIndex.value == 3
                       ? Colors.black
-                      : Colors.white,
+                      : Colors.transparent,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20))),
@@ -154,7 +160,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 4.2.hp,
+              height: 5.9.hp,
               //  51,
               width: 10.0.wp,
               //  38,
@@ -162,7 +168,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
               decoration: BoxDecoration(
                   color: controller.selectedIndex.value == 4
                       ? Colors.black
-                      : Colors.white,
+                      : Colors.transparent,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20))),
@@ -171,7 +177,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
                 color: controller.selectedIndex.value == 4
                     ? Colors.white
                     : Colors.black,
-                size: 19.0.sp,
+                // size: 19.0.sp,
               ),
             ),
           ),

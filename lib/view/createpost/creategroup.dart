@@ -39,7 +39,7 @@ class _Create_Post_UIState extends State<Create_Post_UI> {
                 ),
                 Text("Arun's Group"),
                 Expanded(child: Container()),
-                Icon(Icons.arrow_downward),
+                Icon(Icons.keyboard_arrow_down),
                 SizedBox(
                   width: 12,
                 )

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
@@ -25,6 +27,13 @@ class UserProfile_CreatePost_UI extends StatefulWidget {
 }
 
 class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
+  @override
+  void initState() {
+    // print("print:::${a}");
+    // TODO: implement initState
+    super.initState();
+  }
+
   Controller controller = Get.put(Controller());
   bool posttype_bool = true;
   @override
@@ -39,38 +48,81 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
             SizedBox(
               height: 22,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text("Post Type"),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Post_Method_UI(),
-            SizedBox(
-              height: 24,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text("Select group"),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Create_Post_UI(),
-            Emogie_Description_UI(),
-            SizedBox(
-              height: 24,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Add_Photos_UI(), Add_Video_UI()],
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Tag_People_UI(),
-            Post_Button_UI()
+            Expanded(
+                child: SingleChildScrollView(
+              child: SizedBox(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text("Post Type"),
+                    ),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    Post_Method_UI(),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text("Select group"),
+                    ),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    Create_Post_UI(),
+                    Emogie_Description_UI(),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [Add_Photos_UI(), Add_Video_UI()],
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Visibility(
+                        visible: controller.file.path.isEmpty ? false : true,
+                        child: Column(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          // crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Container(
+                              height: 134,
+                              width: 339,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: FileImage(
+                                    File(controller.file.path),
+                                  ),
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                                border:
+                                    Border.all(width: 2, color: animagiee_CL),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Tag_People_UI(),
+                    Post_Button_UI(),
+                    SizedBox(
+                      height: 10,
+                    )
+                  ],
+                ),
+              ),
+            ))
           ],
         ),
       ),

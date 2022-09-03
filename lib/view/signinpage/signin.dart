@@ -1,3 +1,4 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,17 +18,18 @@ class SignInPage extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(height: 40.0.hp
+              //  280,
+              ),
           SizedBox(
-            height: 280,
-          ),
-          SizedBox(
-            height: 60,
+            height: 10.0.hp,
+            //  60,
           ),
           Text(
             "Hello !!!",
             style: GoogleFonts.jost(
               textStyle: TextStyle(
-                fontSize: 28,
+                fontSize: 26.5.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -40,7 +42,7 @@ class SignInPage extends StatelessWidget {
             style: GoogleFonts.poppins(
               color: WelcomeContent_Cl,
               textStyle: TextStyle(
-                fontSize: 11,
+                fontSize: 9.5.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -51,21 +53,24 @@ class SignInPage extends StatelessWidget {
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
                 color: WelcomeContent_Cl,
-                fontSize: 11,
+                fontSize: 9.5.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 75,
+            height: 9.0.hp,
+            //  75,
           ),
 
           ///login through FaceBook
 
           Container(
-            height: 47,
-            width: 308,
+            height: 6.0.hp,
+            // 47,
+            width: 90.0.wp,
+            // 308,
             decoration: BoxDecoration(
               color: SigninButton_CL,
               borderRadius: BorderRadius.circular(20),
@@ -78,16 +83,16 @@ class SignInPage extends StatelessWidget {
                   color: FB_CL,
                   size: 40,
                 ),
-                Flexible(
-                  flex: 2,
-                  child: Text(
-                    "Continue with facebook",
-                    style: GoogleFonts.poppins(
-                      color: SigninBtn_Content_CL,
-                      textStyle: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w500,
-                      ),
+                SizedBox(
+                  width: 4.0.wp,
+                ),
+                Text(
+                  "Continue with facebook",
+                  style: GoogleFonts.poppins(
+                    color: SigninBtn_Content_CL,
+                    textStyle: TextStyle(
+                      fontSize: 9.5.sp,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 )
@@ -95,7 +100,8 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 28,
+            height: 3.0.hp,
+            // 28,
           ),
 
           ///login through Google
@@ -111,8 +117,10 @@ class SignInPage extends StatelessWidget {
                   color: SigninButton_CL,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                height: 47,
-                width: 308,
+                height: 6.0.hp,
+                // 47,
+                width: 90.0.wp,
+                // 308,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -122,12 +130,15 @@ class SignInPage extends StatelessWidget {
                           'http://pngimg.com/uploads/google/google_PNG19635.png',
                           fit: BoxFit.cover),
                     ),
+                    SizedBox(
+                      width: 4.0.wp,
+                    ),
                     Text(
                       "Continue with Google",
                       style: GoogleFonts.poppins(
                         color: SigninBtn_Content_CL,
                         textStyle: TextStyle(
-                          fontSize: 11,
+                          fontSize: 9.5.sp,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

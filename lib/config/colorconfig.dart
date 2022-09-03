@@ -35,3 +35,15 @@ const Color doctor_CL = Color.fromRGBO(86, 80, 69, 1);
 ///
 ///profile
 const Color boxcolor_CL = Color.fromRGBO(244, 244, 244, 1);
+//
+///notification
+const Color notificationContent1_CL = Color.fromRGBO(39, 39, 39, 1);
+//
+///mywork
+const Color myworkaniopacity = Color.fromRGBO(180, 125, 16, 1);
+// (102, 102, 102, 1)
+const Color myworktext_1_CL = Color.fromRGBO(102, 102, 102, 1);
+// 151, 151, 151, 1
+//podcast
+const Color podcastcolor_1_CL = Color.fromRGBO(102, 102, 102, 0.1);
+const Color suggested_background_CL = Color.fromRGBO(255, 252, 245, 0.5);

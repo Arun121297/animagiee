@@ -1,5 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/controller/pageviewcontroller.dart';
+// import 'package:animagieeui/controller/pageviewcontroller.dart';
 import 'package:animagieeui/view/chats/searchbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -24,6 +24,7 @@ class _Chat_UIState extends State<Chat_UI> {
   Controller controller = Get.put(Controller());
   // PageViewController pageViewController = Get.put(PageViewController());
   final PageController pageController = PageController();
+
   @override
   void dispose() {
     pageController.dispose();
@@ -31,6 +32,13 @@ class _Chat_UIState extends State<Chat_UI> {
   }
 
   var fetchindex;
+  @override
+  void initState() {
+    fetchindex = 0;
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

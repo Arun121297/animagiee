@@ -31,8 +31,10 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Container(
-              height: 56,
-              width: 336,
+              height: 8.0.hp,
+              // 56,
+              width: 90.0.wp,
+              // 336,
               // color: Colors.white,
               decoration: BoxDecoration(
                   border: Border(bottom: BorderSide(color: content1_CL))),
@@ -42,7 +44,8 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
                   color: content1_CL,
                 ),
                 SizedBox(
-                  width: 10,
+                  width: 3.0.wp,
+                  // 10,
                 ),
                 Text(
                   "Create New Group",
@@ -64,7 +67,8 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
           ),
         ),
         SizedBox(
-          width: 336,
+          width: 95.0.wp,
+          // 336,
           child: ListView.separated(
             separatorBuilder: (context, index) {
               return SizedBox(
@@ -90,7 +94,8 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
                     //   borderRadius: BorderRadius.circular(20),
                     // ),
 
-                    height: 65,
+                    height: 9.0.hp,
+                    // 65,
                     // width: 300,
                     child: ListTile(
                         isThreeLine: false,
@@ -115,7 +120,8 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
                           ),
                         ),
                         subtitle: Container(
-                          width: 223,
+                          width: 80.0.wp,
+                          //  223,
                           child: Text(
                             "Lorem Ipsum is simply dummy text of the printing and ...",
                             overflow: TextOverflow.ellipsis,

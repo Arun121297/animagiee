@@ -22,6 +22,13 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
   Controller controller = Get.put(Controller());
   var pagechange;
   @override
+  void initState() {
+    pagechange = 0;
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -185,7 +192,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
             ),
             // Divider(color: animagiee_CL, thickness: 2),
             SizedBox(
-              height: MediaQuery.of(context).size.height - 327,
+              height: MediaQuery.of(context).size.height - 315,
               child: PageView(
                 controller: pageController,
                 onPageChanged: (value) {

@@ -157,7 +157,7 @@ class _GroupMulti_Chat_Page_UIState extends State<GroupMulti_Chat_Page_UI> {
               )),
               Send_Box_UI(),
               SizedBox(
-                height: 38,
+                height: 2.0.hp,
               ),
             ],
           ),

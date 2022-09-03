@@ -112,7 +112,7 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
                                               border: Border.all(
                                                   width: 2,
                                                   color: Colors.grey)),
-                                          child: Text("$gridindex"),
+                                          child: Text("Doc.$gridindex"),
                                         ),
                                       ),
                                       Align(
@@ -143,7 +143,69 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
                 // _showMyDialog(context);
                 showDialog(
                     context: context,
-                    builder: (BuildContext context) => errorDialog);
+                    builder: (BuildContext context) => Dialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  12.0)), //this right here
+                          child: Container(
+                            // color: Colors.green,
+                            height: 50.0.hp,
+                            // 398.0,
+                            width: 80.0.wp,
+                            // 323.0,
+                            child: Column(
+                              // mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                    width: 80.0.wp,
+                                    //  323,
+                                    alignment: Alignment.topRight,
+                                    child: IconButton(
+                                        onPressed: () {
+                                          // Get.to(My_Profile_UI());
+                                          // controller.selectedIndex.value = 4;
+                                          Navigator.pop(context);
+                                        },
+                                        icon: Icon(Icons.close_rounded))),
+                                Container(
+                                    height: 30.0.hp,
+                                    // 194,
+                                    width: 60.0.wp
+                                    // 194,
+                                    ),
+                                Text(
+                                  "Your Documents has been uploaded "
+                                  "successfully...",
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                      fontSize: 11.0.sp,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "After the verification process your will be getting a notification"
+                                  "from Animagie regarding the activation of your "
+                                  "member profile.",
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                      fontSize: 8.0.sp,
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                    //  errorDialog
+                    );
               },
               child: Container(
                 height: 6.0.hp,
@@ -173,61 +235,64 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
   }
 }
 
-Controller controller = Get.put(Controller());
-Dialog errorDialog = Dialog(
-  shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12.0)), //this right here
-  child: Container(
-    // color: Colors.green,
-    height: 398.0,
-    width: 323.0,
-    child: Column(
-      // mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-            width: 323,
-            alignment: Alignment.topRight,
-            child: IconButton(
-                onPressed: () {
-                  // Get.to(My_Profile_UI());
-                  // controller.selectedIndex.value = 4;
-                },
-                icon: Icon(Icons.close_rounded))),
-        Container(
-          height: 194,
-          width: 194,
-        ),
-        Text(
-          "Your Documents has been uploaded "
-          "successfully...",
-          maxLines: 2,
-          textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(
-            textStyle: TextStyle(
-              fontSize: 11.0.sp,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-        Text(
-          "After the verification process your will be getting a notification"
-          "from Animagie regarding the activation of your "
-          "member profile.",
-          maxLines: 2,
-          textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(
-            textStyle: TextStyle(
-              fontSize: 8.0.sp,
-              color: Colors.grey,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-      ],
-    ),
-  ),
-);
+// Controller controller = Get.put(Controller());
+// Dialog errorDialog = Dialog(
+//   shape: RoundedRectangleBorder(
+//       borderRadius: BorderRadius.circular(12.0)), //this right here
+//   child: Container(
+//     // color: Colors.green,
+//     height: 398.0,
+//     width: 323.0,
+//     child: Column(
+//       // mainAxisAlignment: MainAxisAlignment.center,
+//       children: <Widget>[
+//         Container(
+//             width: 323,
+//             alignment: Alignment.topRight,
+//             child: IconButton(
+//                 onPressed: () {
+//                   // Get.to(My_Profile_UI());
+//                   // controller.selectedIndex.value = 4;
+//                   Navigator.pop(context);
+//                 },
+//                 icon: Icon(Icons.close_rounded))),
+//         Container(
+//           height: 194,
+//           width: 194,
+//         ),
+//         Text(
+//           "Your Documents has been uploaded "
+//           "successfully...",
+//           maxLines: 2,
+//           textAlign: TextAlign.center,
+//           style: GoogleFonts.poppins(
+//             textStyle: TextStyle(
+//               fontSize: 11.0.sp,
+//               color: Colors.black,
+//               fontWeight: FontWeight.w500,
+//             ),
+//           ),
+//         ),
+//         Text(
+//           "After the verification process your will be getting a notification"
+//           "from Animagie regarding the activation of your "
+//           "member profile.",
+//           maxLines: 2,
+//           textAlign: TextAlign.center,
+//           style: GoogleFonts.poppins(
+//             textStyle: TextStyle(
+//               fontSize: 8.0.sp,
+//               color: Colors.grey,
+//               fontWeight: FontWeight.w500,
+//             ),
+//           ),
+//         ),
+//       ],
+//     ),
+//   ),
+// );
+
+
 // Future<void> _showMyDialog(context) async {
 //   return showDialog<void>(
 //     context: context,

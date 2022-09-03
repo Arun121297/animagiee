@@ -26,6 +26,13 @@ class _User_ProfileState extends State<User_Profile> {
   PageController pageController = PageController();
   var pagechange;
   @override
+  void initState() {
+    pagechange = 0;
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -195,7 +202,7 @@ class _User_ProfileState extends State<User_Profile> {
             ),
             // Divider(color: animagiee_CL, thickness: 2),
             SizedBox(
-              height: MediaQuery.of(context).size.height - 390,
+              height: MediaQuery.of(context).size.height - 380,
               child: PageView(
                 controller: pageController,
                 onPageChanged: (value) {

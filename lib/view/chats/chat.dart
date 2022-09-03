@@ -24,142 +24,148 @@ class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: Stack(children: [
-      Container(
-        child: Column(
-          children: [
-            controller.chatscreenapp("Karthi", context),
-            Expanded(
-                child: ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => SizedBox(
-                width: MediaQuery.of(context).size.width,
-                // color: Colors.green,
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 7.5.hp,
-                          // 60,
-                          width: 54.5.wp,
-                          //  199,
-                          // color: Colors.black,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Row(
+      body: SafeArea(
+        child: Stack(children: [
+          Container(
+            child: Column(
+              children: [
+                controller.chatscreenapp("Karthi", context),
+                Expanded(
+                    child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index) => SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    // color: Colors.green,
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 7.5.hp,
+                              // 60,
+                              width: 54.5.wp,
+                              //  199,
+                              // color: Colors.black,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  CircleAvatar(),
-                                  Container(
-                                    height: 4.0.hp,
-                                    //  31,
-                                    width: 43.0.wp,
-                                    // 159,
-                                    decoration: BoxDecoration(
-                                        color: Color.fromRGBO(238, 238, 238, 1),
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(20))),
-                                  )
+                                  Row(
+                                    children: [
+                                      CircleAvatar(),
+                                      Container(
+                                        height: 4.0.hp,
+                                        //  31,
+                                        width: 43.0.wp,
+                                        // 159,
+                                        decoration: BoxDecoration(
+                                            color: Color.fromRGBO(
+                                                238, 238, 238, 1),
+                                            borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(20))),
+                                      )
+                                    ],
+                                  ),
+                                  Text(
+                                    "9.20am",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 7.0.sp,
+                                        color: content1_CL,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
-                              Text(
-                                "9.20am",
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                    fontSize: 7.0.sp,
-                                    color: content1_CL,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 7.5.hp,
-                          // 60,
-                          width: 45.0.wp,
-
-                          // height: 60,
-                          // width: 159,
-                          // color: Colors.black,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Row(
-                                children: [
-                                  // CircleAvatar(),
-                                  Container(
-                                    height: 4.5.hp,
-                                    // 60,
-                                    width: 45.0.wp,
-                                    //  199,
-                                    // height: 31,
-                                    // width: 159,
-                                    decoration: BoxDecoration(
-                                        color: Color.fromRGBO(238, 238, 238, 1),
-                                        borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(20))),
-                                  )
-                                ],
-                              ),
-                              Text(
-                                "9.20am",
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                    fontSize: 7.0.sp,
-                                    color: content1_CL,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Visibility(
-                      visible: index == 3 ? true : false,
-                      child: Row(children: [
-                        Expanded(child: Divider()),
-                        Text(
-                          "Today",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 10.0.sp,
-                              color: sendBox_CL,
-                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
-                        Expanded(child: Divider()),
-                      ]),
-                    )
-                  ],
-                ),
-              ),
-            )),
-            Send_Box_UI(),
-            SizedBox(height: 5.0.hp
-                //  38,
-                ),
-          ],
-        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 7.5.hp,
+                              // 60,
+                              width: 45.0.wp,
+
+                              // height: 60,
+                              // width: 159,
+                              // color: Colors.black,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Row(
+                                    children: [
+                                      // CircleAvatar(),
+                                      Container(
+                                        height: 4.5.hp,
+                                        // 60,
+                                        width: 45.0.wp,
+                                        //  199,
+                                        // height: 31,
+                                        // width: 159,
+                                        decoration: BoxDecoration(
+                                            color: Color.fromRGBO(
+                                                238, 238, 238, 1),
+                                            borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(20))),
+                                      )
+                                    ],
+                                  ),
+                                  Text(
+                                    "9.20am",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 7.0.sp,
+                                        color: content1_CL,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Visibility(
+                          visible: index == 3 ? true : false,
+                          child: Row(children: [
+                            Expanded(child: Divider()),
+                            Text(
+                              "Today",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 10.0.sp,
+                                  color: sendBox_CL,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            Expanded(child: Divider()),
+                          ]),
+                        )
+                      ],
+                    ),
+                  ),
+                )),
+                Send_Box_UI(),
+                SizedBox(height: 2.0.hp
+                    //  38,
+                    ),
+              ],
+            ),
+          ),
+          Single_Chat_Options_UI(),
+        ]),
       ),
-      Single_Chat_Options_UI(),
-    ])));
+    );
   }
 }

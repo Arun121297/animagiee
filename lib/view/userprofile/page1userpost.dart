@@ -54,7 +54,69 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                   ),
                   Expanded(child: Container()),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        showModalBottomSheet(
+                          context: context,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20))),
+                          builder: (context) {
+                            return Container(
+                              height: 174,
+                              width: MediaQuery.of(context).size.width,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "UnFollow",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 10.0.sp,
+                                        color: dummycontent_Cl,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(
+                                    color: Colors.grey,
+                                    endIndent: 10,
+                                    indent: 10,
+                                  ),
+                                  Text(
+                                    "Report",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 10.0.sp,
+                                        color: dummycontent_Cl,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(
+                                    color: Colors.grey,
+                                    endIndent: 10,
+                                    indent: 10,
+                                  ),
+                                  Text(
+                                    "Block",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 10.0.sp,
+                                        color: dummycontent_Cl,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      });
+                    },
                     icon: Icon(Icons.menu),
                   )
                 ],

@@ -39,7 +39,8 @@ class _Profile_AppBar_UIState extends State<Profile_AppBar_UI> {
           Flexible(child: Container()),
           // Expanded(child: SizedBox()),
           SizedBox(
-            width: 45,
+            width: 10.0.wp,
+            //  45,
           ),
           Text(
             widget.title,
@@ -57,8 +58,10 @@ class _Profile_AppBar_UIState extends State<Profile_AppBar_UI> {
               Get.to(Edit_Profile_UI());
             },
             child: Container(
-              height: 20,
-              width: 70,
+              height: 3.3.hp,
+              //  20,
+              width: 20.0.wp,
+              // 70,
               decoration: BoxDecoration(
                   color: animagiee_CL, borderRadius: BorderRadius.circular(20)),
               alignment: Alignment.center,
@@ -84,9 +87,9 @@ class _Profile_AppBar_UIState extends State<Profile_AppBar_UI> {
               ),
             ),
           ),
-          SizedBox(
-            width: 10,
-          )
+          SizedBox(width: 4.0.wp
+              //  10,
+              )
 
           // Expanded(child: Container()),
           // Search_UI(),
