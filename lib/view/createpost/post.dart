@@ -27,13 +27,13 @@ class _Post_Button_UIState extends State<Post_Button_UI> {
           // 310,
           decoration: BoxDecoration(
               color: Color(0xff272727),
-              borderRadius: BorderRadius.circular(12)),
+              borderRadius: BorderRadius.circular(12.0.sp)),
           alignment: Alignment.center,
           child: Text(
             "Post",
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
-                color: const Color.fromRGBO(255, 255, 255, 1),
+                color: Color.fromRGBO(255, 255, 255, 1),
                 fontSize: 15.0.sp,
                 fontWeight: FontWeight.w600,
               ),

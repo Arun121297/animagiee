@@ -2,6 +2,7 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 
@@ -29,11 +30,29 @@ class _Followers_UIState extends State<Followers_UI> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text("Folloewes"),
+          Text(
+            "Followers",
+            style: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                fontSize: 10.0.sp,
+                color: dummycontent_Cl,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
           VerticalDivider(
             color: animagiee_CL,
           ),
-          Text("95")
+          Text(
+            "95",
+            style: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                fontSize: 10.0.sp,
+                color: dummycontent_Cl,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/data/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 
+import '../homepage/homepage.dart';
 import 'addDocument.dart';
 import 'editprofileappbar.dart';
 import 'editprofileheader.dart';
@@ -27,7 +29,8 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
           child: Container(
         child: Column(
           children: [
-            Edit_Profile_AppBar_UI(),
+            // Edit_Profile_AppBar_UI(),
+            controller.chatapp("Profile", Home_Page(), context),
             Expanded(
                 child: SingleChildScrollView(
               child: Container(

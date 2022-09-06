@@ -2,7 +2,10 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../homepage/homepage.dart';
 
 class Edit_Profile_AppBar_UI extends StatefulWidget {
   const Edit_Profile_AppBar_UI({Key? key}) : super(key: key);
@@ -26,7 +29,7 @@ class _Edit_Profile_AppBar_UIState extends State<Edit_Profile_AppBar_UI> {
               // color: Colors.black,
             ),
             onPressed: () {
-              // Get.to(Home_Page());
+              Get.to(Home_Page());
             },
           ),
 

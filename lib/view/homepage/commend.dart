@@ -13,11 +13,21 @@ class Comment_UI extends StatefulWidget {
 class _Comment_UIState extends State<Comment_UI> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 2.5.hp,
-      width: 5.0.wp,
+    return Container(
+      // height: 3.5.hp,
+      // width: 6.0.wp,
+      height: 20,
+      width: 20,
       // 17,
-      child: Image.asset("images/commend.png"),
+      // alignment: Alignment.center,
+      child: SizedBox(
+          height: 17, width: 17, child: Image.asset("images/comment.png")),
+      // decoration: BoxDecoration(
+      //     image: DecorationImage(
+      //   image: AssetImage("images/comment.png"),
+      //   filterQuality: FilterQuality.high,
+      // )),
+      // child: Image.asset("images/commend.png",),
     );
   }
 }

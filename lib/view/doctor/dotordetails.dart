@@ -109,14 +109,28 @@ class _Doctor_Details_UIState extends State<Doctor_Details_UI> {
               ]),
             ],
           ),
-          Text(
-            "₹ 300 - 15 mins",
-            style: GoogleFonts.poppins(
-              textStyle: TextStyle(
-                fontSize: 9.0.sp,
-                color: dummycontent_Cl,
-                fontWeight: FontWeight.w700,
+          RichText(
+            text: TextSpan(
+              text: '₹ 300 - ',
+              style: GoogleFonts.roboto(
+                textStyle: TextStyle(
+                  fontSize: 9.0.sp,
+                  color: doctor_Text_CL,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: ' 15 mins',
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 9.0.sp,
+                      color: doctor_Text_CL,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
             ),
           )
         ],

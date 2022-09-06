@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
+import 'MyFavourites/myfav.dart';
 import 'appoinmentdetail/appoinmentdetails.dart';
 
 class MY_Profile_Header_UI extends StatefulWidget {
@@ -44,6 +45,15 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
               height: 10.0.hp,
               // 108,
               // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.black26,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15))),
+              width: MediaQuery.of(context).size.width,
+              height: 10.0.hp,
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.0, left: 20),
@@ -153,7 +163,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "following",
+                    "Following",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                         fontSize: 9.5.sp,
@@ -213,10 +223,14 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset(
-                          "images/profileframe.png",
-                          cacheHeight: 20,
-                          cacheWidth: 20,
+                        SizedBox(
+                          height: 3.0.hp,
+                          width: 7.0.wp,
+                          child: Image.asset(
+                            "images/profileframe.png",
+                            // cacheHeight: 20,
+                            // cacheWidth: 20,
+                          ),
                         ),
                         // Icon(
                         //   Icons.image_outlined,
@@ -262,10 +276,16 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset(
-                          "images/grouplogo.png",
-                          cacheHeight: 20,
-                          cacheWidth: 20,
+                        SizedBox(
+                          height: 3.0.hp,
+                          width: 7.0.wp,
+                          // height: 20,
+                          // width: 20,
+                          child: Image.asset(
+                            "images/grouplogo.png",
+                            // cacheHeight: 20,
+                            // cacheWidth: 20,
+                          ),
                         ),
                         Text(
                           "Community",
@@ -309,39 +329,45 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                height: 6.0.hp,
-                // 46,
-                width: 90.0.wp,
-                // 330,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      // color: Colors.green,
-                      width: 25.0.wp,
-                      //  95,
-                      child: Text(
-                        "My Favourites",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w500,
+              GestureDetector(
+                onTap: () {
+                  Get.to(My_Favourites_UI());
+                },
+                child: Container(
+                  height: 6.0.hp,
+                  // 46,
+                  width: 90.0.wp,
+                  // 330,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        // color: Colors.green,
+                        width: 25.0.wp,
+                        //  95,
+                        child: Text(
+                          "My Favourites",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 9.5.sp,
+                              color: Settings_Text_CL,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Icon(
-                      Icons.bookmark,
-                      color: animagiee_CL,
-                    )
-                  ],
+                      Icon(
+                        Icons.bookmark,
+                        color: animagiee_CL,
+                      )
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                      color: boxcolor_CL,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(width: 1, color: Colors.grey)),
                 ),
-                decoration: BoxDecoration(
-                    color: boxcolor_CL,
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(width: 1, color: Colors.grey)),
               ),
               Visibility(
                   visible: controller.profilechangebool.value == true &&
@@ -370,13 +396,14 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       children: [
                         Container(
                           width: 95,
+                          alignment: Alignment.center,
                           // color: Colors.green,
                           child: Text(
                             "My Work",
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
                                 fontSize: 9.5.sp,
-                                color: Colors.grey,
+                                color: Settings_Text_CL,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -385,11 +412,17 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                         // SizedBox(
                         //   width: 2,
                         // ),
-                        Image.asset(
-                          "images/profilecart.png",
-                          cacheHeight: 18,
-                          cacheWidth: 18,
-                          color: animagiee_CL,
+                        SizedBox(
+                          height: 3.0.hp,
+                          //  18,
+                          width: 6.0.wp,
+                          //  18,
+                          child: Image.asset(
+                            "images/profilecart.png",
+                            // cacheHeight: 18,
+                            // cacheWidth: 18,
+                            color: animagiee_CL,
+                          ),
                         )
                       ],
                     ),
@@ -421,12 +454,13 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                         Container(
                           width: 95,
                           // color: Colors.green,
+                          alignment: Alignment.center,
                           child: Text(
                             "About",
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
                                 fontSize: 9.5.sp,
-                                color: Colors.grey,
+                                color: Settings_Text_CL,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -435,11 +469,17 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                         // SizedBox(
                         //   width: 2,
                         // ),
-                        Image.asset(
-                          "images/about.png",
-                          cacheHeight: 18,
-                          cacheWidth: 18,
-                          color: animagiee_CL,
+                        SizedBox(
+                          height: 3.0.hp,
+                          // 18,
+                          width: 6.0.wp,
+                          // 18,
+                          child: Image.asset(
+                            "images/about.png",
+                            // cacheHeight: 18,
+                            // cacheWidth: 18,
+                            color: animagiee_CL,
+                          ),
                         )
                       ],
                     ),
@@ -468,13 +508,13 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           width: 5,
                         ),
                         SizedBox(
-                          width: 35.0.wp,
+                          width: 39.0.wp,
                           child: Text(
                             "Appointment Details",
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
                                 fontSize: 9.5.sp,
-                                color: Colors.grey,
+                                color: Settings_Text_CL,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -513,20 +553,24 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      SizedBox(
-                        width: 20.0.wp,
+                      Container(
+                        alignment: Alignment.center,
+                        width: 27.0.wp,
                         //  95,
                         child: Text(
                           "Settings",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 9.5.sp,
-                              color: Colors.grey,
+                              color: Settings_Text_CL,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
                       ),
+                      // VerticalDivider(
+                      //   color: Colors.transparent,
+                      // ),
                       Icon(
                         Icons.settings,
                         color: animagiee_CL,
@@ -548,15 +592,17 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SizedBox(
-                      width: 20.0.wp,
+                    Container(
+                      alignment: Alignment.center,
+                      // color: Colors.orange,
+                      width: 28.0.wp,
                       //  95,
                       child: Text(
                         "Logout",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                             fontSize: 9.5.sp,
-                            color: Colors.grey,
+                            color: Settings_Text_CL,
                             fontWeight: FontWeight.w500,
                           ),
                         ),

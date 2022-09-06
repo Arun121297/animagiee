@@ -19,7 +19,7 @@ class _chat_Search_UIState extends State<chat_Search_UI> {
     return Card(
       elevation: 3,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.0.sp),
       ),
       child: Container(
         width: 90.0.wp,

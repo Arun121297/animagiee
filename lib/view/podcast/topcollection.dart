@@ -41,10 +41,14 @@ class _Top_Collection_Podcast_UIState extends State<Top_Collection_Podcast_UI> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Image.asset(
-                  poddog[index],
-                  cacheHeight: 84,
-                  cacheWidth: 84,
+                SizedBox(
+                  height: 84,
+                  width: 84,
+                  child: Image.asset(
+                    poddog[index],
+                    // cacheHeight: 84,
+                    // cacheWidth: 84,
+                  ),
                 ),
                 Text(
                   "Doggiee song",

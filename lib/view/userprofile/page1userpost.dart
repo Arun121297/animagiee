@@ -33,8 +33,14 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
           elevation: 3,
           child: Column(
             children: [
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
+                  SizedBox(
+                    width: 5,
+                  ),
                   CircleAvatar(
                     backgroundImage:
                         ExactAssetImage(controller.Home_Post[index]),
@@ -53,8 +59,8 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                     ),
                   ),
                   Expanded(child: Container()),
-                  IconButton(
-                    onPressed: () {
+                  GestureDetector(
+                    onTap: () {
                       setState(() {
                         showModalBottomSheet(
                           context: context,
@@ -117,8 +123,21 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                         );
                       });
                     },
-                    icon: Icon(Icons.menu),
+                    child: Image.asset(
+                      "images/burger.png",
+                      cacheHeight: 16,
+                      cacheWidth: 16,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
                   )
+                  // IconButton(
+                  //   onPressed: () {
+
+                  //   },
+                  //   icon: Icon(Icons.menu),
+                  // )
                 ],
               ),
               Padding(

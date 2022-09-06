@@ -1,5 +1,8 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/data/pages.dart';
+import 'package:animagieeui/view/homepage/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,32 +19,11 @@ class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            size: 12.0.sp,
-          ),
-          onPressed: () {},
-        ),
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-          "Create Post",
-          style: GoogleFonts.poppins(
-            textStyle: TextStyle(
-              fontSize: 10.0.sp,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          // TextStyle(color: Colors.black, fontSize: 12),
-        ),
-        backgroundColor: Colors.white,
-        centerTitle: true,
-      ),
+      // appBar:
       body: SafeArea(
         child: Column(
           children: [
+            controller.chatapp("Create Post", Home_Page(), context),
             SizedBox(
               height: 19,
             ),
@@ -104,7 +86,7 @@ class _PostState extends State<Post> {
               // color: Colors.orange,
               margin: EdgeInsets.only(left: 10),
               child: Text(
-                "Write SomeThing .......",
+                "What’s on your mind ?",
                 style: GoogleFonts.jost(
                   textStyle: TextStyle(
                     fontSize: 21.0.sp,
@@ -116,73 +98,106 @@ class _PostState extends State<Post> {
             ),
             Expanded(
                 child: Container(
-              child: Column(children: [
-                Row(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.photo_library_sharp,
-                        color: animagiee_CL,
-                      ),
-                    ),
-                    Text(
-                      "Photos",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 10.0.sp,
-                          color: text_2,
-                          fontWeight: FontWeight.w500,
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 3.0.wp,
                         ),
-                      ),
-                    )
-                  ],
-                ),
-                Divider(),
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.person_add,
-                        color: animagiee_CL,
-                      ),
-                    ),
-                    Text(
-                      "Tag People",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 10.0.sp,
-                          color: text_2,
-                          fontWeight: FontWeight.w500,
+                        SizedBox(
+                          height: 21,
+                          width: 27,
+                          child: Image.asset(
+                            "images/photovideos.png",
+                            // cacheHeight: 21,
+                            // cacheWidth: 27,
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                ),
-                Divider(),
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.camera_alt,
-                        color: animagiee_CL,
-                      ),
-                    ),
-                    Text(
-                      "Camera",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 10.0.sp,
-                          color: text_2,
-                          fontWeight: FontWeight.w500,
+                        // IconButton(
+                        //   onPressed: () {},
+                        //   icon: Icon(
+                        //     Icons.photo_library_sharp,
+                        //     color: animagiee_CL,
+                        //   ),
+                        // ),
+                        SizedBox(
+                          width: 4.0.wp,
                         ),
-                      ),
-                    )
-                  ],
-                ),
-              ]),
+                        Text(
+                          "Photos/video",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 10.0.sp,
+                              color: text_2,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 3.0.wp,
+                        ),
+                        SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: Image.asset(
+                            "images/tagpeople.png",
+                            // cacheHeight: 25,
+                            // cacheWidth: 25,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 4.0.wp,
+                        ),
+                        Text(
+                          "Tag People",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 10.0.sp,
+                              color: text_2,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 3.0.wp,
+                        ),
+                        SizedBox(
+                          height: 22,
+                          width: 25,
+                          child: Image.asset(
+                            "images/camera.png",
+                            // cacheHeight: 22,
+                            // cacheWidth: 25,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 4.0.wp,
+                        ),
+                        Text(
+                          "Camera",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 10.0.sp,
+                              color: text_2,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ]),
             ))
           ],
         ),

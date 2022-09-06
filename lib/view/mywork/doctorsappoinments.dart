@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import 'doctorappoinment2ndpage.dart';
+import 'myworkpage1.dart';
 
 class Appoinment_Page_UI extends StatefulWidget {
   const Appoinment_Page_UI({Key? key}) : super(key: key);
@@ -25,7 +26,10 @@ class _Appoinment_Page_UIState extends State<Appoinment_Page_UI> {
         child: Container(
           child: Column(
             children: [
-              controller.cusapp("Appoinments", context),
+              controller.clubapp(
+                  "Appoinment Details", My_Work_Design_UI(), context),
+              // controller.chatapp("My Work", My_Work_Design_UI(), context),
+              // controller.cusapp("Appoinments", context),
               SizedBox(height: 3.0.hp
                   // 15,
                   ),

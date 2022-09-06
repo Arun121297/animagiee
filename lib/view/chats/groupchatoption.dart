@@ -23,23 +23,25 @@ class _Group_Chat_Option_UIState extends State<Group_Chat_Option_UI> {
       return Visibility(
         visible: controller.chatoption.value,
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0.sp),
           child: Align(
             alignment: Alignment.topRight,
             child: Card(
               elevation: 3,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.0.sp)),
               child: Container(
                 height: 12.0.hp,
                 //  108,
                 width: 30.0.wp,
                 //  113,
+                margin: EdgeInsets.only(left: 10.0.sp),
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10.0.sp)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       child: Text(
@@ -55,7 +57,7 @@ class _Group_Chat_Option_UIState extends State<Group_Chat_Option_UI> {
                     ),
                     Divider(
                       endIndent: 10,
-                      indent: 10,
+                      // indent: 10,
                     ),
                     Container(
                       child: Text(

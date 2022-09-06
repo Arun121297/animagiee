@@ -69,10 +69,12 @@ class _Album_Header_UIState extends State<Album_Header_UI> {
                     ),
                   ),
                   SizedBox(
+                    height: 25,
+                    width: 25,
                     child: Image.asset(
                       "images/playbutton.png",
-                      cacheHeight: 25,
-                      cacheWidth: 25,
+                      // cacheHeight: 25,
+                      // cacheWidth: 25,
                     ),
                   )
                 ],

@@ -27,8 +27,8 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
                   image: AssetImage("images/doc_3.jpg"), fit: BoxFit.cover),
               // color: animagiee_CL,
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15))),
+                  bottomLeft: Radius.circular(15.0.sp),
+                  bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
           height: 14.0.hp,
           // 108,
@@ -41,15 +41,15 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
               //     fit: BoxFit.cover),
               color: Colors.black54,
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15))),
+                  bottomLeft: Radius.circular(15.0.sp),
+                  bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
           height: 14.0.hp,
           // 108,
           // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 40.0, left: 20),
+          padding: EdgeInsets.only(top: 40.0.sp, left: 20.0.sp),
           child: Align(
             heightFactor: 1.4,
             alignment: Alignment.centerLeft,
@@ -65,26 +65,28 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 50, bottom: 15),
+          padding: EdgeInsets.only(left: 48.0.sp, bottom: 10.0.sp),
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Container(
               margin: EdgeInsets.only(left: 40),
-              height: 31,
-              width: 27,
+              height: 5.0.hp,
+              // 31,
+              width: 8.0.wp,
+              // 27,
               child: Image.asset("images/badge_1.png"),
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(70.0),
+          padding: EdgeInsets.all(57.0.sp),
           child: Container(
-              margin: EdgeInsets.only(left: 53),
+              margin: EdgeInsets.only(left: 60.0.sp),
               child: Text(
                 "Dr.Meena",
                 style: GoogleFonts.jost(
                   textStyle: TextStyle(
-                    fontSize: 23,
+                    fontSize: 22.0.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),
@@ -92,17 +94,51 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
               )),
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 35, right: 10),
+          padding: EdgeInsets.only(bottom: 29.0.sp, right: 8.0.sp),
           child: Align(
             alignment: Alignment.bottomRight,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Expanded(child: SizedBox()),
-                SizedBox(
-                  width: 80,
+                SizedBox(width: 30.0.wp
+                    //  80,
+                    ),
+                RichText(
+                  text: TextSpan(
+                    text: '₹  ',
+                    style: GoogleFonts.roboto(
+                      textStyle: TextStyle(
+                        fontSize: 12.0.sp,
+                        color: doctor_Text_CL,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: '300 -',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 12.0.sp,
+                            color: doctor_Text_CL,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      TextSpan(
+                        text: ' 15 mins',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.0.sp,
+                            color: doctor_Text_CL,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                Text("₹ 300 - 15 mins"),
+                // Text("₹ 300 - 15 mins"),
                 Expanded(child: SizedBox()),
                 // SizedBox(
                 //   width: 17,

@@ -1,3 +1,4 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -21,7 +22,7 @@ class _Available_Time_UIState extends State<Available_Time_UI> {
         style: GoogleFonts.poppins(
           textStyle: TextStyle(
             letterSpacing: -0.09,
-            fontSize: 12,
+            fontSize: 11.0.sp,
             color: Colors.green,
             fontWeight: FontWeight.w600,
           ),

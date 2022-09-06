@@ -1,14 +1,11 @@
-import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/podcast/podcastAppbar.dart';
 import 'package:animagieeui/view/podcast/suggestedpodcast.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../config/colorconfig.dart';
+import 'package:get/get.dart';
+
 import '../../controller/controller.dart';
+
+import 'audiopodcast.dart';
 import 'dogsmusicplay.dart';
 
 class View_All_Suggested_List_UI extends StatefulWidget {
@@ -33,7 +30,8 @@ class _View_All_Suggested_List_UIState
         body: SafeArea(
           child: Column(
             children: [
-              PodCast_AppBar_UI(),
+              controller.podcastapp(
+                  "Audio Podcast", Audio_Podcast_UI(), context),
               Expanded(
                 child: SizedBox(
                   child: Padding(

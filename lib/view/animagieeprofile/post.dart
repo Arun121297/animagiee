@@ -34,8 +34,14 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
           elevation: 3,
           child: Column(
             children: [
+              SizedBox(
+                height: 5,
+              ),
               Row(
                 children: [
+                  SizedBox(
+                    width: 5,
+                  ),
                   CircleAvatar(
                     backgroundImage:
                         ExactAssetImage(controller.Home_Post[index]),
@@ -54,14 +60,26 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
                     ),
                   ),
                   Expanded(child: Container()),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.menu),
+                  SizedBox(
+                    height: 16,
+                    width: 16,
+                    child: Image.asset(
+                      "images/burger.png",
+                      // cacheHeight: 16,
+                      // cacheWidth: 16,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
                   )
+                  // IconButton(
+                  //   onPressed: () {},
+                  //   icon: Icon(Icons.menu),
+                  // )
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0.sp),
                 child: Text(
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
                   "Laoreet nunc morbi lectus donec.",
@@ -74,16 +92,16 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 12,
-              ),
+              SizedBox(height: 1.0.hp
+                  // 12,
+                  ),
               Container(
                 height: 35.0.hp,
                 //  346,
                 width: 95.0.wp,
                 // 346,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15.0.sp),
                   image: DecorationImage(
                     image: AssetImage(controller.Home_Post[index]),
                     fit: BoxFit.cover,
@@ -91,7 +109,7 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(10.0.sp),
                 child: Row(
                   children: [
                     Text(
@@ -104,9 +122,9 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 12,
-                    ),
+                    SizedBox(width: 8.0.wp
+                        // 12,
+                        ),
                     Text(
                       "12 Comments",
                       style: GoogleFonts.poppins(

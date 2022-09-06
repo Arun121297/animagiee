@@ -13,10 +13,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../data/pages.dart';
+import '../homeAppBar/notification.dart';
+import '../homeAppBar/search.dart';
 import 'adddescription.dart';
 import 'addphotos.dart';
 import 'addvideos.dart';
 import 'creategroup.dart';
+import 'videoplayer.dart';
 
 class UserProfile_CreatePost_UI extends StatefulWidget {
   UserProfile_CreatePost_UI({Key? key}) : super(key: key);
@@ -44,9 +48,27 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            controller.cusapp("Post", context),
+            Material(
+              elevation: 3,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Row(children: [
+                  // Back_Button_UI(),
+                  Expanded(child: SizedBox()), Expanded(child: SizedBox()),
+                  Padding(
+                    padding: EdgeInsets.only(left: 30.0.sp),
+                    child: Text("Post"),
+                  ),
+                  Expanded(child: Container()),
+                  Search_UI(),
+                  Notification_UI(),
+                ]),
+              ),
+            ),
+            // controller.cusapp("Post", context),
             SizedBox(
-              height: 22,
+              height: 2.0.hp,
+              //  22,
             ),
             Expanded(
                 child: SingleChildScrollView(
@@ -55,32 +77,49 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text("Post Type"),
+                      padding: EdgeInsets.only(left: 20.0.sp),
+                      child: Text(
+                        "Post Type",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.5.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
                     ),
-                    SizedBox(
-                      height: 12,
-                    ),
+                    SizedBox(height: 5.0.sp
+                        // 12,
+                        ),
                     Post_Method_UI(),
-                    SizedBox(
-                      height: 24,
-                    ),
+                    SizedBox(height: 8.0.wp
+                        // 24,
+                        ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text("Select group"),
+                      padding: EdgeInsets.only(left: 20.0.sp),
+                      child: Text(
+                        "Select group",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.5.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
                     ),
-                    SizedBox(
-                      height: 12,
-                    ),
+                    SizedBox(height: 1.0.hp
+                        //  12,
+                        ),
                     Create_Post_UI(),
+                    SizedBox(height: 1.0.hp
+                        //  12,
+                        ),
                     Emogie_Description_UI(),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [Add_Photos_UI(), Add_Video_UI()],
-                    ),
+                    // SizedBox(
+                    //   height: 24,
+                    // ),
                     Align(
                       alignment: Alignment.center,
                       child: Visibility(
@@ -92,33 +131,54 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                             SizedBox(
                               height: 5,
                             ),
-                            Container(
-                              height: 134,
-                              width: 339,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: FileImage(
-                                    File(controller.file.path),
+                            Obx(() {
+                              if (controller.imagevideo.value.type == "image") {
+                                return Container(
+                                  height: 20.0.hp,
+                                  //  134,
+                                  width: 95.0.wp,
+                                  // 339,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image:
+                                          // AssetImage(
+                                          //     controller.imagevideo.value.url.)
+                                          FileImage(
+                                              // File(controller.file.path),
+                                              File(controller
+                                                  .imagevideo.value.url
+                                                  .toString())),
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0.sp),
+                                    border: Border.all(
+                                        width: 2, color: animagiee_CL),
                                   ),
-                                ),
-                                borderRadius: BorderRadius.circular(8),
-                                border:
-                                    Border.all(width: 2, color: animagiee_CL),
-                              ),
-                            )
+                                );
+                              } else {
+                                return Video_Player(
+                                  urls: controller.imagevideo.value.url
+                                      .toString(),
+                                );
+                              }
+                            })
                           ],
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: 8,
+                      height: 1.0.hp,
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [Add_Photos_UI(), Add_Video_UI()],
+                    ),
+
                     Tag_People_UI(),
                     Post_Button_UI(),
-                    SizedBox(
-                      height: 10,
-                    )
+                    SizedBox(height: 2.5.sp
+                        // 10,
+                        )
                   ],
                 ),
               ),

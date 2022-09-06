@@ -25,7 +25,7 @@ class _Pageview2_MemberState extends State<Pageview2_Member> {
         itemBuilder: (context, index) => Card(
           child: Row(children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.sp),
               child: GestureDetector(
                 onTap: () {
                   Get.to(User_Profile());
@@ -37,7 +37,7 @@ class _Pageview2_MemberState extends State<Pageview2_Member> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.sp),
               child: Text(
                 "Karthi",
                 style: GoogleFonts.poppins(
@@ -53,7 +53,7 @@ class _Pageview2_MemberState extends State<Pageview2_Member> {
               child: Container(),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.sp),
               child: Container(
                 height: 3.5.hp,
                 //  26,
@@ -62,7 +62,7 @@ class _Pageview2_MemberState extends State<Pageview2_Member> {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: animagiee_CL,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(5.0.sp)),
                 child: Text(
                   "Follow",
                   style: GoogleFonts.poppins(

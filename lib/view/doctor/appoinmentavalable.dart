@@ -27,7 +27,8 @@ class _Doctor_Appoinment_UIState extends State<Doctor_Appoinment_UI> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 118,
+      width: 32.0.wp,
+      //  118,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -37,8 +38,10 @@ class _Doctor_Appoinment_UIState extends State<Doctor_Appoinment_UI> {
               Get.to(Doctor_Profile_UI());
             },
             child: Container(
-              height: 47,
-              width: 90,
+              height: 6.0.hp,
+              //  47,
+              width: 27.0.wp,
+              // 90,
               alignment: Alignment.center,
               child: Text(
                 "Make "

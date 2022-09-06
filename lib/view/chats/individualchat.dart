@@ -60,7 +60,7 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
               return Card(
                 elevation: 3,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.0.sp),
                 ),
                 child: Container(
                   // decoration: BoxDecoration(
@@ -74,15 +74,33 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
                   child: ListTile(
                       onTap: () => Get.to(Chatting_Screen_UI()),
                       isThreeLine: false,
-                      trailing: Text(
-                        "1 min ago",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 5.0.sp,
-                            color: content1_CL,
-                            fontWeight: FontWeight.w500,
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        // mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Visibility(
+                            visible: index > 0 && index < 4 ? true : false,
+                            child: CircleAvatar(
+                              radius: 5,
+                              backgroundColor: animagiee_CL,
+                              child: Text(
+                                "2",
+                                style: TextStyle(
+                                    fontSize: 3.5.sp, color: Colors.white),
+                              ),
+                            ),
                           ),
-                        ),
+                          Text(
+                            "1 min ago",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 5.0.sp,
+                                color: content1_CL,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       title: Text(
                         "Name",

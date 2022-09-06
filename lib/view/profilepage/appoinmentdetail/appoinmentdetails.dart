@@ -1,6 +1,7 @@
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homepage/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -25,7 +26,7 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
         child: Container(
           child: Column(
             children: [
-              controller.cusapp("Appoinment Details", context),
+              controller.clubapp("Appoinment Details", Home_Page(), context),
               SizedBox(
                 height: 2.0.hp,
               ),

@@ -9,6 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
+
+import '../homepage/homepage.dart';
 import 'groupchat.dart';
 import 'individualchat.dart';
 
@@ -20,7 +22,7 @@ class Chat_UI extends StatefulWidget {
 }
 
 class _Chat_UIState extends State<Chat_UI> {
-  List cl = [Colors.accents, Colors.black];
+  // List cl = [Colors.accents, Colors.black];
   Controller controller = Get.put(Controller());
   // PageViewController pageViewController = Get.put(PageViewController());
   final PageController pageController = PageController();
@@ -46,7 +48,32 @@ class _Chat_UIState extends State<Chat_UI> {
         child: Container(
           child: Column(
             children: [
-              controller.chatapp("Chat", context),
+              // Material(
+              //   elevation: 3,
+              //   child: Container(
+              //     width: MediaQuery.of(context).size.width,
+              //     child: Row(children: [
+              //       // Back_Button_UI(),
+              //       IconButton(
+              //         icon: Icon(
+              //           Icons.arrow_back_ios_new,
+              //           size: 12.0.sp,
+              //         ),
+              //         onPressed: () {
+              //           Get.to(Home_Page());
+              //         },
+              //       ),
+              //       Flexible(child: Container())
+              //       SizedBox(
+              //         width: 45,
+              //       ),
+              //       Text("Chat"),
+              //       Flexible(child: Container()),
+              //       Flexible(child: Container()),
+              //     ]),
+              //   ),
+              // ),
+              controller.chatapp("Chat", Home_Page(), context),
               SizedBox(
                 height: 3.0.hp,
                 // 27,

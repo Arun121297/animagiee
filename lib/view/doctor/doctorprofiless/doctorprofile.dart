@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/homepage/homepage.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:date_format/date_format.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,6 +14,7 @@ import 'package:im_stepper/stepper.dart';
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 
+import '../doctor.dart';
 import 'customizedstepper.dart';
 import 'description.dart';
 import 'doctoravailable.dart';
@@ -29,7 +31,7 @@ class Doctor_Profile_UI extends StatelessWidget {
         child: Container(
           child: Column(
             children: [
-              controller.cusapp("Doctor", context),
+              controller.clubapp("Doctor", Home_Page(), context),
               Expanded(
                 child: SizedBox(
                   child: Column(
@@ -37,12 +39,13 @@ class Doctor_Profile_UI extends StatelessWidget {
                       Profile_Header_UI(),
                       Doctor_Description_UI(),
                       SizedBox(
-                        height: 13,
+                        height: 2.0.hp,
+                        //  13,
                       ),
                       Available_Time_UI(),
-                      SizedBox(
-                        height: 15,
-                      ),
+                      SizedBox(height: 3.0.hp
+                          // 15,
+                          ),
                       Customized_Stepper_UI()
                     ],
                   ),

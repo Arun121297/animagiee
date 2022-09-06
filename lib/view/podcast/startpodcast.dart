@@ -1,21 +1,19 @@
-import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
-import 'package:animagieeui/view/podcast/podcastAppbar.dart';
-// import 'package:animagieeui/view/podcast/podcasttimer.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 
+import '../../config/colorconfig.dart';
 import '../createpost/adddescription.dart';
 import '../createpost/addphotos.dart';
 import '../createpost/addvideos.dart';
 import '../createpost/creategroup.dart';
 import '../createpost/post.dart';
 import '../createpost/postmethod.dart';
-import '../createpost/tagpeople.dart';
-import '../mywork/timer.dart';
+
+import 'audiopodcast.dart';
 import 'networktimer.dart';
 
 class Start_Your_Podcast_UI extends StatefulWidget {
@@ -35,8 +33,7 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // controller.cusapp("Post", context),
-            PodCast_AppBar_UI(),
+            controller.podcastapp("Audio Podcast", Audio_Podcast_UI(), context),
             Expanded(
                 child: SingleChildScrollView(
                     child: SizedBox(
@@ -75,7 +72,11 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [Add_Photos_UI(), Add_Video_UI()],
+                      children: [
+                        // Add_Photos_UI(), Add_Video_UI()
+                        addAudio(),
+                        addImage()
+                      ],
                     ),
                     SizedBox(
                       height: 0.5.hp, //  8,
@@ -101,5 +102,59 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
         ),
       ),
     );
+  }
+
+  addAudio() {
+    return Material(
+        elevation: 3,
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              // filepicker();
+            });
+          },
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Icon(
+                  Icons.music_note,
+                  color: animagiee_CL,
+                ),
+                Text("Add Audio"),
+              ],
+            ),
+            height: 45,
+            width: 150,
+          ),
+        ));
+  }
+
+  addImage() {
+    return Material(
+        elevation: 3,
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              // filepicker();
+            });
+          },
+          child: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Icon(
+                  Icons.image,
+                  color: animagiee_CL,
+                ),
+                Text("Add Image"),
+              ],
+            ),
+            height: 45,
+            width: 150,
+          ),
+        ));
   }
 }

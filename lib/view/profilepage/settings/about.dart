@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/controller.dart';
+import 'settings.dart';
 
 class About_Design_UI extends StatefulWidget {
   const About_Design_UI({Key? key}) : super(key: key);
@@ -23,7 +24,11 @@ class _About_Design_UIState extends State<About_Design_UI> {
       child: Container(
         child: Column(
           children: [
-            controller.cusapp("About", context),
+            controller.clubapp(
+              "About",
+              Settings_Page_1_UI(),
+              context,
+            ),
             SizedBox(
               height: 5.0.hp,
               //  48,

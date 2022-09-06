@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -25,7 +26,7 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
         elevation: 3,
         child: GestureDetector(
           onTap: () {
-            setState(() async {
+            setState(() {
               filepicker();
             });
           },
@@ -41,8 +42,10 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
                 Text("Add Photo"),
               ],
             ),
-            height: 45,
-            width: 150,
+            height: 6.0.hp,
+            // 45,
+            width: 42.0.wp,
+            //  150,
           ),
         ));
   }
@@ -55,6 +58,8 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
     if (result != null) {
       setState(() {
         controller.file = File(result.path);
+        controller.imagevideo(FilepickerType(type: "image", url: result.path));
+        // controller.imagevideo.value.type == "image" ?
       });
     } else {
       return null;

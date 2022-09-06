@@ -39,8 +39,14 @@ class _Admin_PostState extends State<Admin_Post> {
               elevation: 3,
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 5,
+                  ),
                   Row(
                     children: [
+                      SizedBox(
+                        width: 5,
+                      ),
                       CircleAvatar(
                         backgroundImage:
                             ExactAssetImage(controller.Home_Post[index]),
@@ -59,8 +65,8 @@ class _Admin_PostState extends State<Admin_Post> {
                         ),
                       ),
                       Expanded(child: Container()),
-                      IconButton(
-                        onPressed: () {
+                      GestureDetector(
+                        onTap: () {
                           setState(() {
                             showModalBottomSheet(
                               context: context,
@@ -123,7 +129,84 @@ class _Admin_PostState extends State<Admin_Post> {
                             );
                           });
                         },
-                        icon: Icon(Icons.menu),
+                        child: SizedBox(
+                          height: 16,
+                          width: 16,
+                          child: Image.asset(
+                            "images/burger.png",
+                            // cacheHeight: 16,
+                            // cacheWidth: 16,
+                          ),
+                        ),
+                      ),
+                      // IconButton(
+                      //   onPressed: () {
+                      //     setState(() {
+                      //       showModalBottomSheet(
+                      //         context: context,
+                      //         shape: RoundedRectangleBorder(
+                      //             borderRadius: BorderRadius.only(
+                      //                 topLeft: Radius.circular(20),
+                      //                 topRight: Radius.circular(20))),
+                      //         builder: (context) {
+                      //           return Container(
+                      //             height: 174,
+                      //             width: MediaQuery.of(context).size.width,
+                      //             child: Column(
+                      //               mainAxisAlignment:
+                      //                   MainAxisAlignment.spaceEvenly,
+                      //               children: [
+                      //                 Text(
+                      //                   "UnFollow",
+                      //                   style: GoogleFonts.poppins(
+                      //                     textStyle: TextStyle(
+                      //                       fontSize: 10.0.sp,
+                      //                       color: dummycontent_Cl,
+                      //                       fontWeight: FontWeight.w500,
+                      //                     ),
+                      //                   ),
+                      //                 ),
+                      //                 Divider(
+                      //                   color: Colors.grey,
+                      //                   endIndent: 10,
+                      //                   indent: 10,
+                      //                 ),
+                      //                 Text(
+                      //                   "Report",
+                      //                   style: GoogleFonts.poppins(
+                      //                     textStyle: TextStyle(
+                      //                       fontSize: 10.0.sp,
+                      //                       color: dummycontent_Cl,
+                      //                       fontWeight: FontWeight.w500,
+                      //                     ),
+                      //                   ),
+                      //                 ),
+                      //                 Divider(
+                      //                   color: Colors.grey,
+                      //                   endIndent: 10,
+                      //                   indent: 10,
+                      //                 ),
+                      //                 Text(
+                      //                   "Block",
+                      //                   style: GoogleFonts.poppins(
+                      //                     textStyle: TextStyle(
+                      //                       fontSize: 10.0.sp,
+                      //                       color: dummycontent_Cl,
+                      //                       fontWeight: FontWeight.w500,
+                      //                     ),
+                      //                   ),
+                      //                 ),
+                      //               ],
+                      //             ),
+                      //           );
+                      //         },
+                      //       );
+                      //     });
+                      //   },
+                      //   icon: Icon(Icons.menu),
+                      // )
+                      SizedBox(
+                        width: 8,
                       )
                     ],
                   ),
@@ -199,9 +282,24 @@ class _Admin_PostState extends State<Admin_Post> {
                     ),
                   ),
                   Row(children: [
+                    // Container(
+                    //   width: 125,
+                    //   // color: Colors.orange,
+                    //   // height: 20,
+                    //   child:
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    //   children: [
                     Likes_UI(),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Comment_UI(),
                     Share_UI(),
+                    //   ],
+                    // ),
+                    // ),
+                    // Expanded(child: Container()),
                     Expanded(child: Container()),
                     BookMark_UI(),
                   ]),

@@ -1,6 +1,7 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:custom_timer/custom_timer.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 
@@ -130,7 +131,16 @@ class _TimerState extends State<Timer> {
                 child: Row(
                   children: [
                     Icon(Icons.refresh, color: animagiee_CL),
-                    Text("re-take"),
+                    Text(
+                      "re-take",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 8.0.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -171,27 +181,44 @@ class _TimerState extends State<Timer> {
   }
 
   Widget pause() {
-    return Image.asset(
-      "images/mike.png",
-      cacheHeight: 50,
-      cacheWidth: 30,
+    return SizedBox(
+      height: 11.0.hp, //  50,
+      width: 9.0.wp,
+      // 30,
+      child: Image.asset(
+        "images/mike.png",
+        // cacheHeight: 50,
+        // cacheWidth: 30,
+      ),
     );
   }
 }
 
 Widget play() {
-  return Image.asset(
-    "images/pause.png",
-    cacheHeight: 30,
-    cacheWidth: 25,
+  return SizedBox(
+    height: 11.0.hp,
+    // 30,
+    width: 8.0.wp,
+    //  25,
+    child: Image.asset(
+      "images/pause.png",
+      // cacheHeight: 30,
+      // cacheWidth: 25,
+    ),
   );
 }
 
 Widget run() {
-  return Image.asset(
-    "images/run.png",
-    cacheHeight: 50,
-    cacheWidth: 30,
+  return SizedBox(
+    height: 11.0.hp,
+    // 50,
+    width: 10.0.wp,
+    // 30,
+    child: Image.asset(
+      "images/run.png",
+      // cacheHeight: 50,
+      // cacheWidth: 30,
+    ),
   );
 }
 

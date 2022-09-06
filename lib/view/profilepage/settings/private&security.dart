@@ -6,6 +6,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'settings.dart';
+
 class Private_Security_Design_UI extends StatefulWidget {
   const Private_Security_Design_UI({Key? key}) : super(key: key);
 
@@ -24,7 +26,8 @@ class _Private_Security_Design_UIState
             child: Container(
       child: Column(
         children: [
-          controller.cusapp("Privacy & Security", context),
+          controller.clubapp(
+              "Privacy & Security", Settings_Page_1_UI(), context),
           SizedBox(
             height: 3.0.hp,
             //  48,

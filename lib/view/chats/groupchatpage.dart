@@ -42,11 +42,11 @@ class _GroupMulti_Chat_Page_UIState extends State<GroupMulti_Chat_Page_UI> {
                       Align(
                         alignment: Alignment.topLeft,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0.sp),
                           child: Container(
                             height: 7.5.hp,
                             // 60,
-                            width: 54.5.wp,
+                            width: 56.0.wp,
                             //  199,
                             // color: Colors.black,
                             child: Column(
@@ -55,6 +55,9 @@ class _GroupMulti_Chat_Page_UIState extends State<GroupMulti_Chat_Page_UI> {
                                 Row(
                                   children: [
                                     CircleAvatar(),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
                                     Container(
                                       // height: 31,
                                       // width: 159,
@@ -66,7 +69,8 @@ class _GroupMulti_Chat_Page_UIState extends State<GroupMulti_Chat_Page_UI> {
                                           color:
                                               Color.fromRGBO(238, 238, 238, 1),
                                           borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20))),
+                                              bottomLeft:
+                                                  Radius.circular(20.0.sp))),
                                     )
                                   ],
                                 ),
@@ -91,7 +95,7 @@ class _GroupMulti_Chat_Page_UIState extends State<GroupMulti_Chat_Page_UI> {
                       Align(
                         alignment: Alignment.topRight,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0.sp),
                           child: Container(
                             height: 6.5.hp,
                             // 60,
@@ -115,7 +119,8 @@ class _GroupMulti_Chat_Page_UIState extends State<GroupMulti_Chat_Page_UI> {
                                           color:
                                               Color.fromRGBO(238, 238, 238, 1),
                                           borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20))),
+                                              bottomLeft:
+                                                  Radius.circular(20.0.sp))),
                                     )
                                   ],
                                 ),

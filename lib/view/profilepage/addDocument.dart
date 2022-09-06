@@ -7,6 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'editprofilepage.dart';
 import 'myprofile.dart';
 
 class Add_Document_UI extends StatefulWidget {
@@ -25,7 +26,11 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
         child: Container(
             child: Column(
           children: [
-            controller.cusapp("Document Required", context),
+            controller.clubapp(
+              "Document Required",
+              Edit_Profile_UI(),
+              context,
+            ),
             // SizedBox(
             //   height: 50,
             // ),
@@ -44,35 +49,38 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
                               padding: const EdgeInsets.all(20.0),
                               child: Text("Document $index"),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Container(
-                                height: 4.5.hp,
-                                //  24,
-                                width: 23.0.wp,
-                                // 84,
-                                decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.circular(5)),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      "Add",
-                                      style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                          color: animagiee_CL,
-                                          fontSize: 11.0.sp,
-                                          fontWeight: FontWeight.w500,
+                            GestureDetector(
+                              onTap: () {},
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: Container(
+                                  height: 4.5.hp,
+                                  //  24,
+                                  width: 23.0.wp,
+                                  // 84,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text(
+                                        "Add",
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            color: animagiee_CL,
+                                            fontSize: 11.0.sp,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Icon(
-                                      Icons.add,
-                                      color: animagiee_CL,
-                                    )
-                                  ],
+                                      Icon(
+                                        Icons.add_box_outlined,
+                                        color: animagiee_CL,
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

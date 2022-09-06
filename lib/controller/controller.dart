@@ -1,13 +1,15 @@
 import 'dart:io';
 
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:video_player/video_player.dart';
 
 import '../config/colorconfig.dart';
-import '../view/homeAppBar/backbutton.dart';
+
 import '../view/homeAppBar/notification.dart';
 import '../view/homeAppBar/search.dart';
 import '../view/homepage/homepage.dart';
@@ -50,8 +52,9 @@ class Controller extends GetxController {
   RxBool podcastplayblutton = false.obs;
 
   File file = File("");
-
-  communityNext(fun) {
+  Rx<FilepickerType> imagevideo = FilepickerType(type: "", url: "").obs;
+  VideoPlayerController? videocontroller;
+  communityNext(title, fun) {
     return GestureDetector(
       onTap: () {
         Get.to(fun);
@@ -63,7 +66,7 @@ class Controller extends GetxController {
             color: buttonColor1_CL, borderRadius: BorderRadius.circular(15)),
         alignment: Alignment.center,
         child: Text(
-          "Next",
+          title,
           style: GoogleFonts.poppins(
             textStyle: TextStyle(
               fontSize: 18,
@@ -76,13 +79,22 @@ class Controller extends GetxController {
     );
   }
 
-  cusapp(title, context) {
+  clubapp(title, fun, context) {
     return Material(
       elevation: 3,
       child: Container(
         width: MediaQuery.of(context).size.width,
         child: Row(children: [
-          Back_Button_UI(),
+          // Back_Button_UI(),
+          IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              size: 12.0.sp,
+            ),
+            onPressed: () {
+              Get.to(fun);
+            },
+          ),
           Expanded(child: SizedBox()),
           Padding(
             padding: const EdgeInsets.only(left: 30.0),
@@ -96,37 +108,114 @@ class Controller extends GetxController {
     );
   }
 
-  chatapp(title, context) {
+  // cusapp(title, fun, context) {
+  //   return Material(
+  //     elevation: 3,
+  //     child: Container(
+  //       width: MediaQuery.of(context).size.width,
+  //       child: Row(children: [
+  //         // Back_Button_UI(),
+  //         IconButton(
+  //           icon: Icon(
+  //             Icons.arrow_back_ios_new,
+  //             size: 12.0.sp,
+  //           ),
+  //           onPressed: () {
+  //             Get.to(fun);
+  //           },
+  //         ),
+  //         Expanded(child: SizedBox()),
+  //         Padding(
+  //           padding: const EdgeInsets.only(left: 30.0),
+  //           child: Text(title),
+  //         ),
+  //         Expanded(child: Container()),
+  //         Search_UI(),
+  //         Notification_UI(),
+  //       ]),
+  //     ),
+  //   );
+  // }
+
+  chatapp(title, fun, context) {
     return Material(
       elevation: 3,
       child: Container(
         width: MediaQuery.of(context).size.width,
         child: Row(children: [
-          Back_Button_UI(),
+          // Back_Button_UI(),
+          IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              size: 12.0.sp,
+            ),
+            onPressed: () {
+              Get.to(fun);
+            },
+          ),
           Flexible(child: Container()),
-          // Expanded(child: SizedBox()),
           SizedBox(
             width: 45,
           ),
           Text(title),
           Flexible(child: Container()),
           Flexible(child: Container()),
-
-          // Expanded(child: Container()),
-          // Search_UI(),
-          // Notification_UI(),
         ]),
       ),
     );
   }
 
-  chatscreenapp(title, context) {
+  podcastapp(title, fun, context) {
     return Material(
       elevation: 3,
       child: Container(
         width: MediaQuery.of(context).size.width,
         child: Row(children: [
-          Back_Button_UI(),
+          // Back_Button_UI(),
+
+          IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              size: 12.0.sp,
+            ),
+            onPressed: () {
+              // Get.to(Home_Page());
+              Get.to(fun);
+            },
+          ),
+          Flexible(child: Container()),
+          // Expanded(child: SizedBox()),
+          SizedBox(
+            width: 13.0.wp,
+            //  45,
+          ),
+          Text(title),
+          Flexible(child: Container()),
+          Flexible(child: Container()),
+          // Expanded(child: Container()),
+          // Search_UI(),
+          Notification_UI(),
+        ]),
+      ),
+    );
+  }
+
+  chatscreenapp(title, fun, context) {
+    return Material(
+      elevation: 3,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Row(children: [
+          // Back_Button_UI(),
+          IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              size: 12.0.sp,
+            ),
+            onPressed: () {
+              Get.to(fun);
+            },
+          ),
           Expanded(child: Container()),
           // Expanded(child: SizedBox()),
 
@@ -144,17 +233,44 @@ class Controller extends GetxController {
             ],
           ),
           Expanded(child: Container()),
-          IconButton(
-              onPressed: () {
-                if (chatoption.value == false) {
-                  chatoption.value = true;
-                } else {
-                  chatoption.value = false;
-                }
-              },
-              icon: Icon(Icons.menu))
+          GestureDetector(
+            onTap: () {
+              if (chatoption.value == false) {
+                chatoption.value = true;
+              } else {
+                chatoption.value = false;
+              }
+            },
+            child: SizedBox(
+              height: 16,
+              width: 16,
+              child: Image.asset(
+                "images/burger.png",
+                // cacheHeight: 16,
+                // cacheWidth: 16,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 7,
+          )
+          // IconButton(
+          //     onPressed: () {
+          //       if (chatoption.value == false) {
+          //         chatoption.value = true;
+          //       } else {
+          //         chatoption.value = false;
+          //       }
+          //     },
+          //     icon: Icon(Icons.menu))
         ]),
       ),
     );
   }
+}
+
+class FilepickerType {
+  String? type;
+  String? url;
+  FilepickerType({this.type, this.url});
 }

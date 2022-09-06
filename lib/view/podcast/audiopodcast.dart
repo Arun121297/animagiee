@@ -1,21 +1,20 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
-import 'package:animagieeui/view/bottombarfile/bottomnavibar.dart';
-import 'package:animagieeui/view/podcast/podcastAppbar.dart';
+
+import 'package:animagieeui/view/homepage/homepage.dart';
+
 import 'package:animagieeui/view/podcast/startpodcast.dart';
 import 'package:animagieeui/view/podcast/suggestedpodcast.dart';
 import 'package:animagieeui/view/podcast/topcollection.dart';
 import 'package:animagieeui/view/podcast/viewallsuggestion.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
-import '../homeAppBar/backbutton.dart';
-import '../homeAppBar/notification.dart';
+
 import 'dogsmusicplay.dart';
 
 class Audio_Podcast_UI extends StatefulWidget {
@@ -40,7 +39,8 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PodCast_AppBar_UI(),
+          // PodCast_AppBar_UI(),
+          controller.podcastapp("Audio Podcast", Home_Page(), context),
           Expanded(
               child: SingleChildScrollView(
                   child: SizedBox(

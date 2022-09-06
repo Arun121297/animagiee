@@ -14,11 +14,11 @@ class _BookMark_UIState extends State<BookMark_UI> {
   final Icon like = Icon(
     Icons.bookmark,
     color: Colors.black,
-    size: 20.0.sp,
+    size: 21.0.sp,
   );
   final Icon unlike = Icon(
     Icons.bookmark_border_outlined,
-    size: 20.0.sp,
+    size: 21.0.sp,
   );
   bool click = false;
   @override

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -34,15 +35,26 @@ class _Add_Video_UIState extends State<Add_Video_UI> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(
-                  Icons.video_stable,
-                  color: animagiee_CL,
+                SizedBox(
+                  height: 20,
+                  width: 21,
+                  child: Image.asset(
+                    "images/video.png",
+                    // cacheHeight: 20,
+                    // cacheWidth: 21,
+                  ),
                 ),
+                // Icon(
+                //   Icons.video_stable,
+                //   color: animagiee_CL,
+                // ),
                 Text("Videos"),
               ],
             ),
-            height: 45,
-            width: 150,
+            height: 6.0.hp,
+            // 45,
+            width: 42.0.wp,
+            //  150,
           ),
         ));
   }
@@ -54,6 +66,7 @@ class _Add_Video_UIState extends State<Add_Video_UI> {
 
     if (result != null) {
       controller.file = File(result.path);
+      controller.imagevideo(FilepickerType(type: "video", url: result.path));
     } else {
       return null;
     }

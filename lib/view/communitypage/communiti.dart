@@ -90,13 +90,13 @@ class _Community_UIState extends State<Community_UI> {
                               Catagaries[index],
                             ),
                             colorFilter: ColorFilter.mode(
-                                Colors.black.withOpacity(0.7),
-                                BlendMode.darken),
+                                Colors.black38, BlendMode.darken),
                           ),
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.0.sp),
                         ),
                         child: Text(
                           CataName[index],
+                          textAlign: TextAlign.center,
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 10.0.sp,

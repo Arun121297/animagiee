@@ -10,6 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../config/colorconfig.dart';
 import '../../doctor/doctorprofiless/description.dart';
 import '../../doctor/doctorprofiless/header.dart';
+import 'appoinmentdetails.dart';
 // import 'payment.dart';
 
 class DoctorAppoinmentDetails_Completed_UI extends StatefulWidget {
@@ -33,7 +34,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
           // color: Colors.green,
           child: Column(
             children: [
-              controller.cusapp("Doctor", context),
+              controller.clubapp("Doctor", AppoinmentDetails_UI(), context),
               Container(
                 // color: Colors.black,
                 height: 22.0.hp,
@@ -46,8 +47,8 @@ class _DoctorAppoinmentDetails_Completed_UIState
                             fit: BoxFit.cover),
                         // color: animagiee_CL,
                         borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(15),
-                            bottomRight: Radius.circular(15))),
+                            bottomLeft: Radius.circular(15.0.sp),
+                            bottomRight: Radius.circular(15.0.sp))),
                     width: MediaQuery.of(context).size.width,
                     height: 14.0.hp,
                     // 108,
@@ -60,15 +61,15 @@ class _DoctorAppoinmentDetails_Completed_UIState
                         //     fit: BoxFit.cover),
                         color: Colors.black54,
                         borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(15),
-                            bottomRight: Radius.circular(15))),
+                            bottomLeft: Radius.circular(15.0.sp),
+                            bottomRight: Radius.circular(15.0.sp))),
                     width: MediaQuery.of(context).size.width,
                     height: 14.0.hp,
                     // 108,
                     // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 40.0, left: 20),
+                    padding: EdgeInsets.only(top: 40.0.sp, left: 20.0.sp),
                     child: Align(
                       heightFactor: 1.4,
                       alignment: Alignment.centerLeft,
@@ -96,7 +97,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
                   //   ),
                   // ),
                   Padding(
-                    padding: const EdgeInsets.all(70.0),
+                    padding: EdgeInsets.all(70.0.sp),
                     child: Container(
                         margin: EdgeInsets.only(left: 53),
                         child: Text(
@@ -111,7 +112,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
                         )),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 35, right: 10),
+                    padding: EdgeInsets.only(bottom: 35.0.sp, right: 10.0.sp),
                     child: Align(
                       alignment: Alignment.bottomRight,
                       child: Row(
@@ -317,7 +318,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0.sp),
                 child: Row(
                   children: [
                     Text(
@@ -335,6 +336,34 @@ class _DoctorAppoinmentDetails_Completed_UIState
                       color: Colors.green,
                       size: 15,
                     )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 10.0.sp),
+                child: Row(
+                  children: [
+                    SizedBox(
+                        height: 4.0.hp,
+                        // 17,
+                        width: 5.0.wp,
+                        //  17,
+                        child: Image.asset("images/appoinmentdetails.png")),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      margin: EdgeInsets.only(left: 5.0.sp),
+                      child: Text(
+                        "Appointment details",
+                        // textAlign: TextAlign.left,
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 10.0.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -361,7 +390,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
           children: [
             Container(
               alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(left: 38),
+              margin: EdgeInsets.only(left: 38.0.sp),
               child: Text(
                 "Appointment details",
                 // textAlign: TextAlign.left,
@@ -376,17 +405,17 @@ class _DoctorAppoinmentDetails_Completed_UIState
             ),
             Card(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.0.sp)),
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.0.sp),
                     border: Border.all(color: animagiee_CL, width: 1)),
                 height: 38.0.hp,
                 // 242,
                 width: 90.0.wp,
                 // 300,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0.sp),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

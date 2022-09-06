@@ -8,6 +8,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
+import '../communitypage/clubs/createnewclub.dart';
+import '../communitypage/clubs/myclubs.dart';
+
+import '../homeAppBar/notification.dart';
+import '../homeAppBar/search.dart';
 import 'member.dart';
 
 class Animals_Profiles_UI extends StatefulWidget {
@@ -35,7 +40,35 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            controller.cusapp("Dogs FC", context),
+            // Create_New_Club_UI
+            // Material(
+            //   elevation: 3,
+            //   child: Container(
+            //     width: MediaQuery.of(context).size.width,
+            //     child: Row(children: [
+            //       // Back_Button_UI(),
+            //       IconButton(
+            //         icon: Icon(
+            //           Icons.arrow_back_ios_new,
+            //           size: 12.0.sp,
+            //         ),
+            //         onPressed: () {
+            //           // Get.to(Create_New_Club_UI());
+            //           Get.to(MyClubs_UI());
+            //         },
+            //       ),
+            //       Expanded(child: SizedBox()),
+            //       Padding(
+            //         padding: const EdgeInsets.only(left: 30.0),
+            //         child: Text("Dogs FC"),
+            //       ),
+            //       Expanded(child: Container()),
+            //       Search_UI(),
+            //       Notification_UI(),
+            //     ]),
+            //   ),
+            // ),
+            controller.clubapp("Dogs FC", MyClubs_UI(), context),
             Container(
               // color: Colors.black,
               height: 22.0.hp,
@@ -48,15 +81,26 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                           fit: BoxFit.cover),
                       color: animagiee_CL,
                       borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15),
-                          bottomRight: Radius.circular(15))),
+                          bottomLeft: Radius.circular(15.0.sp),
+                          bottomRight: Radius.circular(15.0.sp))),
+                  width: MediaQuery.of(context).size.width,
+                  height: 14.0.hp,
+                  // 108,
+                  // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(15.0.sp),
+                          bottomRight: Radius.circular(15.0.sp))),
                   width: MediaQuery.of(context).size.width,
                   height: 14.0.hp,
                   // 108,
                   // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 40.0, left: 20),
+                  padding: EdgeInsets.only(top: 40.0.sp, left: 20.0.sp),
                   child: Align(
                     heightFactor: 1.4,
                     alignment: Alignment.centerLeft,
@@ -72,9 +116,9 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(70.0),
+                  padding: EdgeInsets.all(70.0.sp),
                   child: Container(
-                      margin: EdgeInsets.only(left: 53),
+                      margin: EdgeInsets.only(left: 53.0.sp),
                       child: Text(
                         "DOGS FC",
                         style: GoogleFonts.jost(
@@ -87,7 +131,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 120.0, right: 10),
+                  padding: EdgeInsets.only(top: 100.0.sp, right: 10.0.sp),
                   child: Align(
                     alignment: Alignment.bottomRight,
                     // heightFactor: 2,
@@ -95,7 +139,16 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text("1,22 Member"),
+                          Text(
+                            "1,22 Member",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 8.0.sp,
+                                color: dummycontent_Cl,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
                           GestureDetector(
                             onTap: () {
                               print(controller.communitylist.length);
@@ -108,7 +161,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                   color: animagiee_CL,
-                                  borderRadius: BorderRadius.circular(15)),
+                                  borderRadius: BorderRadius.circular(15.0.sp)),
                               child: Text(
                                 "Joined",
                                 style: GoogleFonts.poppins(
@@ -129,7 +182,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
               ]),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0.sp),
               child: Text(
                 "Lorem ipsum dolor sit amet, consectetur.",
                 style: GoogleFonts.poppins(
@@ -155,7 +208,16 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                           );
                         });
                       },
-                      child: Text("Post")),
+                      child: Text(
+                        "Post",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.0.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      )),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -168,7 +230,16 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                     });
                   },
                   child: Container(
-                    child: Text("Members"),
+                    child: Text(
+                      "Members",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.0.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 )
               ],
@@ -192,7 +263,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
             ),
             // Divider(color: animagiee_CL, thickness: 2),
             SizedBox(
-              height: MediaQuery.of(context).size.height - 315,
+              height: MediaQuery.of(context).size.height - 320,
               child: PageView(
                 controller: pageController,
                 onPageChanged: (value) {

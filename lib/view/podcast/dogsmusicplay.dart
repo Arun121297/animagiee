@@ -28,10 +28,14 @@ class _Playing_Music_UIState extends State<Playing_Music_UI> {
             width: 6.0.wp,
             //  20,
           ),
-          Image.asset(
-            "images/musicpodcast.png",
-            cacheHeight: 41,
-            cacheWidth: 45,
+          SizedBox(
+            height: 41,
+            width: 45,
+            child: Image.asset(
+              "images/musicpodcast.png",
+              // cacheHeight: 41,
+              // cacheWidth: 45,
+            ),
           ),
           SizedBox(
             width: 6.0.wp,
@@ -59,7 +63,7 @@ class _Playing_Music_UIState extends State<Playing_Music_UI> {
             icon: Icon(Icons.play_arrow),
           ),
           IconButton(
-            icon: Icon(Icons.refresh),
+            icon: Icon(Icons.autorenew),
             onPressed: () {},
           ),
           Expanded(child: SizedBox()),

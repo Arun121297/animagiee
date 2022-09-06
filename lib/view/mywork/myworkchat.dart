@@ -11,8 +11,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
 import '../chats/sendbox.dart';
-import '../chats/singlechatoption.dart';
-import '../homeAppBar/backbutton.dart';
+
+import 'doctorappoinment2ndpage.dart';
 
 class MyWork_Chat_UI extends StatefulWidget {
   const MyWork_Chat_UI({Key? key}) : super(key: key);
@@ -31,7 +31,9 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
           Container(
             child: Column(
               children: [
-                myworkchatscreenapp("Karthi", context),
+                // Doctors_Appoinment_Detaild_UI
+                myworkchatscreenapp(
+                    "Karthi", Doctors_Appoinment_Detaild_UI(), context),
                 Expanded(
                     child: ListView.builder(
                   itemCount: 5,
@@ -246,13 +248,22 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
     );
   }
 
-  myworkchatscreenapp(title, context) {
+  myworkchatscreenapp(title, fun, context) {
     return Material(
       elevation: 3,
       child: Container(
         width: MediaQuery.of(context).size.width,
         child: Row(children: [
-          Back_Button_UI(),
+          // Back_Button_UI()
+          IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              size: 12.0.sp,
+            ),
+            onPressed: () {
+              Get.to(fun);
+            },
+          ),
           Expanded(child: Container()),
           Expanded(child: SizedBox()),
 

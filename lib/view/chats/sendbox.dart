@@ -2,6 +2,7 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 
@@ -22,7 +23,7 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
       //  341,
       decoration: BoxDecoration(
           color: Color.fromRGBO(237, 237, 237, 1),
-          borderRadius: BorderRadius.circular(20)),
+          borderRadius: BorderRadius.circular(20.0.sp)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -33,7 +34,7 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
                 color: sendBox_CL,
               )),
           Container(
-            width: 45.0.wp,
+            width: 48.0.wp,
             // 195,
             height: 4.0.hp,
             //  40,
@@ -52,20 +53,40 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
           SizedBox(
             width: 4.0.wp,
           ),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.attachment_outlined,
-                size: 17.0.sp,
-                color: sendBox_CL,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.emoji_emotions,
-                size: 17.0.sp,
-                color: sendBox_CL,
-              ))
+          Text(
+            "Send",
+            style: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                fontSize: 10.0.sp,
+                color: send_button_CL,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          Visibility(
+            visible: false,
+            child: Row(
+              children: [
+                Transform.rotate(
+                  angle: 5.5,
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.attachment_outlined,
+                        size: 17.0.sp,
+                        color: sendBox_CL,
+                      )),
+                ),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.emoji_emotions,
+                      size: 17.0.sp,
+                      color: sendBox_CL,
+                    ))
+              ],
+            ),
+          )
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homepage/homepage.dart';
 import 'package:animagieeui/view/profilepage/settings/private&security.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
 import 'about.dart';
+import 'community_settings.dart';
 
 class Settings_Page_1_UI extends StatefulWidget {
   const Settings_Page_1_UI({Key? key}) : super(key: key);
@@ -27,7 +29,7 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
             child: Container(
       child: Column(
         children: [
-          controller.cusapp("Settings", context),
+          controller.clubapp("Settings", Home_Page(), context),
           SizedBox(
             height: 3.0.hp,
             //  41,
@@ -74,40 +76,51 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
             height: 3.0.hp,
             //  25,
           ),
-          Container(
-            height: 6.0.hp,
-            // 46,
-            width: 90.0.wp,
-            // 330,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  // color: Colors.green,
-                  child: Text(
-                    "Community Settings",
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 9.5.sp,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w500,
+          GestureDetector(
+            onTap: () {
+              Get.to(Community_Settings_UI());
+            },
+            child: Container(
+              height: 6.0.hp,
+              // 46,
+              width: 90.0.wp,
+              // 330,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    // color: Colors.green,
+                    child: Text(
+                      "Community Settings",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Image.asset(
-                  "images/communitygroupsetting.png",
-                  cacheHeight: 17,
-                  cacheWidth: 21,
-                  color: animagiee_CL,
-                )
-              ],
+                  SizedBox(
+                    height: 6.0.hp,
+                    //  17,
+                    width: 7.0.wp,
+                    //  21,
+                    child: Image.asset(
+                      "images/communitygroupsetting.png",
+                      // cacheHeight: 17,
+                      // cacheWidth: 21,
+                      color: animagiee_CL,
+                    ),
+                  )
+                ],
+              ),
+              decoration: BoxDecoration(
+                  color: boxcolor_CL,
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(width: 1, color: Colors.grey)),
             ),
-            decoration: BoxDecoration(
-                color: boxcolor_CL,
-                borderRadius: BorderRadius.circular(5),
-                border: Border.all(width: 1, color: Colors.grey)),
           ),
           SizedBox(
             height: 3.0.hp,
@@ -129,7 +142,9 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    width: 95,
+                    width: 30.0.wp,
+                    // 95,
+                    alignment: Alignment.center,
                     // color: Colors.green,
                     child: Text(
                       "About",
@@ -145,11 +160,17 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
                   // SizedBox(
                   //   width: 2,
                   // ),
-                  Image.asset(
-                    "images/about.png",
-                    cacheHeight: 18,
-                    cacheWidth: 18,
-                    color: animagiee_CL,
+                  SizedBox(
+                    height: 4.0.hp,
+                    // 18,
+                    width: 5.0.wp,
+                    //  18,
+                    child: Image.asset(
+                      "images/about.png",
+                      // cacheHeight: 18,
+                      // cacheWidth: 18,
+                      color: animagiee_CL,
+                    ),
                   )
                 ],
               ),
@@ -173,7 +194,8 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  width: 95,
+                  width: 30.0.wp, //  95,
+                  alignment: Alignment.center,
                   // color: Colors.green,
                   child: Text(
                     "Help / Report",

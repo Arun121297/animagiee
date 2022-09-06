@@ -1,12 +1,13 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/homepage/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
-import '../homeAppBar/backbutton.dart';
+import '../../controller/controller.dart';
+
 import 'appoinments.dart';
 import 'appoinmentwork.dart';
 import 'doctorsappoinments.dart';
@@ -49,7 +50,7 @@ class _My_Work_Design_UIState extends State<My_Work_Design_UI> {
   String dropdownValue = 'One';
   bool toshift = false;
   bool fromshift = false;
-
+  Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,24 +59,25 @@ class _My_Work_Design_UIState extends State<My_Work_Design_UI> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Material(
-                elevation: 3,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(children: [
-                    Back_Button_UI(),
-                    Expanded(child: SizedBox()),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30.0),
-                      child: Text("My Work"),
-                    ),
-                    Expanded(child: Container()),
-                    Expanded(child: Container()),
-                    // Search_UI(),
-                    // Notification_UI(),
-                  ]),
-                ),
-              ),
+              controller.chatapp("My Work", Home_Page(), context),
+              // Material(
+              //   elevation: 3,
+              //   child: Container(
+              //     width: MediaQuery.of(context).size.width,
+              //     child: Row(children: [
+              //       Back_Button_UI(),
+              //       Expanded(child: SizedBox()),
+              //       Padding(
+              //         padding: const EdgeInsets.only(left: 30.0),
+              //         child: Text("My Work"),
+              //       ),
+              //       Expanded(child: Container()),
+              //       Expanded(child: Container()),
+              //       // Search_UI(),
+              //       // Notification_UI(),
+              //     ]),
+              //   ),
+              // ),
               MyWork_Header_UI(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -427,32 +429,35 @@ class _My_Work_Design_UIState extends State<My_Work_Design_UI> {
                           ),
                       Align(
                         alignment: Alignment.center,
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.to(Appoinment_Page_UI());
-                          },
-                          child: Container(
-                            height: 6.0.hp,
-                            //  43,
-                            width: 90.0.wp,
-                            //  310,
-                            decoration: BoxDecoration(
-                                color: buttonColor1_CL,
-                                borderRadius: BorderRadius.circular(15)),
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Upload",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 15.5.sp,
-                                  color: SigninButton_CL,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                        child: controller.communityNext(
+                            "Upload", Appoinment_Page_UI()),
                       ),
+                      // GestureDetector(
+                      //     onTap: () {
+                      //       Get.to(Appoinment_Page_UI());
+                      //     },
+                      //     child: Container(
+                      //       height: 6.0.hp,
+                      //       //  43,
+                      //       width: 90.0.wp,
+                      //       //  310,
+                      //       decoration: BoxDecoration(
+                      //           color: buttonColor1_CL,
+                      //           borderRadius: BorderRadius.circular(15)),
+                      //       alignment: Alignment.center,
+                      //       child: Text(
+                      //         "Upload",
+                      //         style: GoogleFonts.poppins(
+                      //           textStyle: TextStyle(
+                      //             fontSize: 15.5.sp,
+                      //             color: SigninButton_CL,
+                      //             fontWeight: FontWeight.w600,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 3.0.hp,
                         // 15,

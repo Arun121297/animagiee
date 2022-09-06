@@ -67,26 +67,31 @@ class _Welcome_PageState extends State<Welcome_Page> {
                         ),
                       )),
                   Expanded(child: Container()),
-                  Container(
-                    margin: EdgeInsets.only(top: 30),
-                    alignment: Alignment.center,
-                    width: 22.0.wp,
-                    //  80,
-                    height: 4.0.hp,
-                    //  35,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          bottomLeft: Radius.circular(15)),
-                      color: animagiee_CL,
-                    ),
-                    child: Text(
-                      "Skip",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 10.0.sp,
-                          color: skip_CL,
-                          fontWeight: FontWeight.w600,
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(Home_Page());
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(top: 30),
+                      alignment: Alignment.center,
+                      width: 22.0.wp,
+                      //  80,
+                      height: 4.0.hp,
+                      //  35,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            bottomLeft: Radius.circular(15)),
+                        color: animagiee_CL,
+                      ),
+                      child: Text(
+                        "Skip",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 10.0.sp,
+                            color: skip_CL,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
@@ -116,7 +121,7 @@ class _Welcome_PageState extends State<Welcome_Page> {
                 //  255,
                 width: 65.0.wp,
                 // 255,
-                child: Image.asset("images/Curious.png"),
+                child: Image.asset("images/Curious.gif"),
               ),
               Community_UI(),
               // Container(
@@ -185,7 +190,7 @@ class _Welcome_PageState extends State<Welcome_Page> {
                 height: 3.0.hp,
                 //  30,
               ),
-              controller.communityNext(Home_Page())
+              controller.communityNext("Next", Home_Page())
             ],
           ),
         ),

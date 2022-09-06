@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-import '../homeAppBar/backbutton.dart';
-import '../homeAppBar/notification.dart';
 import '../homeAppBar/search.dart';
 
 class Notification_AppBar_UI extends StatefulWidget {
@@ -22,7 +18,7 @@ class _Notification_AppBar_UIState extends State<Notification_AppBar_UI> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         child: Row(children: [
-          Back_Button_UI(),
+          // Back_Button_UI(),
           Expanded(child: SizedBox()),
           Padding(
             padding: const EdgeInsets.only(left: 30.0),

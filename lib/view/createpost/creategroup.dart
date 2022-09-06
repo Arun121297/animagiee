@@ -1,3 +1,4 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -23,15 +24,18 @@ class _Create_Post_UIState extends State<Create_Post_UI> {
           elevation: 3,
           child: Stack(children: [
             Container(
-              height: 60,
-              width: 339,
+              height: 8.0.hp,
+              //  60,
+              width: 94.0.wp,
+              //  339,
               // color: Colors.green,
               child: Row(children: [
                 Container(
-                  height: 45,
-                  width: 55,
+                  height: 6.0.hp, //  45,
+                  width: 12.0.wp,
+                  // 55,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.0.sp),
                     image: DecorationImage(
                       image: AssetImage("images/profilephotos.jpg"),
                     ),
@@ -71,8 +75,10 @@ class _Create_Post_UIState extends State<Create_Post_UI> {
               return Visibility(
                 visible: controller.posttype_bool.value,
                 child: Container(
-                  height: 60,
-                  width: 339,
+                  height: 8.0.hp,
+                  //  60,
+                  width: 94.0.wp,
+                  //  339,
                   color: Colors.black54,
                 ),
               );

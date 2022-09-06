@@ -31,16 +31,21 @@ class _Notification_Content_Design_UIState
             Notification_AppBar_UI(
               title: "Notification",
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Recommend notification",
-                // textAlign: TextAlign.start,
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 11.5.sp,
-                    color: animagiee_CL,
-                    fontWeight: FontWeight.w600,
+            Container(
+              margin: EdgeInsets.only(left: 10, top: 24),
+              height: 4.0.hp,
+              // 30,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Recommend notification",
+                  // textAlign: TextAlign.start,
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 11.5.sp,
+                      color: animagiee_CL,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
@@ -48,8 +53,8 @@ class _Notification_Content_Design_UIState
             Divider(
               color: Colors.grey,
               thickness: 1,
-              endIndent: 30,
-              indent: 30,
+              endIndent: 20,
+              indent: 20,
             ),
             ListView.builder(
               itemCount: 4,
@@ -57,38 +62,84 @@ class _Notification_Content_Design_UIState
               itemBuilder: (context, index) {
                 return Column(
                   children: [
-                    ListTile(
-                      leading: CircleAvatar(),
-                      title: Text(
-                        "Recommended for you",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CircleAvatar(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Recommended for you",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 9.5.sp,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 200,
+                              child: Text(
+                                "Lorem Ipsum is simply dummy text of the printing and ...",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 7.5.sp,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                maxLines: 1,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      trailing: IconButton(
-                        icon: Icon(Icons.more_horiz),
-                        onPressed: () {
-                          setState(() {
-                            popup();
-                          });
-                        },
-                      ),
-                      subtitle: Text(
-                        "Lorem Ipsum is simply dummy text of the printing and ...",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 7.5.sp,
+                        IconButton(
+                          icon: Icon(
+                            Icons.more_horiz,
                             color: Colors.grey,
-                            fontWeight: FontWeight.w400,
                           ),
+                          onPressed: () {
+                            setState(() {
+                              popup();
+                            });
+                          },
                         ),
-                        maxLines: 1,
-                      ),
+                      ],
                     ),
+                    // ListTile(
+                    //   leading: CircleAvatar(),
+                    //   title: Text(
+                    //     "Recommended for you",
+                    //     style: GoogleFonts.poppins(
+                    //       textStyle: TextStyle(
+                    //         fontSize: 9.5.sp,
+                    //         color: Colors.black,
+                    //         fontWeight: FontWeight.w500,
+                    //       ),
+                    //     ),
+                    //   ),
+                    //   trailing: IconButton(
+                    //     icon: Icon(Icons.more_horiz),
+                    //     onPressed: () {
+                    //       setState(() {
+                    //         popup();
+                    //       });
+                    //     },
+                    //   ),
+                    //   subtitle: Text(
+                    //     "Lorem Ipsum is simply dummy text of the printing and ...",
+                    //     style: GoogleFonts.poppins(
+                    //       textStyle: TextStyle(
+                    //         fontSize: 7.5.sp,
+                    //         color: Colors.grey,
+                    //         fontWeight: FontWeight.w400,
+                    //       ),
+                    //     ),
+                    //     maxLines: 1,
+                    //   ),
+                    // ),
                     Divider(
                       endIndent: 20,
                       indent: 20,
@@ -99,55 +150,81 @@ class _Notification_Content_Design_UIState
                 );
               },
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CircleAvatar(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text("Documents approval status"),
-                    Text(
-                      "Your Documents have been approved successfull and has\nbeen verified.You can activate your Doctor module by clicking\non the activate button given below..",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 6.5.sp,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w400,
-                        ),
+            SizedBox(
+              height: 15.0.hp,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.black,
+                    child: Transform.rotate(
+                      angle: 20.4,
+                      child: Icon(
+                        Icons.pets,
+                        color: animagiee_CL,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        controller.profilechangebool(true);
-                        controller.appoinmentdetailshide(false);
-                      },
-                      child: Container(
-                        height: 5.0.hp,
-                        // 31,
-                        width: 30.0.wp,
-                        //  100,
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Activate",
+                  ),
+                  SizedBox(
+                    width: 240,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text("Documents approval status"),
+                        Text(
+                          "Your Documents have been approved successfull and has\nbeen verified.You can activate your Doctor module by clicking\non the activate button given below..",
+                          maxLines: 3,
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              fontSize: 9.5.sp,
-                              color: animagiee_CL,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 6.5.sp,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: notificationContent1_CL),
-                      ),
-                    )
-                  ],
-                ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz))
-              ],
+                        GestureDetector(
+                          onTap: () {
+                            controller.profilechangebool(true);
+                            controller.appoinmentdetailshide(false);
+                          },
+                          child: Container(
+                            height: 5.0.hp,
+                            // 31,
+                            width: 30.0.wp,
+                            //  100,
+                            alignment: Alignment.center,
+
+                            child: Text(
+                              "Activate",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 9.5.sp,
+                                  color: animagiee_CL,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                color: notificationContent1_CL),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.more_horiz,
+                        color: Colors.grey,
+                      )),
+                  // SizedBox(width: 2,)
+                ],
+              ),
             ),
             Divider(
               endIndent: 20,
@@ -155,83 +232,100 @@ class _Notification_Content_Design_UIState
               color: Colors.grey,
               thickness: 1,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CircleAvatar(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text("Nina ann"),
-                    Text(
-                      "Nina ann Requested to follow you",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 6.5.sp,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w400,
+            SizedBox(
+              height: 12.0.hp,
+              //  80,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CircleAvatar(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text("Nina ann"),
+                      Text(
+                        "Nina ann Requested to follow you",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 6.5.sp,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            height: 4.0.hp,
-                            // 31,
-                            width: 27.0.wp,
-                            //  100,
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Accept",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              height: 4.0.hp,
+                              // 31,
+                              width: 27.0.wp,
+                              //  100,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Accept",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: animagiee_CL),
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: animagiee_CL),
                           ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            height: 4.0.hp,
-                            // 31,
-                            width: 27.0.wp,
-                            //  100,
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Deny",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
+                          SizedBox(
+                            width: 5,
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              height: 4.0.hp,
+                              // 31,
+                              width: 27.0.wp,
+                              //  100,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Deny",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: animagiee_CL),
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: animagiee_CL),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz))
-              ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.more_horiz,
+                        color: Colors.grey,
+                      ))
+                ],
+              ),
             ),
           ],
         ),

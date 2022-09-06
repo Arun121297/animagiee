@@ -23,65 +23,61 @@ class _Single_Chat_Options_UIState extends State<Single_Chat_Options_UI> {
       return Visibility(
         visible: controller.chatoption.value,
         child: Padding(
-          padding: const EdgeInsets.all(33.0),
+          padding: EdgeInsets.all(33.0.sp),
           child: Align(
             alignment: Alignment.topRight,
             child: Card(
               elevation: 3,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.0.sp)),
               child: Container(
                 height: 15.0.hp,
                 // 108,
                 width: 30.0.wp,
                 // 113,
+                margin: EdgeInsets.only(left: 10.0.sp),
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10.0.sp)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      child: Text(
-                        "Block",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 8.0.sp,
-                            color: buttonColor1_CL,
-                            fontWeight: FontWeight.w500,
-                          ),
+                    Text(
+                      "Block",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 8.0.sp,
+                          color: buttonColor1_CL,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
                     Divider(
-                      endIndent: 10,
-                      indent: 10,
+                      endIndent: 8,
+                      // indent: 5,
                     ),
-                    Container(
-                      child: Text(
-                        "Mute Notification",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 8.0.sp,
-                            color: buttonColor1_CL,
-                            fontWeight: FontWeight.w500,
-                          ),
+                    Text(
+                      "Mute Notification",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 8.0.sp,
+                          color: buttonColor1_CL,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
                     Divider(
-                      endIndent: 10,
-                      indent: 10,
+                      endIndent: 8,
+                      // indent: 10,
                     ),
-                    Container(
-                      child: Text(
-                        "Clear Chat",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 8.0.sp,
-                            color: buttonColor1_CL,
-                            fontWeight: FontWeight.w500,
-                          ),
+                    Text(
+                      "Clear Chat",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 8.0.sp,
+                          color: buttonColor1_CL,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     )

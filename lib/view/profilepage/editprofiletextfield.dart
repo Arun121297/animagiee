@@ -46,10 +46,14 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               //  30,
             ),
             CircleAvatar(
-              child: Image.asset(
-                "images/editicon.png",
-                cacheHeight: 14,
-                cacheWidth: 14,
+              child: SizedBox(
+                height: 5.0.hp,
+                width: 3.0.wp,
+                child: Image.asset(
+                  "images/editicon.png",
+                  // cacheHeight: 14,
+                  // cacheWidth: 14,
+                ),
               ),
               radius: 13.0.sp,
               backgroundColor: Colors.white,
@@ -62,7 +66,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           child: Container(
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(5.0.sp)),
             height: 13.0.hp,
             // 100,
             width: 89.0.wp, //  326,
@@ -80,7 +84,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           ),
         ),
         Container(
-            margin: EdgeInsets.only(left: 18),
+            margin: EdgeInsets.only(left: 18.0.sp),
             // color: Colors.green,
             width: MediaQuery.of(context).size.width,
             child: Text(
@@ -94,8 +98,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ),
             )),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           child: Container(
             height: 6.0.hp,
             //  43,
@@ -103,7 +107,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             //  326,
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
                 decoration: InputDecoration(
               border: InputBorder.none,
@@ -120,7 +124,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           ),
         ),
         Container(
-            margin: EdgeInsets.only(left: 18),
+            margin: EdgeInsets.only(left: 18.0.sp),
             // color: Colors.green,
             width: MediaQuery.of(context).size.width,
             child: Text(
@@ -134,8 +138,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ),
             )),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           child: Container(
             height: 6.0.hp,
             // 43,
@@ -143,7 +147,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             //  326,
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
                 decoration: InputDecoration(
               border: InputBorder.none,
@@ -160,7 +164,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           ),
         ),
         Container(
-            margin: EdgeInsets.only(left: 18),
+            margin: EdgeInsets.only(left: 18.0.sp),
             // color: Colors.green,
             width: MediaQuery.of(context).size.width,
             child: Text(
@@ -174,8 +178,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ),
             )),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           child: Container(
             height: 6.0.hp,
             // 43,
@@ -183,7 +187,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             //  326,
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(5.0.sp)),
             child: DropdownButton(
               underline: SizedBox(), isExpanded: true,
               // Initial Value
@@ -217,15 +221,17 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           ),
         ),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           child: Container(
-            height: 6.0.hp,
+            height: 6.5.hp,
             // 43,
             width: 89.0.wp,
             //  326,
             decoration: BoxDecoration(
-                color: animagiee_CL, borderRadius: BorderRadius.circular(10)),
+                border: Border.all(color: Colors.grey, width: 1),
+                color: animagiee_CL,
+                borderRadius: BorderRadius.circular(5.0.sp)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -240,13 +246,18 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   ),
                 ),
                 Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0.sp)),
                   child: Container(
                     alignment: Alignment.center,
                     height: 3.5.hp,
                     // 29,
                     width: 20.0.wp,
                     // 64,
-                    color: Colors.black,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.0.sp),
+                      color: Colors.black,
+                    ),
                     child: Text(
                       "Yes",
                       style: GoogleFonts.poppins(
@@ -260,13 +271,18 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   ),
                 ),
                 Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0.sp)),
                   child: Container(
                     alignment: Alignment.center,
                     height: 3.5.hp,
                     // 29,
                     width: 20.0.wp,
                     // 64,
-                    color: Colors.black,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.0.sp),
+                      color: Colors.black,
+                    ),
                     child: Text(
                       "No",
                       style: GoogleFonts.poppins(
@@ -287,6 +303,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                     // margin: EdgeInsets.only(left: 18),
@@ -304,15 +321,15 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 )),
                 Card(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(5.0.sp)),
                   child: Container(
                     height: 6.0.hp,
                     //  43,
-                    width: 45.0.wp,
+                    width: 43.0.wp,
                     // 156,
                     decoration: BoxDecoration(
                         border: Border.all(width: 1, color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(5.0.sp)),
                     child: DropdownButton(
                       underline: SizedBox(), isExpanded: true,
                       // Initial Value
@@ -348,6 +365,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ],
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                     // margin: EdgeInsets.only(left: 18),
@@ -371,9 +389,10 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     //  43,
                     width: 43.0.wp,
                     // 156,
+
                     decoration: BoxDecoration(
                         border: Border.all(width: 1, color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(5.0.sp)),
                     child: TextField(
                         decoration: InputDecoration(
                       border: InputBorder.none,
@@ -394,7 +413,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           ],
         ),
         Container(
-            margin: EdgeInsets.only(left: 18),
+            margin: EdgeInsets.only(left: 18.0.sp),
             // color: Colors.green,
             width: MediaQuery.of(context).size.width,
             child: Text(
@@ -408,8 +427,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ),
             )),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           child: Container(
             height: 6.0.hp,
             // 43,
@@ -417,7 +436,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             //  326,
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
                 decoration: InputDecoration(
               border: InputBorder.none,
@@ -434,7 +453,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           ),
         ),
         Container(
-            margin: EdgeInsets.only(left: 18),
+            margin: EdgeInsets.only(left: 18.0.sp),
             // color: Colors.green,
             width: MediaQuery.of(context).size.width,
             child: Text(
@@ -448,8 +467,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ),
             )),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           child: Container(
             height: 6.0.hp,
             // 43,
@@ -457,7 +476,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             //  326,
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
                 decoration: InputDecoration(
               border: InputBorder.none,
@@ -474,7 +493,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           ),
         ),
         Container(
-            margin: EdgeInsets.only(left: 18),
+            margin: EdgeInsets.only(left: 18.0.sp),
             // color: Colors.green,
             width: MediaQuery.of(context).size.width,
             child: Text(
@@ -488,8 +507,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ),
             )),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           child: Container(
             height: 6.0.hp,
             // 43,
@@ -497,7 +516,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             //  326,
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
                 decoration: InputDecoration(
               border: InputBorder.none,
@@ -517,24 +536,25 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    // margin: EdgeInsets.only(left: 18),
+                    margin: EdgeInsets.only(left: 5.0.sp),
                     // color: Colors.green,
                     // width: MediaQuery.of(context).size.width,
                     child: Text(
-                  "State",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 9.5.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                )),
+                      "State",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )),
                 Card(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(5.0.sp)),
                   child: Container(
                     height: 6.0.hp,
                     //  43,
@@ -542,7 +562,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     // 156,
                     decoration: BoxDecoration(
                         border: Border.all(width: 1, color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(5.0.sp)),
                     child: DropdownButton(
                       underline: SizedBox(), isExpanded: true,
                       // Initial Value
@@ -578,9 +598,10 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ],
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    margin: EdgeInsets.only(left: 18),
+                    margin: EdgeInsets.only(left: 5.0.sp),
                     // color: Colors.green,
                     // width: MediaQuery.of(context).size.width,
                     child: Text(
@@ -595,7 +616,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     )),
                 Card(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(5.0.sp)),
                   child: Container(
                     height: 6.0.hp,
                     //  43,
@@ -603,7 +624,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     // 156,
                     decoration: BoxDecoration(
                         border: Border.all(width: 1, color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(5.0.sp)),
                     child: DropdownButton(
                       underline: SizedBox(), isExpanded: true,
                       // Initial Value
@@ -641,7 +662,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           ],
         ),
         Container(
-            margin: EdgeInsets.only(left: 18),
+            margin: EdgeInsets.only(left: 18.0.sp),
             // color: Colors.green,
             width: MediaQuery.of(context).size.width,
             child: Text(
@@ -655,8 +676,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ),
             )),
         Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           child: Container(
             height: 6.0.hp,
             // 43,
@@ -664,7 +685,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             //  326,
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
                 decoration: InputDecoration(
               border: InputBorder.none,

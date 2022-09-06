@@ -19,6 +19,7 @@ class _Setting_UIState extends State<Setting_UI> {
       height: 30,
       width: 31,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
         border: Border.all(
           width: 1,
           color: animagiee_CL,

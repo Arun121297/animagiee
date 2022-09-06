@@ -1,3 +1,4 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -19,25 +20,40 @@ class _Tag_People_UIState extends State<Tag_People_UI> {
       child: Material(
           elevation: 3,
           child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.tag_faces_sharp,
-                    color: animagiee_CL,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text("Tag People"),
-                ],
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 3.0.hp,
+                      //  21,
+                      width: 6.0.wp,
+                      // 21,
+                      child: Image.asset(
+                        "images/tagpeople.png",
+                        // cacheHeight: 21,
+                        // cacheWidth: 21,
+                      ),
+                    ),
+                    // Icon(
+                    //   Icons.tag_faces_sharp,
+                    //   color: animagiee_CL,
+                    // ),
+                    SizedBox(
+                      width: 2.0.wp,
+                      // 10,
+                    ),
+                    Text("Tag People"),
+                  ],
+                ),
               ),
-            ),
-            height: 45,
-            width: 339,
-          )),
+              height: 6.0.hp,
+              // 45,
+              width: 95.0.wp
+              // 339,
+              )),
     );
   }
 }

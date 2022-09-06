@@ -1,3 +1,4 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -22,8 +23,10 @@ class _Doctor_Profile_Image_UIState extends State<Doctor_Profile_Image_UI> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 100,
-        width: 70,
+        height: 13.0.hp,
+        // 100,
+        width: 20.0.wp,
+        // 70,
         // color: Colors.black,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),

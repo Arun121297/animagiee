@@ -1,5 +1,6 @@
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/homepage/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -27,9 +28,10 @@ class _Doctors_List_UIState extends State<Doctors_List_UI> {
       child: Container(
         child: Column(
           children: [
-            controller.cusapp("Doctor", context),
+            controller.clubapp("Doctor", Home_Page(), context),
             SizedBox(
-              height: 31,
+              height: 3.0.hp,
+              //  31,
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height - 189,
@@ -40,8 +42,10 @@ class _Doctors_List_UIState extends State<Doctors_List_UI> {
                   return Stack(alignment: Alignment.center, children: [
                     Card(
                       child: Container(
-                        height: 110,
-                        width: 329,
+                        height: 14.0.hp,
+                        // 110,
+                        width: 95.0.wp,
+                        // 329,
                         child: Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [

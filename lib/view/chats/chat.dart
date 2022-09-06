@@ -1,5 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/chats/chatscreen1.dart';
 import 'package:animagieeui/view/chats/sendbox.dart';
 import 'package:animagieeui/view/chats/singlechatoption.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
+
 // import 'chatappbar.dart';
 
 class Chatting_Screen_UI extends StatefulWidget {
@@ -29,7 +31,43 @@ class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
           Container(
             child: Column(
               children: [
-                controller.chatscreenapp("Karthi", context),
+                // Material(
+                //   elevation: 3,
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width,
+                //     child: Row(children: [
+                //       // Back_Button_UI(),
+                //       Chat_Screen_Back_Button(),
+                //       Expanded(child: Container()),
+                //       // Expanded(child: SizedBox()),
+
+                //       Row(
+                //         children: [
+                //           CircleAvatar(
+                //             radius: 16,
+                //             backgroundColor: animagiee_CL,
+                //             child: CircleAvatar(radius: 15),
+                //           ),
+                //           SizedBox(
+                //             width: 10,
+                //           ),
+                //           Text("Karthi"),
+                //         ],
+                //       ),
+                //       Expanded(child: Container()),
+                //       IconButton(
+                //           onPressed: () {
+                //             if (controller.chatoption.value == false) {
+                //               controller.chatoption.value = true;
+                //             } else {
+                //               controller.chatoption.value = false;
+                //             }
+                //           },
+                //           icon: Icon(Icons.menu))
+                //     ]),
+                //   ),
+                // ),
+                controller.chatscreenapp("Karthi", Chat_UI(), context),
                 Expanded(
                     child: ListView.builder(
                   itemCount: 5,
@@ -41,11 +79,11 @@ class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
                         Align(
                           alignment: Alignment.topLeft,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0.sp),
                             child: Container(
                               height: 7.5.hp,
                               // 60,
-                              width: 54.5.wp,
+                              width: 56.5.wp,
                               //  199,
                               // color: Colors.black,
                               child: Column(
@@ -54,6 +92,9 @@ class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
                                   Row(
                                     children: [
                                       CircleAvatar(),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
                                       Container(
                                         height: 4.0.hp,
                                         //  31,
@@ -64,7 +105,7 @@ class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
                                                 238, 238, 238, 1),
                                             borderRadius: BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(20))),
+                                                    Radius.circular(20.0.sp))),
                                       )
                                     ],
                                   ),
@@ -83,13 +124,13 @@ class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 16,
-                        ),
+                        SizedBox(height: 3.0.hp
+                            // 16,
+                            ),
                         Align(
                           alignment: Alignment.topRight,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0.sp),
                             child: Container(
                               height: 7.5.hp,
                               // 60,
@@ -116,7 +157,7 @@ class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
                                                 238, 238, 238, 1),
                                             borderRadius: BorderRadius.only(
                                                 bottomLeft:
-                                                    Radius.circular(20))),
+                                                    Radius.circular(20.0.sp))),
                                       )
                                     ],
                                   ),

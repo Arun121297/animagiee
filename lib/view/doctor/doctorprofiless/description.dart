@@ -1,3 +1,4 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -17,7 +18,7 @@ class _Doctor_Description_UIState extends State<Doctor_Description_UI> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.only(left: 16),
+      margin: EdgeInsets.only(left: 16.0.sp),
       child: Text(
         "Lorem Ipsum is simply dummy text of the printing and\n"
         "typesetting industry. Lorem Ipsum has been the industry's\n"
@@ -26,7 +27,7 @@ class _Doctor_Description_UIState extends State<Doctor_Description_UI> {
         maxLines: 4,
         style: GoogleFonts.poppins(
           textStyle: TextStyle(
-            fontSize: 10,
+            fontSize: 9.0.sp,
             color: text_2,
             fontWeight: FontWeight.w400,
           ),

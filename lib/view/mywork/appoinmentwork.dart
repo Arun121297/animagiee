@@ -20,10 +20,14 @@ class _List_Of_Appoinment_UIState extends State<List_Of_Appoinment_UI> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(
-              "images/profilecart.png",
-              cacheHeight: 44,
-              cacheWidth: 60,
+            SizedBox(
+              height: 44,
+              width: 60,
+              child: Image.asset(
+                "images/profilecart.png",
+                // cacheHeight: 44,
+                // cacheWidth: 60,
+              ),
             ),
             Text("Total appointments"),
             VerticalDivider(

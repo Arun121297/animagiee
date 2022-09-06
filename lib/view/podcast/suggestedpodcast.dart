@@ -112,10 +112,12 @@ class _Suggested_PodCast_UIState extends State<Suggested_PodCast_UI> {
                           ),
                         ),
                         SizedBox(
+                          height: 25,
+                          width: 25,
                           child: Image.asset(
                             "images/playbutton.png",
-                            cacheHeight: 25,
-                            cacheWidth: 25,
+                            // cacheHeight: 25,
+                            // cacheWidth: 25,
                           ),
                         )
                       ],

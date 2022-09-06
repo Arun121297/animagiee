@@ -1,14 +1,15 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/userprofile/page1userpost.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
+import '../animagieeprofile/animalsprofiles.dart';
+
 import 'followers.dart';
 import 'following.dart';
 import 'page2communitie.dart';
@@ -39,7 +40,33 @@ class _User_ProfileState extends State<User_Profile> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            controller.cusapp("Profile", context),
+            // Material(
+            //   elevation: 3,
+            //   child: Container(
+            //     width: MediaQuery.of(context).size.width,
+            //     child: Row(children: [
+            //       // Back_Button_UI(),
+            //       IconButton(
+            //         icon: Icon(
+            //           Icons.arrow_back_ios_new,
+            //           size: 12.0.sp,
+            //         ),
+            //         onPressed: () {
+            //           Get.to(Animals_Profiles_UI());
+            //         },
+            //       ),
+            //       Expanded(child: SizedBox()),
+            //       Padding(
+            //         padding: const EdgeInsets.only(left: 30.0),
+            //         child: Text("Profile"),
+            //       ),
+            //       Expanded(child: Container()),
+            //       Search_UI(),
+            //       Notification_UI(),
+            //     ]),
+            //   ),
+            // ),
+            controller.clubapp("Profile", Animals_Profiles_UI(), context),
             Stack(children: [
               Container(
                 decoration: BoxDecoration(
@@ -49,6 +76,17 @@ class _User_ProfileState extends State<User_Profile> {
                           "images/groupphoto.jpg",
                         ),
                         fit: BoxFit.cover),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15))),
+                width: MediaQuery.of(context).size.width,
+                height: 14.0.hp,
+                // 108,
+                // child: Image.asset("images/groupphoto.jpg", fit: BoxFit.cover),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.black38,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15))),
@@ -90,10 +128,10 @@ class _User_ProfileState extends State<User_Profile> {
                     )),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 120.0, right: 10),
+                padding: const EdgeInsets.only(top: 50.0, right: 10),
                 child: Align(
                   alignment: Alignment.bottomRight,
-                  // heightFactor: 2,
+                  heightFactor: 5,
                   child: SizedBox(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -104,7 +142,7 @@ class _User_ProfileState extends State<User_Profile> {
                             print(controller.communitylist.length);
                           },
                           child: Container(
-                            height: 3.5.hp,
+                            height: 3.0.hp,
                             // 26,
                             width: 25.0.wp,
                             // 90,
@@ -171,7 +209,16 @@ class _User_ProfileState extends State<User_Profile> {
                         );
                       });
                     },
-                    child: Text("Post")),
+                    child: Text(
+                      "Post",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 10.0.sp,
+                          color: dummycontent_Cl,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )),
                 GestureDetector(
                     onTap: () {
                       pageController.animateToPage(
@@ -180,7 +227,16 @@ class _User_ProfileState extends State<User_Profile> {
                         curve: Curves.easeInOut,
                       );
                     },
-                    child: Text("Communities"))
+                    child: Text(
+                      "Communities",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 10.0.sp,
+                          color: dummycontent_Cl,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ))
               ],
             ),
             SizedBox(

@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/chats/chatscreen1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -6,7 +7,6 @@ import 'package:get/get.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
-import '../homeAppBar/backbutton.dart';
 
 class GroupChat_AppBar_UI extends StatefulWidget {
   const GroupChat_AppBar_UI({Key? key}) : super(key: key);
@@ -24,7 +24,17 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         child: Row(children: [
-          Back_Button_UI(),
+          // Back_Button_UI(),
+          // Chat_Screen_Back_Button(),
+          IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              size: 12.0.sp,
+            ),
+            onPressed: () {
+              Get.to(Chat_UI());
+            },
+          ),
           Expanded(child: Container()),
           // Expanded(child: SizedBox()),
           SizedBox(
@@ -39,7 +49,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                 // color: Colors.orange,
                 child: Stack(alignment: Alignment.center, children: [
                   Positioned(
-                    right: 10,
+                    right: 10.0.sp,
                     child: CircleAvatar(
                       radius: 11.0.sp,
                       backgroundColor: animagiee_CL,
@@ -50,7 +60,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                     ),
                   ),
                   Positioned(
-                    right: 28,
+                    right: 28.0.sp,
                     child: CircleAvatar(
                       radius: 12.5.sp,
                       backgroundColor: animagiee_CL,
@@ -61,7 +71,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                     ),
                   ),
                   Positioned(
-                    left: 10,
+                    left: 10.0.sp,
                     child: CircleAvatar(
                       radius: 11.0.sp,
                       backgroundColor: animagiee_CL,
@@ -72,7 +82,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                     ),
                   ),
                   Positioned(
-                    left: 30,
+                    left: 26.0.sp,
                     child: CircleAvatar(
                       radius: 12.5.sp,
                       backgroundColor: animagiee_CL,
@@ -83,9 +93,9 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                     ),
                   ),
                   CircleAvatar(
-                    radius: 17,
+                    radius: 14.0.sp,
                     backgroundColor: animagiee_CL,
-                    child: CircleAvatar(radius: 16),
+                    child: CircleAvatar(radius: 13.0.sp),
                   ),
                 ]),
               ),
@@ -96,15 +106,38 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
             ],
           ),
           Expanded(child: Container()),
-          IconButton(
-              onPressed: () {
-                if (controller.chatoption.value == false) {
-                  controller.chatoption.value = true;
-                } else {
-                  controller.chatoption.value = false;
-                }
-              },
-              icon: Icon(Icons.menu))
+          GestureDetector(
+            onTap: () {
+              if (controller.chatoption.value == false) {
+                controller.chatoption.value = true;
+              } else {
+                controller.chatoption.value = false;
+              }
+            },
+            child: SizedBox(
+              height: 3.0.hp,
+              // 16,
+              width: 5.0.wp,
+              // 16,
+              child: Image.asset(
+                "images/burger.png",
+                // cacheHeight: 16,
+                // cacheWidth: 16,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 8,
+          )
+          // IconButton(
+          //     onPressed: () {
+          //       if (controller.chatoption.value == false) {
+          //         controller.chatoption.value = true;
+          //       } else {
+          //         controller.chatoption.value = false;
+          //       }
+          //     },
+          //     icon: Icon(Icons.menu))
         ]),
       ),
     );

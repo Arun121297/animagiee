@@ -26,15 +26,16 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.green,
-      height: 160,
+      // color: Color.fromRGBO(76, 175, 80, 1),
+      height: 25.0.hp,
+      // 200,
       child: Stack(children: [
         Align(
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           child: Card(
-            elevation: 4,
+            elevation: 3,
             child: Container(
-              margin: EdgeInsets.only(left: 15),
+              // margin: EdgeInsets.only(left: 15.0.sp),
               child: Text(
                 "Add your Description Here",
                 style: GoogleFonts.poppins(
@@ -46,16 +47,18 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
                   ),
                 ),
               ),
-              height: 120,
-              width: 339,
+              height: 22.0.hp,
+              //  150,
+              width: 97.0.wp,
+              // 349,
               decoration: BoxDecoration(
                   // border: Border.all(width: 2, color: Colors.black),
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.0.sp)),
             ),
           ),
         ),
         Positioned(
-          top: 110,
+          top: 90.0.sp,
           left: 0.0,
           right: 0.0,
           bottom: 0.0,
@@ -67,8 +70,8 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
               width: 350,
               decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border.all(width: 2, color: Colors.black),
-                  borderRadius: BorderRadius.circular(10)),
+                  border: Border.all(width: 1, color: Colors.grey),
+                  borderRadius: BorderRadius.circular(10.0.sp)),
               child: ListView.separated(
                 separatorBuilder: (context, index) {
                   return SizedBox(
@@ -79,7 +82,7 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
                 shrinkWrap: true,
                 itemCount: emogi.length,
                 itemBuilder: (context, index) => Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
+                  margin: EdgeInsets.only(left: 10.0.sp, right: 10.0.sp),
                   height: 60,
                   width: 30,
                   child: Image.asset(emogi[index]),

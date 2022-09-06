@@ -29,7 +29,7 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
             Get.to(Create_New_Group_UI());
           },
           child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: EdgeInsets.all(10.0.sp),
             child: Container(
               height: 8.0.hp,
               // 56,
@@ -59,7 +59,7 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
                 ),
                 Expanded(child: Container()),
                 Icon(
-                  Icons.arrow_right,
+                  Icons.keyboard_arrow_right,
                   color: content1_CL,
                 )
               ]),
@@ -86,7 +86,7 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
                 child: Card(
                   elevation: 3,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.0.sp),
                   ),
                   child: Container(
                     // decoration: BoxDecoration(
@@ -99,15 +99,32 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
                     // width: 300,
                     child: ListTile(
                         isThreeLine: false,
-                        trailing: Text(
-                          "1 min ago",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 5.0.sp,
-                              color: content1_CL,
-                              fontWeight: FontWeight.w500,
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Visibility(
+                              visible: index >= 0 && index < 3 ? true : false,
+                              child: CircleAvatar(
+                                radius: 5,
+                                backgroundColor: animagiee_CL,
+                                child: Text(
+                                  "2",
+                                  style: TextStyle(
+                                      fontSize: 5, color: Colors.white),
+                                ),
+                              ),
                             ),
-                          ),
+                            Text(
+                              "1 min ago",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 5.0.sp,
+                                  color: content1_CL,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         title: Text(
                           "Name",

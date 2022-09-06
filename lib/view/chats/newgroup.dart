@@ -9,6 +9,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
 
+import 'chatscreen1.dart';
+import 'groupchat.dart';
+
 class Create_New_Group_UI extends StatefulWidget {
   const Create_New_Group_UI({Key? key}) : super(key: key);
 
@@ -18,7 +21,8 @@ class Create_New_Group_UI extends StatefulWidget {
 
 class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
   Controller controller = Get.put(Controller());
-  bool valuebol = false;
+  List<bool> valuebol = [false, false, false, false, false];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +31,25 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              controller.chatapp("New Group", context),
+              // Material(
+              //   elevation: 3,
+              //   child: Container(
+              //     width: MediaQuery.of(context).size.width,
+              //     child: Row(children: [
+              //       Chat_Screen_Back_Button(),
+              //       Flexible(child: Container()),
+              //       SizedBox(
+              //         width: 41,
+              //       ),
+              //       Text("New Group"),
+              //       Flexible(child: Container()),
+              //       Flexible(child: Container()),
+              //     ]),
+              //   ),
+              // ),
+              controller.chatapp("New Group", Chat_UI(), context),
               SizedBox(
-                height: 4.0.hp,
+                height: 3.0.hp,
                 //  26,
               ),
               Align(alignment: Alignment.center, child: chat_Search_UI()),
@@ -43,7 +63,17 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(),
+                    SizedBox(
+                        child:
+                            Stack(alignment: Alignment.bottomRight, children: [
+                      CircleAvatar(
+                        backgroundColor: animagiee_CL,
+                      ),
+                      Icon(
+                        Icons.add_circle_outline,
+                        size: 8.5.sp,
+                      )
+                    ])),
                     SizedBox(
                       width: 3.0.wp,
                       //  17,
@@ -52,12 +82,13 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                       width: 75.0.wp,
                       // 260,
                       child: TextField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                             border: UnderlineInputBorder(),
-                            labelText: 'Group name',
-                            labelStyle: TextStyle(
+                            hintText: "Group Name",
+                            // labelText: 'Group name',
+                            hintStyle: TextStyle(
                                 color: content1_CL,
-                                fontSize: 10,
+                                fontSize: 9.0.sp,
                                 fontWeight: FontWeight.w500)),
                       ),
                     ),
@@ -68,7 +99,7 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
               //   height: 37,
               // ),
               Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: EdgeInsets.all(18.0.sp),
                 child: Text(
                   "Suggested",
                   style: GoogleFonts.poppins(
@@ -90,17 +121,18 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                   itemBuilder: (context, index) {
                     return Card(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
+                          borderRadius: BorderRadius.circular(5.0.sp)),
                       child: SizedBox(
-                        height: 56,
+                        height: 8.0.hp,
+                        // 56,
                         child: Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0.sp),
                               child: CircleAvatar(),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0.sp),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -138,11 +170,11 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                                 return animagiee_CL;
                               }),
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              value: valuebol,
+                                  borderRadius: BorderRadius.circular(5.0.sp)),
+                              value: valuebol[index],
                               onChanged: (value) {
                                 setState(() {
-                                  valuebol = value!;
+                                  valuebol[index] = value!;
                                 });
                               },
                             ),
@@ -166,7 +198,7 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                     // 310,
                     decoration: BoxDecoration(
                         color: buttonColor1_CL,
-                        borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(15.0.sp)),
                     alignment: Alignment.center,
                     child: Text(
                       "Add to Group",

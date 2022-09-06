@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/enum/enum.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -17,37 +18,9 @@ class Customized_Stepper_UI extends StatefulWidget {
 }
 
 class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
-  List<bool> s = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
-  List time = [
-    "6.00- 6.15 PM",
-    "6.15- 6.30 PM",
-    "6.30- 6.45 PM",
-    "6.45- 7.00 PM",
-    "7.00- 7.15 PM",
-    "7.15- 7.30 PM",
-    "7.30- 7.45 PM",
-    "7.45- 8.00 PM",
-    "8.00- 8.15 PM",
-    "8.15- 8.30 PM",
-    "8.30- 8.45 PM",
-    "8.45- 9.00 PM"
-  ];
-  var i;
+  var date;
   var stepindex = 1;
-  List steperbool = [false, false];
+  // List steperbool = [false, false];
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -71,7 +44,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                         backgroundColor: Colors.white,
                         child: Icon(
                           Icons.done,
-                          size: 10,
+                          size: 9.0.sp,
                           color: Colors.red,
                         ),
                       ),
@@ -79,7 +52,16 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     SizedBox(
                       height: 5,
                     ),
-                    Text("Schedule")
+                    Text(
+                      "Schedule",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 Text(
@@ -101,7 +83,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                               stepindex == 2 || stepindex == 3 ? true : false,
                           child: Icon(
                             Icons.done,
-                            size: 10,
+                            size: 9.0.sp,
                             color: Colors.red,
                           ),
                         ),
@@ -110,7 +92,16 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     SizedBox(
                       height: 5,
                     ),
-                    Text("Pet information")
+                    Text(
+                      "Pet information",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 Text(
@@ -131,7 +122,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                           visible: stepindex == 3 ? true : false,
                           child: Icon(
                             Icons.done,
-                            size: 10,
+                            size: 9.0.sp,
                             color: Colors.red,
                           ),
                         ),
@@ -140,7 +131,16 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     SizedBox(
                       height: 5,
                     ),
-                    Text("Checkout"),
+                    Text(
+                      "Checkout",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -206,7 +206,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                 ),
 
                 items: [
-                  for (i = 01; i < 31; i++)
+                  for (date = 01; date < 31; date++)
                     Container(
                       height: 10.0.hp,
                       //  102,
@@ -218,15 +218,29 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            "$i",
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                fontSize: 14.0.sp,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
+                          Column(
+                            children: [
+                              Text(
+                                day[date],
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 14.0.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                               ),
-                            ),
+                              Text(
+                                "$date",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 14.0.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -273,23 +287,25 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     // crossAxisSpacing: 40,
                     mainAxisSpacing: 3,
                   ),
-                  itemCount: s.length,
+                  itemCount: TimeOFAppoinment.length,
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () {
                         setState(() {
-                          if (s[index] == false) {
-                            s[index] = true;
+                          if (TimeOFAppoinment[index] == false) {
+                            TimeOFAppoinment[index] = true;
                           } else {
-                            s[index] = false;
+                            TimeOFAppoinment[index] = false;
                           }
                           setState(() {});
                         });
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        color: s[index] == true ? Colors.red : animagiee_CL,
+                            borderRadius: BorderRadius.circular(20.0.sp)),
+                        color: TimeOFAppoinment[index] == true
+                            ? Colors.red
+                            : animagiee_CL,
                         child: Center(
                           child: Text(
                             time[index],
@@ -323,11 +339,26 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
             SizedBox(height: 3.0.hp
                 //  30,
                 ),
-            Row(
-              children: [
-                Icon(Icons.warning),
-                Text("Pet Information"),
-              ],
+            Container(
+              margin: EdgeInsets.only(left: 10.0.sp),
+              child: Row(
+                children: [
+                  SizedBox(
+                      height: 3.0.hp,
+                      //  21,
+                      width: 8.0.wp,
+                      //  21,
+                      child: Image.asset(
+                        "images/about.png",
+                        color: Colors.black,
+                      )),
+                  SizedBox(
+                    width: 2.0.wp,
+                  ),
+                  // Icon(Icons.warning),
+                  Text("Pet Information"),
+                ],
+              ),
             ),
             SizedBox(height: 2.0.hp
                 // 18,
@@ -337,7 +368,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
               // 423,
               width: MediaQuery.of(context).size.width,
               color: doctor_CL,
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.sp),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -371,7 +402,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                         ),
                         // focusedBorder: ...
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(10.0.sp)),
                         fillColor: Colors.white,
                       ),
                     ),
@@ -437,7 +468,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                         ),
                         // focusedBorder: ...
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15)),
+                            borderRadius: BorderRadius.circular(15.0.sp)),
                         fillColor: Colors.white,
                       ),
                     ),
@@ -465,7 +496,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     // 197,
                     decoration: BoxDecoration(
                       color: animagiee_CL,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.0.sp),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -513,7 +544,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
           children: [
             Container(
               alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(left: 38),
+              margin: EdgeInsets.only(left: 38.0.sp),
               child: Text(
                 "Appointment details",
                 // textAlign: TextAlign.left,
@@ -528,13 +559,15 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
             ),
             Card(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.0.sp)),
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.0.sp),
                     border: Border.all(color: animagiee_CL, width: 1)),
-                height: 242,
-                width: 300,
+                height: 38.0.hp,
+                // 242,
+                width: 84.5.wp,
+                //  300,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -601,9 +634,9 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 26,
-                          ),
+                          SizedBox(width: 7.0.wp
+                              // 26,
+                              ),
                           Expanded(
                             child: SizedBox(),
                           ),
@@ -635,9 +668,9 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 33,
-                          ),
+                          SizedBox(width: 9.0.wp
+                              // 33,
+                              ),
                           Expanded(
                             child: SizedBox(),
                           )
@@ -669,9 +702,9 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 54,
-                          ),
+                          SizedBox(width: 14.0.wp
+                              //  54,
+                              ),
                           Expanded(
                             child: SizedBox(),
                           )
@@ -703,9 +736,9 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 70,
-                          ),
+                          SizedBox(width: 20.0.wp
+                              // 70,
+                              ),
                           Expanded(
                             child: SizedBox(),
                           )
@@ -753,13 +786,15 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
             ),
             Card(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.0.sp)),
               child: Container(
                 decoration: BoxDecoration(
                     border: Border.all(color: animagiee_CL, width: 1),
-                    borderRadius: BorderRadius.circular(10)),
-                height: 38,
-                width: 300,
+                    borderRadius: BorderRadius.circular(10.0.sp)),
+                height: 5.0.hp,
+                // 38,
+                width: 85.0.wp,
+                // 300,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -789,13 +824,15 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
             ),
             Card(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.0.sp)),
               child: Container(
                 decoration: BoxDecoration(
                     border: Border.all(color: animagiee_CL, width: 1),
-                    borderRadius: BorderRadius.circular(10)),
-                height: 38,
-                width: 300,
+                    borderRadius: BorderRadius.circular(10.0.sp)),
+                height: 5.0.hp,
+                // 38,
+                width: 85.0.wp,
+                // 300,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -811,7 +848,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     ),
                     Text(
                       "₹ 300",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.roboto(
                         textStyle: TextStyle(
                           fontSize: 11.0.sp,
                           color: Colors.black,
@@ -856,7 +893,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
               // 310,
               decoration: BoxDecoration(
                   color: Color(0xff272727),
-                  borderRadius: BorderRadius.circular(12)),
+                  borderRadius: BorderRadius.circular(12.0.sp)),
               alignment: Alignment.center,
               child: Text(
                 stepindex == 3 ? "Make Payment" : "Next",

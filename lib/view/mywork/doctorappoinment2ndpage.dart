@@ -1,5 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homepage/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -7,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
+import 'doctorsappoinments.dart';
 import 'myworkchat.dart';
 
 class Doctors_Appoinment_Detaild_UI extends StatefulWidget {
@@ -27,7 +29,8 @@ class _Doctors_Appoinment_Detaild_UIState
           child: Container(
         child: Column(
           children: [
-            controller.cusapp("Appoinment Details", context),
+            controller.clubapp(
+                "Appoinment Details", Appoinment_Page_UI(), context),
             Stack(children: [
               Container(
                 decoration: BoxDecoration(
@@ -96,10 +99,14 @@ class _Doctors_Appoinment_Detaild_UIState
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      "images/appoinmentdetails.png",
-                      cacheHeight: 20,
-                      cacheWidth: 22,
+                    child: SizedBox(
+                      height: 20,
+                      width: 22,
+                      child: Image.asset(
+                        "images/appoinmentdetails.png",
+                        // cacheHeight: 20,
+                        // cacheWidth: 22,
+                      ),
                     ),
                   ),
                   Text(
