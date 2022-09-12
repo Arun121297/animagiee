@@ -20,7 +20,7 @@ class _Chat_Icon_UIState extends State<Chat_Icon_UI> {
       onTap: () {
         Get.to(Chat_UI());
       },
-      child: Container(
+      child: SizedBox(
         height: 5.5.hp,
         width: 5.5.wp,
         child: Image.asset("images/chat.png"),

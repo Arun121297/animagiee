@@ -2,6 +2,7 @@ import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'postcreation.dart';
 
@@ -45,9 +46,13 @@ class _CreatePostState extends State<CreatePost> {
                       color: Colors.grey.shade400,
                     )),
                 child: Text(
-                  "Write something here...",
-                  style: TextStyle(
-                    color: Colors.grey[300],
+                  "  Write something here...",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 9.0.sp,
+                      color: TextContent3_CL,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 )
 

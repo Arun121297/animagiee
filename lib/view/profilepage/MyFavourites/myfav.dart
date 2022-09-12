@@ -76,11 +76,12 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                                   context: context,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(20),
-                                          topRight: Radius.circular(20))),
+                                          topLeft: Radius.circular(20.0.sp),
+                                          topRight: Radius.circular(20.0.sp))),
                                   builder: (context) {
                                     return Container(
-                                      height: 174,
+                                      height: 20.0.hp,
+                                      // height: 174,
                                       width: MediaQuery.of(context).size.width,
                                       child: Column(
                                         mainAxisAlignment:
@@ -134,8 +135,10 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                               });
                             },
                             child: SizedBox(
-                              height: 16,
-                              width: 16,
+                              height: 2.0.hp,
+                              // 16,
+                              width: 5.0.wp,
+                              // 16,
                               child: Image.asset(
                                 "images/burger.png",
                                 // cacheHeight: 16,
@@ -249,7 +252,7 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                         child: Row(
                           children: [
                             Text(
-                              "12 Like",
+                              "12 Likes",
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                   fontSize: 9.0.sp,
@@ -273,7 +276,7 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                             ),
                             Expanded(child: Container()),
                             Text(
-                              "100 View",
+                              "100 Views",
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                   fontSize: 9.0.sp,

@@ -39,8 +39,8 @@ class _MyWork_Header_UIState extends State<MyWork_Header_UI> {
               //     fit: BoxFit.cover),
               color: Colors.black54,
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15))),
+                  bottomLeft: Radius.circular(15.0.sp),
+                  bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
           height: 14.0.hp,
           // 108,
@@ -63,11 +63,11 @@ class _MyWork_Header_UIState extends State<MyWork_Header_UI> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 50, bottom: 15),
+          padding: EdgeInsets.only(left: 35.0.sp, bottom: 15.0.sp),
           child: Align(
             alignment: Alignment.bottomLeft,
             child: Container(
-              margin: EdgeInsets.only(left: 40),
+              margin: EdgeInsets.only(left: 40.0.sp),
               height: 4.0.hp,
               // 31,
               width: 9.0.wp,
@@ -77,9 +77,9 @@ class _MyWork_Header_UIState extends State<MyWork_Header_UI> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(70.0),
+          padding: EdgeInsets.all(50.0.sp),
           child: Container(
-              margin: EdgeInsets.only(left: 53),
+              margin: EdgeInsets.only(left: 60.0.sp),
               child: Text(
                 "Meena",
                 style: GoogleFonts.jost(

@@ -105,14 +105,17 @@ class _Group_Chat_UIState extends State<Group_Chat_UI> {
                             Visibility(
                               visible: index >= 0 && index < 3 ? true : false,
                               child: CircleAvatar(
-                                radius: 5,
+                                radius: 5.0.sp,
                                 backgroundColor: animagiee_CL,
                                 child: Text(
-                                  "2",
+                                  "123",
                                   style: TextStyle(
                                       fontSize: 5, color: Colors.white),
                                 ),
                               ),
+                            ),
+                            SizedBox(
+                              width: 2,
                             ),
                             Text(
                               "1 min ago",

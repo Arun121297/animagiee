@@ -95,17 +95,22 @@ class _My_Work_Design_UIState extends State<My_Work_Design_UI> {
                         child: Text("Appointments"),
                       ),
                       Appoinments_Design_UI(),
-                      Container(
-                        padding: EdgeInsets.all(8.0),
-                        alignment: Alignment.topRight,
-                        width: MediaQuery.of(context).size.width,
-                        child: Text(
-                          "View All",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 8.5.sp,
-                              color: animagiee_CL,
-                              fontWeight: FontWeight.w500,
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(Appoinment_Page_UI());
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(8.0),
+                          alignment: Alignment.topRight,
+                          width: MediaQuery.of(context).size.width,
+                          child: Text(
+                            "View All",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 8.5.sp,
+                                color: animagiee_CL,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
@@ -429,8 +434,7 @@ class _My_Work_Design_UIState extends State<My_Work_Design_UI> {
                           ),
                       Align(
                         alignment: Alignment.center,
-                        child: controller.communityNext(
-                            "Upload", Appoinment_Page_UI()),
+                        child: controller.communityNext("Upload", null),
                       ),
                       // GestureDetector(
                       //     onTap: () {

@@ -1,3 +1,4 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -16,8 +17,10 @@ class _Setting_UIState extends State<Setting_UI> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: 30,
-      width: 31,
+      height: 5.0.hp,
+      // 30,
+      width: 8.0.wp,
+      // 31,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         border: Border.all(

@@ -33,7 +33,7 @@ class _Single_Chat_Options_UIState extends State<Single_Chat_Options_UI> {
               child: Container(
                 height: 15.0.hp,
                 // 108,
-                width: 30.0.wp,
+                width: 33.0.wp,
                 // 113,
                 margin: EdgeInsets.only(left: 10.0.sp),
                 decoration: BoxDecoration(
@@ -43,6 +43,9 @@ class _Single_Chat_Options_UIState extends State<Single_Chat_Options_UI> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 1.0.hp,
+                    ),
                     Text(
                       "Block",
                       style: GoogleFonts.poppins(
@@ -80,6 +83,9 @@ class _Single_Chat_Options_UIState extends State<Single_Chat_Options_UI> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
+                    ),
+                    SizedBox(
+                      height: 1.0.hp,
                     )
                   ],
                 ),

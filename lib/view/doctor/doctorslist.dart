@@ -64,8 +64,10 @@ class _Doctors_List_UIState extends State<Doctors_List_UI> {
                     Visibility(
                       visible: index == 3 ? true : false,
                       child: Container(
-                        height: 110,
-                        width: 329,
+                        height: 14.0.hp,
+                        // 110,
+                        width: 95.0.wp,
+                        // 329,
                         color: Colors.black54,
                       ),
                     )

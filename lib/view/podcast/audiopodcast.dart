@@ -48,7 +48,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(15.0.sp),
                   child: Text(
                     "Dog fanzz group...",
                     style: GoogleFonts.poppins(
@@ -63,7 +63,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                 Container(
                   // width: 270,
                   margin: EdgeInsets.only(
-                    left: 20,
+                    left: 15.0.sp,
                   ),
                   child: Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. \nLorem Ipsum has been the industry's standard ",
@@ -85,7 +85,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                   child: Image.asset("images/podcastimage.png"),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 10),
+                  margin: EdgeInsets.only(top: 10.0.sp),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -125,7 +125,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                   width: MediaQuery.of(context).size.width,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
+                  padding: EdgeInsets.only(top: 10.0.sp),
                   child: SizedBox(
                     height: 22.0.hp,
                     // 170,
@@ -202,7 +202,8 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 2.0.wp,
+                  //  20,
                 )
               ],
             ),

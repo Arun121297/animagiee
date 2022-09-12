@@ -58,7 +58,7 @@ class _Admin_PostState extends State<Admin_Post> {
                         "AdminName $index",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 12.0.sp,
+                            fontSize: 11.5.sp,
                             color: buttonColor1_CL,
                             fontWeight: FontWeight.w500,
                           ),
@@ -76,7 +76,8 @@ class _Admin_PostState extends State<Admin_Post> {
                                       topRight: Radius.circular(20))),
                               builder: (context) {
                                 return Container(
-                                  height: 174,
+                                  height: 20.0.hp,
+                                  //  174,
                                   width: MediaQuery.of(context).size.width,
                                   child: Column(
                                     mainAxisAlignment:
@@ -87,37 +88,39 @@ class _Admin_PostState extends State<Admin_Post> {
                                         style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
                                             fontSize: 10.0.sp,
-                                            color: dummycontent_Cl,
+                                            color: club_Text_1,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
                                       Divider(
-                                        color: Colors.grey,
-                                        endIndent: 10,
-                                        indent: 10,
+                                        color: Colors.black,
+                                        endIndent: 30,
+                                        indent: 30,
+                                        // height: 5,
                                       ),
                                       Text(
                                         "Report",
                                         style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
                                             fontSize: 10.0.sp,
-                                            color: dummycontent_Cl,
+                                            color: club_Text_1,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
                                       Divider(
-                                        color: Colors.grey,
-                                        endIndent: 10,
-                                        indent: 10,
+                                        color: Colors.black,
+                                        endIndent: 30,
+                                        indent: 30,
+                                        // height: 5,
                                       ),
                                       Text(
                                         "Block",
                                         style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
                                             fontSize: 10.0.sp,
-                                            color: dummycontent_Cl,
+                                            color: club_Text_1,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -130,8 +133,10 @@ class _Admin_PostState extends State<Admin_Post> {
                           });
                         },
                         child: SizedBox(
-                          height: 16,
-                          width: 16,
+                          height: 2.0.hp,
+                          // 16,
+                          width: 5.0.wp,
+                          // 16,
                           child: Image.asset(
                             "images/burger.png",
                             // cacheHeight: 16,
@@ -211,13 +216,13 @@ class _Admin_PostState extends State<Admin_Post> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0.sp),
                     child: Text(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
                       "Laoreet nunc morbi lectus donec.",
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: 10.0.sp,
+                          fontSize: 9.5.sp,
                           color: dummycontent_Cl,
                           fontWeight: FontWeight.w500,
                         ),
@@ -225,7 +230,8 @@ class _Admin_PostState extends State<Admin_Post> {
                     ),
                   ),
                   SizedBox(
-                    height: 12,
+                    height: 1.0.hp,
+                    //  12,
                   ),
                   Container(
                     height: 40.0.hp,
@@ -233,7 +239,7 @@ class _Admin_PostState extends State<Admin_Post> {
                     width: 95.0.wp,
                     // 346,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(15.0.sp),
                       image: DecorationImage(
                         image: AssetImage(controller.Home_Post[index]),
                         fit: BoxFit.cover,
@@ -241,11 +247,11 @@ class _Admin_PostState extends State<Admin_Post> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0.sp),
                     child: Row(
                       children: [
                         Text(
-                          "12 Like",
+                          "12 Likes",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 9.0.sp,
@@ -269,7 +275,7 @@ class _Admin_PostState extends State<Admin_Post> {
                         ),
                         Expanded(child: Container()),
                         Text(
-                          "100 View",
+                          "100 Views",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 9.0.sp,
@@ -303,9 +309,9 @@ class _Admin_PostState extends State<Admin_Post> {
                     Expanded(child: Container()),
                     BookMark_UI(),
                   ]),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 2.0.sp
+                      //  10,
+                      ),
                 ],
               ),
             ),

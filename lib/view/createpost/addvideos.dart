@@ -22,7 +22,7 @@ class _Add_Video_UIState extends State<Add_Video_UI> {
   Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Card(
         elevation: 3,
         child: GestureDetector(
           onTap: () {
@@ -52,8 +52,8 @@ class _Add_Video_UIState extends State<Add_Video_UI> {
               ],
             ),
             height: 6.0.hp,
-            // 45,
-            width: 42.0.wp,
+            //  45,
+            width: 45.0.wp,
             //  150,
           ),
         ));

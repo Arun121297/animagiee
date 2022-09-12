@@ -34,7 +34,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            controller.clubapp("MyClub", Home_Page(), context),
+            controller.clubapp("My Clubs", Home_Page(), context),
             // Community_Page_UI
             // Material(
             //   elevation: 3,
@@ -104,7 +104,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
               ),
             ),
             Container(
-              color: Color(0xffF1F1F1),
+              color: Sub_Container_CL,
               height: 5.0.hp,
               //  35,
               width: MediaQuery.of(context).size.width,

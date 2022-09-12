@@ -29,8 +29,10 @@ class _Playing_Music_UIState extends State<Playing_Music_UI> {
             //  20,
           ),
           SizedBox(
-            height: 41,
-            width: 45,
+            height: 6.0.hp,
+            //  41,
+            width: 17.0.wp,
+            // 45,
             child: Image.asset(
               "images/musicpodcast.png",
               // cacheHeight: 41,

@@ -14,16 +14,18 @@ class Suggested_For_You_UI extends StatefulWidget {
 }
 
 class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
+  var i = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 260,
+      height: 34.0.hp,
+      // height: 260,
       width: MediaQuery.of(context).size.width,
       color: suggested_background_CL,
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0.sp),
             child: Row(
               children: [
                 Text(
@@ -53,35 +55,39 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
             ),
           ),
           SizedBox(
-            height: 200,
+            height: 25.0.hp,
+            // 200,
             child: ListView.separated(
               separatorBuilder: (context, index) {
                 return SizedBox(
-                  width: 10,
+                  width: 2.0.wp,
+                  //  10,
                 );
               },
               scrollDirection: Axis.horizontal,
               itemCount: 5,
               shrinkWrap: true,
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.sp),
               itemBuilder: (context, index) {
                 return Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(5),
                       border: Border.all(color: Colors.grey, width: 2)),
-                  height: 135,
-                  width: 117,
+                  height: 13.0.hp,
+                  // 135,
+                  width: 32.0.wp,
                   alignment: Alignment.center,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        height: 10,
+                        height: 1.0.hp,
+                        //  10,
                       ),
-                      CircleAvatar(
-                        radius: 50,
-                      ),
+                      CircleAvatar(radius: 40.0.sp
+                          //  50,
+                          ),
                       Text(
                         "Suggested: $index",
                         style: GoogleFonts.poppins(
@@ -92,21 +98,34 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
                           ),
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: animagiee_CL, width: 2),
-                          color: animagiee_CL,
-                        ),
-                        height: 30,
-                        width: 117,
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Join",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 8.0.sp,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (i == 1) {
+                              i = 0;
+                            } else if (i == 0) {
+                              i = 1;
+                            }
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: animagiee_CL, width: 2),
+                            color: animagiee_CL,
+                          ),
+                          height: 4.0.hp,
+                          // 30,
+                          width: 32.0.wp,
+                          // 117,
+                          alignment: Alignment.center,
+                          child: Text(
+                            i == 1 ? "Join" : "Request",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 8.0.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),

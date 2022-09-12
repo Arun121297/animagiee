@@ -334,7 +334,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
                     Icon(
                       Icons.done,
                       color: Colors.green,
-                      size: 15,
+                      size: 18.0.sp,
                     )
                   ],
                 ),
@@ -344,11 +344,12 @@ class _DoctorAppoinmentDetails_Completed_UIState
                 child: Row(
                   children: [
                     SizedBox(
-                        height: 4.0.hp,
-                        // 17,
-                        width: 5.0.wp,
-                        //  17,
-                        child: Image.asset("images/appoinmentdetails.png")),
+                      height: 4.0.hp,
+                      // 17,
+                      width: 5.0.wp,
+                      //  17,
+                      child: Image.asset("images/appoinmentdetails.png"),
+                    ),
                     Container(
                       alignment: Alignment.topLeft,
                       margin: EdgeInsets.only(left: 5.0.sp),

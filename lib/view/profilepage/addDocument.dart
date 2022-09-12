@@ -6,6 +6,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 import 'editprofilepage.dart';
 import 'myprofile.dart';
@@ -18,6 +19,7 @@ class Add_Document_UI extends StatefulWidget {
 }
 
 class _Add_Document_UIState extends State<Add_Document_UI> {
+  var giflotti = "images/mpihZSqdsf.json";
   Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
@@ -175,12 +177,18 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
                                           Navigator.pop(context);
                                         },
                                         icon: Icon(Icons.close_rounded))),
-                                Container(
+                                SizedBox(
                                     height: 30.0.hp,
-                                    // 194,
-                                    width: 60.0.wp
-                                    // 194,
-                                    ),
+                                    width: 60.0.wp,
+                                    child: Lottie.asset(
+                                      giflotti,
+                                    )),
+                                // Container(
+                                //     height: 30.0.hp,
+                                //     // 194,
+                                //     width: 60.0.wp
+                                //     // 194,
+                                //     ),
                                 Text(
                                   "Your Documents has been uploaded "
                                   "successfully...",

@@ -40,7 +40,7 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                     },
                     child: Card(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                            borderRadius: BorderRadius.circular(8.0.sp)),
                         child: Container(
                             height: 15.0.hp,
                             // 110,
@@ -54,7 +54,8 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                                   width: 20.0.wp,
                                   //  69,
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius:
+                                          BorderRadius.circular(8.0.sp),
                                       image: DecorationImage(
                                           image: AssetImage(
                                         "images/doc_2.jpg",
@@ -70,7 +71,16 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                                       MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Dr.Meena"),
+                                    Text(
+                                      "Dr.Meena",
+                                      style: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 11.0.sp,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
                                     Text(
                                       "Lorem Ipsum is simply dummy\ntext of the printing and ...",
                                       overflow: TextOverflow.ellipsis,
@@ -95,7 +105,7 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                                               Icon(
                                                 Icons.star,
                                                 color: Colors.yellow,
-                                                size: 14.0.sp,
+                                                size: 12.0.sp,
                                               ),
                                             ]),
                                         Stack(
@@ -109,7 +119,7 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                                               Icon(
                                                 Icons.star,
                                                 color: Colors.yellow,
-                                                size: 14.0.sp,
+                                                size: 12.0.sp,
                                               ),
                                             ]),
                                         Stack(
@@ -123,7 +133,7 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                                               Icon(
                                                 Icons.star,
                                                 color: Colors.yellow,
-                                                size: 14.0.sp,
+                                                size: 12.0.sp,
                                               ),
                                             ]),
                                         Stack(
@@ -137,7 +147,7 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                                               Icon(
                                                 Icons.star,
                                                 color: Colors.yellow,
-                                                size: 14.0.sp,
+                                                size: 12.0.sp,
                                               ),
                                             ]),
                                         Stack(
@@ -151,7 +161,7 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                                               Icon(
                                                 Icons.star,
                                                 color: Colors.yellow,
-                                                size: 14.0.sp,
+                                                size: 12.0.sp,
                                               ),
                                             ]),
                                       ],

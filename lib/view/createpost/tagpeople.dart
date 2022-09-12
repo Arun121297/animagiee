@@ -15,45 +15,42 @@ class Tag_People_UI extends StatefulWidget {
 class _Tag_People_UIState extends State<Tag_People_UI> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Material(
-          elevation: 3,
-          child: Container(
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 3.0.hp,
-                      //  21,
-                      width: 6.0.wp,
-                      // 21,
-                      child: Image.asset(
-                        "images/tagpeople.png",
-                        // cacheHeight: 21,
-                        // cacheWidth: 21,
-                      ),
+    return Card(
+        elevation: 3,
+        child: Container(
+            decoration:
+                BoxDecoration(borderRadius: BorderRadius.circular(10.0.sp)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 3.0.hp,
+                    //  21,
+                    width: 6.0.wp,
+                    // 21,
+                    child: Image.asset(
+                      "images/tagpeople.png",
+                      // cacheHeight: 21,
+                      // cacheWidth: 21,
                     ),
-                    // Icon(
-                    //   Icons.tag_faces_sharp,
-                    //   color: animagiee_CL,
-                    // ),
-                    SizedBox(
-                      width: 2.0.wp,
-                      // 10,
-                    ),
-                    Text("Tag People"),
-                  ],
-                ),
+                  ),
+                  // Icon(
+                  //   Icons.tag_faces_sharp,
+                  //   color: animagiee_CL,
+                  // ),
+                  SizedBox(
+                    width: 2.0.wp,
+                    // 10,
+                  ),
+                  Text("Tag People"),
+                ],
               ),
-              height: 6.0.hp,
-              // 45,
-              width: 95.0.wp
-              // 339,
-              )),
-    );
+            ),
+            height: 6.0.hp,
+            // 45,
+            width: 120.0.wp
+            // 339,
+            ));
   }
 }

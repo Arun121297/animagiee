@@ -98,11 +98,23 @@ class Controller extends GetxController {
           Expanded(child: SizedBox()),
           Padding(
             padding: const EdgeInsets.only(left: 30.0),
-            child: Text(title),
+            child: Text(
+              title,
+              style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  fontSize: 10.5.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
           ),
           Expanded(child: Container()),
           Search_UI(),
           Notification_UI(),
+          SizedBox(
+            width: 3.0.wp,
+          )
         ]),
       ),
     );
@@ -157,7 +169,16 @@ class Controller extends GetxController {
           SizedBox(
             width: 45,
           ),
-          Text(title),
+          Text(
+            title,
+            style: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                fontSize: 10.5.sp,
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
           Flexible(child: Container()),
           Flexible(child: Container()),
         ]),
@@ -229,7 +250,16 @@ class Controller extends GetxController {
               SizedBox(
                 width: 10,
               ),
-              Text(title),
+              Text(
+                title,
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.5.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
             ],
           ),
           Expanded(child: Container()),
@@ -242,8 +272,10 @@ class Controller extends GetxController {
               }
             },
             child: SizedBox(
-              height: 16,
-              width: 16,
+              height: 2.0.hp,
+              // 16,
+              width: 5.0.wp,
+              // 16,
               child: Image.asset(
                 "images/burger.png",
                 // cacheHeight: 16,
@@ -252,7 +284,7 @@ class Controller extends GetxController {
             ),
           ),
           SizedBox(
-            width: 7,
+            width: 4.0.wp,
           )
           // IconButton(
           //     onPressed: () {

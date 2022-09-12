@@ -81,14 +81,18 @@ class SignInPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    width: 4.0.wp,
+                  ),
                   Icon(
                     Icons.facebook,
                     color: FB_CL,
                     size: 40,
                   ),
-                  SizedBox(
-                    width: 4.0.wp,
-                  ),
+                  // SizedBox(
+                  //   width: 9.0.wp,
+                  // ),
+                  Expanded(child: SizedBox()),
                   Text(
                     "Continue with facebook",
                     style: GoogleFonts.poppins(
@@ -98,7 +102,12 @@ class SignInPage extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    width: 3.0.hp,
+                    // 28,
+                  ),
+                  Expanded(child: SizedBox())
                 ],
               ),
             ),
@@ -127,15 +136,16 @@ class SignInPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Image.network(
-                            'http://pngimg.com/uploads/google/google_PNG19635.png',
-                            fit: BoxFit.cover),
-                      ),
                       SizedBox(
-                        width: 4.0.wp,
+                        width: 3.3.wp,
                       ),
+                      CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        // backgroundImage: ExactAssetImage('images/Google__G__Logo.svg.webp'),
+                        child:
+                            Image.asset('images/GGogle.png', fit: BoxFit.cover),
+                      ),
+                      Expanded(child: SizedBox()),
                       Text(
                         "Continue with Google",
                         style: GoogleFonts.poppins(
@@ -145,7 +155,12 @@ class SignInPage extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        width: 4.0.hp,
+                        // 28,
+                      ),
+                      Expanded(child: SizedBox()),
                     ],
                   )),
             ),

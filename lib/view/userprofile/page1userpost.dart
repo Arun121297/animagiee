@@ -52,7 +52,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                     "AdminName $index",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        fontSize: 13,
+                        fontSize: 10.5.sp,
                         color: buttonColor1_CL,
                         fontWeight: FontWeight.w500,
                       ),
@@ -81,37 +81,39 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         fontSize: 10.0.sp,
-                                        color: dummycontent_Cl,
+                                        color: club_Text_1,
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
                                   Divider(
-                                    color: Colors.grey,
-                                    endIndent: 10,
-                                    indent: 10,
+                                    color: Colors.black,
+                                    endIndent: 30,
+                                    indent: 30,
+                                    // height: 5,
                                   ),
                                   Text(
                                     "Report",
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         fontSize: 10.0.sp,
-                                        color: dummycontent_Cl,
+                                        color: club_Text_1,
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
                                   Divider(
-                                    color: Colors.grey,
-                                    endIndent: 10,
-                                    indent: 10,
+                                    color: Colors.black,
+                                    endIndent: 30,
+                                    indent: 30,
+                                    // height: 5,
                                   ),
                                   Text(
                                     "Block",
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         fontSize: 10.0.sp,
-                                        color: dummycontent_Cl,
+                                        color: club_Text_1,
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
@@ -123,10 +125,16 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                         );
                       });
                     },
-                    child: Image.asset(
-                      "images/burger.png",
-                      cacheHeight: 16,
-                      cacheWidth: 16,
+                    child: SizedBox(
+                      height: 2.0.hp,
+                      // 16,
+                      width: 5.0.wp,
+                      // 16,
+                      child: Image.asset(
+                        "images/burger.png",
+                        // cacheHeight: 16,
+                        // cacheWidth: 16,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -176,7 +184,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                 child: Row(
                   children: [
                     Text(
-                      "12 Like",
+                      "12 Likes",
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.0.sp,
@@ -200,7 +208,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                     ),
                     Expanded(child: Container()),
                     Text(
-                      "100 View",
+                      "100 Views",
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.0.sp,

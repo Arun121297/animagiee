@@ -22,7 +22,7 @@ class _Available_Time_UIState extends State<Available_Time_UI> {
         style: GoogleFonts.poppins(
           textStyle: TextStyle(
             letterSpacing: -0.09,
-            fontSize: 11.0.sp,
+            fontSize: 9.5.sp,
             color: Colors.green,
             fontWeight: FontWeight.w600,
           ),

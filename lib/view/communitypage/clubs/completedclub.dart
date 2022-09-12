@@ -113,38 +113,47 @@ class _Completed_Club_UIState extends State<Completed_Club_UI> {
                   padding: const EdgeInsets.all(8.0),
                   child: Align(
                     alignment: Alignment.topRight,
-                    child: CircleAvatar(
-                      // backgroundImage: ExactAssetImage("images/editicon.png",),
-                      radius: 13.0.sp,
-                      backgroundColor: Colors.white,
-                      child: Image.asset(
-                        "images/editicon.png",
-                        height: 2.0.hp,
-                      ),
-                    ),
+                    child: SizedBox(
+                        height: 6.0.hp,
+                        width: 9.0.wp,
+                        child: Image.asset("images/edit.png")),
+                    // child:
+                    // CircleAvatar(
+                    //   // backgroundImage: ExactAssetImage("images/editicon.png",),
+                    //   radius: 13.0.sp,
+                    //   backgroundColor: Colors.white,
+                    //   child: Image.asset(
+                    //     "images/editicon.png",
+                    //     height: 2.0.hp,
+                    //   ),
+                    // ),
                   ),
                 ),
                 Positioned(
                   bottom: 0.0,
                   left: 0.0,
                   right: 0.0,
-                  top: 40.0.sp,
+                  top: 20.0.sp,
                   child: Padding(
                     padding: EdgeInsets.only(top: 70.0.sp, left: 80.0.sp),
                     child: Align(
-                      heightFactor: 5,
-                      alignment: Alignment.center,
-                      child: CircleAvatar(
-                        // backgroundImage: ExactAssetImage("images/editicon.png",),
-                        radius: 14.0.sp,
-                        backgroundColor: Colors.white,
-                        child: Image.asset(
-                          "images/editicon.png",
-                          height: 2.0.hp,
-                          // 15,
+                        heightFactor: 5,
+                        alignment: Alignment.center,
+                        child: SizedBox(
+                            height: 6.0.hp,
+                            width: 9.0.wp,
+                            child: Image.asset("images/edit.png"))
+                        // child: CircleAvatar(
+                        //   // backgroundImage: ExactAssetImage("images/editicon.png",),
+                        //   radius: 14.0.sp,
+                        //   backgroundColor: Colors.white,
+                        //   child: Image.asset(
+                        //     "images/editicon.png",
+                        //     height: 2.0.hp,
+                        //     // 15,
+                        //   ),
+                        // ),
                         ),
-                      ),
-                    ),
                   ),
                 ),
               ],
@@ -361,32 +370,33 @@ class _Completed_Club_UIState extends State<Completed_Club_UI> {
           SizedBox(height: 3.0.hp
               //  40,
               ),
-          GestureDetector(
-            onTap: () {
-              // Get.to(Animals_Profiles_UI());
-              Get.to(MyClubs_UI());
-            },
-            child: Container(
-              height: 6.0.hp,
-              //  43,
-              width: 90.0.wp,
-              // 310,
-              decoration: BoxDecoration(
-                  color: Color(0xff272727),
-                  borderRadius: BorderRadius.circular(12.0.sp)),
-              alignment: Alignment.center,
-              child: Text(
-                "Create",
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    color: const Color.fromRGBO(255, 255, 255, 1),
-                    fontSize: 15.0.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-          )
+          controller.communityNext("Create", MyClubs_UI())
+          // GestureDetector(
+          //   onTap: () {
+          //     // Get.to(Animals_Profiles_UI());
+          //     Get.to(MyClubs_UI());
+          //   },
+          //   child: Container(
+          //     height: 6.0.hp,
+          //     //  43,
+          //     width: 90.0.wp,
+          //     // 310,
+          //     decoration: BoxDecoration(
+          //         color: Color(0xff272727),
+          //         borderRadius: BorderRadius.circular(12.0.sp)),
+          //     alignment: Alignment.center,
+          //     child: Text(
+          //       "Create",
+          //       style: GoogleFonts.poppins(
+          //         textStyle: TextStyle(
+          //           color: const Color.fromRGBO(255, 255, 255, 1),
+          //           fontSize: 15.0.sp,
+          //           fontWeight: FontWeight.w600,
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // )
         ]),
       ),
     );

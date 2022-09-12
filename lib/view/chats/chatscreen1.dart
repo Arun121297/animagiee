@@ -37,6 +37,7 @@ class _Chat_UIState extends State<Chat_UI> {
   @override
   void initState() {
     fetchindex = 0;
+    controller.chatoption = false.obs;
     // TODO: implement initState
     super.initState();
   }

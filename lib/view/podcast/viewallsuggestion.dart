@@ -35,7 +35,7 @@ class _View_All_Suggested_List_UIState
               Expanded(
                 child: SizedBox(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
+                    padding: EdgeInsets.only(top: 10.0),
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height - 140,
                       width: MediaQuery.of(context).size.width,

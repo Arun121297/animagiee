@@ -96,6 +96,7 @@ class _Community_UIState extends State<Community_UI> {
                         ),
                         child: Text(
                           CataName[index],
+                          maxLines: 2,
                           textAlign: TextAlign.center,
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(

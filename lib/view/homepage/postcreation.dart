@@ -19,6 +19,7 @@ class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       // appBar:
       body: SafeArea(
         child: Column(
@@ -76,28 +77,48 @@ class _PostState extends State<Post> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 42,
-            ),
+            SizedBox(height: 5.0.hp
+                // 42,
+                ),
             Container(
               height: 47.0.hp,
               //  354,
-              width: MediaQuery.of(context).size.width,
+              width: 350,
+              // MediaQuery.of(context).size.width,
               // color: Colors.orange,
-              margin: EdgeInsets.only(left: 10),
-              child: Text(
-                "What’s on your mind ?",
-                style: GoogleFonts.jost(
-                  textStyle: TextStyle(
-                    fontSize: 21.0.sp,
-                    color: text_1,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+              margin: EdgeInsets.only(left: 10.0.sp),
+              child: TextField(
+                keyboardType: TextInputType.multiline,
+                minLines: 1,
+                maxLines: 5,
+                decoration: InputDecoration.collapsed(
+                    hintStyle: GoogleFonts.jost(
+                      textStyle: TextStyle(
+                        fontSize: 20.5.sp,
+                        color: text_1,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    hintText: 'What’s on your mind ?'),
               ),
             ),
+            // Container(
+
+            //   margin: EdgeInsets.only(left: 10.0.sp),
+            //   child: Text(
+            //     "What’s on your mind ?",
+            //     style: GoogleFonts.jost(
+            //       textStyle: TextStyle(
+            //         fontSize: 20.5.sp,
+            //         color: text_1,
+            //         fontWeight: FontWeight.w500,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Expanded(
                 child: Container(
+              // color: Colors.green,
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -107,8 +128,10 @@ class _PostState extends State<Post> {
                           width: 3.0.wp,
                         ),
                         SizedBox(
-                          height: 21,
-                          width: 27,
+                          height: 3.0.hp,
+                          //  21,
+                          width: 7.0.wp,
+                          // 27,
                           child: Image.asset(
                             "images/photovideos.png",
                             // cacheHeight: 21,
@@ -144,8 +167,10 @@ class _PostState extends State<Post> {
                           width: 3.0.wp,
                         ),
                         SizedBox(
-                          height: 25,
-                          width: 25,
+                          height: 4.0.hp,
+                          //  25,
+                          width: 6.0.wp,
+                          // 25,
                           child: Image.asset(
                             "images/tagpeople.png",
                             // cacheHeight: 25,
@@ -174,8 +199,10 @@ class _PostState extends State<Post> {
                           width: 3.0.wp,
                         ),
                         SizedBox(
-                          height: 22,
-                          width: 25,
+                          height: 3.0.hp,
+                          //  22,
+                          width: 6.0.wp,
+                          // 25,
                           child: Image.asset(
                             "images/camera.png",
                             // cacheHeight: 22,

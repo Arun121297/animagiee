@@ -116,14 +116,14 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(70.0.sp),
+                  padding: EdgeInsets.all(55.0.sp),
                   child: Container(
                       margin: EdgeInsets.only(left: 53.0.sp),
                       child: Text(
                         "DOGS FC",
                         style: GoogleFonts.jost(
                           textStyle: TextStyle(
-                            fontSize: 23,
+                            fontSize: 21.5.sp,
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
                           ),
@@ -263,7 +263,10 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
             ),
             // Divider(color: animagiee_CL, thickness: 2),
             SizedBox(
-              height: MediaQuery.of(context).size.height - 320,
+              height: 1.5.hp,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height - 330,
               child: PageView(
                 controller: pageController,
                 onPageChanged: (value) {

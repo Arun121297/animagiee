@@ -17,7 +17,7 @@ const Color buttonColor1_CL = Color.fromRGBO(39, 39, 39, 1);
 ///homepage
 const Color TextContent1_CL = Color.fromRGBO(142, 143, 146, 1);
 const Color TextContent2_CL = Color.fromRGBO(134, 94, 154, 1);
-
+const Color TextContent3_CL = Color.fromRGBO(148, 148, 148, 1);
 // 134, 94, 154, 1
 ///createpostpage
 
@@ -27,17 +27,19 @@ const Color text_2 = Color.fromRGBO(109, 110, 114, 1);
 ///My club
 ///102, 102, 102, 1
 const Color club_Text_1 = Color.fromRGBO(102, 102, 102, 1);
+const Color Sub_Container_CL = Color.fromRGBO(241, 241, 241, 1);
 ////postcsreen
 const Color descriptionText_CL = Color.fromRGBO(170, 171, 171, 1);
-
 //chat
 const Color content1_CL = Color.fromRGBO(149, 149, 149, 1);
 const Color sendBox_CL = Color.fromRGBO(124, 123, 123, 1);
 const Color send_button_CL = Color.fromRGBO(127, 91, 142, 1);
+const Color chat_Box_CL = Color.fromRGBO(238, 238, 238, 1);
 
 ///doctor
 const Color doctor_CL = Color.fromRGBO(86, 80, 69, 1);
 const Color doctor_Text_CL = Color.fromRGBO(96, 96, 96, 1);
+const Color stepper_2_text_CL = Color.fromRGBO(126, 126, 126, 1);
 
 ///
 ///profile
@@ -48,6 +50,8 @@ const Color notificationContent1_CL = Color.fromRGBO(39, 39, 39, 1);
 //
 ///mywork
 const Color myworkaniopacity = Color.fromRGBO(180, 125, 16, 1);
+const Color mywork_container_CL = Color.fromRGBO(243, 243, 243, 1);
+//  Color.fromRGBO(243, 243, 243, 1)
 // (102, 102, 102, 1)
 const Color myworktext_1_CL = Color.fromRGBO(102, 102, 102, 1);
 // 151, 151, 151, 1
@@ -57,3 +61,6 @@ const Color suggested_background_CL = Color.fromRGBO(255, 252, 245, 0.5);
 // 97, 93, 93, 1
 //settings
 const Color Settings_Text_CL = Color.fromRGBO(97, 93, 93, 1);
+
+///popupreview
+const Color reviewPopUp_CL = Color.fromRGBO(237, 110, 18, 1);

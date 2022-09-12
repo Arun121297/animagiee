@@ -16,19 +16,16 @@ class Notification_UI extends StatefulWidget {
 class _Notification_UIState extends State<Notification_UI> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: GestureDetector(
-        onTap: () {
-          Get.to(Notification_Content_Design_UI());
-        },
-        child: Container(
-          // height: 5.2.hp,
-          width: 5.2.wp,
-          // height: 19,
-          // width: 19,
-          child: Image.asset("images/notification.png"),
-        ),
+    return GestureDetector(
+      onTap: () {
+        Get.to(Notification_Content_Design_UI());
+      },
+      child: SizedBox(
+        // height: 5.2.hp,
+        width: 5.2.wp,
+        // height: 19,
+        // width: 19,
+        child: Image.asset("images/notification.png"),
       ),
     );
   }

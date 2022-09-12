@@ -21,8 +21,10 @@ class _List_Of_Appoinment_UIState extends State<List_Of_Appoinment_UI> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(
-              height: 44,
-              width: 60,
+              height: 22.0.hp,
+              //  44,
+              width: 20.0.wp,
+              // 60,
               child: Image.asset(
                 "images/profilecart.png",
                 // cacheHeight: 44,

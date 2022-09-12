@@ -43,6 +43,9 @@ class _Group_Chat_Option_UIState extends State<Group_Chat_Option_UI> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 1.0.hp,
+                    ),
                     Container(
                       child: Text(
                         "Edit Group",
@@ -71,6 +74,9 @@ class _Group_Chat_Option_UIState extends State<Group_Chat_Option_UI> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 1.0.hp,
+                    )
                     // Divider(
                     //   endIndent: 10,
                     //   indent: 10,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Create_Post_UI extends StatefulWidget {
   const Create_Post_UI({Key? key}) : super(key: key);
@@ -20,7 +21,9 @@ class _Create_Post_UIState extends State<Create_Post_UI> {
       absorbing: controller.posttype_bool.value,
       child: Align(
         alignment: Alignment.center,
-        child: Material(
+        child: Card(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0.sp)),
           elevation: 3,
           child: Stack(children: [
             Container(
@@ -41,7 +44,16 @@ class _Create_Post_UIState extends State<Create_Post_UI> {
                     ),
                   ),
                 ),
-                Text("Arun's Group"),
+                Text(
+                  "Arun's Group",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 9.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
                 Expanded(child: Container()),
                 Icon(Icons.keyboard_arrow_down),
                 SizedBox(
@@ -79,7 +91,10 @@ class _Create_Post_UIState extends State<Create_Post_UI> {
                   //  60,
                   width: 94.0.wp,
                   //  339,
-                  color: Colors.black54,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0.sp),
+                    color: Colors.black54,
+                  ),
                 ),
               );
             })

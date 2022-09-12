@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OtpTimer extends StatefulWidget {
+  // var fetchtime;
+  int currentSeconds = 0;
+  OtpTimer({
+    Key? key,
+  });
   @override
   _OtpTimerState createState() => _OtpTimerState();
 }
@@ -15,27 +20,27 @@ class _OtpTimerState extends State<OtpTimer> {
   final int timerMaxSeconds = 60;
   // 900;
 
-  int currentSeconds = 0;
-
   String get timerText =>
-      '${((timerMaxSeconds - currentSeconds) ~/ 60).toString().padLeft(2, '0')}: ${((timerMaxSeconds - currentSeconds) % 60).toString().padLeft(2, '0')}';
+      '${((timerMaxSeconds - widget.currentSeconds) ~/ 60).toString().padLeft(2, '0')}: ${((timerMaxSeconds - widget.currentSeconds) % 60).toString().padLeft(2, '0')}';
 
   startTimeout([int? milliseconds]) {
     var duration = interval;
     Timer.periodic(duration, (timer) {
       setState(() {
         print(timer.tick);
-        currentSeconds = timer.tick;
+        widget.currentSeconds = timer.tick;
         if (timer.tick >= timerMaxSeconds) timer.cancel();
       });
+      // fetchtime = int.parse(timerText);
     });
   }
 
   @override
   void initState() {
     startTimeout();
+    // alert();
     // print(timerText == 890 ? "yes" : "NO");
-    // timerText == 50 ? alert() : null;
+    // timerText == 00 ? alert() : null;
     super.initState();
   }
 

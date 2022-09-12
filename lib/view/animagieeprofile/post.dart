@@ -28,6 +28,7 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
       height: MediaQuery.of(context).size.height - 250,
       child: ListView.builder(
         scrollDirection: Axis.vertical,
+        // physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: controller.Home_Post.length,
         itemBuilder: (context, index) => Card(
@@ -61,8 +62,10 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
                   ),
                   Expanded(child: Container()),
                   SizedBox(
-                    height: 16,
-                    width: 16,
+                    height: 2.0.hp,
+                    // 16,
+                    width: 5.0.wp,
+                    // 16,,
                     child: Image.asset(
                       "images/burger.png",
                       // cacheHeight: 16,
@@ -113,7 +116,7 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
                 child: Row(
                   children: [
                     Text(
-                      "12 Like",
+                      "12 Likes",
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.0.sp,
@@ -137,7 +140,7 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
                     ),
                     Expanded(child: Container()),
                     Text(
-                      "100 View",
+                      "100 Views",
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.0.sp,

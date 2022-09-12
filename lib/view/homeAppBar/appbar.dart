@@ -28,7 +28,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
         child: Row(
           children: [
             Container(
-              margin: EdgeInsets.only(left: 10),
+              margin: EdgeInsets.only(left: 10.0.sp),
               width: 40.0.wp,
               // 122,
               height: 28.0.hp,
@@ -40,7 +40,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
             PodCast_UI(),
             Notification_UI(),
             SizedBox(
-              width: 5,
+              width: 4.0.wp,
             )
           ],
         ),

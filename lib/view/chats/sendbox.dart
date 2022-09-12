@@ -53,18 +53,21 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
           SizedBox(
             width: 4.0.wp,
           ),
-          Text(
-            "Send",
-            style: GoogleFonts.poppins(
-              textStyle: TextStyle(
-                fontSize: 10.0.sp,
-                color: send_button_CL,
-                fontWeight: FontWeight.w500,
+          Visibility(
+            visible: false,
+            child: Text(
+              "Send",
+              style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  fontSize: 10.0.sp,
+                  color: send_button_CL,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
           Visibility(
-            visible: false,
+            visible: true,
             child: Row(
               children: [
                 Transform.rotate(

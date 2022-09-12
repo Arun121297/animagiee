@@ -16,12 +16,18 @@ class _Comment_UIState extends State<Comment_UI> {
     return Container(
       // height: 3.5.hp,
       // width: 6.0.wp,
-      height: 20,
-      width: 20,
+      height: 3.5.hp,
+      //  20,
+      width: 6.0.wp,
+      // 20,
       // 17,
       // alignment: Alignment.center,
       child: SizedBox(
-          height: 17, width: 17, child: Image.asset("images/comment.png")),
+          height: 2.0.hp,
+          // 17,
+          width: 5.0.wp,
+          // 17,
+          child: Image.asset("images/comment.png")),
       // decoration: BoxDecoration(
       //     image: DecorationImage(
       //   image: AssetImage("images/comment.png"),

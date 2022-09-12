@@ -42,7 +42,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15))),
               width: MediaQuery.of(context).size.width,
-              height: 10.0.hp,
+              height: 13.0.hp,
               // 108,
               // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
             ),
@@ -53,7 +53,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15))),
               width: MediaQuery.of(context).size.width,
-              height: 10.0.hp,
+              height: 13.0.hp,
             ),
             Padding(
               padding: EdgeInsets.only(top: 10.0, left: 20),
@@ -524,10 +524,16 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                         SizedBox(
                           width: 10,
                         ),
-                        Image.asset(
-                          "images/profilecart.png",
-                          cacheHeight: 12,
-                          width: 17,
+                        SizedBox(
+                          height: 3.0.hp,
+                          //  18,
+                          width: 6.0.wp,
+                          //  18,
+                          child: Image.asset(
+                            "images/profilecart.png",
+                            // cacheHeight: 12,
+                            // width: 17,
+                          ),
                         ),
                         VerticalDivider()
                       ],

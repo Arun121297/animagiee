@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
@@ -25,7 +26,9 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Material(
+        Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
             elevation: 3,
             child: Container(
               child: Row(
@@ -35,7 +38,16 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
                     Icons.person,
                     color: animagiee_CL,
                   ),
-                  Text("Individual"),
+                  Text(
+                    "Individual",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 9.0.sp,
+                        color: descriptionText_CL,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
                   Radio(
                     value: BestTutorSite.Individual,
                     groupValue: site,
@@ -56,7 +68,9 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
               width: 45.0.wp,
               //  150,
             )),
-        Material(
+        Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
             elevation: 3,
             child: Container(
               child: Row(
@@ -73,7 +87,16 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
                   //   Icons.group,
                   //   color: animagiee_CL,
                   // ),
-                  Text("Group"),
+                  Text(
+                    "Group",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 9.0.sp,
+                        color: descriptionText_CL,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
                   Radio(
                     value: BestTutorSite.Group,
                     groupValue: site,

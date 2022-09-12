@@ -36,14 +36,18 @@ class _Top_Collection_Podcast_UIState extends State<Top_Collection_Podcast_UI> {
           },
           child: Card(
               child: Container(
-            height: 114,
-            width: 100,
+            height: 20.0.hp,
+            //  114,
+            width: 30.0.wp,
+            // 100,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
-                  height: 84,
-                  width: 84,
+                  height: 12.0.hp,
+                  //  84,
+                  width: 37.0.wp,
+                  //  84,
                   child: Image.asset(
                     poddog[index],
                     // cacheHeight: 84,

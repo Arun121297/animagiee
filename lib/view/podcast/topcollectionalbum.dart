@@ -70,15 +70,16 @@ class _Top_Collection_Album_UIState extends State<Top_Collection_Album_UI> {
           controller.clubapp("Audio Podcast", Audio_Podcast_UI(), context),
           Album_Header_UI(),
           SizedBox(
-            height: 20,
+            height: 2.0.hp,
+            //  20,
           ),
           Expanded(
             child: SizedBox(
               child: ListView.separated(
                 separatorBuilder: (context, index) {
-                  return SizedBox(
-                    height: 10,
-                  );
+                  return SizedBox(height: 1.5.hp
+                      // 10,
+                      );
                 },
                 scrollDirection: Axis.vertical,
                 itemCount: 10,
@@ -91,8 +92,9 @@ class _Top_Collection_Album_UIState extends State<Top_Collection_Album_UI> {
                         width: 5,
                       ),
                       Container(
-                        height: 70,
-                        width: 65,
+                        height: 8.0.hp,
+                        // width: 65,
+                        width: 20.0.wp,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
@@ -142,8 +144,14 @@ class _Top_Collection_Album_UIState extends State<Top_Collection_Album_UI> {
                         },
                         child: Container(
                           // color: Colors.purple,
-                          height: 35,
-                          width: 180,
+                          height: 4.0.hp,
+                          //  35,
+                          width: 52.0.wp,
+                          // 180,
+                          // height: 15.0.hp,
+                          // //  25,
+                          // width: 29.0.wp,
+                          // // 25,
                           alignment: Alignment.centerRight,
                           child: Image.asset(
                             "images/play.png",
@@ -154,7 +162,8 @@ class _Top_Collection_Album_UIState extends State<Top_Collection_Album_UI> {
                       )
                     ],
                   ),
-                  height: 76,
+                  height: 7.0.hp,
+                  // 76,
                   width: MediaQuery.of(context).size.width,
                   color: podcastcolor_1_CL,
                 ),

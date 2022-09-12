@@ -32,8 +32,21 @@ class _Album_Header_UIState extends State<Album_Header_UI> {
                   image: AssetImage("images/podcastimage.png"),
                   fit: BoxFit.cover),
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(40),
-                  bottomRight: Radius.circular(40))),
+                  bottomLeft: Radius.circular(40.0.sp),
+                  bottomRight: Radius.circular(40.0.sp))),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            "Top Collections",
+            style: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                fontSize: 9.5.sp,
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
         ),
         GestureDetector(
           onTap: () {
@@ -52,9 +65,10 @@ class _Album_Header_UIState extends State<Album_Header_UI> {
               // 35,
               width: 31.0.wp,
               // 119,
-              margin: EdgeInsets.only(left: 40),
+              margin: EdgeInsets.only(left: 40.0.sp),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: animagiee_CL),
+                  borderRadius: BorderRadius.circular(20.0.sp),
+                  color: animagiee_CL),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -69,8 +83,10 @@ class _Album_Header_UIState extends State<Album_Header_UI> {
                     ),
                   ),
                   SizedBox(
-                    height: 25,
-                    width: 25,
+                    height: 6.0.hp,
+                    //  25,
+                    width: 7.0.wp,
+                    // 25,
                     child: Image.asset(
                       "images/playbutton.png",
                       // cacheHeight: 25,

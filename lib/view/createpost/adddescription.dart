@@ -35,18 +35,32 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
           child: Card(
             elevation: 3,
             child: Container(
-              // margin: EdgeInsets.only(left: 15.0.sp),
-              child: Text(
-                "Add your Description Here",
-                style: GoogleFonts.poppins(
-                  height: 3,
-                  textStyle: TextStyle(
-                    fontSize: 9.0.sp,
-                    color: descriptionText_CL,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+              margin: EdgeInsets.only(left: 15.0.sp),
+              child: TextField(
+                maxLines: 5,
+                minLines: 1,
+                decoration: InputDecoration.collapsed(
+                    hintStyle: GoogleFonts.poppins(
+                      height: 3,
+                      textStyle: TextStyle(
+                        fontSize: 9.0.sp,
+                        color: descriptionText_CL,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    hintText: 'Add your Description Here'),
               ),
+              //  Text(
+              //   "Add your Description Here",
+              //   style: GoogleFonts.poppins(
+              //     height: 3,
+              //     textStyle: TextStyle(
+              //       fontSize: 9.0.sp,
+              //       color: descriptionText_CL,
+              //       fontWeight: FontWeight.w500,
+              //     ),
+              //   ),
+              // ),
               height: 22.0.hp,
               //  150,
               width: 97.0.wp,
@@ -66,8 +80,10 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
             heightFactor: 4,
             // alignment: Alignment.center,
             child: Container(
-              height: 54,
-              width: 350,
+              height: 7.0.hp,
+              //  150,
+              width: 93.5.wp,
+              // 349,
               decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(width: 1, color: Colors.grey),
@@ -75,7 +91,7 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
               child: ListView.separated(
                 separatorBuilder: (context, index) {
                   return SizedBox(
-                    width: 20,
+                    width: 2,
                   );
                 },
                 scrollDirection: Axis.horizontal,
@@ -83,8 +99,8 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
                 itemCount: emogi.length,
                 itemBuilder: (context, index) => Container(
                   margin: EdgeInsets.only(left: 10.0.sp, right: 10.0.sp),
-                  height: 60,
-                  width: 30,
+                  // height: 20.0.hp,
+                  width: 10.0.wp,
                   child: Image.asset(emogi[index]),
                 ),
               ),

@@ -36,10 +36,12 @@ class _Suggested_PodCast_UIState extends State<Suggested_PodCast_UI> {
               width: 5,
             ),
             Container(
-              height: 70,
-              width: 65,
+              height: 10.0.hp,
+              //  70,
+              width: 19.0.wp,
+              //  65,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.0.sp),
                   image: DecorationImage(
                     image: AssetImage(
                       "images/podcastdog.png",
@@ -47,7 +49,8 @@ class _Suggested_PodCast_UIState extends State<Suggested_PodCast_UI> {
                   )),
             ),
             SizedBox(
-              width: 10,
+              width: 4.0.wp,
+              //  10,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -88,15 +91,17 @@ class _Suggested_PodCast_UIState extends State<Suggested_PodCast_UI> {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 40.0),
+                  padding: EdgeInsets.only(left: 35.0.sp),
                   child: Container(
-                    height: 35,
-                    width: 119,
-                    margin: EdgeInsets.only(left: 40),
+                    height: 5.0.hp,
+                    // 35,
+                    width: 30.0.wp,
+                    // 119,
+                    margin: EdgeInsets.only(left: 35.0.sp),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20)),
+                            topLeft: Radius.circular(20.0.sp),
+                            bottomLeft: Radius.circular(20.0.sp)),
                         color: animagiee_CL),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -112,8 +117,10 @@ class _Suggested_PodCast_UIState extends State<Suggested_PodCast_UI> {
                           ),
                         ),
                         SizedBox(
-                          height: 25,
-                          width: 25,
+                          height: 5.0.hp,
+                          //  25,
+                          width: 7.0.wp,
+                          // 25,
                           child: Image.asset(
                             "images/playbutton.png",
                             // cacheHeight: 25,
@@ -150,7 +157,8 @@ class _Suggested_PodCast_UIState extends State<Suggested_PodCast_UI> {
             // )
           ],
         ),
-        height: 76,
+        height: 8.0.hp,
+        // 76,
         width: MediaQuery.of(context).size.width,
         color: podcastcolor_1_CL,
       ),

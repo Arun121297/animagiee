@@ -16,6 +16,10 @@ class Pageview2_Member extends StatefulWidget {
 }
 
 class _Pageview2_MemberState extends State<Pageview2_Member> {
+  // var follow = "Follow";
+  // var request = "Request";
+  List follow_req = ["Follow", "Request"];
+  // var follow_req = "Follow";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,22 +58,34 @@ class _Pageview2_MemberState extends State<Pageview2_Member> {
             ),
             Padding(
               padding: EdgeInsets.all(8.0.sp),
-              child: Container(
-                height: 3.5.hp,
-                //  26,
-                width: 23.0.wp,
-                // 90,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    color: animagiee_CL,
-                    borderRadius: BorderRadius.circular(5.0.sp)),
-                child: Text(
-                  "Follow",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 10.0.sp,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    print(index);
+                    // if (follow_req == "Follow") {
+                    //   follow_req = "Request";
+                    // } else if (follow_req == "Request") {
+                    //   follow_req = "Follow";
+                    // }
+                  });
+                },
+                child: Container(
+                  height: 3.5.hp,
+                  //  26,
+                  width: 23.0.wp,
+                  // 90,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: animagiee_CL,
+                      borderRadius: BorderRadius.circular(5.0.sp)),
+                  child: Text(
+                    "Follow",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 10.0.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),

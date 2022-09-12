@@ -7,10 +7,9 @@ import 'package:get/get.dart';
 
 import '../../config/colorconfig.dart';
 import '../createpost/adddescription.dart';
-import '../createpost/addphotos.dart';
-import '../createpost/addvideos.dart';
+
 import '../createpost/creategroup.dart';
-import '../createpost/post.dart';
+
 import '../createpost/postmethod.dart';
 
 import 'audiopodcast.dart';
@@ -90,12 +89,17 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                     // SizedBox(
                     //   height: 50,
                     // ),
+
                     Timer(),
                     SizedBox(
                       height: 7.0.hp,
                       //  40,
                     ),
-                    Post_Button_UI()
+                    Align(
+                      child: controller.communityNext("Post", null),
+                      alignment: Alignment.center,
+                    ),
+                    // Post_Button_UI()
                   ]),
             )))
           ],
@@ -125,8 +129,10 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                 Text("Add Audio"),
               ],
             ),
-            height: 45,
-            width: 150,
+            height: 6.0.hp,
+            // 45,
+            width: 40.0.wp,
+            // 150,
           ),
         ));
   }
@@ -152,8 +158,10 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                 Text("Add Image"),
               ],
             ),
-            height: 45,
-            width: 150,
+            height: 6.0.hp,
+            // 45,
+            width: 40.0.wp,
+            // 150,
           ),
         ));
   }

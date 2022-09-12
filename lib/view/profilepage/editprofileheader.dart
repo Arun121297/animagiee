@@ -28,8 +28,8 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
                   fit: BoxFit.cover),
               color: animagiee_CL,
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15))),
+                  bottomLeft: Radius.circular(15.0.sp),
+                  bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
           height: 13.0.hp,
           // 108,
@@ -39,8 +39,8 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           decoration: BoxDecoration(
               color: Colors.black38,
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15))),
+                  bottomLeft: Radius.circular(15.0.sp),
+                  bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
           height: 13.0.hp,
           // 108,
@@ -68,7 +68,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(50.0),
+          padding: EdgeInsets.all(40.0.sp),
           child: Row(
             children: [
               Container(
@@ -104,7 +104,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 30.0, left: 20),
+          padding: EdgeInsets.only(top: 30.0.sp, left: 20.0.sp),
           child: Align(
             heightFactor: 1.4,
             alignment: Alignment.centerLeft,
@@ -120,11 +120,11 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 80.0),
+          padding: EdgeInsets.only(right: 80.0.sp),
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.only(right: 40.0, bottom: 25),
+              padding: EdgeInsets.only(right: 35.0.sp, bottom: 20.0.sp),
               child: CircleAvatar(
                 child: SizedBox(
                   height: 5.0.hp,

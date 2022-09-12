@@ -11,6 +11,7 @@ import '../../controller/controller.dart';
 
 import 'chatscreen1.dart';
 import 'groupchat.dart';
+import 'groupchatscreen.dart';
 
 class Create_New_Group_UI extends StatefulWidget {
   const Create_New_Group_UI({Key? key}) : super(key: key);
@@ -99,12 +100,12 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
               //   height: 37,
               // ),
               Padding(
-                padding: EdgeInsets.all(18.0.sp),
+                padding: EdgeInsets.all(10.0.sp),
                 child: Text(
                   "Suggested",
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                      fontSize: 13.0.sp,
+                      fontSize: 12.0.sp,
                       color: animagiee_CL,
                       fontWeight: FontWeight.w600,
                     ),
@@ -187,31 +188,33 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
               ),
               Align(
                 alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
-                    // Get.to(MyClubs_UI());
-                  },
-                  child: Container(
-                    height: 6.0.hp,
-                    // 43,
-                    width: 90.0.wp,
-                    // 310,
-                    decoration: BoxDecoration(
-                        color: buttonColor1_CL,
-                        borderRadius: BorderRadius.circular(15.0.sp)),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Add to Group",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 17.0.sp,
-                          color: SigninButton_CL,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                child: controller.communityNext(
+                    "Add to Group", Group_Chat_Screen_UI()),
+                // child: GestureDetector(
+                //   onTap: () {
+                //     // Get.to(MyClubs_UI());
+                //   },
+                //   child: Container(
+                //     height: 6.0.hp,
+                //     // 43,
+                //     width: 90.0.wp,
+                //     // 310,
+                //     decoration: BoxDecoration(
+                //         color: buttonColor1_CL,
+                //         borderRadius: BorderRadius.circular(15.0.sp)),
+                //     alignment: Alignment.center,
+                //     child: Text(
+                //       "Add to Group",
+                //       style: GoogleFonts.poppins(
+                //         textStyle: TextStyle(
+                //           fontSize: 17.0.sp,
+                //           color: SigninButton_CL,
+                //           fontWeight: FontWeight.w600,
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
               )
             ],
           ),

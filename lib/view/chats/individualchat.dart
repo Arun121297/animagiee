@@ -81,7 +81,7 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
                           Visibility(
                             visible: index > 0 && index < 4 ? true : false,
                             child: CircleAvatar(
-                              radius: 5,
+                              radius: 5.0.sp,
                               backgroundColor: animagiee_CL,
                               child: Text(
                                 "2",
@@ -89,6 +89,9 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
                                     fontSize: 3.5.sp, color: Colors.white),
                               ),
                             ),
+                          ),
+                          SizedBox(
+                            width: 1.0.wp,
                           ),
                           Text(
                             "1 min ago",
@@ -148,7 +151,7 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
       context: context,
       builder: (BuildContext context) {
         return Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
@@ -189,7 +192,7 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
                     endIndent: 30,
                     color: Colors.white,
                     thickness: 2,
-                  ),
+                  )
                 ],
               ),
             )

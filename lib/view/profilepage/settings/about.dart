@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/controller.dart';
+import '../../homepage/homepage.dart';
 import 'settings.dart';
 
 class About_Design_UI extends StatefulWidget {
@@ -52,10 +53,16 @@ class _About_Design_UIState extends State<About_Design_UI> {
                               ),
                             ),
                           ),
-                          Image.asset(
-                            "images/about.png",
-                            cacheHeight: 24,
-                            cacheWidth: 24,
+                          SizedBox(
+                            height: 5.0.hp,
+                            //  24,
+                            width: 5.0.wp,
+                            //  24,
+                            child: Image.asset(
+                              "images/about.png",
+                              // cacheHeight: 24,
+                              // cacheWidth: 24,
+                            ),
                           )
                         ],
                       ),

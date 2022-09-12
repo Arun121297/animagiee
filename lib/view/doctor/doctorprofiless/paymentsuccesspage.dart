@@ -17,7 +17,7 @@ class Successfull_Payment_UI extends StatefulWidget {
 }
 
 class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
-  late final AnimationController Animationcontroller;
+  //  final AnimationController Animationcontroller;
   var giflotti = "images/mpihZSqdsf.json";
   // @override
   // void initState() {
@@ -46,19 +46,17 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                 width: 400,
                 child: Lottie.asset(
                   giflotti,
-                  controller: Animationcontroller,
-                  onLoaded: (composition) {
-                    // Configure the AnimationController with the duration of the
-                    // Lottie file and start the animation.
-                    Animationcontroller
-                      ..duration = composition.duration
-                      ..forward();
-                  },
+                  // controller: Animationcontroller,
+                  // onLoaded: (composition) {
+                  //   // Configure the AnimationController with the duration of the
+                  //   // Lottie file and start the animation.
+                  //   Animationcontroller
+                  //     ..duration = composition.duration
+                  //     ..forward();
+                  // },
                 ),
               ),
-              // SizedBox(
-              //   height: 400,
-              // ),
+
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -32,7 +32,7 @@ class _Notification_Content_Design_UIState
               title: "Notification",
             ),
             Container(
-              margin: EdgeInsets.only(left: 10, top: 24),
+              margin: EdgeInsets.only(left: 10.0.sp, top: 24.0.sp),
               height: 4.0.hp,
               // 30,
               child: Align(
@@ -169,14 +169,15 @@ class _Notification_Content_Design_UIState
                     ),
                   ),
                   SizedBox(
-                    width: 240,
+                    width: 60.0.wp,
+                    //  240,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text("Documents approval status"),
                         Text(
-                          "Your Documents have been approved successfull and has\nbeen verified.You can activate your Doctor module by clicking\non the activate button given below..",
+                          "Your Documents have been approved successfull and has been verified.You can activate your Doctor module by clicking\non the activate button given below..",
                           maxLines: 3,
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
@@ -209,7 +210,7 @@ class _Notification_Content_Design_UIState
                               ),
                             ),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(5.0.sp),
                                 color: notificationContent1_CL),
                           ),
                         )

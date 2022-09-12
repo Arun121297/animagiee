@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/chats/chat.dart';
 import 'package:animagieeui/view/userprofile/page1userpost.dart';
 
 import 'package:flutter/material.dart';
@@ -77,8 +78,8 @@ class _User_ProfileState extends State<User_Profile> {
                         ),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(15))),
+                        bottomLeft: Radius.circular(15.0.sp),
+                        bottomRight: Radius.circular(15.0.sp))),
                 width: MediaQuery.of(context).size.width,
                 height: 14.0.hp,
                 // 108,
@@ -88,15 +89,15 @@ class _User_ProfileState extends State<User_Profile> {
                 decoration: BoxDecoration(
                     color: Colors.black38,
                     borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(15))),
+                        bottomLeft: Radius.circular(15.0.sp),
+                        bottomRight: Radius.circular(15.0.sp))),
                 width: MediaQuery.of(context).size.width,
                 height: 14.0.hp,
                 // 108,
                 // child: Image.asset("images/groupphoto.jpg", fit: BoxFit.cover),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 40.0, left: 20),
+                padding: EdgeInsets.only(top: 35.0.sp, left: 20.0.sp),
                 child: Align(
                   heightFactor: 1.4,
                   alignment: Alignment.centerLeft,
@@ -113,9 +114,9 @@ class _User_ProfileState extends State<User_Profile> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(70.0),
+                padding: EdgeInsets.all(55.0.sp),
                 child: Container(
-                    margin: EdgeInsets.only(left: 50),
+                    margin: EdgeInsets.only(left: 50.0.sp),
                     child: Text(
                       "Karthi",
                       style: GoogleFonts.jost(
@@ -128,7 +129,7 @@ class _User_ProfileState extends State<User_Profile> {
                     )),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 50.0, right: 10),
+                padding: EdgeInsets.only(top: 47.0.sp, right: 10),
                 child: Align(
                   alignment: Alignment.bottomRight,
                   heightFactor: 5,
@@ -139,7 +140,8 @@ class _User_ProfileState extends State<User_Profile> {
                         // Text("1,22 Member"),
                         GestureDetector(
                           onTap: () {
-                            print(controller.communitylist.length);
+                            // print(controller.communitylist.length);
+                            Get.to(Chatting_Screen_UI());
                           },
                           child: Container(
                             height: 3.0.hp,
@@ -258,7 +260,10 @@ class _User_ProfileState extends State<User_Profile> {
             ),
             // Divider(color: animagiee_CL, thickness: 2),
             SizedBox(
-              height: MediaQuery.of(context).size.height - 380,
+              height: 2.0.hp,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height - 392,
               child: PageView(
                 controller: pageController,
                 onPageChanged: (value) {

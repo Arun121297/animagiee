@@ -23,6 +23,7 @@ class Chatting_Screen_UI extends StatefulWidget {
 
 class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
   Controller controller = Get.put(Controller());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

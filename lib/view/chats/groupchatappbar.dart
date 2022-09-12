@@ -100,7 +100,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                 ]),
               ),
               SizedBox(
-                width: 10,
+                width: 5.0.wp,
               ),
               // Text(""),
             ],
@@ -115,7 +115,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
               }
             },
             child: SizedBox(
-              height: 3.0.hp,
+              height: 2.0.hp,
               // 16,
               width: 5.0.wp,
               // 16,
@@ -127,7 +127,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
             ),
           ),
           SizedBox(
-            width: 8,
+            width: 4.0.wp,
           )
           // IconButton(
           //     onPressed: () {
