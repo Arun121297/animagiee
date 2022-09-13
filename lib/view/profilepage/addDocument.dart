@@ -48,27 +48,38 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Text("Document $index"),
+                              padding: EdgeInsets.all(18.0.sp),
+                              child: Text(
+                                "Document $index",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 10.0.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
                             ),
                             GestureDetector(
                               onTap: () {},
                               child: Padding(
-                                padding: const EdgeInsets.all(20.0),
+                                padding: EdgeInsets.all(18.0.sp),
                                 child: Container(
                                   height: 4.5.hp,
                                   //  24,
-                                  width: 23.0.wp,
+                                  width: 26.0.wp,
                                   // 84,
                                   decoration: BoxDecoration(
                                       color: Colors.black,
-                                      borderRadius: BorderRadius.circular(5)),
+                                      borderRadius:
+                                          BorderRadius.circular(5.0.sp)),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Text(
                                         "Add",
+                                        textAlign: TextAlign.justify,
                                         style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
                                             color: animagiee_CL,
@@ -95,7 +106,8 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
                           //  326,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.grey, width: 2),
+                            border: Border.all(
+                                color: Colors.grey.shade300, width: 2),
                           ),
                           child: GridView.builder(
                               gridDelegate:
@@ -107,7 +119,7 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
                                       crossAxisCount: 3),
                               itemCount: 5,
                               itemBuilder: (context, gridindex) => Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: Stack(children: [
                                       Positioned(
                                         top: 5,
@@ -119,10 +131,21 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
                                           alignment: Alignment.center,
                                           decoration: BoxDecoration(
                                               // color: Colors.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
                                               border: Border.all(
                                                   width: 2,
-                                                  color: Colors.grey)),
-                                          child: Text("Doc.$gridindex"),
+                                                  color: Colors.grey.shade300)),
+                                          child: Text(
+                                            "Doc.$gridindex",
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 10.0.sp,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                       Align(
@@ -150,6 +173,7 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
             GestureDetector(
               onTap: () {
                 // Get.to(fun);
+                Get.to(Edit_Profile_UI());
                 // _showMyDialog(context);
                 showDialog(
                     context: context,

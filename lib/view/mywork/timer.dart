@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,14 +52,14 @@ class _OtpTimerState extends State<OtpTimer> {
       children: <Widget>[
         Icon(
           Icons.timer,
-          // color: timerText.toString() == 50 ? Colors.red : Colors.black,
+          color: animagiee_CL,
         ),
         SizedBox(
           width: 5,
         ),
         Text(
           timerText,
-          // style: TextStyle(color: timerText == 890 ? Colors.red : Colors.black),
+          style: TextStyle(color: Colors.red),
         )
       ],
     );

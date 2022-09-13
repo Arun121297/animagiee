@@ -41,9 +41,7 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
                       // 37,
                       ),
                   GestureDetector(
-                    onTap: () {
-                      Get.to(Add_Document_UI());
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 6.7.hp,
                       // 43,

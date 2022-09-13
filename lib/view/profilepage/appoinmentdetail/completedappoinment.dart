@@ -50,7 +50,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
                             bottomLeft: Radius.circular(15.0.sp),
                             bottomRight: Radius.circular(15.0.sp))),
                     width: MediaQuery.of(context).size.width,
-                    height: 14.0.hp,
+                    height: 13.0.hp,
                     // 108,
                     // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
                   ),
@@ -59,12 +59,12 @@ class _DoctorAppoinmentDetails_Completed_UIState
                         // image: DecorationImage(
                         //     image: AssetImage("images/doc_3.jpg"),
                         //     fit: BoxFit.cover),
-                        color: Colors.black54,
+                        color: Colors.black38,
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(15.0.sp),
                             bottomRight: Radius.circular(15.0.sp))),
                     width: MediaQuery.of(context).size.width,
-                    height: 14.0.hp,
+                    height: 13.0.hp,
                     // 108,
                     // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
                   ),
@@ -104,7 +104,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
                           "Dr.Meena",
                           style: GoogleFonts.jost(
                             textStyle: TextStyle(
-                              fontSize: 20.5.sp,
+                              fontSize: 19.5.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),

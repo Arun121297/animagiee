@@ -31,7 +31,7 @@ class UserProfile_CreatePost_UI extends StatefulWidget {
 class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
   @override
   void initState() {
-    // print("print:::${a}");
+    controller.posttype_bool = true.obs;
     // TODO: implement initState
     super.initState();
   }
@@ -136,17 +136,20 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                                 if (controller.imagevideo.value.type ==
                                     "image") {
                                   return Container(
-                                    // height: 20.0.hp,
-                                    // //  134,
+                                    height: 20.0.hp,
+                                    //  134,
                                     width: 93.0.wp,
                                     // 339,
-                                    constraints: BoxConstraints(
-                                      maxHeight: 300,
-                                      minHeight: 20.0.hp,
-                                    ),
+                                    // constraints: BoxConstraints(
+                                    //     maxHeight: 300,
+                                    //     minHeight: 20.0.hp,
+                                    //     minWidth:
+                                    //         MediaQuery.of(context).size.width,
+                                    //     maxWidth:
+                                    //         MediaQuery.of(context).size.width),
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
-                                        fit: BoxFit.fill,
+                                        fit: BoxFit.cover,
                                         image:
                                             // AssetImage(
                                             //     controller.imagevideo.value.url.)

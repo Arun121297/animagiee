@@ -171,6 +171,7 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
               //  246,
               child: Column(
                 children: [
+                  Expanded(child: SizedBox()),
                   Text(
                     "Karthi",
                     style: GoogleFonts.poppins(
@@ -181,18 +182,25 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
                       ),
                     ),
                   ),
-                  Divider(
-                    indent: 30,
-                    endIndent: 40,
-                    color: Colors.white,
-                    thickness: 2,
+                  SizedBox(
+                    height: 5,
+                    child: Divider(
+                      indent: 50,
+                      endIndent: 30,
+                      color: Colors.white,
+                      thickness: 2,
+                    ),
                   ),
-                  Divider(
-                    indent: 50,
-                    endIndent: 30,
-                    color: Colors.white,
-                    thickness: 2,
-                  )
+                  SizedBox(
+                    height: 5,
+                    child: Divider(
+                      indent: 30,
+                      endIndent: 40,
+                      color: Colors.white,
+                      thickness: 2,
+                    ),
+                  ),
+                  Expanded(child: SizedBox()),
                 ],
               ),
             )

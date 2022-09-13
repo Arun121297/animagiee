@@ -42,6 +42,7 @@ class Controller extends GetxController {
   ];
   Rx<int> selectedIndex = 0.obs;
   RxBool posttype_bool = true.obs;
+  RxBool podcastposttype_bool = true.obs;
 
   ///myclubs
   List communitylist = [];

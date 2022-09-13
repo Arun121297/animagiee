@@ -74,7 +74,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                           bottomLeft: Radius.circular(15.0.sp),
                           bottomRight: Radius.circular(15.0.sp))),
                   width: MediaQuery.of(context).size.width,
-                  height: 14.0.hp,
+                  height: 13.0.hp,
                   //  108,
                 ),
                 Padding(
@@ -161,7 +161,8 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
           //   height: 10,
           // ),
           Container(
-            width: 258,
+            width: 70.0.wp,
+            //  258,
             child: TextField(
               decoration: InputDecoration(
                 // hintText: "Enter your email",

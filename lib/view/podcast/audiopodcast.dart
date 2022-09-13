@@ -127,11 +127,18 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                 Padding(
                   padding: EdgeInsets.only(top: 10.0.sp),
                   child: SizedBox(
-                    height: 22.0.hp,
-                    // 170,
-                    width: MediaQuery.of(context).size.width,
-                    child: Suggested_PodCast_UI(),
-                  ),
+                      height: 18.0.hp,
+                      // 170,
+                      width: MediaQuery.of(context).size.width,
+                      child: ListView(
+                        children: [
+                          Suggested_PodCast_UI(),
+                          SizedBox(
+                            height: 1.0.hp,
+                          ),
+                          Suggested_PodCast_UI(),
+                        ],
+                      )),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 18.0, top: 10),

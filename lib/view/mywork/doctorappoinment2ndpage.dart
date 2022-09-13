@@ -44,7 +44,7 @@ class _Doctors_Appoinment_Detaild_UIState
                             bottomLeft: Radius.circular(15.0.sp),
                             bottomRight: Radius.circular(15.0.sp))),
                     width: MediaQuery.of(context).size.width,
-                    height: 14.0.hp,
+                    height: 13.0.hp,
                     // 108,
                     // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
                   ),
@@ -53,17 +53,17 @@ class _Doctors_Appoinment_Detaild_UIState
                         // image: DecorationImage(
                         //     image: AssetImage("images/doc_3.jpg"),
                         //     fit: BoxFit.cover),
-                        color: Colors.black54,
+                        color: Colors.black38,
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(15.0.sp),
                             bottomRight: Radius.circular(15.0.sp))),
                     width: MediaQuery.of(context).size.width,
-                    height: 14.0.hp,
+                    height: 13.0.hp,
                     // 108,
                     // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 40.0.sp, left: 20.0.sp),
+                    padding: EdgeInsets.only(top: 30.0.sp, left: 20.0.sp),
                     child: Align(
                       heightFactor: 1.4,
                       alignment: Alignment.centerLeft,
@@ -79,9 +79,9 @@ class _Doctors_Appoinment_Detaild_UIState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(55.0.sp),
+                    padding: EdgeInsets.all(48.0.sp),
                     child: Container(
-                        margin: EdgeInsets.only(left: 53.0.sp),
+                        margin: EdgeInsets.only(left: 60.0.sp),
                         child: Text(
                           "James Patric",
                           style: GoogleFonts.jost(

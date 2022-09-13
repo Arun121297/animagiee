@@ -1,9 +1,11 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/podcast/podcastposttype.dart';
 
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../createpost/adddescription.dart';
@@ -14,6 +16,7 @@ import '../createpost/postmethod.dart';
 
 import 'audiopodcast.dart';
 import 'networktimer.dart';
+import 'podcastpost.dart';
 
 class Start_Your_Podcast_UI extends StatefulWidget {
   const Start_Your_Podcast_UI({Key? key}) : super(key: key);
@@ -23,93 +26,129 @@ class Start_Your_Podcast_UI extends StatefulWidget {
 }
 
 class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
-  bool passplay = false;
+  // bool passplay = false;
   Controller controller = Get.put(Controller());
+  @override
+  void initState() {
+    controller.podcastposttype_bool = true.obs;
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            controller.podcastapp("Audio Podcast", Audio_Podcast_UI(), context),
-            Expanded(
-                child: SingleChildScrollView(
-                    child: SizedBox(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 3.0.hp,
-                      //  22,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text("Post Type"),
-                    ),
-                    SizedBox(
-                      height: 1.0.hp,
-                      //  12,
-                    ),
-                    Post_Method_UI(),
-                    SizedBox(
-                      height: 2.0.hp,
-                      // 24,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text("Select group"),
-                    ),
-                    SizedBox(
-                      height: 1.5.hp,
-                      // 12,
-                    ),
-                    Create_Post_UI(),
-                    SizedBox(
-                      height: 2.0.hp,
-                      // 24,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        // Add_Photos_UI(), Add_Video_UI()
-                        addAudio(),
-                        addImage()
-                      ],
-                    ),
-                    SizedBox(
-                      height: 0.5.hp, //  8,
-                    ),
-                    Emogie_Description_UI(),
-                    SizedBox(
-                      height: 5.0.hp,
-                      // 80,
-                    ),
+        body: SafeArea(
+            child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        controller.podcastapp("Audio Podcast", Audio_Podcast_UI(), context),
 
-                    // SizedBox(
-                    //   height: 50,
-                    // ),
-
-                    Timer(),
-                    SizedBox(
-                      height: 7.0.hp,
-                      //  40,
-                    ),
-                    Align(
-                      child: controller.communityNext("Post", null),
-                      alignment: Alignment.center,
-                    ),
-                    // Post_Button_UI()
-                  ]),
-            )))
-          ],
+        // Material(
+        //   elevation: 3,
+        //   child: Container(
+        //     width: MediaQuery.of(context).size.width,
+        //     child: Row(children: [
+        //       // Back_Button_UI(),
+        //       Expanded(child: SizedBox()), Expanded(child: SizedBox()),
+        //       Padding(
+        //         padding: EdgeInsets.only(left: 30.0.sp),
+        //         child: Text("Post"),
+        //       ),
+        //       Expanded(child: Container()),
+        //       Search_UI(),
+        //       Notification_UI(),
+        //     ]),
+        //   ),
+        // ),
+        // controller.cusapp("Post", context),
+        SizedBox(
+          height: 2.0.hp,
+          //  22,
         ),
-      ),
-    );
+        Expanded(
+            child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 6.0.sp),
+                    child: Text(
+                      "Post Type",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 5.0.sp
+                      // 12,
+                      ),
+                  Podcast_Post_Method_UI(),
+                  SizedBox(height: 8.0.wp
+                      // 24,
+                      ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 5.0.sp),
+                    child: Text(
+                      "Select group",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 1.0.hp
+                      //  12,
+                      ),
+                  PodCast_Creating_Group_UI(),
+                  SizedBox(height: 1.0.hp
+                      //  12,
+                      ),
+                  SizedBox(
+                    width: 97.0.wp,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [addAudio(), addImage()]),
+                  ),
+                  Emogie_Description_UI(),
+                  // SizedBox(
+                  //   height: 24,
+                  // ),
+
+                  SizedBox(
+                    height: 1.0.hp,
+                  ),
+                  Timer(),
+                  SizedBox(
+                    height: 7.0.hp,
+                    //  40,
+                  ),
+                  Align(
+                    child: controller.communityNext("Post", null),
+                    alignment: Alignment.center,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ))
+      ],
+    )));
   }
 
   addAudio() {
-    return Material(
+    return Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         elevation: 3,
         child: GestureDetector(
           onTap: () {
@@ -126,19 +165,29 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                   Icons.music_note,
                   color: animagiee_CL,
                 ),
-                Text("Add Audio"),
+                Text(
+                  "Add Audio",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 9.0.sp,
+                      color: descriptionText_CL,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               ],
             ),
             height: 6.0.hp,
-            // 45,
-            width: 40.0.wp,
-            // 150,
+            //  45,
+            width: 45.0.wp,
+            //  150,
           ),
         ));
   }
 
   addImage() {
-    return Material(
+    return Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         elevation: 3,
         child: GestureDetector(
           onTap: () {
@@ -155,13 +204,22 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                   Icons.image,
                   color: animagiee_CL,
                 ),
-                Text("Add Image"),
+                Text(
+                  "Add Image",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 9.0.sp,
+                      color: descriptionText_CL,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               ],
             ),
             height: 6.0.hp,
-            // 45,
-            width: 40.0.wp,
-            // 150,
+            //  45,
+            width: 45.0.wp,
+            //  150,
           ),
         ));
   }

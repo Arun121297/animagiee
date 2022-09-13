@@ -33,11 +33,12 @@ class _TimerState extends State<Timer> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Expanded(child: SizedBox()),
             Container(
               child: Row(
                 children: [
@@ -73,11 +74,23 @@ class _TimerState extends State<Timer> {
                 ],
               ),
             ),
+            SizedBox(
+              width: 2.0.wp,
+            ),
+            SizedBox(
+              width: 30.0.wp,
+              height: 12.0.hp,
+              child: Image.asset("images/musicanimation.png"),
+            ),
+            SizedBox(
+              width: 2.0.wp,
+            ),
             Text(
                 playpasslist >= 2
                     ? "${min_final}:${sec_final}"
                     : "${min}:${sec}",
-                style: TextStyle(fontSize: 24.0))
+                style: TextStyle(fontSize: 24.0)),
+            Expanded(child: SizedBox()),
           ],
         ),
         SizedBox(

@@ -42,8 +42,10 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
             children: [
               // controller.cusapp("", context),
               SizedBox(
-                height: 400,
-                width: 400,
+                height: 50.0.hp,
+                //  400,
+                width: 80.0.wp,
+                //  400,
                 child: Lottie.asset(
                   giflotti,
                   // controller: Animationcontroller,
@@ -62,7 +64,7 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 48,
+                    height: 5.0.hp,
                   ),
                   Container(
                     // color: Colors.orange,
@@ -73,7 +75,7 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                         text: "Your appointment has been fixed to",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 12,
+                            fontSize: 11.0.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.w700,
                           ),
@@ -84,7 +86,7 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                             text: '  03-Mar-2022',
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                fontSize: 12,
+                                fontSize: 10.5.sp,
                                 color: animagiee_CL,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -94,7 +96,7 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                             text: ' Tuesday',
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                fontSize: 12,
+                                fontSize: 11.0.sp,
                                 color: animagiee_CL,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -105,7 +107,7 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                             text: '  6.00 PM.',
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                fontSize: 12,
+                                fontSize: 10.5.sp,
                                 color: animagiee_CL,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -116,21 +118,21 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                     ),
                   ),
                   SizedBox(
-                    height: 16,
+                    height: 2.0.hp,
                   ),
                   Container(
                       child: Text(
                     "Feel free to ask all your questions to our doctor...",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        fontSize: 10,
+                        fontSize: 9.0.sp,
                         color: text_1,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                   )),
                   SizedBox(
-                    height: 85,
+                    height: 8.0.hp,
                   ),
                   Align(
                     alignment: Alignment.center,

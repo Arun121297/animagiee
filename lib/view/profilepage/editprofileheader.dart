@@ -50,25 +50,14 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           padding: const EdgeInsets.all(8.0),
           child: Align(
             alignment: Alignment.topRight,
-            child: CircleAvatar(
-              child: SizedBox(
-                height: 5.0.hp,
-                width: 3.5.wp,
-                // 14,
-                child: Image.asset(
-                  "images/editicon.png",
-                  // cacheHeight: 14,
-                  // cacheWidth: 14,
-                ),
-              ),
-              radius: 12.0.sp,
-              backgroundColor: Colors.white,
-              // foregroundColor: animagiee_CL,
-            ),
+            child: SizedBox(
+                height: 6.0.hp,
+                width: 9.0.wp,
+                child: Image.asset("images/edit.png")),
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(40.0.sp),
+          padding: EdgeInsets.all(48.0.sp),
           child: Row(
             children: [
               Container(
@@ -80,7 +69,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
                     "MY Profile",
                     style: GoogleFonts.jost(
                       textStyle: TextStyle(
-                        fontSize: 21.0.sp,
+                        fontSize: 19.5.sp,
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                       ),
@@ -89,22 +78,15 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
               SizedBox(
                 width: 3.0.wp,
               ),
-              CircleAvatar(
-                child: SizedBox(
-                  height: 5.0.hp,
-                  width: 3.5.wp,
-                  child: Image.asset(
-                    "images/editicon.png",
-                  ),
-                ),
-                radius: 12.0.sp,
-                backgroundColor: Colors.white,
-              ),
+              SizedBox(
+                  height: 6.0.hp,
+                  width: 9.0.wp,
+                  child: Image.asset("images/edit.png")),
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 30.0.sp, left: 20.0.sp),
+          padding: EdgeInsets.only(top: 30.0.sp, left: 15.0.sp),
           child: Align(
             heightFactor: 1.4,
             alignment: Alignment.centerLeft,
@@ -124,20 +106,11 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(right: 35.0.sp, bottom: 20.0.sp),
-              child: CircleAvatar(
-                child: SizedBox(
-                  height: 5.0.hp,
-                  width: 3.5.wp,
-                  child: Image.asset(
-                    "images/editicon.png",
-                    // cacheHeight: 14,
-                    // cacheWidth: 14,
-                  ),
-                ),
-                radius: 12.0.sp,
-                backgroundColor: Colors.white,
-              ),
+              padding: EdgeInsets.only(right: 35.0.sp, bottom: 10.0.sp),
+              child: SizedBox(
+                  height: 6.0.hp,
+                  width: 9.0.wp,
+                  child: Image.asset("images/edit.png")),
             ),
           ),
         ),

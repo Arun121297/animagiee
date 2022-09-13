@@ -1,8 +1,11 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/podcast/suggestedpodcast.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
 
 import 'audiopodcast.dart';
@@ -37,10 +40,19 @@ class _View_All_Suggested_List_UIState
                   child: Padding(
                     padding: EdgeInsets.only(top: 10.0),
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height - 140,
-                      width: MediaQuery.of(context).size.width,
-                      child: Suggested_PodCast_UI(),
-                    ),
+                        height: MediaQuery.of(context).size.height - 140,
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView.separated(
+                          separatorBuilder: (context, index) {
+                            return SizedBox(
+                              height: 10,
+                            );
+                          },
+                          itemCount: 20,
+                          itemBuilder: (context, index) {
+                            return Suggested_PodCast_UI();
+                          },
+                        )),
                   ),
                 ),
               ),

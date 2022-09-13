@@ -25,10 +25,10 @@ class _MyWork_Header_UIState extends State<MyWork_Header_UI> {
                   image: AssetImage("images/doc_3.jpg"), fit: BoxFit.cover),
               // color: animagiee_CL,
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15))),
+                  bottomLeft: Radius.circular(15.0.sp),
+                  bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
-          height: 14.0.hp,
+          height: 13.0.hp,
           // 108,
           // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
         ),
@@ -37,12 +37,12 @@ class _MyWork_Header_UIState extends State<MyWork_Header_UI> {
               // image: DecorationImage(
               //     image: AssetImage("images/doc_3.jpg"),
               //     fit: BoxFit.cover),
-              color: Colors.black54,
+              color: Colors.black38,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(15.0.sp),
                   bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
-          height: 14.0.hp,
+          height: 13.0.hp,
           // 108,
           // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
         ),

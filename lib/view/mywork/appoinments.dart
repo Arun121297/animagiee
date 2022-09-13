@@ -20,16 +20,18 @@ class _Appoinments_Design_UIState extends State<Appoinments_Design_UI> {
       color: mywork_container_CL,
       //  Colors.amberAccent,
 
-      height: 11.0.hp,
+      height: 13.0.hp,
       //  83,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         itemCount: 3,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => Card(
-            child: Container(
-          height: 11.0.hp, //  83,
+        itemBuilder: (context, index) =>
+            // SizedBox()
+            Card(
+                child: Container(
+          // height: 11.0.hp, //  83,
           width: 70.0.wp,
           //  246,
           child: Row(
@@ -46,6 +48,7 @@ class _Appoinments_Design_UIState extends State<Appoinments_Design_UI> {
                         DecorationImage(image: AssetImage("images/doc_4.jpg"))),
               ),
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -55,7 +58,7 @@ class _Appoinments_Design_UIState extends State<Appoinments_Design_UI> {
                         "David joseph",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 6.5.sp,
+                            fontSize: 7.5.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
@@ -75,7 +78,7 @@ class _Appoinments_Design_UIState extends State<Appoinments_Design_UI> {
                           "View",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              fontSize: 6.5.sp,
+                              fontSize: 7.5.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -88,7 +91,7 @@ class _Appoinments_Design_UIState extends State<Appoinments_Design_UI> {
                     "Pet type - Dog",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        fontSize: 7.5.sp,
+                        fontSize: 8.0.sp,
                         color: Colors.grey,
                         fontWeight: FontWeight.w500,
                       ),
@@ -98,7 +101,7 @@ class _Appoinments_Design_UIState extends State<Appoinments_Design_UI> {
                     "Appointment Date 12/04/2022",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        fontSize: 6.5.sp,
+                        fontSize: 7.0.sp,
                         color: myworkaniopacity,
                         fontWeight: FontWeight.w500,
                       ),
@@ -108,7 +111,7 @@ class _Appoinments_Design_UIState extends State<Appoinments_Design_UI> {
                     "Appointment at 6.30 PM",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        fontSize: 6.5.sp,
+                        fontSize: 7.0.sp,
                         color: myworkaniopacity,
                         fontWeight: FontWeight.w500,
                       ),

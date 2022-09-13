@@ -30,23 +30,18 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
                   bottomLeft: Radius.circular(15.0.sp),
                   bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
-          height: 14.0.hp,
+          height: 13.0.hp,
           // 108,
           // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
         ),
         Container(
           decoration: BoxDecoration(
-              // image: DecorationImage(
-              //     image: AssetImage("images/doc_3.jpg"),
-              //     fit: BoxFit.cover),
-              color: Colors.black54,
+              color: Colors.black38,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(15.0.sp),
                   bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
-          height: 14.0.hp,
-          // 108,
-          // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
+          height: 13.0.hp,
         ),
         Padding(
           padding: EdgeInsets.only(top: 40.0.sp, left: 20.0.sp),
@@ -79,14 +74,14 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(57.0.sp),
+          padding: EdgeInsets.all(50.0.sp),
           child: Container(
               margin: EdgeInsets.only(left: 60.0.sp),
               child: Text(
                 "Dr.Meena",
                 style: GoogleFonts.jost(
                   textStyle: TextStyle(
-                    fontSize: 22.0.sp,
+                    fontSize: 19.5.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),

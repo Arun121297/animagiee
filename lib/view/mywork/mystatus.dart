@@ -11,18 +11,11 @@ class MyStatus_UI extends StatefulWidget {
 }
 
 class _MyStatus_UIState extends State<MyStatus_UI> {
-  var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
-  ];
-  String dropdownValue = 'One';
+  String dropdownValue = 'Active';
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10.0),
+      padding: EdgeInsets.only(left: 8.0.sp),
       child: Card(
         child: SizedBox(
           height: 5.0.hp,
@@ -44,7 +37,7 @@ class _MyStatus_UIState extends State<MyStatus_UI> {
                 dropdownValue = newValue!;
               });
             },
-            items: <String>['One', 'Two', 'Free', 'Four']
+            items: <String>["Active", "De-Active"]
                 .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,

@@ -81,7 +81,7 @@ class _User_ProfileState extends State<User_Profile> {
                         bottomLeft: Radius.circular(15.0.sp),
                         bottomRight: Radius.circular(15.0.sp))),
                 width: MediaQuery.of(context).size.width,
-                height: 14.0.hp,
+                height: 13.0.hp,
                 // 108,
                 // child: Image.asset("images/groupphoto.jpg", fit: BoxFit.cover),
               ),
@@ -92,7 +92,7 @@ class _User_ProfileState extends State<User_Profile> {
                         bottomLeft: Radius.circular(15.0.sp),
                         bottomRight: Radius.circular(15.0.sp))),
                 width: MediaQuery.of(context).size.width,
-                height: 14.0.hp,
+                height: 13.0.hp,
                 // 108,
                 // child: Image.asset("images/groupphoto.jpg", fit: BoxFit.cover),
               ),
@@ -102,13 +102,13 @@ class _User_ProfileState extends State<User_Profile> {
                   heightFactor: 1.4,
                   alignment: Alignment.centerLeft,
                   child: CircleAvatar(
-                    radius: 36.0.sp,
+                    radius: 42.0.sp,
                     backgroundColor: Colors.white,
                     child: CircleAvatar(
                       backgroundImage:
                           ExactAssetImage("images/profilephotos.jpg"),
                       // backgroundColor: animagiee_CL,
-                      radius: 34.0.sp,
+                      radius: 40.0.sp,
                     ),
                   ),
                 ),
@@ -263,7 +263,7 @@ class _User_ProfileState extends State<User_Profile> {
               height: 2.0.hp,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height - 392,
+              height: MediaQuery.of(context).size.height - 405,
               child: PageView(
                 controller: pageController,
                 onPageChanged: (value) {

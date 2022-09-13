@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
+import 'addDocument.dart';
 
 class Edit_Profile_TextField_UI extends StatefulWidget {
   const Edit_Profile_TextField_UI({Key? key}) : super(key: key);
@@ -23,7 +25,17 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
     'Item 4',
     'Item 5',
   ];
+  var profession = [
+    'Veterinary Doctor',
+    'Pet lover',
+    'Breeder',
+    'Trader',
+    'Trainer',
+    "Rescue worker"
+  ];
+  String professiondropvalue = 'Veterinary Doctor';
   String dropdownvalue = 'Item 1';
+  bool workwithus = true;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -118,7 +130,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              labelText: "First Name",
+              labelText: "  First Name",
               // hintText: "First Name"
             )),
           ),
@@ -158,7 +170,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              labelText: "Last Name",
+              labelText: "  Last Name",
               // hintText: "First Name"
             )),
           ),
@@ -185,6 +197,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             // 43,
             width: 89.0.wp,
             //  326,
+
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
@@ -207,7 +220,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               items: items.map((String items) {
                 return DropdownMenuItem(
                   value: items,
-                  child: Text(items),
+                  child: Container(
+                      margin: EdgeInsets.only(left: 10), child: Text(items)),
                 );
               }).toList(),
               // After selecting the desired option,it will
@@ -220,82 +234,93 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             ),
           ),
         ),
-        Card(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0.sp)),
-          child: Container(
-            height: 6.5.hp,
-            // 43,
-            width: 89.0.wp,
-            //  326,
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 1),
-                color: animagiee_CL,
+        Visibility(
+          visible: workwithus,
+          child: Card(
+            shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0.sp)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  "Do you like to work with us",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 9.5.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
+            child: Container(
+              height: 6.5.hp,
+              // 43,
+              width: 89.0.wp,
+              //  326,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey, width: 1),
+                  color: animagiee_CL,
+                  borderRadius: BorderRadius.circular(5.0.sp)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "Do you like to work with us",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 9.0.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
-                ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0.sp)),
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 3.5.hp,
-                    // 29,
-                    width: 20.0.wp,
-                    // 64,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0.sp),
-                      color: Colors.black,
-                    ),
-                    child: Text(
-                      "Yes",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 9.5.sp,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        workwithus = false;
+                        Get.to(Add_Document_UI());
+                      });
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0.sp)),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 3.5.hp,
+                        // 29,
+                        width: 18.0.wp,
+                        // 64,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.0.sp),
+                          color: Colors.black,
+                        ),
+                        child: Text(
+                          "Yes",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 9.0.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0.sp)),
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 3.5.hp,
-                    // 29,
-                    width: 20.0.wp,
-                    // 64,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0.sp),
-                      color: Colors.black,
-                    ),
-                    child: Text(
-                      "No",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 9.5.sp,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
+                  Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0.sp)),
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 3.5.hp,
+                      // 29,
+                      width: 18.0.wp,
+                      // 64,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0.sp),
+                        color: Colors.black,
+                      ),
+                      child: Text(
+                        "No",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.0.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -306,19 +331,19 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    // margin: EdgeInsets.only(left: 18),
+                    margin: EdgeInsets.only(left: 4.0.sp),
                     // color: Colors.green,
                     // width: MediaQuery.of(context).size.width,
                     child: Text(
-                  "Gender",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 9.5.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                )),
+                      "Gender",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )),
                 Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0.sp)),
@@ -349,7 +374,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       items: items.map((String items) {
                         return DropdownMenuItem(
                           value: items,
-                          child: Text(items),
+                          child: Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text(items)),
                         );
                       }).toList(),
                       // After selecting the desired option,it will
@@ -368,19 +395,19 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                    // margin: EdgeInsets.only(left: 18),
+                    margin: EdgeInsets.only(left: 4.0.sp),
                     // color: Colors.green,
                     // width: MediaQuery.of(context).size.width,
                     child: Text(
-                  "Date of Birth",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 9.5.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                )),
+                      "Date of Birth",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    )),
                 Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
@@ -403,7 +430,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      labelText: "DD/MM/YYYY",
+                      labelText: "  DD/MM/YYYY",
                       // hintText: "First Name"
                     )),
                   ),
@@ -447,7 +474,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              labelText: "Email",
+              labelText: "  Email",
               // hintText: "First Name"
             )),
           ),
@@ -487,7 +514,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              labelText: "Mobile Number",
+              labelText: "  Mobile Number",
               // hintText: "First Name"
             )),
           ),
@@ -527,7 +554,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              labelText: "Address",
+              labelText: "  Address",
               // hintText: "First Name"
             )),
           ),
@@ -582,7 +609,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       items: items.map((String items) {
                         return DropdownMenuItem(
                           value: items,
-                          child: Text(items),
+                          child: Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text(items)),
                         );
                       }).toList(),
                       // After selecting the desired option,it will
@@ -644,7 +673,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       items: items.map((String items) {
                         return DropdownMenuItem(
                           value: items,
-                          child: Text(items),
+                          child: Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child: Text(items)),
                         );
                       }).toList(),
                       // After selecting the desired option,it will
@@ -696,7 +727,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              labelText: "Pin Code",
+              labelText: "  Pin Code",
               // hintText: "First Name"
             )),
           ),
