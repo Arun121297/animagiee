@@ -47,8 +47,6 @@ class _My_Work_Design_UIState extends State<My_Work_Design_UI> {
                   navipage: null,
                   fun: Home_Page(),
                   chat: false),
-
-              // controller.chatapp("My Work", Home_Page(), context),
               Expanded(
                   child: SingleChildScrollView(
                 child: SizedBox(
