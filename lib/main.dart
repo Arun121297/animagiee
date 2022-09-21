@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Splash Screen',
-      // theme: ThemeData(primarySwatch: Colors.),
+    
       home: Splash_Screen(),
       debugShowCheckedModeBanner: false,
     );
