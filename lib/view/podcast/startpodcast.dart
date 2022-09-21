@@ -57,8 +57,6 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
           title: "Audio Podcast",
         ),
 
-        // controller.podcastapp("Audio Podcast", Audio_Podcast_UI(), context),
-
         // Material(
         //   elevation: 3,
         //   child: Container(
