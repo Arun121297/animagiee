@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
@@ -15,18 +14,23 @@ class Doctor_Details_UI extends StatefulWidget {
 }
 
 class _Doctor_Details_UIState extends State<Doctor_Details_UI> {
-  // List appoinmenttime = ["₹ 300 - 15 mins", "₹ 15 / min"];
   List Doctors_name = [
     "Dr.Meena",
     "Dr.Karthi",
     "Dr.Vishak",
     "Dr.Praba",
-    "Dr.Praveen"
+    "Dr.Praveen",
+    "Dr.Meena",
+    "Dr.Karthi",
+    "Dr.Vishak",
+    "Dr.Praba",
+    "Dr.Praveen",
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 123,
+    return SizedBox(
+      // color: Colors.amber,
+      width: 40.0.wp,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,8 +38,8 @@ class _Doctor_Details_UIState extends State<Doctor_Details_UI> {
           Text(Doctors_name[widget.fetchindex]),
           Text(
             maxLines: 2,
-            "Lorem Ipsum is simply dummy"
-            "text of the printing and ...",
+            "Lorem Ipsum is simply dummy text of the printing and ...",
+            overflow: TextOverflow.ellipsis,
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
                 fontSize: 7.0.sp,
@@ -43,7 +47,6 @@ class _Doctor_Details_UIState extends State<Doctor_Details_UI> {
                 fontWeight: FontWeight.w400,
               ),
             ),
-            // overflow: TextOverflow.ellipsis,
           ),
           Row(
             children: [
@@ -51,60 +54,60 @@ class _Doctor_Details_UIState extends State<Doctor_Details_UI> {
                 Icon(
                   Icons.star,
                   color: animagiee_CL,
-                  size: 17,
+                  size: 15.0.sp,
                 ),
                 Icon(
                   Icons.star,
                   color: Colors.yellow,
-                  size: 13,
+                  size: 12..sp,
                 ),
               ]),
               Stack(alignment: Alignment.center, children: [
                 Icon(
                   Icons.star,
                   color: animagiee_CL,
-                  size: 17,
+                  size: 15.0.sp,
                 ),
                 Icon(
                   Icons.star,
                   color: Colors.yellow,
-                  size: 13,
+                  size: 12..sp,
                 ),
               ]),
               Stack(alignment: Alignment.center, children: [
                 Icon(
                   Icons.star,
                   color: animagiee_CL,
-                  size: 17,
+                  size: 15.0.sp,
                 ),
                 Icon(
                   Icons.star,
                   color: Colors.yellow,
-                  size: 13,
+                  size: 12..sp,
                 ),
               ]),
               Stack(alignment: Alignment.center, children: [
                 Icon(
                   Icons.star,
                   color: animagiee_CL,
-                  size: 17,
+                  size: 15.0.sp,
                 ),
                 Icon(
                   Icons.star,
                   color: Colors.yellow,
-                  size: 13,
+                  size: 12..sp,
                 ),
               ]),
               Stack(alignment: Alignment.center, children: [
                 Icon(
                   Icons.star,
                   color: animagiee_CL,
-                  size: 17,
+                  size: 15.0.sp,
                 ),
                 Icon(
                   Icons.star,
                   color: Colors.yellow,
-                  size: 13,
+                  size: 12..sp,
                 ),
               ]),
             ],

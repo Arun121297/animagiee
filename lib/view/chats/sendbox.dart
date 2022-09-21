@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
@@ -36,18 +35,30 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
           Container(
             width: 48.0.wp,
             // 195,
-            height: 4.0.hp,
+            height: 2.8.hp,
             //  40,
             child: TextField(
               decoration: InputDecoration(
                   border: InputBorder.none,
-                  // hintText: "Type your message",
-                  labelText: "Type your message",
-                  labelStyle: TextStyle(
-                    fontSize: 8,
-                    color: sendBox_CL,
-                    fontWeight: FontWeight.w500,
-                  )),
+                  hintText: "Type your message",
+                  hintStyle: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 8.0.sp,
+                      color: sendBox_CL,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  isCollapsed: false
+                  // label: Text("Type your message"),
+                  // // labelText: ,
+                  // labelStyle: GoogleFonts.poppins(
+                  //   textStyle: TextStyle(
+                  //     fontSize: 8.0.sp,
+                  //     color: sendBox_CL,
+                  //     fontWeight: FontWeight.w500,
+                  //   ),
+                  // ),
+                  ),
             ),
           ),
           SizedBox(

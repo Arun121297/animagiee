@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
@@ -26,9 +25,7 @@ class _chat_Search_UIState extends State<chat_Search_UI> {
         // 302,
         height: 5.0.hp,
         // 37,
-        // decoration: BoxDecoration(
-        //     // color: Colors.green,
-        //     borderRadius: BorderRadius.circular(20)),
+
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -48,7 +45,6 @@ class _chat_Search_UIState extends State<chat_Search_UI> {
                     ),
                   ),
                 )
-                // content1_CL
               ]),
         ),
       ),

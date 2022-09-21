@@ -1,8 +1,7 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/chats/chat.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,27 +23,6 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: Column(children: [
-        // GestureDetector(
-        //   onTap: () {
-        //     // Get.to(Create_New_Group_UI());
-        //   },
-        //   child: Padding(
-        //     padding: const EdgeInsets.all(30.0),
-        //     child: Container(
-        //       height: 56,
-        //       width: 336,
-        //       // color: Colors.white,
-        //       decoration: BoxDecoration(
-        //           border: Border(bottom: BorderSide(color: Colors.grey))),
-        //       child: Row(children: [
-        //         Icon(Icons.person_add),
-        //         Text("Create New Group"),
-        //         Expanded(child: Container()),
-        //         Icon(Icons.arrow_right)
-        //       ]),
-        //     ),
-        //   ),
-        // ),
         SizedBox(
           width: 95.0.wp,
           // 336,
@@ -63,11 +41,6 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
                   borderRadius: BorderRadius.circular(10.0.sp),
                 ),
                 child: Container(
-                  // decoration: BoxDecoration(
-                  //   color: Colors.orange,
-                  //   borderRadius: BorderRadius.circular(20),
-                  // ),
-
                   height: 10.0.hp,
                   //  65,
                   // width: 300,
@@ -155,12 +128,11 @@ class _Separate_Chat_UIState extends State<Separate_Chat_UI> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 23.0.hp, width: 70.0.wp,
-              // alignment: Alignment.center,
+              height: 23.0.hp,
+              width: 70.0.wp,
               child: Image.asset(
-                sampleimage, fit: BoxFit.cover,
-                // cacheHeight: 197,
-                // cacheWidth: 246,
+                sampleimage,
+                fit: BoxFit.cover,
               ),
             ),
             Container(

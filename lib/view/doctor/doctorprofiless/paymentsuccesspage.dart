@@ -17,20 +17,7 @@ class Successfull_Payment_UI extends StatefulWidget {
 }
 
 class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
-  //  final AnimationController Animationcontroller;
   var giflotti = "images/mpihZSqdsf.json";
-  // @override
-  // void initState() {
-  //   super.initState();
-
-  //   Animationcontroller = AnimationController(vsync:  );
-  // }
-
-  // @override
-  // void dispose() {
-  //   Animationcontroller.dispose();
-  //   super.dispose();
-  // }
 
   Controller controller = Get.put(Controller());
   @override
@@ -40,7 +27,6 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
         child: Container(
           child: Column(
             children: [
-              // controller.cusapp("", context),
               SizedBox(
                 height: 50.0.hp,
                 //  400,
@@ -48,17 +34,8 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                 //  400,
                 child: Lottie.asset(
                   giflotti,
-                  // controller: Animationcontroller,
-                  // onLoaded: (composition) {
-                  //   // Configure the AnimationController with the duration of the
-                  //   // Lottie file and start the animation.
-                  //   Animationcontroller
-                  //     ..duration = composition.duration
-                  //     ..forward();
-                  // },
                 ),
               ),
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -138,32 +115,6 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                     alignment: Alignment.center,
                     child:
                         controller.communityNext("Back to home", Home_Page()),
-
-                    //  GestureDetector(
-                    //   onTap: () {
-                    //     Get.to(Home_Page());
-                    //   },
-                    //   child: Container(
-                    //     height: 6.0.hp,
-                    //     //  43,
-                    //     width: 90.0.wp,
-                    //     // 310,
-                    //     decoration: BoxDecoration(
-                    //         color: Color(0xff272727),
-                    //         borderRadius: BorderRadius.circular(12)),
-                    //     alignment: Alignment.center,
-                    //     child: Text(
-                    //       "Back to home ",
-                    //       style: GoogleFonts.poppins(
-                    //         textStyle: TextStyle(
-                    //           color: const Color.fromRGBO(255, 255, 255, 1),
-                    //           fontSize: 15.0.sp,
-                    //           fontWeight: FontWeight.w600,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                   )
                 ],
               ),

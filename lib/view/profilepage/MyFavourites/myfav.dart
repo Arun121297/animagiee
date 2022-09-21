@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
+import '../../homeAppBar/appbar.dart';
 import '../../homepage/bookmark.dart';
 import '../../homepage/commend.dart';
 import '../../homepage/likes.dart';
@@ -30,7 +31,21 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
       child: Container(
         child: Column(
           children: [
-            controller.clubapp("My Favourites", Home_Page(), context),
+            AppbarContainer(
+              title: "My Favourites",
+              backarrow: true,
+              chat: false,
+              logo: false,
+              notification: true,
+              search: true,
+              podcast: false,
+              edit: false,
+              firstscreen: false,
+              navipage: null,
+              fun: Home_Page(),
+            ),
+
+            // controller.clubapp("My Favourites", Home_Page(), context),
             Expanded(
                 child: SingleChildScrollView(
                     child: SizedBox(
@@ -88,7 +103,7 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Text(
-                                            "UnFollow",
+                                            "Unfollow",
                                             style: GoogleFonts.poppins(
                                               textStyle: TextStyle(
                                                 fontSize: 10.0.sp,

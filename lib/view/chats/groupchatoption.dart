@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -77,22 +76,6 @@ class _Group_Chat_Option_UIState extends State<Group_Chat_Option_UI> {
                     SizedBox(
                       height: 1.0.hp,
                     )
-                    // Divider(
-                    //   endIndent: 10,
-                    //   indent: 10,
-                    // ),
-                    // Container(
-                    //   child: Text(
-                    //     "Clear Chat",
-                    //     style: GoogleFonts.poppins(
-                    //       textStyle: TextStyle(
-                    //         fontSize: 8.0.sp,
-                    //         color: buttonColor1_CL,
-                    //         fontWeight: FontWeight.w500,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // )
                   ],
                 ),
               ),

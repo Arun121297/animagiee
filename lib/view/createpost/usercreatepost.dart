@@ -12,8 +12,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../bottombarfile/bottomnavibar.dart';
+import '../homeAppBar/appbar.dart';
 import '../homeAppBar/notification.dart';
 import '../homeAppBar/search.dart';
+import '../profilepage/profileappbar.dart';
 import 'adddescription.dart';
 import 'addphotos.dart';
 import 'addvideos.dart';
@@ -41,30 +44,28 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: Customized_Bottom_Bar(),
+      bottomNavigationBar: Customized_Bottom_Bar(),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            controller.clubapp("Post", Home_Page(), context),
-            // Material(
-            //   elevation: 3,
-            //   child: Container(
-            //     width: MediaQuery.of(context).size.width,
-            //     child: Row(children: [
-            //       // Back_Button_UI(),
-            //       Expanded(child: SizedBox()), Expanded(child: SizedBox()),
-            //       Padding(
-            //         padding: EdgeInsets.only(left: 30.0.sp),
-            //         child: Text("Post"),
-            //       ),
-            //       Expanded(child: Container()),
-            //       Search_UI(),
-            //       Notification_UI(),
-            //     ]),
-            //   ),
-            // ),
-            // controller.cusapp("Post", context),
+            AppbarContainer(
+              title: "Post",
+              backarrow: false,
+              firstscreen: true,
+              navipage: 0,
+              notification: true,
+              edit: false,
+              search: true,
+              chat: false,
+              logo: false,
+              podcast: false,
+              fun: null,
+            ),
+            // Profile_AppBar_UI(
+            //     edit: false, notification: true, navipage: 0, title: "Post"),
+            // Postfrontscreen(),
+            // controller.clubapp("Post", Home_Page(), context),
             SizedBox(
               height: 2.0.hp,
               //  22,
@@ -126,8 +127,6 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                         child: Visibility(
                           visible: controller.file.path.isEmpty ? false : true,
                           child: Column(
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            // crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SizedBox(
                                 height: 5,
@@ -140,24 +139,12 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                                     //  134,
                                     width: 93.0.wp,
                                     // 339,
-                                    // constraints: BoxConstraints(
-                                    //     maxHeight: 300,
-                                    //     minHeight: 20.0.hp,
-                                    //     minWidth:
-                                    //         MediaQuery.of(context).size.width,
-                                    //     maxWidth:
-                                    //         MediaQuery.of(context).size.width),
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         fit: BoxFit.cover,
-                                        image:
-                                            // AssetImage(
-                                            //     controller.imagevideo.value.url.)
-                                            FileImage(
-                                                // File(controller.file.path),
-                                                File(controller
-                                                    .imagevideo.value.url
-                                                    .toString())),
+                                        image: FileImage(File(controller
+                                            .imagevideo.value.url
+                                            .toString())),
                                       ),
                                       borderRadius:
                                           BorderRadius.circular(8.0.sp),
@@ -182,9 +169,6 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                                           .toString(),
                                     ),
                                   );
-                                  // Visibility(
-                                  //   visible:    controller.videocontroller!.pause() == true ? true : false,
-                                  //   child: Icon(Icons.play_circle_filled))
                                 }
                               })
                             ],
@@ -198,24 +182,43 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                         width: 97.0.wp,
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Add_Photos_UI(),
-                              // SizedBox(
-                              //   width: 1.0.wp,
-                              // ),
-                              Add_Video_UI()
-                            ]),
+                            children: [Add_Photos_UI(), Add_Video_UI()]),
                       ),
 
                       Tag_People_UI(),
-                      Align(
-                        child: controller.communityNext("Post", null),
-                        alignment: Alignment.center,
+                      SizedBox(
+                        height: 3.0.hp,
                       ),
-                      // Post_Button_UI(),
-                      SizedBox(height: 2.5.sp
-                          // 10,
-                          )
+                      Align(
+                        alignment: Alignment.center,
+                        child: GestureDetector(
+                          onTap: () {
+                            controller.selectedIndex.value = 0;
+                          },
+                          child: Container(
+                            height: 6.0.hp,
+                            width: 90.0.wp,
+                            // 310,
+                            decoration: BoxDecoration(
+                                color: buttonColor1_CL,
+                                borderRadius: BorderRadius.circular(15)),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Post",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 18,
+                                  color: SigninButton_CL,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(height: 2.5.sp)
+                      // 10,
                     ],
                   ),
                 ),
@@ -226,4 +229,45 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
       ),
     );
   }
+
+  // Postfrontscreen() {
+  //   return Material(
+  //     elevation: 3,
+  //     child: Container(
+  //       width: MediaQuery.of(context).size.width,
+  //       child: Row(children: [
+  //         IconButton(
+  //           icon: Icon(
+  //             Icons.arrow_back_ios_new,
+  //             size: 12.0.sp,
+  //           ),
+  //           onPressed: () {
+  //             controller.selectedIndex.value = 0;
+  //             // Get.to(fun);
+  //           },
+  //         ),
+  //         Expanded(child: SizedBox()),
+  //         Padding(
+  //           padding: const EdgeInsets.only(left: 30.0),
+  //           child: Text(
+  //             "Post",
+  //             style: GoogleFonts.poppins(
+  //               textStyle: TextStyle(
+  //                 fontSize: 10.5.sp,
+  //                 color: Colors.black,
+  //                 fontWeight: FontWeight.w500,
+  //               ),
+  //             ),
+  //           ),
+  //         ),
+  //         Expanded(child: Container()),
+  //         Search_UI(),
+  //         Notification_UI(),
+  //         SizedBox(
+  //           width: 3.0.wp,
+  //         )
+  //       ]),
+  //     ),
+  //   );
+  // }
 }

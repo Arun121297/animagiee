@@ -10,7 +10,9 @@ import 'package:video_player/video_player.dart';
 
 import '../config/colorconfig.dart';
 
+import '../view/homeAppBar/chat.dart';
 import '../view/homeAppBar/notification.dart';
+import '../view/homeAppBar/prot.dart';
 import '../view/homeAppBar/search.dart';
 import '../view/homepage/homepage.dart';
 
@@ -29,6 +31,7 @@ class Controller extends GetxController {
     false,
     false,
   ].obs;
+  RxBool isvisible = false.obs;
   List Home_Post = [
     "images/Cats.jpg",
     "images/Dogs.jpg",
@@ -44,8 +47,25 @@ class Controller extends GetxController {
   RxBool posttype_bool = true.obs;
   RxBool podcastposttype_bool = true.obs;
 
+  ///club file picker locally
+  File clubprofileimage = File("");
+  File clubbackgroundimage = File("");
+
+  ///clubfilepicker globally
+  File clubglobalprofileimage = File("");
+  File clubglobalbackgroundimage = File("");
+
+  ///profile filepicker locally
+  File pFprofileimage = File("");
+  File profilebackgroundimage = File("");
+
+  ///profile filepicker globally
+  File pFglobalprofileimage = File("");
+  File profileglobalbackgroundimage = File("");
+
   ///myclubs
   List communitylist = [];
+  List communitylistimage = [];
   RxBool chatoption = false.obs;
   //
   RxBool profilechangebool = false.obs;
@@ -55,6 +75,7 @@ class Controller extends GetxController {
   File file = File("");
   Rx<FilepickerType> imagevideo = FilepickerType(type: "", url: "").obs;
   VideoPlayerController? videocontroller;
+
   communityNext(title, fun) {
     return GestureDetector(
       onTap: () {
@@ -80,54 +101,12 @@ class Controller extends GetxController {
     );
   }
 
-  clubapp(title, fun, context) {
-    return Material(
-      elevation: 3,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        child: Row(children: [
-          // Back_Button_UI(),
-          IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              size: 12.0.sp,
-            ),
-            onPressed: () {
-              Get.to(fun);
-            },
-          ),
-          Expanded(child: SizedBox()),
-          Padding(
-            padding: const EdgeInsets.only(left: 30.0),
-            child: Text(
-              title,
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 10.5.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ),
-          Expanded(child: Container()),
-          Search_UI(),
-          Notification_UI(),
-          SizedBox(
-            width: 3.0.wp,
-          )
-        ]),
-      ),
-    );
-  }
-
-  // cusapp(title, fun, context) {
+  // clubapp(title, fun, context) {
   //   return Material(
   //     elevation: 3,
   //     child: Container(
   //       width: MediaQuery.of(context).size.width,
   //       child: Row(children: [
-  //         // Back_Button_UI(),
   //         IconButton(
   //           icon: Icon(
   //             Icons.arrow_back_ios_new,
@@ -140,87 +119,95 @@ class Controller extends GetxController {
   //         Expanded(child: SizedBox()),
   //         Padding(
   //           padding: const EdgeInsets.only(left: 30.0),
-  //           child: Text(title),
+  //           child: Text(
+  //             title,
+  //             style: GoogleFonts.poppins(
+  //               textStyle: TextStyle(
+  //                 fontSize: 10.5.sp,
+  //                 color: Colors.black,
+  //                 fontWeight: FontWeight.w500,
+  //               ),
+  //             ),
+  //           ),
   //         ),
   //         Expanded(child: Container()),
   //         Search_UI(),
   //         Notification_UI(),
+  //         SizedBox(
+  //           width: 3.0.wp,
+  //         )
   //       ]),
   //     ),
   //   );
   // }
 
-  chatapp(title, fun, context) {
-    return Material(
-      elevation: 3,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        child: Row(children: [
-          // Back_Button_UI(),
-          IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              size: 12.0.sp,
-            ),
-            onPressed: () {
-              Get.to(fun);
-            },
-          ),
-          Flexible(child: Container()),
-          SizedBox(
-            width: 45,
-          ),
-          Text(
-            title,
-            style: GoogleFonts.poppins(
-              textStyle: TextStyle(
-                fontSize: 10.5.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          Flexible(child: Container()),
-          Flexible(child: Container()),
-        ]),
-      ),
-    );
-  }
+  // chatapp(title, fun, context) {
+  //   return Material(
+  //     elevation: 3,
+  //     child: Container(
+  //       width: MediaQuery.of(context).size.width,
+  //       child: Row(children: [
+  //         IconButton(
+  //           icon: Icon(
+  //             Icons.arrow_back_ios_new,
+  //             size: 12.0.sp,
+  //           ),
+  //           onPressed: () {
+  //             Get.to(fun);
+  //           },
+  //         ),
+  //         Flexible(child: Container()),
+  //         SizedBox(
+  //           width: 45,
+  //         ),
+  //         Text(
+  //           title,
+  //           style: GoogleFonts.poppins(
+  //             textStyle: TextStyle(
+  //               fontSize: 10.5.sp,
+  //               color: Colors.black,
+  //               fontWeight: FontWeight.w500,
+  //             ),
+  //           ),
+  //         ),
+  //         Flexible(child: Container()),
+  //         Flexible(child: Container()),
+  //       ]),
+  //     ),
+  //   );
+  // }
 
-  podcastapp(title, fun, context) {
-    return Material(
-      elevation: 3,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        child: Row(children: [
-          // Back_Button_UI(),
-
-          IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              size: 12.0.sp,
-            ),
-            onPressed: () {
-              // Get.to(Home_Page());
-              Get.to(fun);
-            },
-          ),
-          Flexible(child: Container()),
-          // Expanded(child: SizedBox()),
-          SizedBox(
-            width: 13.0.wp,
-            //  45,
-          ),
-          Text(title),
-          Flexible(child: Container()),
-          Flexible(child: Container()),
-          // Expanded(child: Container()),
-          // Search_UI(),
-          Notification_UI(),
-        ]),
-      ),
-    );
-  }
+  // podcastapp(title, fun, context) {
+  //   return Material(
+  //     elevation: 3,
+  //     child: Container(
+  //       width: MediaQuery.of(context).size.width,
+  //       child: Row(children: [
+  //         IconButton(
+  //           icon: Icon(
+  //             Icons.arrow_back_ios_new,
+  //             size: 12.0.sp,
+  //           ),
+  //           onPressed: () {
+  //             Get.to(fun);
+  //           },
+  //         ),
+  //         Flexible(child: Container()),
+  //         SizedBox(
+  //           width: 13.0.wp,
+  //           //  45,
+  //         ),
+  //         Text(title),
+  //         Flexible(child: Container()),
+  //         Flexible(child: Container()),
+  //         Notification_UI(),
+  //         SizedBox(
+  //           width: 2.0.wp,
+  //         )
+  //       ]),
+  //     ),
+  //   );
+  // }
 
   chatscreenapp(title, fun, context) {
     return Material(
@@ -244,9 +231,12 @@ class Controller extends GetxController {
           Row(
             children: [
               CircleAvatar(
-                radius: 16,
+                radius: 13.0.sp,
                 backgroundColor: animagiee_CL,
-                child: CircleAvatar(radius: 15),
+                child: CircleAvatar(
+                  radius: 12.0.sp,
+                  backgroundImage: ExactAssetImage("images/Dogs.jpg"),
+                ),
               ),
               SizedBox(
                 width: 10,
@@ -279,23 +269,12 @@ class Controller extends GetxController {
               // 16,
               child: Image.asset(
                 "images/burger.png",
-                // cacheHeight: 16,
-                // cacheWidth: 16,
               ),
             ),
           ),
           SizedBox(
             width: 4.0.wp,
           )
-          // IconButton(
-          //     onPressed: () {
-          //       if (chatoption.value == false) {
-          //         chatoption.value = true;
-          //       } else {
-          //         chatoption.value = false;
-          //       }
-          //     },
-          //     icon: Icon(Icons.menu))
         ]),
       ),
     );

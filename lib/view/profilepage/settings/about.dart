@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/controller.dart';
+import '../../homeAppBar/appbar.dart';
 import '../../homepage/homepage.dart';
 import 'settings.dart';
 
@@ -25,11 +26,34 @@ class _About_Design_UIState extends State<About_Design_UI> {
       child: Container(
         child: Column(
           children: [
-            controller.clubapp(
-              "About",
-              Settings_Page_1_UI(),
-              context,
+            AppbarContainer(
+              title: "About",
+              backarrow: true,
+              chat: false,
+              notification: true,
+              search: true,
+              edit: false,
+              firstscreen: false,
+              navipage: null,
+              logo: false,
+              podcast: false,
+              fun: Settings_Page_1_UI(),
             ),
+            //       AppbarContainer(
+            //   title: "About",
+            //   backarrow: true,
+            //   chat: false,
+            //   notification: true,
+            //   search: true,
+            //   logo: false,
+            //   podcast: false,
+            //   fun: Settings_Page_1_UI(),
+            // ),
+            // controller.clubapp(
+            //   "About",
+            //   Settings_Page_1_UI(),
+            //   context,
+            // ),
             SizedBox(
               height: 5.0.hp,
               //  48,
@@ -60,24 +84,32 @@ class _About_Design_UIState extends State<About_Design_UI> {
                             //  24,
                             child: Image.asset(
                               "images/about.png",
-                              // cacheHeight: 24,
-                              // cacheWidth: 24,
                             ),
                           )
                         ],
                       ),
                     ),
-                    Divider(
-                      endIndent: 20,
-                      indent: 80,
-                      color: Colors.black,
-                      thickness: 1,
-                    ),
-                    Divider(
-                      endIndent: 80,
-                      indent: 20,
-                      color: Colors.black,
-                      thickness: 1,
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 1.0.hp,
+                          child: Divider(
+                            endIndent: 20,
+                            indent: 80,
+                            color: Colors.black,
+                            thickness: 1,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.0.hp,
+                          child: Divider(
+                            endIndent: 80,
+                            indent: 20,
+                            color: Colors.black,
+                            thickness: 1,
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(height: 4.0.hp
                         // 30,

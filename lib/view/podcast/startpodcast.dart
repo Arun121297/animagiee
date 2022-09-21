@@ -14,6 +14,7 @@ import '../createpost/creategroup.dart';
 
 import '../createpost/postmethod.dart';
 
+import '../homeAppBar/appbar.dart';
 import 'audiopodcast.dart';
 import 'networktimer.dart';
 import 'podcastpost.dart';
@@ -42,7 +43,21 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
             child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        controller.podcastapp("Audio Podcast", Audio_Podcast_UI(), context),
+        AppbarContainer(
+          backarrow: true,
+          chat: false,
+          logo: false,
+          notification: true,
+          podcast: false,
+          search: false,
+          edit: false,
+          firstscreen: false,
+          navipage: null,
+          fun: Audio_Podcast_UI(),
+          title: "Audio Podcast",
+        ),
+
+        // controller.podcastapp("Audio Podcast", Audio_Podcast_UI(), context),
 
         // Material(
         //   elevation: 3,
@@ -134,7 +149,7 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                     //  40,
                   ),
                   Align(
-                    child: controller.communityNext("Post", null),
+                    child: controller.communityNext("Post", Audio_Podcast_UI()),
                     alignment: Alignment.center,
                   ),
                 ],

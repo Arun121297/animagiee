@@ -6,14 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'postcreation.dart';
 
-class CreatePost extends StatefulWidget {
+class CreatePost extends StatelessWidget {
   const CreatePost({Key? key}) : super(key: key);
 
-  @override
-  State<CreatePost> createState() => _CreatePostState();
-}
-
-class _CreatePostState extends State<CreatePost> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -54,26 +49,7 @@ class _CreatePostState extends State<CreatePost> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                )
-
-                //  TextField(
-                //   // textAlign: TextAlign.center,
-                //   decoration: InputDecoration(
-                //       border: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(30.0),
-                //       ),
-                //       filled: true,
-                //       // hintStyle: TextStyle(
-                //       //   color: Colors.grey[300],
-                //       // ),
-                //       labelStyle: TextStyle(
-                //         color: Colors.grey[300],
-                //       ),
-                //       labelText: "Write something here...",
-                //       // hintText: "Write something here...",
-                //       fillColor: Colors.white70),
-                // ),
-                ),
+                )),
             SizedBox(
               width: 3.0.wp,
             ),
@@ -85,13 +61,6 @@ class _CreatePostState extends State<CreatePost> {
             SizedBox(
               width: 5.0.wp,
             ),
-            // IconButton(
-            //   onPressed: () {},
-            //   icon: Icon(
-            //     Icons.photo_library_sharp,
-            //     color: animagiee_CL,
-            //   ),
-            // )
           ],
         ),
       ),

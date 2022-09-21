@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/mywork/myworkpage1.dart';
 import 'package:animagieeui/view/profilepage/settings/about.dart';
+import 'package:animagieeui/view/profilepage/settings/mycommunities.dart';
 import 'package:animagieeui/view/profilepage/settings/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +16,7 @@ import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
 import 'MyFavourites/myfav.dart';
 import 'appoinmentdetail/appoinmentdetails.dart';
+import 'settings/mypost.dart';
 
 class MY_Profile_Header_UI extends StatefulWidget {
   const MY_Profile_Header_UI({Key? key}) : super(key: key);
@@ -22,6 +26,16 @@ class MY_Profile_Header_UI extends StatefulWidget {
 }
 
 class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
+  @override
+  void initState() {
+    controller.profilebackgroundimage =
+        File(controller.profileglobalbackgroundimage.path);
+    controller.pFprofileimage = File(controller.pFglobalprofileimage.path);
+
+    // TODO: implement initState
+    super.initState();
+  }
+
   Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
@@ -37,27 +51,90 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
               child: Stack(children: [
                 Container(
                   decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("images/myprofilebg.jpg"),
-                          fit: BoxFit.cover),
-                      color: animagiee_CL,
+                      // color:
+                      //     controller.profileglobalbackgroundimage.path.isEmpty
+                      //         ? animagiee_CL
+                      //         : Colors.transparent,
+                      image:
+                          controller.profileglobalbackgroundimage.path.isEmpty
+                              ? DecorationImage(
+                                  image: AssetImage("images/emptyimage.jfif"),
+                                  fit: BoxFit.cover)
+                              : DecorationImage(
+                                  image: FileImage(
+                                      controller.profileglobalbackgroundimage),
+                                  fit: BoxFit.cover),
                       borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15.0.sp),
-                          bottomRight: Radius.circular(15.0.sp))),
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15))),
                   width: MediaQuery.of(context).size.width,
-                  height: 13.0.hp,
-                  // 108,
-                  // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
+                  height: 14.0.hp,
+
+                  //  108,
                 ),
                 Container(
                   decoration: BoxDecoration(
                       color: Colors.black38,
                       borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15.0.sp),
-                          bottomRight: Radius.circular(15.0.sp))),
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15))),
                   width: MediaQuery.of(context).size.width,
-                  height: 13.0.hp,
+                  height: 14.0.hp,
+                  //  108,
                 ),
+
+                // Container(
+                //   decoration: BoxDecoration(
+                //       color:
+                //           controller.profileglobalbackgroundimage.path.isEmpty
+                //               ? animagiee_CL
+                //               : Colors.transparent,
+                //       image: DecorationImage(
+                //           image: FileImage(
+                //             controller.clubglobalbackgroundimage,
+                //           ),
+                //           fit: BoxFit.cover),
+                //       borderRadius: BorderRadius.only(
+                //           bottomLeft: Radius.circular(15),
+                //           bottomRight: Radius.circular(15))),
+                //   width: MediaQuery.of(context).size.width,
+                //   height: 14.0.hp,
+                //   //  108,
+                // ),
+                // Container(
+                //   decoration: BoxDecoration(
+                //       color: Colors.black38,
+                //       borderRadius: BorderRadius.only(
+                //           bottomLeft: Radius.circular(15),
+                //           bottomRight: Radius.circular(15))),
+                //   width: MediaQuery.of(context).size.width,
+                //   height: 14.0.hp,
+                //   //  108,
+                // ),
+                // Container(
+                //   decoration: BoxDecoration(
+                //       image: DecorationImage(
+                //           image: AssetImage("images/myprofilebg.jpg"),
+                //           fit: BoxFit.cover),
+                //       color: animagiee_CL,
+                //       borderRadius: BorderRadius.only(
+                //           bottomLeft: Radius.circular(15.0.sp),
+                //           bottomRight: Radius.circular(15.0.sp))),
+                //   width: MediaQuery.of(context).size.width,
+                //   height: 13.0.hp,
+                //   // 108,
+                //   // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
+                // ),
+                // Container(
+                //   decoration: BoxDecoration(
+                //       color: Colors.black38,
+                //       borderRadius: BorderRadius.only(
+                //           bottomLeft: Radius.circular(15.0.sp),
+                //           bottomRight: Radius.circular(15.0.sp))),
+                //   width: MediaQuery.of(context).size.width,
+                //   height: 13.0.hp,
+                // ),
+
                 Padding(
                   padding: EdgeInsets.only(top: 30.0.sp, left: 15.0.sp),
                   child: Align(
@@ -66,12 +143,19 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     child: CircleAvatar(
                       radius: 42.0.sp,
                       backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        backgroundImage:
-                            ExactAssetImage("images/myprofile.jpg"),
-                        // backgroundColor: animagiee_CL,
-                        radius: 40.0.sp,
-                      ),
+                      child: controller.pFglobalprofileimage.path.isEmpty
+                          ? CircleAvatar(
+                              backgroundImage:
+                                  ExactAssetImage("images/emptyimage.jfif"),
+                              // backgroundColor: animagiee_CL,
+                              radius: 40.0.sp,
+                            )
+                          : CircleAvatar(
+                              backgroundImage:
+                                  FileImage(controller.pFglobalprofileimage),
+                              // backgroundColor: animagiee_CL,
+                              radius: 40.0.sp,
+                            ),
                     ),
                   ),
                 ),
@@ -217,109 +301,114 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Card(
-                    elevation: 3,
-                    child: SizedBox(
-                        width: 45.0.wp,
-                        // 160,
-                        height: 5.0.hp,
-                        // 40,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            SizedBox(
-                              height: 3.0.hp,
-                              width: 7.0.wp,
-                              child: Image.asset(
-                                "images/profileframe.png",
-                                // cacheHeight: 20,
-                                // cacheWidth: 20,
-                              ),
-                            ),
-                            // Icon(
-                            //   Icons.image_outlined,
-                            //   color: animagiee_CL,
-                            // ),
-                            Text(
-                              "Post",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(My_Post_UI());
+                    },
+                    child: Card(
+                      elevation: 3,
+                      child: SizedBox(
+                          width: 45.0.wp,
+                          // 160,
+                          height: 5.0.hp,
+                          // 40,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SizedBox(
+                                height: 3.0.hp,
+                                width: 7.0.wp,
+                                child: Image.asset(
+                                  "images/profileframe.png",
                                 ),
                               ),
-                            ),
-                            VerticalDivider(
-                              endIndent: 5,
-                              indent: 5,
-                              color: Colors.grey,
-                              thickness: 1,
-                              width: 2,
-                            ),
-                            Text(
-                              "34",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                              // Icon(
+                              //   Icons.image_outlined,
+                              //   color: animagiee_CL,
+                              // ),
+                              Text(
+                                "Post",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
-                            )
-                          ],
-                        )),
+                              VerticalDivider(
+                                endIndent: 5,
+                                indent: 5,
+                                color: Colors.grey,
+                                thickness: 1,
+                                width: 2,
+                              ),
+                              Text(
+                                "34",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              )
+                            ],
+                          )),
+                    ),
                   ),
-                  Card(
-                    elevation: 3,
-                    child: SizedBox(
-                        width: 45.0.wp,
-                        // 160,
-                        height: 5.0.hp,
-                        // 40,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            SizedBox(
-                              height: 3.0.hp,
-                              width: 7.0.wp,
-                              // height: 20,
-                              // width: 20,
-                              child: Image.asset(
-                                "images/grouplogo.png",
-                                // cacheHeight: 20,
-                                // cacheWidth: 20,
-                              ),
-                            ),
-                            Text(
-                              "Community",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(My_Communities_UI());
+                    },
+                    child: Card(
+                      elevation: 3,
+                      child: SizedBox(
+                          width: 45.0.wp,
+                          // 160,
+                          height: 5.0.hp,
+                          // 40,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SizedBox(
+                                height: 3.0.hp,
+                                width: 7.0.wp,
+                                child: Image.asset(
+                                  "images/grouplogo.png",
                                 ),
                               ),
-                            ),
-                            VerticalDivider(
-                              endIndent: 5,
-                              indent: 5,
-                              color: Colors.grey,
-                              thickness: 1,
-                              width: 2,
-                            ),
-                            Text(
-                              "15",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                              Text(
+                                "Community",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
-                            )
-                          ],
-                        )),
+                              VerticalDivider(
+                                endIndent: 5,
+                                indent: 5,
+                                color: Colors.grey,
+                                thickness: 1,
+                                width: 2,
+                              ),
+                              Text(
+                                // "23",
+                                " ${controller.communitylist.length}",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              )
+                            ],
+                          )),
+                    ),
                   ),
                 ],
               ),

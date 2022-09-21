@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class List_Of_Appoinment_UI extends StatefulWidget {
@@ -28,8 +27,6 @@ class _List_Of_Appoinment_UIState extends State<List_Of_Appoinment_UI> {
               // 60,
               child: Image.asset(
                 "images/profilecart.png",
-                // cacheHeight: 44,
-                // cacheWidth: 60,
               ),
             ),
             Text(

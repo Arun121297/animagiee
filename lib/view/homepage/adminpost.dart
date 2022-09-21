@@ -2,8 +2,7 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/homepage/share.dart';
 import 'package:animagieeui/view/homepage/suggestion.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,8 +12,6 @@ import 'bookmark.dart';
 import 'commend.dart';
 import 'likes.dart';
 import 'share.dart';
-import 'bookmark.dart';
-import 'commend.dart';
 
 class Admin_Post extends StatefulWidget {
   const Admin_Post({Key? key}) : super(key: key);
@@ -68,68 +65,7 @@ class _Admin_PostState extends State<Admin_Post> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            showModalBottomSheet(
-                              context: context,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20))),
-                              builder: (context) {
-                                return Container(
-                                  height: 20.0.hp,
-                                  //  174,
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text(
-                                        "UnFollow",
-                                        style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                            fontSize: 10.0.sp,
-                                            color: club_Text_1,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ),
-                                      Divider(
-                                        color: Colors.black,
-                                        endIndent: 30,
-                                        indent: 30,
-                                        // height: 5,
-                                      ),
-                                      Text(
-                                        "Report",
-                                        style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                            fontSize: 10.0.sp,
-                                            color: club_Text_1,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ),
-                                      Divider(
-                                        color: Colors.black,
-                                        endIndent: 30,
-                                        indent: 30,
-                                        // height: 5,
-                                      ),
-                                      Text(
-                                        "Block",
-                                        style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                            fontSize: 10.0.sp,
-                                            color: club_Text_1,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            );
+                            popup();
                           });
                         },
                         child: SizedBox(
@@ -139,77 +75,9 @@ class _Admin_PostState extends State<Admin_Post> {
                           // 16,
                           child: Image.asset(
                             "images/burger.png",
-                            // cacheHeight: 16,
-                            // cacheWidth: 16,
                           ),
                         ),
                       ),
-                      // IconButton(
-                      //   onPressed: () {
-                      //     setState(() {
-                      //       showModalBottomSheet(
-                      //         context: context,
-                      //         shape: RoundedRectangleBorder(
-                      //             borderRadius: BorderRadius.only(
-                      //                 topLeft: Radius.circular(20),
-                      //                 topRight: Radius.circular(20))),
-                      //         builder: (context) {
-                      //           return Container(
-                      //             height: 174,
-                      //             width: MediaQuery.of(context).size.width,
-                      //             child: Column(
-                      //               mainAxisAlignment:
-                      //                   MainAxisAlignment.spaceEvenly,
-                      //               children: [
-                      //                 Text(
-                      //                   "UnFollow",
-                      //                   style: GoogleFonts.poppins(
-                      //                     textStyle: TextStyle(
-                      //                       fontSize: 10.0.sp,
-                      //                       color: dummycontent_Cl,
-                      //                       fontWeight: FontWeight.w500,
-                      //                     ),
-                      //                   ),
-                      //                 ),
-                      //                 Divider(
-                      //                   color: Colors.grey,
-                      //                   endIndent: 10,
-                      //                   indent: 10,
-                      //                 ),
-                      //                 Text(
-                      //                   "Report",
-                      //                   style: GoogleFonts.poppins(
-                      //                     textStyle: TextStyle(
-                      //                       fontSize: 10.0.sp,
-                      //                       color: dummycontent_Cl,
-                      //                       fontWeight: FontWeight.w500,
-                      //                     ),
-                      //                   ),
-                      //                 ),
-                      //                 Divider(
-                      //                   color: Colors.grey,
-                      //                   endIndent: 10,
-                      //                   indent: 10,
-                      //                 ),
-                      //                 Text(
-                      //                   "Block",
-                      //                   style: GoogleFonts.poppins(
-                      //                     textStyle: TextStyle(
-                      //                       fontSize: 10.0.sp,
-                      //                       color: dummycontent_Cl,
-                      //                       fontWeight: FontWeight.w500,
-                      //                     ),
-                      //                   ),
-                      //                 ),
-                      //               ],
-                      //             ),
-                      //           );
-                      //         },
-                      //       );
-                      //     });
-                      //   },
-                      //   icon: Icon(Icons.menu),
-                      // )
                       SizedBox(
                         width: 8,
                       )
@@ -234,7 +102,7 @@ class _Admin_PostState extends State<Admin_Post> {
                     //  12,
                   ),
                   Container(
-                    height: 40.0.hp,
+                    height: 45.0.hp,
                     //  346,
                     width: 95.0.wp,
                     // 346,
@@ -288,24 +156,15 @@ class _Admin_PostState extends State<Admin_Post> {
                     ),
                   ),
                   Row(children: [
-                    // Container(
-                    //   width: 125,
-                    //   // color: Colors.orange,
-                    //   // height: 20,
-                    //   child:
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    //   children: [
                     Likes_UI(),
                     SizedBox(
-                      width: 5,
+                      width: 2.0.wp,
                     ),
                     Comment_UI(),
+                    SizedBox(
+                      width: 1.8.wp,
+                    ),
                     Share_UI(),
-                    //   ],
-                    // ),
-                    // ),
-                    // Expanded(child: Container()),
                     Expanded(child: Container()),
                     BookMark_UI(),
                   ]),
@@ -321,6 +180,69 @@ class _Admin_PostState extends State<Admin_Post> {
           ],
         ),
       ),
+    );
+  }
+
+  popup() {
+    return showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      builder: (context) {
+        return Container(
+          height: 20.0.hp,
+          //  174,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Unfollow",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.black,
+                endIndent: 30,
+                indent: 30,
+                // height: 5,
+              ),
+              Text(
+                "Report",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.black,
+                endIndent: 30,
+                indent: 30,
+                // height: 5,
+              ),
+              Text(
+                "Block",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

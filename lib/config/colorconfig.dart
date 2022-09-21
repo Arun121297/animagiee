@@ -51,6 +51,8 @@ const Color notificationContent1_CL = Color.fromRGBO(39, 39, 39, 1);
 ///mywork
 const Color myworkaniopacity = Color.fromRGBO(180, 125, 16, 1);
 const Color mywork_container_CL = Color.fromRGBO(243, 243, 243, 1);
+const Color availabletime_CL = Color.fromRGBO(42, 42, 42, 1);
+const Color dorpdownbox_CL = Color.fromRGBO(176, 176, 176, 1);
 //  Color.fromRGBO(243, 243, 243, 1)
 // (102, 102, 102, 1)
 const Color myworktext_1_CL = Color.fromRGBO(102, 102, 102, 1);

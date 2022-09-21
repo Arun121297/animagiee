@@ -1,8 +1,7 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/chats/chatscreen1.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 
 import '../../config/colorconfig.dart';
@@ -54,8 +53,10 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                       radius: 11.0.sp,
                       backgroundColor: animagiee_CL,
                       child: CircleAvatar(
+                        backgroundImage:
+                            ExactAssetImage("images/myprofilebg.jpg"),
                         radius: 10.0.sp,
-                        backgroundColor: Colors.green,
+                        // backgroundColor: Colors.green,
                       ),
                     ),
                   ),
@@ -66,7 +67,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                       backgroundColor: animagiee_CL,
                       child: CircleAvatar(
                         radius: 11.5.sp,
-                        backgroundColor: Colors.yellow,
+                        backgroundImage: ExactAssetImage("images/doc_3.jpg"),
                       ),
                     ),
                   ),
@@ -77,7 +78,8 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                       backgroundColor: animagiee_CL,
                       child: CircleAvatar(
                         radius: 10.0.sp,
-                        backgroundColor: Colors.purple,
+                        backgroundImage:
+                            ExactAssetImage("images/myprofilebg.jpg"),
                       ),
                     ),
                   ),
@@ -88,14 +90,17 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                       backgroundColor: animagiee_CL,
                       child: CircleAvatar(
                         radius: 11.5.sp,
-                        backgroundColor: Colors.black,
+                        backgroundImage: ExactAssetImage("images/Dogs.jpg"),
                       ),
                     ),
                   ),
                   CircleAvatar(
                     radius: 14.0.sp,
                     backgroundColor: animagiee_CL,
-                    child: CircleAvatar(radius: 13.0.sp),
+                    child: CircleAvatar(
+                      radius: 13.0.sp,
+                      backgroundImage: ExactAssetImage("images/doc_4.jpg"),
+                    ),
                   ),
                 ]),
               ),
@@ -121,23 +126,12 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
               // 16,
               child: Image.asset(
                 "images/burger.png",
-                // cacheHeight: 16,
-                // cacheWidth: 16,
               ),
             ),
           ),
           SizedBox(
             width: 4.0.wp,
           )
-          // IconButton(
-          //     onPressed: () {
-          //       if (controller.chatoption.value == false) {
-          //         controller.chatoption.value = true;
-          //       } else {
-          //         controller.chatoption.value = false;
-          //       }
-          //     },
-          //     icon: Icon(Icons.menu))
         ]),
       ),
     );

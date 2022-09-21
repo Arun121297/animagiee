@@ -8,6 +8,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../homeAppBar/appbar.dart';
 import 'completedappoinment.dart';
 
 class AppoinmentDetails_UI extends StatefulWidget {
@@ -26,7 +27,21 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
         child: Container(
           child: Column(
             children: [
-              controller.clubapp("Appoinment Details", Home_Page(), context),
+              AppbarContainer(
+                title: "Appoinment Details",
+                backarrow: true,
+                chat: false,
+                logo: false,
+                notification: true,
+                search: true,
+                edit: false,
+                firstscreen: false,
+                navipage: null,
+                podcast: false,
+                fun: Home_Page(),
+              ),
+
+              // controller.clubapp("Appoinment Details", Home_Page(), context),
               SizedBox(
                 height: 2.0.hp,
               ),

@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
 
+import '../homeAppBar/appbar.dart';
 import 'audiopodcast.dart';
 import 'dogsmusicplay.dart';
 
@@ -33,8 +34,22 @@ class _View_All_Suggested_List_UIState
         body: SafeArea(
           child: Column(
             children: [
-              controller.podcastapp(
-                  "Audio Podcast", Audio_Podcast_UI(), context),
+              AppbarContainer(
+                backarrow: true,
+                chat: false,
+                logo: false,
+                notification: true,
+                podcast: false,
+                search: false,
+                edit: false,
+                firstscreen: false,
+                navipage: null,
+                fun: Audio_Podcast_UI(),
+                title: "Audio Podcast",
+              ),
+
+              // controller.podcastapp(
+              //     "Audio Podcast", Audio_Podcast_UI(), context),
               Expanded(
                 child: SizedBox(
                   child: Padding(

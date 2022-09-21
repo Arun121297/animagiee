@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class MyWork_Header_UI extends StatefulWidget {
@@ -30,13 +29,9 @@ class _MyWork_Header_UIState extends State<MyWork_Header_UI> {
           width: MediaQuery.of(context).size.width,
           height: 13.0.hp,
           // 108,
-          // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
         ),
         Container(
           decoration: BoxDecoration(
-              // image: DecorationImage(
-              //     image: AssetImage("images/doc_3.jpg"),
-              //     fit: BoxFit.cover),
               color: Colors.black38,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(15.0.sp),
@@ -44,7 +39,6 @@ class _MyWork_Header_UIState extends State<MyWork_Header_UI> {
           width: MediaQuery.of(context).size.width,
           height: 13.0.hp,
           // 108,
-          // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
         ),
         Padding(
           padding: EdgeInsets.only(top: 40.0, left: 20),
@@ -56,7 +50,6 @@ class _MyWork_Header_UIState extends State<MyWork_Header_UI> {
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 backgroundImage: ExactAssetImage("images/doc_2.jpg"),
-                // backgroundColor: animagiee_CL,
                 radius: 40.0.sp,
               ),
             ),

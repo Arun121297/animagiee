@@ -50,24 +50,12 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
                     ),
                     hintText: 'Add your Description Here'),
               ),
-              //  Text(
-              //   "Add your Description Here",
-              //   style: GoogleFonts.poppins(
-              //     height: 3,
-              //     textStyle: TextStyle(
-              //       fontSize: 9.0.sp,
-              //       color: descriptionText_CL,
-              //       fontWeight: FontWeight.w500,
-              //     ),
-              //   ),
-              // ),
               height: 22.0.hp,
               //  150,
               width: 97.0.wp,
               // 349,
-              decoration: BoxDecoration(
-                  // border: Border.all(width: 2, color: Colors.black),
-                  borderRadius: BorderRadius.circular(10.0.sp)),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10.0.sp)),
             ),
           ),
         ),

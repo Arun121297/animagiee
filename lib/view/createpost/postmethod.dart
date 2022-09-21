@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -83,10 +82,6 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
                     //  19,
                     child: Image.asset("images/grouppost.png"),
                   ),
-                  // Icon(
-                  //   Icons.group,
-                  //   color: animagiee_CL,
-                  // ),
                   Text(
                     "Group",
                     style: GoogleFonts.poppins(
@@ -110,15 +105,6 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
                       });
                     },
                   ),
-                  // Radio(
-                  //     value: BestTutorSite.Group,
-                  //     groupValue: site,
-                  //     onChanged: (value) {
-                  //       setState(() {
-                  //         site = BestTutorSite.Group;
-                  //       });
-                  //       print(value); //selected value
-                  //     })
                 ],
               ),
               height: 6.0.hp,

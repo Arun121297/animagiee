@@ -1,10 +1,7 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/mywork/timer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_countdown_timer/index.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,6 +23,7 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
   var otptimer;
   @override
   void initState() {
+    controller.chatoption = false.obs;
     // otptimer == 60 ? reviewSectionPopUp() : null;
     // TODO: implement initState
     super.initState();
@@ -275,7 +273,9 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
           ),
           Expanded(child: Container()),
           Expanded(child: SizedBox()),
-
+          SizedBox(
+            width: 3.0.wp,
+          ),
           Row(
             children: [
               CircleAvatar(
@@ -300,16 +300,40 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
               child: OtpTimer(
                   // currentSeconds: otptimer,
                   )),
+          SizedBox(
+            width: 3.0.wp,
+          ),
           // Expanded(child: Container()),
-          IconButton(
-              onPressed: () {
-                if (controller.chatoption.value == false) {
-                  controller.chatoption.value = true;
-                } else {
-                  controller.chatoption.value = false;
-                }
-              },
-              icon: Icon(Icons.menu))
+          // IconButton(
+          //     onPressed: () {
+          //       if (controller.chatoption.value == false) {
+          //         controller.chatoption.value = true;
+          //       } else {
+          //         controller.chatoption.value = false;
+          //       }
+          //     },
+          //     icon: Icon(Icons.menu)),
+          GestureDetector(
+            onTap: () {
+              if (controller.chatoption.value == false) {
+                controller.chatoption.value = true;
+              } else {
+                controller.chatoption.value = false;
+              }
+            },
+            child: SizedBox(
+              height: 2.0.hp,
+              // 16,
+              width: 5.0.wp,
+              // 16,
+              child: Image.asset(
+                "images/burger.png",
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 2.0.wp,
+          )
         ]),
       ),
     );
@@ -443,64 +467,6 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
                                 image: AssetImage("images/Intersect.png"),
                                 fit: BoxFit.cover)),
                       ),
-                      // PreferredSize(
-                      //   preferredSize: Size.fromHeight(70.0),
-                      //   child: Container(
-                      //       decoration: BoxDecoration(
-                      //           border: Border(
-                      //               bottom: BorderSide(
-                      //                   color: Colors.orange,
-                      //                   // Color.fromRGBO(251, 182, 45, 0.66),
-                      //                   width: 1.0),
-                      //               top: BorderSide(
-                      //                   color: Colors.orange,
-                      //                   // Color.fromRGBO(251, 182, 45, 0.66),
-                      //                   width: 1.0))),
-                      //       child: Column(
-                      //           crossAxisAlignment: CrossAxisAlignment.center,
-                      //           children: [
-                      //             Container(
-                      //               width: double.infinity,
-                      //               decoration: BoxDecoration(
-                      //                   color:
-                      //                       Color.fromRGBO(251, 182, 45, 0.66),
-                      //                   border: Border.all(
-                      //                       color: Color.fromRGBO(
-                      //                           251, 182, 45, 0.66),
-                      //                       width: 0.0)),
-                      //               height: 150,
-                      //             ),
-                      //             // Container(
-                      //             //   color: Color.fromRGBO(251, 182, 45, 0.66),
-                      //             //   child: Container(
-                      //             //       width: double.infinity,
-                      //             //       height: 72,
-                      //             //       decoration: BoxDecoration(
-                      //             //         border: Border.all(
-                      //             //             color: Color.fromRGBO(
-                      //             //                 251, 182, 45, 0.66),
-                      //             //             width: 0.0),
-                      //             //         color: Colors.white,
-                      //             //         // Colors.grey[200],
-                      //             //         borderRadius:
-                      //             //             new BorderRadius.vertical(
-                      //             //           top: Radius.elliptical(200, 150),
-                      //             //         ),
-                      //             //       )),
-                      //             // ),
-                      //           ])),
-                      // ),
-                      // Container(
-                      //   height: 212,
-                      //   width: 323,
-                      //   decoration: BoxDecoration(
-                      //       color: Color.fromRGBO(251, 182, 45, 0.66),
-                      //       borderRadius: BorderRadius.vertical(
-                      //         bottom: Radius.lerp(10, 100),
-                      //         // topLeft: Radius.circular(12),
-                      //         // topRight: Radius.circular(12)
-                      //       )),
-                      // ),
                       Container(
                           width: 90.0.wp,
                           //  323,
@@ -545,9 +511,7 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
                               child: GestureDetector(
                                 onTap: () {
                                   print(index);
-                                  setState(() {
-                                    // starclr = index;
-                                  });
+                                  setState(() {});
                                 },
                                 child: Stack(
                                     alignment: Alignment.center,

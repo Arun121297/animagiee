@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
+import '../bottombarfile/bottomnavibar.dart';
 import 'doctorslist.dart';
 
 class Doctor extends StatelessWidget {
@@ -10,6 +9,7 @@ class Doctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Customized_Bottom_Bar(),
       body: Doctors_List_UI(),
     );
   }

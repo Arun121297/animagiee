@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../controller/controller.dart';
 import '../../communitypage/communiti.dart';
+import '../../homeAppBar/appbar.dart';
 import '../../intrestpage.dart';
 import 'settings.dart';
 
@@ -24,8 +25,22 @@ class _Community_Settings_UIState extends State<Community_Settings_UI> {
       body: SafeArea(
         child: Column(
           children: [
-            controller.clubapp(
-                "Community Settings", Settings_Page_1_UI(), context),
+            AppbarContainer(
+              title: "Community Settings",
+              backarrow: true,
+              chat: false,
+              logo: false,
+              notification: true,
+              search: true,
+              edit: false,
+              firstscreen: false,
+              navipage: null,
+              podcast: false,
+              fun: Settings_Page_1_UI(),
+            ),
+
+            // controller.clubapp(
+            //     "Community Settings", Settings_Page_1_UI(), context),
             SizedBox(
               height: 9.0.hp,
             ),

@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
@@ -25,14 +24,12 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/doc_3.jpg"), fit: BoxFit.cover),
-              // color: animagiee_CL,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(15.0.sp),
                   bottomRight: Radius.circular(15.0.sp))),
           width: MediaQuery.of(context).size.width,
           height: 13.0.hp,
           // 108,
-          // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
         ),
         Container(
           decoration: BoxDecoration(
@@ -53,7 +50,6 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 backgroundImage: ExactAssetImage("images/doc_2.jpg"),
-                // backgroundColor: animagiee_CL,
                 radius: 40.0.sp,
               ),
             ),
@@ -133,11 +129,7 @@ class _Profile_Header_UIState extends State<Profile_Header_UI> {
                     ],
                   ),
                 ),
-                // Text("₹ 300 - 15 mins"),
                 Expanded(child: SizedBox()),
-                // SizedBox(
-                //   width: 17,
-                // ),
                 Stack(alignment: Alignment.center, children: [
                   Icon(
                     Icons.star,

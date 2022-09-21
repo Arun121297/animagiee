@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../homeAppBar/appbar.dart';
 import 'settings.dart';
 
 class Private_Security_Design_UI extends StatefulWidget {
@@ -26,8 +27,22 @@ class _Private_Security_Design_UIState
             child: Container(
       child: Column(
         children: [
-          controller.clubapp(
-              "Privacy & Security", Settings_Page_1_UI(), context),
+          AppbarContainer(
+            title: "Privacy & Security",
+            backarrow: true,
+            chat: false,
+            logo: false,
+            notification: true,
+            search: true,
+            edit: false,
+            firstscreen: false,
+            navipage: null,
+            podcast: false,
+            fun: Settings_Page_1_UI(),
+          ),
+
+          // controller.clubapp(
+          //     "Privacy & Security", Settings_Page_1_UI(), context),
           SizedBox(
             height: 3.0.hp,
             //  48,
@@ -51,25 +66,30 @@ class _Private_Security_Design_UIState
                             ),
                           ),
                         ),
-                        // Image.asset(
-                        //   "images/about.png",
-                        //   cacheHeight: 24,
-                        //   cacheWidth: 24,
-                        // )
                       ],
                     ),
                   ),
-                  Divider(
-                    endIndent: 20,
-                    indent: 80,
-                    color: Colors.black,
-                    thickness: 1,
-                  ),
-                  Divider(
-                    endIndent: 80,
-                    indent: 20,
-                    color: Colors.black,
-                    thickness: 1,
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 1.0.hp,
+                        child: Divider(
+                          endIndent: 20,
+                          indent: 80,
+                          color: Colors.black,
+                          thickness: 1,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 1.0.hp,
+                        child: Divider(
+                          endIndent: 80,
+                          indent: 20,
+                          color: Colors.black,
+                          thickness: 1,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 4.0.hp
                       //  30,

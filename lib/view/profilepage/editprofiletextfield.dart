@@ -1,8 +1,9 @@
 import 'package:animagieeui/config/extension.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,12 +19,12 @@ class Edit_Profile_TextField_UI extends StatefulWidget {
 }
 
 class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
-  var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
+  var city = [
+    'Nagercovil',
+    'KKKKK',
+    'NNNNNN',
+    'PPPPPP',
+    'OOOOOO',
   ];
   var profession = [
     'Veterinary Doctor',
@@ -31,10 +32,23 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
     'Breeder',
     'Trader',
     'Trainer',
-    "Rescue worker"
+    "Rescue worker",
   ];
+  var state = [
+    "TamilNadu",
+    "k**********",
+    'p*',
+    "l**********",
+  ];
+  var gender = [
+    'Male',
+    'Female',
+  ];
+  var fixclr = Colors.grey;
   String professiondropvalue = 'Veterinary Doctor';
-  String dropdownvalue = 'Item 1';
+  String genderdropdownvalue = 'Male';
+  String statedropdownvalue = 'TamilNadu';
+  String citydropdownvalue = 'Nagercovil';
   bool workwithus = true;
   @override
   Widget build(BuildContext context) {
@@ -57,19 +71,10 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               width: 13.0.wp,
               //  30,
             ),
-            CircleAvatar(
-              child: SizedBox(
-                height: 5.0.hp,
-                width: 3.0.wp,
-                child: Image.asset(
-                  "images/editicon.png",
-                  // cacheHeight: 14,
-                  // cacheWidth: 14,
-                ),
-              ),
-              radius: 13.0.sp,
-              backgroundColor: Colors.white,
-            ),
+            SizedBox(
+                height: 6.0.hp,
+                width: 9.0.wp,
+                child: Image.asset("images/edit.png")),
           ]),
         ),
         Card(
@@ -89,11 +94,14 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       textStyle: TextStyle(
                         fontSize: 10,
                         color: Colors.grey,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
-                    hintText: "Lorem ipsum dolor sit amet, consectetur.")),
+                    hintText: "  Lorem ipsum dolor sit amet, consectetur.")),
           ),
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Container(
             margin: EdgeInsets.only(left: 18.0.sp),
@@ -123,17 +131,20 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             child: TextField(
                 decoration: InputDecoration(
               border: InputBorder.none,
-              labelStyle: GoogleFonts.poppins(
+              hintStyle: GoogleFonts.poppins(
                 textStyle: TextStyle(
                   fontSize: 9.5.sp,
                   color: Colors.grey,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              labelText: "  First Name",
+              hintText: "  First Name",
               // hintText: "First Name"
             )),
           ),
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Container(
             margin: EdgeInsets.only(left: 18.0.sp),
@@ -163,17 +174,20 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             child: TextField(
                 decoration: InputDecoration(
               border: InputBorder.none,
-              labelStyle: GoogleFonts.poppins(
+              hintStyle: GoogleFonts.poppins(
                 textStyle: TextStyle(
                   fontSize: 9.5.sp,
                   color: Colors.grey,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              labelText: "  Last Name",
+              hintText: "  Last Name",
               // hintText: "First Name"
             )),
           ),
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Container(
             margin: EdgeInsets.only(left: 18.0.sp),
@@ -201,15 +215,34 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
-            child: DropdownButton(
-              underline: SizedBox(), isExpanded: true,
+            child:
+
+                // dropdown
+                DropdownButton(
+              selectedItemBuilder: (BuildContext context) {
+                //<-- SEE HERE
+                return profession.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Text(
+                          items,
+                          style: TextStyle(color: Colors.grey),
+                        )),
+                  );
+                }).toList();
+              },
+              underline: SizedBox(),
+              isExpanded: true, dropdownColor: Color.fromRGBO(237, 237, 237, 1),
               // Initial Value
-              value: dropdownvalue,
+              value: professiondropvalue,
               style: GoogleFonts.poppins(
                 textStyle: TextStyle(
                   fontSize: 9.5.sp,
                   color: Colors.grey,
-                  fontWeight: FontWeight.w500,
+                  //  Colors.grey,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
 
@@ -217,111 +250,143 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               icon: const Icon(Icons.keyboard_arrow_down),
 
               // Array list of items
-              items: items.map((String items) {
+              items: profession.map((String items) {
                 return DropdownMenuItem(
                   value: items,
-                  child: Container(
-                      margin: EdgeInsets.only(left: 10), child: Text(items)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                          margin: EdgeInsets.only(left: 10),
+                          child: Text(
+                            items,
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 9.5.sp,
+                                color: Colors.black,
+                                //  Colors.grey,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          )),
+                      Divider(
+                        height: 3.0.hp,
+                        color: Color.fromRGBO(181, 181, 181, 1),
+                      )
+                    ],
+                  ),
                 );
               }).toList(),
               // After selecting the desired option,it will
               // change button value to selected value
               onChanged: (String? newValue) {
                 setState(() {
-                  dropdownvalue = newValue!;
+                  professiondropvalue = newValue!;
                 });
               },
             ),
+            //
           ),
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Visibility(
           visible: workwithus,
-          child: Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0.sp)),
-            child: Container(
-              height: 6.5.hp,
-              // 43,
-              width: 89.0.wp,
-              //  326,
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey, width: 1),
-                  color: animagiee_CL,
-                  borderRadius: BorderRadius.circular(5.0.sp)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    "Do you like to work with us",
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 9.0.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        workwithus = false;
-                        Get.to(Add_Document_UI());
-                      });
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0.sp)),
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 3.5.hp,
-                        // 29,
-                        width: 18.0.wp,
-                        // 64,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.0.sp),
-                          color: Colors.black,
-                        ),
-                        child: Text(
-                          "Yes",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 9.0.sp,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0.sp)),
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 3.5.hp,
-                      // 29,
-                      width: 18.0.wp,
-                      // 64,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0.sp),
-                        color: Colors.black,
-                      ),
-                      child: Text(
-                        "No",
+          child: Column(
+            children: [
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0.sp)),
+                child: Container(
+                  height: 6.5.hp,
+                  // 43,
+                  width: 89.0.wp,
+                  //  326,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey, width: 1),
+                      color: animagiee_CL,
+                      borderRadius: BorderRadius.circular(5.0.sp)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        "Do you like to work with us",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                             fontSize: 9.0.sp,
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                    ),
-                  )
-                ],
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            workwithus = false;
+                            Get.to(Add_Document_UI());
+                          });
+                        },
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0.sp)),
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 3.5.hp,
+                            // 29,
+                            width: 18.0.wp,
+                            // 64,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5.0.sp),
+                              color: Colors.black,
+                            ),
+                            child: Text(
+                              "Yes",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 9.0.sp,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0.sp)),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 3.5.hp,
+                          // 29,
+                          width: 18.0.wp,
+                          // 64,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0.sp),
+                            color: Colors.black,
+                          ),
+                          child: Text(
+                            "No",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 9.0.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
-            ),
+              SizedBox(
+                height: 2.0.hp,
+              ),
+            ],
           ),
         ),
         Row(
@@ -356,14 +421,28 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         border: Border.all(width: 1, color: Colors.grey),
                         borderRadius: BorderRadius.circular(5.0.sp)),
                     child: DropdownButton(
+                      selectedItemBuilder: (BuildContext context) {
+                        //<-- SEE HERE
+                        return gender.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Container(
+                                margin: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  items,
+                                  style: TextStyle(color: Colors.grey),
+                                )),
+                          );
+                        }).toList();
+                      },
                       underline: SizedBox(), isExpanded: true,
                       // Initial Value
-                      value: dropdownvalue,
+                      value: genderdropdownvalue,
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.5.sp,
                           color: Colors.grey,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
 
@@ -371,19 +450,39 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       icon: const Icon(Icons.keyboard_arrow_down),
 
                       // Array list of items
-                      items: items.map((String items) {
+                      items: gender.map((String items) {
                         return DropdownMenuItem(
                           value: items,
-                          child: Container(
-                              margin: EdgeInsets.only(left: 10),
-                              child: Text(items)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    items,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.5.sp,
+                                        color: Colors.black,
+                                        //  Colors.grey,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  )),
+                              Divider(
+                                height: 3.0.hp,
+                                color: Color.fromRGBO(181, 181, 181, 1),
+                              )
+                            ],
+                          ),
                         );
                       }).toList(),
                       // After selecting the desired option,it will
                       // change button value to selected value
                       onChanged: (String? newValue) {
                         setState(() {
-                          dropdownvalue = newValue!;
+                          genderdropdownvalue = newValue!;
                         });
                       },
                     ),
@@ -423,14 +522,14 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     child: TextField(
                         decoration: InputDecoration(
                       border: InputBorder.none,
-                      labelStyle: GoogleFonts.jost(
+                      hintStyle: GoogleFonts.jost(
                         textStyle: TextStyle(
                           fontSize: 9.5.sp,
                           color: Colors.grey,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                      labelText: "  DD/MM/YYYY",
+                      hintText: "  DD/MM/YYYY",
                       // hintText: "First Name"
                     )),
                   ),
@@ -438,6 +537,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ],
             ),
           ],
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Container(
             margin: EdgeInsets.only(left: 18.0.sp),
@@ -471,13 +573,16 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 textStyle: TextStyle(
                   fontSize: 9.5.sp,
                   color: Colors.grey,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               labelText: "  Email",
               // hintText: "First Name"
             )),
           ),
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Container(
             margin: EdgeInsets.only(left: 18.0.sp),
@@ -505,19 +610,23 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-              border: InputBorder.none,
-              labelStyle: GoogleFonts.jost(
-                textStyle: TextStyle(
-                  fontSize: 9.5.sp,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              labelText: "  Mobile Number",
-              // hintText: "First Name"
-            )),
+                  border: InputBorder.none,
+                  hintStyle: GoogleFonts.jost(
+                    textStyle: TextStyle(
+                      fontSize: 9.5.sp,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  hintText: "  Mobile Number",
+                  // hintText: "First Name"
+                )),
           ),
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Container(
             margin: EdgeInsets.only(left: 18.0.sp),
@@ -546,18 +655,20 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
                 decoration: InputDecoration(
-              border: InputBorder.none,
-              labelStyle: GoogleFonts.jost(
-                textStyle: TextStyle(
-                  fontSize: 9.5.sp,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              labelText: "  Address",
-              // hintText: "First Name"
-            )),
+                    border: InputBorder.none,
+                    hintStyle: GoogleFonts.jost(
+                      textStyle: TextStyle(
+                        fontSize: 9.5.sp,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    // labelText: "  Address",
+                    hintText: "  Address")),
           ),
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -591,14 +702,28 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         border: Border.all(width: 1, color: Colors.grey),
                         borderRadius: BorderRadius.circular(5.0.sp)),
                     child: DropdownButton(
+                      selectedItemBuilder: (BuildContext context) {
+                        //<-- SEE HERE
+                        return state.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Container(
+                                margin: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  items,
+                                  style: TextStyle(color: Colors.grey),
+                                )),
+                          );
+                        }).toList();
+                      },
                       underline: SizedBox(), isExpanded: true,
                       // Initial Value
-                      value: dropdownvalue,
+                      value: statedropdownvalue,
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.5.sp,
                           color: Colors.grey,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
 
@@ -606,19 +731,39 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       icon: const Icon(Icons.keyboard_arrow_down),
 
                       // Array list of items
-                      items: items.map((String items) {
+                      items: state.map((String items) {
                         return DropdownMenuItem(
                           value: items,
-                          child: Container(
-                              margin: EdgeInsets.only(left: 10),
-                              child: Text(items)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    items,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.5.sp,
+                                        color: Colors.black,
+                                        //  Colors.grey,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  )),
+                              Divider(
+                                height: 3.0.hp,
+                                color: Color.fromRGBO(181, 181, 181, 1),
+                              )
+                            ],
+                          ),
                         );
                       }).toList(),
                       // After selecting the desired option,it will
                       // change button value to selected value
                       onChanged: (String? newValue) {
                         setState(() {
-                          dropdownvalue = newValue!;
+                          statedropdownvalue = newValue!;
                         });
                       },
                     ),
@@ -655,14 +800,28 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         border: Border.all(width: 1, color: Colors.grey),
                         borderRadius: BorderRadius.circular(5.0.sp)),
                     child: DropdownButton(
+                      selectedItemBuilder: (BuildContext context) {
+                        //<-- SEE HERE
+                        return city.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Container(
+                                margin: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  items,
+                                  style: TextStyle(color: Colors.grey),
+                                )),
+                          );
+                        }).toList();
+                      },
                       underline: SizedBox(), isExpanded: true,
                       // Initial Value
-                      value: dropdownvalue,
+                      value: citydropdownvalue,
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.5.sp,
                           color: Colors.grey,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
 
@@ -670,19 +829,39 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       icon: const Icon(Icons.keyboard_arrow_down),
 
                       // Array list of items
-                      items: items.map((String items) {
+                      items: city.map((String items) {
                         return DropdownMenuItem(
                           value: items,
-                          child: Container(
-                              margin: EdgeInsets.only(left: 10),
-                              child: Text(items)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    items,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.5.sp,
+                                        color: Colors.black,
+                                        //  Colors.grey,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  )),
+                              Divider(
+                                height: 3.0.hp,
+                                color: Color.fromRGBO(181, 181, 181, 1),
+                              )
+                            ],
+                          ),
                         );
                       }).toList(),
                       // After selecting the desired option,it will
                       // change button value to selected value
                       onChanged: (String? newValue) {
                         setState(() {
-                          dropdownvalue = newValue!;
+                          citydropdownvalue = newValue!;
                         });
                       },
                     ),
@@ -691,6 +870,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               ],
             ),
           ],
+        ),
+        SizedBox(
+          height: 2.0.hp,
         ),
         Container(
             margin: EdgeInsets.only(left: 18.0.sp),
@@ -718,18 +900,18 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
             child: TextField(
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-              border: InputBorder.none,
-              labelStyle: GoogleFonts.jost(
-                textStyle: TextStyle(
-                  fontSize: 9.5.sp,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              labelText: "  Pin Code",
-              // hintText: "First Name"
-            )),
+                    border: InputBorder.none,
+                    hintStyle: GoogleFonts.jost(
+                      textStyle: TextStyle(
+                        fontSize: 9.5.sp,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    // labelText: "  Pin Code",
+                    hintText: "  Pin Code")),
           ),
         ),
       ],

@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
+import '../homeAppBar/appbar.dart';
 import '../homeAppBar/notification.dart';
 import 'albumheader.dart';
 import 'audiopodcast.dart';
@@ -34,40 +35,20 @@ class _Top_Collection_Album_UIState extends State<Top_Collection_Album_UI> {
       body: SafeArea(
           child: Column(
         children: [
-          // PodCast_AppBar_UI(),
-          // Material(
-          //   elevation: 3,
-          //   child: Container(
-          //     width: MediaQuery.of(context).size.width,
-          //     child: Row(children: [
-          //       // Back_Button_UI(),
-
-          //       IconButton(
-          //         icon: Icon(
-          //           Icons.arrow_back_ios_new,
-          //           size: 12.0.sp,
-          //         ),
-          //         onPressed: () {
-          //           Get.to(Audio_Podcast_UI());
-          //         },
-          //       ),
-          //       Flexible(child: Container()),
-          //       // Expanded(child: SizedBox()),
-          //       SizedBox(
-          //         width: 13.0.wp,
-          //         //  45,
-          //       ),
-          //       Text("Audio podcast"),
-          //       Flexible(child: Container()),
-          //       Flexible(child: Container()),
-
-          //       // Expanded(child: Container()),
-          //       // Search_UI(),
-          //       Notification_UI(),
-          //     ]),
-          //   ),
-          // ),
-          controller.clubapp("Audio Podcast", Audio_Podcast_UI(), context),
+          AppbarContainer(
+            title: "Audio Podcast",
+            backarrow: true,
+            chat: false,
+            logo: false,
+            notification: true,
+            search: true,
+            edit: false,
+            firstscreen: false,
+            navipage: null,
+            podcast: false,
+            fun: Audio_Podcast_UI(),
+          ),
+          // controller.clubapp("Audio Podcast", Audio_Podcast_UI(), context),
           Album_Header_UI(),
           SizedBox(
             height: 2.0.hp,

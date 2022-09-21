@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
-import 'payment.dart';
+import 'Dateofappoinment.dart';
 
 class Customized_Stepper_UI extends StatefulWidget {
   const Customized_Stepper_UI({Key? key}) : super(key: key);
@@ -18,176 +18,160 @@ class Customized_Stepper_UI extends StatefulWidget {
 }
 
 class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
-  var date;
   var stepindex = 1;
-  // List steperbool = [false, false];
+  CarouselController buttonCarouselController = CarouselController();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // height: 400,
-      // color: Colors.green,
-      child: Column(
-        children: [
-          Container(
-            // color: Colors.amberAccent,
-            child: Column(
+    return Column(
+      children: [
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(child: SizedBox()),
-                    Container(
-                      // color: Colors.green,
-                      width: 9.0.wp,
-                      child: Stack(alignment: Alignment.center, children: [
-                        CircleAvatar(
-                          radius: 8.5.sp,
-                          backgroundColor: animagiee_CL,
-                        ),
-                        CircleAvatar(
-                          radius: 6.0.sp,
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.done,
-                            size: 9.0.sp,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ]),
+                Expanded(child: SizedBox()),
+                Container(
+                  // color: Colors.green,
+                  width: 9.0.wp,
+                  child: Stack(alignment: Alignment.center, children: [
+                    CircleAvatar(
+                      radius: 8.5.sp,
+                      backgroundColor: animagiee_CL,
                     ),
-                    Container(
-                      margin: EdgeInsets.only(left: 10),
-                      // color: Colors.green,
-                      child: Text(
-                        " -------------------",
-                        style: TextStyle(color: Colors.red),
+                    CircleAvatar(
+                      radius: 6.0.sp,
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.done,
+                        size: 9.0.sp,
+                        color: Colors.red,
                       ),
                     ),
-                    Expanded(child: SizedBox()),
-                    Stack(alignment: Alignment.center, children: [
-                      CircleAvatar(
-                        radius: 8.5.sp,
-                        backgroundColor: animagiee_CL,
+                  ]),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                  // color: Colors.green,
+                  child: Text(
+                    " -------------------",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+                Expanded(child: SizedBox()),
+                Stack(alignment: Alignment.center, children: [
+                  CircleAvatar(
+                    radius: 8.5.sp,
+                    backgroundColor: animagiee_CL,
+                  ),
+                  CircleAvatar(
+                    radius: 6.0.sp,
+                    backgroundColor: Colors.white,
+                    child: Visibility(
+                      visible: stepindex == 2 || stepindex == 3 ? true : false,
+                      child: Icon(
+                        Icons.done,
+                        size: 9.0.sp,
+                        color: Colors.red,
                       ),
-                      CircleAvatar(
-                        radius: 6.0.sp,
-                        backgroundColor: Colors.white,
-                        child: Visibility(
-                          visible:
-                              stepindex == 2 || stepindex == 3 ? true : false,
-                          child: Icon(
-                            Icons.done,
-                            size: 9.0.sp,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ),
-                    ]),
-                    Expanded(child: SizedBox()),
-                    Text(
-                      " -------------------",
-                      style: TextStyle(color: Colors.red),
                     ),
-                    Expanded(child: SizedBox()),
-                    Stack(alignment: Alignment.center, children: [
-                      CircleAvatar(
-                        radius: 8.5.sp,
-                        backgroundColor: animagiee_CL,
+                  ),
+                ]),
+                Expanded(child: SizedBox()),
+                Text(
+                  " -------------------",
+                  style: TextStyle(color: Colors.red),
+                ),
+                Expanded(child: SizedBox()),
+                Stack(alignment: Alignment.center, children: [
+                  CircleAvatar(
+                    radius: 8.5.sp,
+                    backgroundColor: animagiee_CL,
+                  ),
+                  CircleAvatar(
+                    radius: 6.0.sp,
+                    backgroundColor: Colors.white,
+                    child: Visibility(
+                      visible: stepindex == 3 ? true : false,
+                      child: Icon(
+                        Icons.done,
+                        size: 9.0.sp,
+                        color: Colors.red,
                       ),
-                      CircleAvatar(
-                        radius: 6.0.sp,
-                        backgroundColor: Colors.white,
-                        child: Visibility(
-                          visible: stepindex == 3 ? true : false,
-                          child: Icon(
-                            Icons.done,
-                            size: 9.0.sp,
-                            color: Colors.red,
-                          ),
-                        ),
+                    ),
+                  ),
+                ]),
+                Expanded(child: SizedBox()),
+              ],
+            ),
+            SizedBox(
+              height: 0.5.hp,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  width: 5.0.wp,
+                ),
+                Container(
+                  child: Text(
+                    "Schedule",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 9.5.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
                       ),
-                    ]),
-                    Expanded(child: SizedBox()),
-                  ],
+                    ),
+                  ),
+                ),
+                Expanded(child: SizedBox()),
+                Container(
+                  child: Text(
+                    "Pet information",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 9.5.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(child: SizedBox()),
+                Container(
+                  child: Text(
+                    "Checkout",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 9.5.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(
-                  height: 0.5.hp,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      width: 5.0.wp,
-                    ),
-                    Container(
-                      // margin: EdgeInsets.only(right: 45.0.sp),
-                      // color: Colors.amberAccent,
-                      child: Text(
-                        "Schedule",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(child: SizedBox()),
-                    Container(
-                      // margin: EdgeInsets.only(right: 45.0.sp),
-                      // color: Colors.amberAccent,
-                      child: Text(
-                        "Pet information",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(child: SizedBox()),
-                    Container(
-                      // margin: EdgeInsets.only(right: 10.0.sp),
-                      // color: Colors.amberAccent,
-                      child: Text(
-                        "Checkout",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 3.0.wp,
-                    ),
-                  ],
+                  width: 3.0.wp,
                 ),
               ],
             ),
-          ),
-          stepindex == 1
-              ? stepper1()
-              : stepindex == 2
-                  ? stepper2()
-                  : stepindex == 3
-                      ? stepper3()
-                      : SizedBox(),
-          SizedBox(
-            height: 1.0.hp,
-          ),
-        ],
-      ),
+          ],
+        ),
+        stepindex == 1
+            ? stepper1()
+            : stepindex == 2
+                ? stepper2()
+                : stepindex == 3
+                    ? stepper3()
+                    : SizedBox(),
+        SizedBox(
+          height: 1.0.hp,
+        ),
+      ],
     );
   }
 
   Widget stepper1() {
-    var currentindex = 0;
     return Container(
       // color: Colors.orange,
       child: Column(
@@ -220,77 +204,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
           SizedBox(
             height: 2.0.hp,
           ),
-          Container(
-            height: 17.0.hp,
-            //  147,
-            width: MediaQuery.of(context).size.width,
-            color: doctor_CL,
-            child: CarouselSlider.builder(
-                // carouselController: buttonCarouselController,
-                options: CarouselOptions(
-                  autoPlay: false,
-                  enlargeCenterPage: true,
-                  onScrolled: (value) {
-                    setState(() {
-                      currentindex = value as int;
-                    });
-                  },
-                  viewportFraction: 0.2,
-                  // aspectRatio: 2.5,
-                  initialPage: currentindex,
-                  // onPageChanged: ((index, reason) => {})
-                ),
-                itemCount: day.length,
-                itemBuilder: (context, index, realIndex) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 10.0.hp,
-                        //  102,
-                        width: 25.0.wp,
-
-                        decoration: BoxDecoration(
-                            color: animagiee_CL,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                                color: index == currentindex
-                                    ? Colors.red
-                                    : animagiee_CL,
-                                width: 2)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Column(
-                              children: [
-                                Text(
-                                  day[index],
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 14.0.sp,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  "${index + 1}",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 14.0.sp,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                // ],
-                ),
-          ),
+          Carosel_slider_Appointment_UI(),
           SizedBox(
             height: 2.0.hp,
             //  20,
@@ -647,10 +561,10 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                       border: Border.all(color: animagiee_CL, width: 1)),
                   height: 38.0.hp,
                   // 242,
-                  width: 84.5.wp,
+                  width: 90.5.wp,
                   //  300,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -658,194 +572,66 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                         Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text(
-                              "Date",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: SizedBox(),
-                            ),
                             SizedBox(
-                              width: 2,
-                            ),
-                            Text(
-                              ":  3-march-2022",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: SizedBox(),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              "Day",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: SizedBox(),
-                            ),
-                            Text(
-                              ":  Tuesday",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 7.0.wp
-                                // 26,
-                                ),
-                            Expanded(
-                              child: SizedBox(),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              "Time",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: SizedBox(),
-                            ),
-                            Text(
-                              ":  6.00 PM",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 9.0.wp
-                                // 33,
-                                ),
-                            Expanded(
-                              child: SizedBox(),
-                            )
-                          ],
-                        ),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              "Pet Name",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: SizedBox(),
-                            ),
-                            Text(
-                              ":  Johnney",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 14.0.wp
-                                //  54,
-                                ),
-                            Expanded(
-                              child: SizedBox(),
-                            )
-                          ],
-                        ),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              "Pet Type",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: SizedBox(),
-                            ),
-                            Text(
-                              ":  Dog",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 20.0.wp
-                                // 70,
-                                ),
-                            Expanded(
-                              child: SizedBox(),
-                            )
-                          ],
-                        ),
-                        Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              "Problem description ",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                              width: 31.0.wp,
+                              child: Text(
+                                "Date",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              width: 3,
+                              width: 2.0.wp,
+                            ),
+                            Text(":"),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            SizedBox(
+                              width: 42.0.wp,
+                              child: Text(
+                                "3-march-2022",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: 31.0.wp,
+                              child: Text(
+                                "Day",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            Text(":"),
+                            SizedBox(
+                              width: 2.0.wp,
                             ),
                             Text(
-                              ":  Lorem Ipsum is simply\n"
-                              "   dummy text of the printing\n"
-                              "   and typesetting industry.\n"
-                              "   Lorem Ipsum........",
+                              "Tuesday",
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                   fontSize: 9.0.sp,
@@ -853,11 +639,164 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              // maxLines: 4,
                             ),
-                            Expanded(
-                              child: SizedBox(),
-                            )
+                          ],
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: 31.0.wp,
+                              child: Text(
+                                "Time",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            Text(":"),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            SizedBox(
+                              width: 42.0.wp,
+                              child: Text(
+                                "6.00 PM",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              width: 31.0.wp,
+                              child: Text(
+                                "Pet Name",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            Text(":"),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            Container(
+                              width: 42.0.wp,
+                              child: Text(
+                                "Johnney",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              width: 31.0.wp,
+                              child: Text(
+                                "Pet Type",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            Text(":"),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            SizedBox(
+                              width: 42.0.wp,
+                              child: Text(
+                                "Dog",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: 31.0.wp,
+                              child: Text(
+                                "Problem description ",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            Text(":"),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            SizedBox(
+                              width: 42.0.wp,
+                              child: Text(
+                                "Lorem Ipsum is simply"
+                                "dummy text of the printing"
+                                "and typesetting industry."
+                                "Lorem Ipsum........",
+                                maxLines: 4,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -874,7 +813,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                       borderRadius: BorderRadius.circular(10.0.sp)),
                   height: 5.0.hp,
                   // 38,
-                  width: 85.0.wp,
+                  width: 90.5.wp,
                   // 300,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -960,11 +899,8 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
           child: GestureDetector(
             onTap: () {
               setState(() {
-                // steperbool[0] = true;
                 stepindex = stepindex + 1;
                 if (stepindex > 3) {
-                  // print("wowww");
-                  // Get.to(Doctor_Payment_UI());
                   Get.to(Successfull_Payment_UI());
                 }
               });

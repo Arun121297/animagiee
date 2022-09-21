@@ -1,15 +1,15 @@
 import 'package:animagieeui/config/extension.dart';
-// import 'package:animagieeui/controller/pageviewcontroller.dart';
+
 import 'package:animagieeui/view/chats/searchbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
 
+import '../homeAppBar/appbar.dart';
 import '../homepage/homepage.dart';
 import 'groupchat.dart';
 import 'individualchat.dart';
@@ -49,32 +49,20 @@ class _Chat_UIState extends State<Chat_UI> {
         child: Container(
           child: Column(
             children: [
-              // Material(
-              //   elevation: 3,
-              //   child: Container(
-              //     width: MediaQuery.of(context).size.width,
-              //     child: Row(children: [
-              //       // Back_Button_UI(),
-              //       IconButton(
-              //         icon: Icon(
-              //           Icons.arrow_back_ios_new,
-              //           size: 12.0.sp,
-              //         ),
-              //         onPressed: () {
-              //           Get.to(Home_Page());
-              //         },
-              //       ),
-              //       Flexible(child: Container())
-              //       SizedBox(
-              //         width: 45,
-              //       ),
-              //       Text("Chat"),
-              //       Flexible(child: Container()),
-              //       Flexible(child: Container()),
-              //     ]),
-              //   ),
-              // ),
-              controller.chatapp("Chat", Home_Page(), context),
+              AppbarContainer(
+                title: "Chat",
+                firstscreen: false,
+                logo: false,
+                notification: false,
+                search: false,
+                backarrow: true,
+                chat: false,
+                edit: false,
+                navipage: null,
+                podcast: false,
+                fun: Home_Page(),
+              ),
+              // controller.chatapp("Chat", Home_Page(), context),
               SizedBox(
                 height: 3.0.hp,
                 // 27,

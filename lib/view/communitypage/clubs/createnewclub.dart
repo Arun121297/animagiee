@@ -1,18 +1,18 @@
+import 'dart:io';
+
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/bottombarfile/bottomnavibar.dart';
+
 import 'package:animagieeui/view/communitypage/clubs/completedclub.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../controller/controller.dart';
-import '../../animagieeprofile/animalsprofiles.dart';
-import '../../homeAppBar/notification.dart';
-import '../../homeAppBar/search.dart';
-import '../communitypage.dart';
+
+import '../../homeAppBar/appbar.dart';
 import 'myclubs.dart';
 
 class Create_New_Club_UI extends StatefulWidget {
@@ -24,7 +24,8 @@ class Create_New_Club_UI extends StatefulWidget {
 
 class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
   Controller controller = Get.put(Controller());
-  String dropdownValue = 'One';
+  String communitydropdownValue = 'Dog';
+  String communityTypedropdownValue = 'Private';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,36 +33,20 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
       // bottomNavigationBar: Customized_Bottom_Bar(),
       body: SafeArea(
         child: Column(children: [
-          controller.clubapp("Create New Club", MyClubs_UI(), context),
-          // Material(
-          //   elevation: 3,
-          //   child: Container(
-          //     width: MediaQuery.of(context).size.width,
-          //     child: Row(children: [
-          //       // Back_Button_UI(),
-          //       IconButton(
-          //           icon: Icon(
-          //             Icons.arrow_back_ios_new,
-          //             size: 12.0.sp,
-          //           ),
-          //           onPressed: () {
-          //             Get.to(MyClubs_UI());
-          //             // Get.to(Community_Page_UI());
+          AppbarContainer(
+            title: "Create New Club",
+            backarrow: true,
+            firstscreen: false,
+            navipage: null,
+            notification: true,
+            edit: false,
+            search: true,
+            chat: false,
+            logo: false,
+            podcast: false,
+            fun: MyClubs_UI(),
+          ),
 
-          //             // },Community_Page_UI
-          //           }),
-          //       Expanded(child: SizedBox()),
-          //       Padding(
-          //         padding: const EdgeInsets.only(left: 30.0),
-          //         child: Text("My Club"),
-          //       ),
-          //       Expanded(child: Container()),
-          //       Search_UI(),
-          //       Notification_UI(),
-          //     ]),
-          //   ),
-          // ),
-          // controller.cusapp("Create New Club", context),
           SizedBox(
             height: 20.0.hp,
             // 150,
@@ -69,42 +54,75 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: animagiee_CL,
+                      color: controller.clubbackgroundimage.path.isEmpty
+                          ? animagiee_CL
+                          : Colors.transparent,
+                      image: DecorationImage(
+                          image: FileImage(
+                            controller.clubbackgroundimage,
+                          ),
+                          fit: BoxFit.cover),
                       borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15.0.sp),
-                          bottomRight: Radius.circular(15.0.sp))),
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15))),
                   width: MediaQuery.of(context).size.width,
-                  height: 13.0.hp,
+                  height: 14.0.hp,
+
+                  //  108,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.black38,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15))),
+                  width: MediaQuery.of(context).size.width,
+                  height: 14.0.hp,
                   //  108,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 40.0),
+                  padding: EdgeInsets.only(top: 33.0.sp),
                   child: Align(
                     alignment: Alignment.center,
                     child: CircleAvatar(
                       radius: 65.0.sp,
                       backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        // backgroundImage:ExactAssetImage("images\clubcreateprofile.png") ,
-                        child: SizedBox(
-                          height: 7.0.hp,
-                          // 37,
-                          width: 10.0.wp,
-                          // 37,
-                          child: Image.asset(
-                            "images/clubcreateprofile.png",
-                            // cacheHeight: 37,
-                            // cacheWidth: 37,
-                          ),
-                        ),
-                        // Icon(
-                        //   Icons.person_outlined,
-                        //   size: 60.0.sp,
-                        //   color: Colors.black,
-                        // ),
-                        backgroundColor: animagiee_CL,
-                        radius: 45.0.sp,
-                      ),
+                      child: controller.clubprofileimage.path.isEmpty
+                          ? CircleAvatar(
+                              radius: 45.0.sp,
+                              backgroundColor: animagiee_CL,
+                              child: SizedBox(
+                                height: 7.0.hp,
+                                // 37,
+                                width: 10.0.wp,
+                                // 37,
+                                child: Image.asset(
+                                  "images/clubcreateprofile.png",
+                                ),
+                              ),
+                            )
+                          : CircleAvatar(
+                              radius: 45.0.sp,
+                              backgroundImage:
+                                  FileImage(controller.clubprofileimage),
+                              // backgroundColor: Colors.yellow,
+                            ),
+
+                      // CircleAvatar(
+                      //   child: controller.clubprofileimage == null
+                      //       ? SizedBox(
+                      //           height: 7.0.hp,
+                      //           // 37,
+                      //           width: 10.0.wp,
+                      //           // 37,
+                      //           child: Image.asset(
+                      //             "images/clubcreateprofile.png",
+                      //           ))
+                      //       : Image.file(controller.clubprofileimage,
+                      //           fit: BoxFit.cover),
+                      //   backgroundColor: animagiee_CL,
+                      //   radius: 45.0.sp,
+                      // ),
                     ),
                   ),
                 ),
@@ -112,19 +130,17 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                   padding: const EdgeInsets.all(8.0),
                   child: Align(
                     alignment: Alignment.topRight,
-                    child: SizedBox(
-                        height: 6.0.hp,
-                        width: 9.0.wp,
-                        child: Image.asset("images/edit.png")),
-                    // child: CircleAvatar(
-                    //   // backgroundImage: ExactAssetImage("images/editicon.png",),
-                    //   radius: 13.0.sp,
-                    //   backgroundColor: Colors.white,
-                    //   child: Image.asset(
-                    //     "images/editicon.png",
-                    //     height: 2.0.hp,
-                    //   ),
-                    // ),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          backgroundfilepicker();
+                        });
+                      },
+                      child: SizedBox(
+                          height: 6.0.hp,
+                          width: 9.0.wp,
+                          child: Image.asset("images/edit.png")),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -137,37 +153,31 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                     child: Align(
                       heightFactor: 5,
                       alignment: Alignment.center,
-                      child: SizedBox(
-                          height: 6.0.hp,
-                          width: 9.0.wp,
-                          child: Image.asset("images/edit.png")),
-                      // child: CircleAvatar(
-                      //   // backgroundImage: ExactAssetImage("images/editicon.png",),
-                      //   radius: 13.0.sp,
-                      //   backgroundColor: Colors.white,
-                      //   child: Image.asset(
-                      //     "images/editicon.png",
-                      //     height: 2.0.hp,
-                      //     // 15,
-                      //   ),
-                      // ),
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            filepicker();
+                          });
+                        },
+                        child: SizedBox(
+                            height: 6.0.hp,
+                            width: 9.0.wp,
+                            child: Image.asset("images/edit.png")),
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          // SizedBox(
-          //   height: 10,
-          // ),
           Container(
             width: 70.0.wp,
             //  258,
             child: TextField(
               decoration: InputDecoration(
-                // hintText: "Enter your email",
-                labelText: "Group Name",
-                labelStyle: GoogleFonts.poppins(
+                hintText: "Group Name",
+                floatingLabelAlignment: FloatingLabelAlignment.center,
+                hintStyle: GoogleFonts.poppins(
                   textStyle: TextStyle(
                     color: club_Text_1,
                     fontSize: 9.0.sp,
@@ -200,8 +210,9 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                 ),
                 Card(
                     elevation: 3,
-                    child: SizedBox(
-                        width: 90.0.wp,
+                    child: Container(
+                        margin: EdgeInsets.only(left: 7.0.sp),
+                        width: 88.0.wp,
                         height: 5.0.hp,
                         child: TextField(
                             decoration: new InputDecoration(
@@ -222,8 +233,9 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                 ),
                 Card(
                     elevation: 3,
-                    child: SizedBox(
-                        width: 90.0.wp,
+                    child: Container(
+                        margin: EdgeInsets.only(left: 7.0.sp),
+                        width: 88.0.wp,
                         height: 5.0.hp,
                         child: TextField(
                             decoration: new InputDecoration(
@@ -253,7 +265,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                     height: 5.0.hp,
                     child: DropdownButton<String>(
                       isExpanded: true,
-                      value: dropdownValue,
+                      value: communitydropdownValue,
                       icon: const Icon(Icons.keyboard_arrow_down),
                       elevation: 16,
                       style: const TextStyle(
@@ -264,10 +276,10 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                       ),
                       onChanged: (String? newValue) {
                         setState(() {
-                          dropdownValue = newValue!;
+                          communitydropdownValue = newValue!;
                         });
                       },
-                      items: <String>['One', 'Two', 'Free', 'Four']
+                      items: <String>['Dog', 'cat', 'birds', 'insects']
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -302,8 +314,6 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                         // 13,
                         child: Image.asset(
                           "images/about.png",
-                          // cacheHeight: 13,
-                          // cacheWidth: 13,
                         ),
                       )
                     ],
@@ -313,12 +323,11 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                   elevation: 3,
                   child: Container(
                     margin: EdgeInsets.only(left: 10),
-                    width: 87.0.wp, height: 5.0.hp,
-                    // width: 320,
-                    // height: 40,
+                    width: 87.0.wp,
+                    height: 5.0.hp,
                     child: DropdownButton<String>(
                       isExpanded: true,
-                      value: dropdownValue,
+                      value: communityTypedropdownValue,
                       icon: const Icon(Icons.keyboard_arrow_down),
                       elevation: 16,
                       style: const TextStyle(
@@ -329,10 +338,10 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                       ),
                       onChanged: (String? newValue) {
                         setState(() {
-                          dropdownValue = newValue!;
+                          communityTypedropdownValue = newValue!;
                         });
                       },
-                      items: <String>['One', 'Two', 'Free', 'Four']
+                      items: <String>['Private', 'Public']
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -345,38 +354,43 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
               ],
             ),
           ),
-          SizedBox(
-            height: 40,
-          ),
-          controller.communityNext("Create", Completed_Club_UI())
-          // GestureDetector(
-          //   onTap: () {
-          //     // Get.to(Animals_Profiles_UI());
-          //     Get.to(Completed_Club_UI());
-          //   },
-          //   child: Container(
-          //     height: 6.0.hp,
-          //     //  43,
-          //     width: 90.0.wp,
-          //     // 310,
-          //     decoration: BoxDecoration(
-          //         color: Color(0xff272727),
-          //         borderRadius: BorderRadius.circular(12)),
-          //     alignment: Alignment.center,
-          //     child: Text(
-          //       "Create",
-          //       style: GoogleFonts.poppins(
-          //         textStyle: TextStyle(
-          //           color: const Color.fromRGBO(255, 255, 255, 1),
-          //           fontSize: 15.0.sp,
-          //           fontWeight: FontWeight.w600,
-          //         ),
-          //       ),
-          //     ),
-          //   ),
-          // )
+          SizedBox(height: 40),
+          // controller.communityNext("Create", Completed_Club_UI())
+          controller.communityNext("Create", MyClubs_UI())
         ]),
       ),
     );
+  }
+
+  filepicker() async {
+    final ImagePicker imagePicker = ImagePicker();
+
+    final result = await imagePicker.pickImage(source: ImageSource.gallery);
+
+    if (result != null) {
+      setState(() {
+        controller.clubprofileimage = File(result.path);
+        // controller.file = File(result.path);
+        // controller.imagevideo(FilepickerType(type: "image", url: result.path));
+      });
+    } else {
+      return null;
+    }
+  }
+
+  backgroundfilepicker() async {
+    final ImagePicker imagePicker = ImagePicker();
+
+    final result = await imagePicker.pickImage(source: ImageSource.gallery);
+
+    if (result != null) {
+      setState(() {
+        controller.clubbackgroundimage = File(result.path);
+        // controller.file = File(result.path);
+        // controller.imagevideo(FilepickerType(type: "image", url: result.path));
+      });
+    } else {
+      return null;
+    }
   }
 }

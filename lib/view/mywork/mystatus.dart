@@ -1,7 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class MyStatus_UI extends StatefulWidget {
   const MyStatus_UI({Key? key}) : super(key: key);
@@ -37,7 +35,7 @@ class _MyStatus_UIState extends State<MyStatus_UI> {
                 dropdownValue = newValue!;
               });
             },
-            items: <String>["Active", "De-Active"]
+            items: <String>["Active", "In-Active"]
                 .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,

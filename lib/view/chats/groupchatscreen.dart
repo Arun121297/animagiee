@@ -1,7 +1,11 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 
 import 'groupchatappbar.dart';
+import 'groupchatlistcontent.dart';
+import 'groupchatoption.dart';
 import 'groupchatpage.dart';
+import 'sendbox.dart';
 
 class Group_Chat_Screen_UI extends StatelessWidget {
   const Group_Chat_Screen_UI({Key? key}) : super(key: key);
@@ -9,25 +13,53 @@ class Group_Chat_Screen_UI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-          child: Column(
-        children: [GroupChat_AppBar_UI(), GroupMulti_Chat_Page_UI()],
-      )),
-    );
+        // resizeToAvoidBottomInset: true,
+        body: SafeArea(
+            child: Stack(children: [
+      Container(
+        child: Column(
+          children: [
+            GroupChat_AppBar_UI(),
+            Expanded(
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) => GroupChat_List_Content(
+                          fetchindex: index,
+                        ))),
+            Send_Box_UI(),
+            SizedBox(
+              height: 2.0.hp,
+            ),
+            //   ],
+            // ),
+            Group_Chat_Option_UI(),
+          ],
+        ),
+      ),
+    ])));
   }
 }
-// class Group_Chat_Screen_UI extends StatefulWidget {
-//   const Group_Chat_Screen_UI({Key? key}) : super(key: key);
-
-//   @override
-//   State<Group_Chat_Screen_UI> createState() => _Group_Chat_Screen_UIState();
-// }
-
-// class _Group_Chat_Screen_UIState extends State<Group_Chat_Screen_UI> {
-//   Controller controller = Get.put(Controller());
-//   @override
-//   Widget build(BuildContext context) {
- 
-//   }
-// }
+// Scaffold(
+//         body: SafeArea(
+//             child: Stack(children: [
+//       Container(
+//         child: Column(children: [
+//           GroupChat_AppBar_UI(),
+//           Expanded(
+//               child: ListView.builder(
+//                   shrinkWrap: true,
+//                   itemCount: 5,
+//                   itemBuilder: (context, index) => GroupChat_List_Content(
+//                         fetchindex: index,
+//                       ))),
+//           Send_Box_UI(),
+//           SizedBox(
+//             height: 2.0.hp,
+//           ),
+//           //   ],
+//           // ),
+//           Group_Chat_Option_UI(),
+//         ]),
+//       ),
+//     ])));

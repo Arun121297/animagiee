@@ -17,7 +17,6 @@ List wid = [
 ];
 var videoimage_files = [
   {"type": "image", "url": controller.file.path},
-  // {"type": "video", "url": controller.file.path},
 ];
 var image_files = {
   "type": "image",

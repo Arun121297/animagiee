@@ -1,8 +1,7 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -60,28 +59,6 @@ class _Create_Post_UIState extends State<Create_Post_UI> {
                   width: 12,
                 )
               ]),
-
-              // alignment: Alignment.center,
-              // decoration: BoxDecoration(
-              //   image: DecorationImage(
-              //     image: AssetImage("images/Livestock.jpg"),
-              //     colorFilter: ColorFilter.mode(
-              //         Colors.black.withOpacity(0.7), BlendMode.darken),
-              //   ),
-              //   borderRadius: BorderRadius.circular(15),
-              // ),
-              // child: Text(
-              //   "",
-              //   style: GoogleFonts.poppins(
-              //     textStyle: TextStyle(
-              //       fontSize: 10.0.sp,
-              //       color: Colors.white,
-              //       fontWeight: FontWeight.w500,
-              //     ),
-              //   ),
-              // )
-              // height: 20,
-              // width: 105,
             ),
             Obx(() {
               return Visibility(

@@ -14,6 +14,7 @@ class Playing_Music_UI extends StatefulWidget {
 }
 
 class _Playing_Music_UIState extends State<Playing_Music_UI> {
+  var play = 1;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,8 +62,16 @@ class _Playing_Music_UIState extends State<Playing_Music_UI> {
             //  80,
           ),
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.play_arrow),
+            onPressed: () {
+              setState(() {
+                if (play == 1) {
+                  play = 2;
+                } else {
+                  play = 1;
+                }
+              });
+            },
+            icon: Icon(play == 1 ? Icons.play_arrow : Icons.pause),
           ),
           IconButton(
             icon: Icon(Icons.autorenew),

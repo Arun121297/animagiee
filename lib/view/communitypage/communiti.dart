@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -29,7 +28,7 @@ class _Community_UIState extends State<Community_UI> {
   List CataName = [
     "Cats",
     "Dogs",
-    "Exotic_Birds",
+    "ExoticBirds",
     "Fishes",
     "horse",
     "Livestock",
@@ -49,22 +48,16 @@ class _Community_UIState extends State<Community_UI> {
       child: GridView.builder(
           itemCount: Catagaries.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 1.4,
+            childAspectRatio: 1.1.sp,
             crossAxisCount: 3,
             crossAxisSpacing: 4,
-            mainAxisSpacing: 4,
+            mainAxisSpacing: 3.6.sp,
           ),
           itemBuilder: (context, index) => Obx(() {
                 return Stack(children: [
                   GestureDetector(
                     onTap: () {
                       print(CataName[index]);
-                      // if (controller.communitylist
-                      //     .contains(controller.communitylist[index])) {
-                      //   controller.communitylist.removeAt(index);
-                      // } else {
-                      //   controller.communitylist.add(CataName[index]);
-                      // }
                       setState(() {
                         var i = index;
                         controller.data[i] == false
@@ -78,6 +71,7 @@ class _Community_UIState extends State<Community_UI> {
                               (element) => element == (CataName[i]));
                         } else {
                           controller.communitylist.add(CataName[index]);
+                          controller.communitylistimage.add(Catagaries[index]);
                         }
                         print(controller.communitylist);
                       });
@@ -94,15 +88,19 @@ class _Community_UIState extends State<Community_UI> {
                           ),
                           borderRadius: BorderRadius.circular(15.0.sp),
                         ),
-                        child: Text(
-                          CataName[index],
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 10.0.sp,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
+                        child: SizedBox(
+                          width: 18.2.wp,
+                          // 65,
+                          child: Text(
+                            '${CataName[index]}',
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 10.0.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         )

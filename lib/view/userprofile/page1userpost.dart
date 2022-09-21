@@ -77,7 +77,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
-                                    "UnFollow",
+                                    "Unfollow",
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         fontSize: 10.0.sp,

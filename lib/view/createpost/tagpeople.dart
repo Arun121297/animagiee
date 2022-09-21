@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 
@@ -20,10 +19,16 @@ class _Tag_People_UIState extends State<Tag_People_UI> {
         child: Container(
             decoration:
                 BoxDecoration(borderRadius: BorderRadius.circular(10.0.sp)),
+            height: 6.0.hp,
+            // 45,
+            width: 120.0.wp,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  SizedBox(
+                    width: 4.0.wp,
+                  ),
                   SizedBox(
                     height: 3.0.hp,
                     //  21,
@@ -31,25 +36,25 @@ class _Tag_People_UIState extends State<Tag_People_UI> {
                     // 21,
                     child: Image.asset(
                       "images/tagpeople.png",
-                      // cacheHeight: 21,
-                      // cacheWidth: 21,
                     ),
                   ),
-                  // Icon(
-                  //   Icons.tag_faces_sharp,
-                  //   color: animagiee_CL,
-                  // ),
                   SizedBox(
                     width: 2.0.wp,
                     // 10,
                   ),
-                  Text("Tag People"),
+                  Text(
+                    "Tag People",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 9.0.sp,
+                        color: descriptionText_CL,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
                 ],
               ),
-            ),
-            height: 6.0.hp,
-            // 45,
-            width: 120.0.wp
+            )
             // 339,
             ));
   }

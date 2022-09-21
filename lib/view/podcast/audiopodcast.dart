@@ -1,5 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homeAppBar/appbar.dart';
 
 import 'package:animagieeui/view/homepage/homepage.dart';
 
@@ -7,6 +8,7 @@ import 'package:animagieeui/view/podcast/startpodcast.dart';
 import 'package:animagieeui/view/podcast/suggestedpodcast.dart';
 import 'package:animagieeui/view/podcast/topcollection.dart';
 import 'package:animagieeui/view/podcast/viewallsuggestion.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -31,8 +33,9 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
     return Scaffold(
       bottomNavigationBar: Obx(() {
         return Visibility(
-            visible: controller.podcastplayblutton.value,
-            child: Playing_Music_UI());
+          visible: controller.podcastplayblutton.value,
+          child: Playing_Music_UI(),
+        );
       }),
       // bottomNavigationBar: Customized_Bottom_Bar(),
       body: SafeArea(
@@ -40,7 +43,20 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // PodCast_AppBar_UI(),
-          controller.podcastapp("Audio Podcast", Home_Page(), context),
+          AppbarContainer(
+            title: "Audio Podcast",
+            logo: false,
+            notification: true,
+            search: false,
+            backarrow: true,
+            podcast: false,
+            chat: false,
+            edit: false,
+            firstscreen: false,
+            navipage: null,
+            fun: Home_Page(),
+          ),
+          // controller.podcastapp("Audio Podcast", Home_Page(), context),
           Expanded(
               child: SingleChildScrollView(
                   child: SizedBox(
@@ -82,7 +98,24 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                   // 196,
                   width: MediaQuery.of(context).size.width,
                   alignment: Alignment.center,
-                  child: Image.asset("images/podcastimage.png"),
+                  child: CarouselSlider.builder(
+                    itemCount: 4,
+                    options: CarouselOptions(
+                      reverse: false,
+                      viewportFraction: 1,
+                      enableInfiniteScroll: false,
+                    ),
+                    itemBuilder: (context, index, realIndex) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: 26.0.hp,
+                          child: Image.asset("images/podcastimage.png"),
+                        ),
+                      );
+                    },
+                  ),
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 10.0.sp),
@@ -130,7 +163,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                       height: 18.0.hp,
                       // 170,
                       width: MediaQuery.of(context).size.width,
-                      child: ListView(
+                      child: Column(
                         children: [
                           Suggested_PodCast_UI(),
                           SizedBox(
@@ -159,7 +192,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                     width: MediaQuery.of(context).size.width,
                     child: Top_Collection_Podcast_UI()),
                 SizedBox(
-                  height: 5.0.hp,
+                  height: 3.0.hp,
                   //  30,
                 ),
                 GestureDetector(
@@ -209,7 +242,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                   ),
                 ),
                 SizedBox(
-                  height: 2.0.wp,
+                  height: 3.0.wp,
                   //  20,
                 )
               ],

@@ -3,12 +3,11 @@ import 'dart:io';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:file_picker/file_picker.dart';
+
 import 'package:get/get.dart';
 import '../../config/colorconfig.dart';
-// import 'package:open_file/open_file.dart';
 
 class Add_Photos_UI extends StatefulWidget {
   const Add_Photos_UI({Key? key}) : super(key: key);
@@ -39,7 +38,16 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
                   Icons.camera_alt,
                   color: animagiee_CL,
                 ),
-                Text("Add Photo"),
+                Text(
+                  "Add Photo",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 9.0.sp,
+                      color: descriptionText_CL,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
               ],
             ),
             height: 6.0.hp,
@@ -52,21 +60,15 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
 
   filepicker() async {
     final ImagePicker imagePicker = ImagePicker();
-
     final result = await imagePicker.pickImage(source: ImageSource.gallery);
 
     if (result != null) {
       setState(() {
         controller.file = File(result.path);
         controller.imagevideo(FilepickerType(type: "image", url: result.path));
-        // controller.imagevideo.value.type == "image" ?
       });
     } else {
       return null;
     }
   }
-
-  // openfile(PlatformFile file) {
-  //   OpenFile.open(file.path);
-  // }
 }

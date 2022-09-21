@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
+import '../homeAppBar/appbar.dart';
 
 class Post extends StatefulWidget {
   const Post({Key? key}) : super(key: key);
@@ -24,7 +25,21 @@ class _PostState extends State<Post> {
       body: SafeArea(
         child: Column(
           children: [
-            controller.chatapp("Create Post", Home_Page(), context),
+            AppbarContainer(
+              title: "Create Post",
+              backarrow: true,
+              firstscreen: false,
+              navipage: null,
+              notification: true,
+              edit: false,
+              search: true,
+              chat: false,
+              logo: false,
+              podcast: false,
+              fun: Home_Page(),
+            ),
+
+            // controller.chatapp("Create Post", Home_Page(), context),
             SizedBox(
               height: 19,
             ),
@@ -50,26 +65,31 @@ class _PostState extends State<Post> {
                     ),
                   ),
                   Expanded(child: Container()),
-                  Container(
-                    // margin: EdgeInsets.only(top: 30),
-                    alignment: Alignment.center,
-                    width: 22.0.wp,
-                    //  80,
-                    height: 4.5.hp,
-                    // 35,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          bottomLeft: Radius.circular(15)),
-                      color: animagiee_CL,
-                    ),
-                    child: Text(
-                      "Post",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 11.0.sp,
-                          color: skip_CL,
-                          fontWeight: FontWeight.w600,
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(Home_Page());
+                    },
+                    child: Container(
+                      // margin: EdgeInsets.only(top: 30),
+                      alignment: Alignment.center,
+                      width: 22.0.wp,
+                      //  80,
+                      height: 4.5.hp,
+                      // 35,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            bottomLeft: Radius.circular(15)),
+                        color: animagiee_CL,
+                      ),
+                      child: Text(
+                        "Post",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 11.0.sp,
+                            color: skip_CL,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
@@ -86,7 +106,7 @@ class _PostState extends State<Post> {
               width: 350,
               // MediaQuery.of(context).size.width,
               // color: Colors.orange,
-              margin: EdgeInsets.only(left: 10.0.sp),
+              margin: EdgeInsets.only(left: 5.0.sp),
               child: TextField(
                 keyboardType: TextInputType.multiline,
                 minLines: 1,
@@ -94,7 +114,7 @@ class _PostState extends State<Post> {
                 decoration: InputDecoration.collapsed(
                     hintStyle: GoogleFonts.jost(
                       textStyle: TextStyle(
-                        fontSize: 20.5.sp,
+                        fontSize: 18.5.sp,
                         color: text_1,
                         fontWeight: FontWeight.w500,
                       ),
@@ -102,20 +122,6 @@ class _PostState extends State<Post> {
                     hintText: 'What’s on your mind ?'),
               ),
             ),
-            // Container(
-
-            //   margin: EdgeInsets.only(left: 10.0.sp),
-            //   child: Text(
-            //     "What’s on your mind ?",
-            //     style: GoogleFonts.jost(
-            //       textStyle: TextStyle(
-            //         fontSize: 20.5.sp,
-            //         color: text_1,
-            //         fontWeight: FontWeight.w500,
-            //       ),
-            //     ),
-            //   ),
-            // ),
             Expanded(
                 child: Container(
               // color: Colors.green,
@@ -138,13 +144,6 @@ class _PostState extends State<Post> {
                             // cacheWidth: 27,
                           ),
                         ),
-                        // IconButton(
-                        //   onPressed: () {},
-                        //   icon: Icon(
-                        //     Icons.photo_library_sharp,
-                        //     color: animagiee_CL,
-                        //   ),
-                        // ),
                         SizedBox(
                           width: 4.0.wp,
                         ),
@@ -205,8 +204,6 @@ class _PostState extends State<Post> {
                           // 25,
                           child: Image.asset(
                             "images/camera.png",
-                            // cacheHeight: 22,
-                            // cacheWidth: 25,
                           ),
                         ),
                         SizedBox(

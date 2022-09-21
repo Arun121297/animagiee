@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/data/pages.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 
+import '../homeAppBar/appbar.dart';
 import '../homepage/homepage.dart';
 import 'addDocument.dart';
 import 'editprofileappbar.dart';
@@ -30,18 +33,40 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
         child: Column(
           children: [
             // Edit_Profile_AppBar_UI(),
-            controller.chatapp("Profile", Home_Page(), context),
+            AppbarContainer(
+              title: "Profile",
+              logo: false,
+              notification: false,
+              search: false,
+              backarrow: true,
+              chat: false,
+              edit: false,
+              firstscreen: false,
+              navipage: null,
+              podcast: false,
+              fun: Home_Page(),
+            ),
+
+            // controller.chatapp("Profile", Home_Page(), context),
             Expanded(
                 child: SingleChildScrollView(
               child: Container(
                 child: Column(children: [
                   Edit_Profile_Header_UI(),
                   Edit_Profile_TextField_UI(),
-                  SizedBox(height: 9.0.hp
+                  SizedBox(height: 4.0.hp
                       // 37,
                       ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        controller.pFglobalprofileimage =
+                            File(controller.pFprofileimage.path);
+                        controller.profileglobalbackgroundimage =
+                            File(controller.profilebackgroundimage.path);
+                      });
+                      Get.to(Home_Page());
+                    },
                     child: Container(
                       height: 6.7.hp,
                       // 43,
@@ -62,7 +87,10 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 4.0.hp,
+                  ),
                 ]),
               ),
             ))

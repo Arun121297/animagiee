@@ -22,16 +22,11 @@ class _Video_PlayerState extends State<Video_Player> {
     super.initState();
     controller.videocontroller = VideoPlayerController.file(
       File(widget.urls),
-      // videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
     )..initialize();
 
     controller.videocontroller!.play();
 
     controller.videocontroller!.setVolume(0);
-    // currentVolume > 0 ? Getcontroller.controller!.setVolume(0) : null;
-    // Getcontroller.currentVolume > 0
-    //     ? Getcontroller.controller!.setVolume(1.0)
-    //     : null;
     controller.videocontroller?.setLooping(true);
   }
 

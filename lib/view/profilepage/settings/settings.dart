@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
+import '../../homeAppBar/appbar.dart';
 import 'about.dart';
 import 'community_settings.dart';
 
@@ -29,7 +30,21 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
             child: Container(
       child: Column(
         children: [
-          controller.clubapp("Settings", Home_Page(), context),
+          AppbarContainer(
+            title: "Settings",
+            backarrow: true,
+            chat: false,
+            logo: false,
+            edit: false,
+            firstscreen: false,
+            navipage: null,
+            podcast: false,
+            notification: true,
+            search: true,
+            fun: Home_Page(),
+          ),
+
+          // controller.clubapp("Settings", Home_Page(), context),
           SizedBox(
             height: 3.0.hp,
             //  41,

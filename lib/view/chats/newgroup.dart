@@ -1,17 +1,18 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/chats/searchbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
 
+import '../homeAppBar/appbar.dart';
 import 'chatscreen1.dart';
-import 'groupchat.dart';
+
 import 'groupchatscreen.dart';
+import 'newgrouplistcontent.dart';
 
 class Create_New_Group_UI extends StatefulWidget {
   const Create_New_Group_UI({Key? key}) : super(key: key);
@@ -27,28 +28,26 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Material(
-              //   elevation: 3,
-              //   child: Container(
-              //     width: MediaQuery.of(context).size.width,
-              //     child: Row(children: [
-              //       Chat_Screen_Back_Button(),
-              //       Flexible(child: Container()),
-              //       SizedBox(
-              //         width: 41,
-              //       ),
-              //       Text("New Group"),
-              //       Flexible(child: Container()),
-              //       Flexible(child: Container()),
-              //     ]),
-              //   ),
-              // ),
-              controller.chatapp("New Group", Chat_UI(), context),
+              AppbarContainer(
+                title: "New Group",
+                logo: false,
+                notification: false,
+                search: false,
+                edit: false,
+                backarrow: true,
+                firstscreen: false,
+                navipage: null,
+                chat: false,
+                podcast: false,
+                fun: Chat_UI(),
+              ),
+              // controller.chatapp("New Group", Chat_UI(), context),
               SizedBox(
                 height: 3.0.hp,
                 //  26,
@@ -59,8 +58,6 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                 // 32,
               ),
               Container(
-                // alignment: Alignment.center,
-                // color: Colors.orange,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -68,11 +65,20 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                         child:
                             Stack(alignment: Alignment.bottomRight, children: [
                       CircleAvatar(
-                        backgroundColor: animagiee_CL,
+                        backgroundColor: Colors.grey.shade300,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.grey,
+                        ),
+                        // backgroundImage: ExactAssetImage("images/Vector.png"),
                       ),
-                      Icon(
-                        Icons.add_circle_outline,
-                        size: 8.5.sp,
+                      Positioned(
+                        bottom: 2.0.sp,
+                        child: SizedBox(
+                          height: 13,
+                          width: 13,
+                          child: Image.asset("images/groupadd.png"),
+                        ),
                       )
                     ])),
                     SizedBox(
@@ -96,9 +102,6 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                   ],
                 ),
               ),
-              // SizedBox(
-              //   height: 37,
-              // ),
               Padding(
                 padding: EdgeInsets.all(10.0.sp),
                 child: Text(
@@ -116,73 +119,12 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
               SizedBox(
                 height: 50.0.hp,
                 //  360,
+                ////create group and add
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: 5,
                   itemBuilder: (context, index) {
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0.sp)),
-                      child: SizedBox(
-                        height: 8.0.hp,
-                        // 56,
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(8.0.sp),
-                              child: CircleAvatar(),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(8.0.sp),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Daniel Smith",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                        fontSize: 10.0.sp,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    "Pet lover",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                        fontSize: 9.0.sp,
-                                        color: content1_CL,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(child: Container()),
-                            Checkbox(
-                              fillColor:
-                                  MaterialStateProperty.resolveWith<Color>(
-                                      (states) {
-                                if (states.contains(MaterialState.disabled)) {
-                                  return animagiee_CL.withOpacity(.32);
-                                }
-                                return animagiee_CL;
-                              }),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5.0.sp)),
-                              value: valuebol[index],
-                              onChanged: (value) {
-                                setState(() {
-                                  valuebol[index] = value!;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
+                    return NewGroup_List_Content();
                   },
                 ),
               ),
@@ -190,31 +132,6 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                 alignment: Alignment.center,
                 child: controller.communityNext(
                     "Add to Group", Group_Chat_Screen_UI()),
-                // child: GestureDetector(
-                //   onTap: () {
-                //     // Get.to(MyClubs_UI());
-                //   },
-                //   child: Container(
-                //     height: 6.0.hp,
-                //     // 43,
-                //     width: 90.0.wp,
-                //     // 310,
-                //     decoration: BoxDecoration(
-                //         color: buttonColor1_CL,
-                //         borderRadius: BorderRadius.circular(15.0.sp)),
-                //     alignment: Alignment.center,
-                //     child: Text(
-                //       "Add to Group",
-                //       style: GoogleFonts.poppins(
-                //         textStyle: TextStyle(
-                //           fontSize: 17.0.sp,
-                //           color: SigninButton_CL,
-                //           fontWeight: FontWeight.w600,
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
               )
             ],
           ),

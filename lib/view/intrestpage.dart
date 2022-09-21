@@ -124,68 +124,6 @@ class _Welcome_PageState extends State<Welcome_Page> {
                 child: Image.asset("images/Curious.gif"),
               ),
               Community_UI(),
-              // Container(
-              //   height: 260,
-              //   width: 337,
-              //   child: GridView.builder(
-              //       itemCount: Catagaries.length,
-              //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              //         childAspectRatio: 1.4,
-              //         crossAxisCount: 3,
-              //         crossAxisSpacing: 4,
-              //         mainAxisSpacing: 4,
-              //       ),
-              //       itemBuilder: (context, index) => Obx(() {
-              //             return Stack(children: [
-              //               GestureDetector(
-              //                 onTap: () {
-              //                   print(CataName[index]);
-              //                   setState(() {
-              //                     var i = index;
-              //                     controller.data[i] == false
-              //                         ? controller.data[i] = true
-              //                         : controller.data[i] = false;
-              //                     print(controller.data[i]);
-              //                   });
-              //                 },
-              //                 child: Container(
-              //                     alignment: Alignment.center,
-              //                     decoration: BoxDecoration(
-              //                       image: DecorationImage(
-              //                         image: AssetImage(
-              //                           Catagaries[index],
-              //                         ),
-              //                         colorFilter: ColorFilter.mode(
-              //                             Colors.black.withOpacity(0.7),
-              //                             BlendMode.darken),
-              //                       ),
-              //                       borderRadius: BorderRadius.circular(15),
-              //                     ),
-              //                     child: Text(
-              //                       CataName[index],
-              //                       style: GoogleFonts.poppins(
-              //                         textStyle: TextStyle(
-              //                           fontSize: 13,
-              //                           color: Colors.white,
-              //                           fontWeight: FontWeight.w500,
-              //                         ),
-              //                       ),
-              //                     )
-              //                     // height: 20,
-              //                     // width: 105,
-              //                     ),
-              //               ),
-              //               Visibility(
-              //                 visible: controller.data[index],
-              //                 child: Container(
-              //                   height: 20,
-              //                   width: 20,
-              //                   child: Image.asset("images/success1.png"),
-              //                 ),
-              //               )
-              //             ]);
-              //           })),
-              // ),
               SizedBox(
                 height: 3.0.hp,
                 //  30,

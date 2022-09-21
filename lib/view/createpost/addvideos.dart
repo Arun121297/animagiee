@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
-import 'package:file_picker/file_picker.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../config/colorconfig.dart';
@@ -40,15 +40,18 @@ class _Add_Video_UIState extends State<Add_Video_UI> {
                   width: 21,
                   child: Image.asset(
                     "images/video.png",
-                    // cacheHeight: 20,
-                    // cacheWidth: 21,
                   ),
                 ),
-                // Icon(
-                //   Icons.video_stable,
-                //   color: animagiee_CL,
-                // ),
-                Text("Videos"),
+                Text(
+                  "Add Videos",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 9.0.sp,
+                      color: descriptionText_CL,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
               ],
             ),
             height: 6.0.hp,
@@ -71,21 +74,4 @@ class _Add_Video_UIState extends State<Add_Video_UI> {
       return null;
     }
   }
-  // addvideo() async {
-  //   FilePickerResult? result =
-  //       await FilePicker.platform.pickFiles(type: FileType.video);
-
-  //   if (result != null) {
-  //     PlatformFile file = result.files.first;
-  //     print(file.name);
-  //     print(file.bytes);
-  //     print(file.size);
-  //     print(file.extension);
-  //     print(file.path);
-  //   } else {
-  //     // User canceled the picker
-  //   }
-  //   // print("sdfsdf");
-  //   // filepicker();}
-  // }
 }
