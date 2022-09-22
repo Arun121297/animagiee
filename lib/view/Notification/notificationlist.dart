@@ -7,7 +7,13 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Notification_content_List extends StatefulWidget {
-  const Notification_content_List({Key? key}) : super(key: key);
+  var fetchindex;
+  var onItem;
+  VoidCallback onpress;
+
+  Notification_content_List(
+      {Key? key, this.fetchindex, required this.onpress, required this.onItem})
+      : super(key: key);
 
   @override
   State<Notification_content_List> createState() =>
@@ -16,9 +22,10 @@ class Notification_content_List extends StatefulWidget {
 
 class _Notification_content_ListState extends State<Notification_content_List> {
   Controller controller = Get.put(Controller());
+  // bool visible = false;
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
+    return (Stack(children: [
       Column(
         children: [
           Row(
@@ -59,20 +66,11 @@ class _Notification_content_ListState extends State<Notification_content_List> {
                 ],
               ),
               IconButton(
-                icon: Icon(
-                  Icons.more_horiz,
-                  color: Colors.grey,
-                ),
-                onPressed: () {
-                  setState(() {
-                    if (controller.isvisible == false.obs) {
-                      controller.isvisible = true.obs;
-                    } else {
-                      controller.isvisible = false.obs;
-                    }
-                  });
-                },
-              ),
+                  icon: Icon(
+                    Icons.more_horiz,
+                    color: Colors.grey,
+                  ),
+                  onPressed: widget.onpress),
             ],
           ),
           Divider(
@@ -84,7 +82,11 @@ class _Notification_content_ListState extends State<Notification_content_List> {
         ],
       ),
       Visibility(
-        visible: controller.isvisible.value,
+        visible: widget.onItem == widget.fetchindex
+            ? controller.visible.value
+            : false,
+        //  visible,
+        // controller.selectingCategories[widget.fetchindex],
         child: Positioned(
           right: 50.0.sp,
           child: Align(
@@ -98,7 +100,8 @@ class _Notification_content_ListState extends State<Notification_content_List> {
                 child: Container(
                   height: 8.0.hp,
                   //  58,
-                  width: 113,
+                  width: 13.0.wp,
+                  // 113,
                   decoration: BoxDecoration(
                       border:
                           Border.all(color: Colors.grey.shade300, width: 1.5),
@@ -149,6 +152,6 @@ class _Notification_content_ListState extends State<Notification_content_List> {
           ),
         ),
       )
-    ]);
+    ]));
   }
 }

@@ -31,7 +31,12 @@ class Controller extends GetxController {
     false,
     false,
   ].obs;
-  RxBool isvisible = false.obs;
+  // var selectingCategories = List<dynamic>.empty(growable: true).obs;
+
+  // var selectingCategories = List<bool>.generate(20, (index) => false);
+  // var isvisible =
+  //     List<int>.generate(20, (int index) => index * index, growable: false);
+  RxBool visible = false.obs;
   List Home_Post = [
     "images/Cats.jpg",
     "images/Dogs.jpg",

@@ -58,6 +58,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
             Container(
               child: Row(
                 children: [
+                  ///logo
                   Visibility(
                     visible: widget.logo,
                     child: Container(
@@ -68,6 +69,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
                       child: Image.asset("images/ani.png"),
                     ),
                   ),
+                  //balance screen back arrow
                   Visibility(
                     visible: widget.backarrow,
                     child: IconButton(
@@ -80,6 +82,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
                       },
                     ),
                   ),
+                  //firstscreen backarrow
                   Visibility(
                     visible: widget.firstscreen,
                     child: IconButton(
@@ -96,8 +99,28 @@ class _AppbarContainerState extends State<AppbarContainer> {
                 ],
               ),
             ),
-            SizedBox(
-              width: 5.0.wp,
+
+            ///logo hide spacer
+            Visibility(
+              visible: widget.logo == false ? true : false,
+              child: SizedBox(
+                width: 7.0.wp,
+              ),
+            ),
+
+            ///(logo backarrow chat podcast notification edit) => false => spacer
+            Visibility(
+              visible: widget.logo == false &&
+                      widget.backarrow == false &&
+                      widget.chat == false &&
+                      widget.podcast == false &&
+                      widget.notification == false &&
+                      widget.edit == false
+                  ? true
+                  : false,
+              child: SizedBox(
+                width: 11.0.wp,
+              ),
             ),
             Expanded(
               // flex: 1,
@@ -116,6 +139,31 @@ class _AppbarContainerState extends State<AppbarContainer> {
                 ),
               ),
             ),
+            // logo: false,
+            //         notification: true,
+            //         search: false,
+            //         backarrow: true,
+            //         podcast: false,
+            //         chat: false,
+            //         edit: false,
+            //         firstscreen: false,
+            //         navipage: null,
+            ///only notification
+            Visibility(
+              visible: widget.search == false &&
+                      widget.chat == false &&
+                      widget.podcast == false &&
+                      widget.notification == true &&
+                      widget.edit == false &&
+                      widget.firstscreen == false &&
+                      widget.backarrow == true &&
+                      widget.logo == false
+                  ? true
+                  : false,
+              child: SizedBox(
+                width: 13.0.wp,
+              ),
+            ),
             Visibility(
               visible: widget.search == false &&
                       widget.chat == false &&
@@ -125,7 +173,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
                   ? true
                   : false,
               child: SizedBox(
-                width: 13.0.wp,
+                width: 18.0.wp,
               ),
             ),
             Container(
@@ -144,6 +192,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
                 ],
               ),
             ),
+
             Visibility(
               visible: widget.edit,
               child: GestureDetector(

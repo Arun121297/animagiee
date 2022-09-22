@@ -105,7 +105,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
             children: [
               Container(
                   padding: EdgeInsets.only(
-                    left: 40,
+                    left: 30.0.sp,
                   ),
                   margin: EdgeInsets.only(left: 30.0.sp),
                   child: Text(

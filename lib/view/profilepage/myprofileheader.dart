@@ -162,7 +162,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                 Padding(
                   padding: EdgeInsets.all(48.0.sp),
                   child: Container(
-                      padding: EdgeInsets.only(left: 30.0.sp),
+                      padding: EdgeInsets.only(left: 30.0.sp, top: 6.0.sp),
                       margin: EdgeInsets.only(left: 30.0.sp),
                       child: Text(
                         "MY Profile",

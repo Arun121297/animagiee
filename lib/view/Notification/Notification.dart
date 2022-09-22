@@ -24,6 +24,7 @@ class _Notification_Content_Design_UIState
   Controller controller = Get.put(Controller());
   ScrollController scrollController = ScrollController();
   bool follow_request_accecpt = true;
+  var onItem;
 
   @override
   Widget build(BuildContext context) {
@@ -85,14 +86,32 @@ class _Notification_Content_Design_UIState
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
-                        controller: scrollController,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: 20,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return Notification_content_List();
-                        },
-                      ),
+                          controller: scrollController,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: 20,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  // onItem = index;
+
+                                  controller.visible.value = false;
+                                });
+                              },
+                              child: Notification_content_List(
+                                  fetchindex: index,
+                                  onItem: onItem,
+                                  onpress: () {
+                                    setState(() {
+                                      onItem = index;
+
+                                      controller.visible.value =
+                                          !controller.visible.value;
+                                    });
+                                  }),
+                            );
+                          }),
                     ),
                     ////Visible Doctor profile
                     SizedBox(
