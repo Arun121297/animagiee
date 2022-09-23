@@ -72,11 +72,12 @@ class _Suggested_PodCast_UIState extends State<Suggested_PodCast_UI> {
           GestureDetector(
             onTap: () {
               setState(() {
-                if (controller.podcastplayblutton.value == true) {
-                  controller.podcastplayblutton.value = false;
-                } else {
-                  controller.podcastplayblutton.value = true;
-                }
+                controller.podcastplayblutton.value = true;
+                // if (controller.podcastplayblutton.value == true) {
+                //   controller.podcastplayblutton.value = false;
+                // } else {
+                //   controller.podcastplayblutton.value = true;
+                // }
               });
             },
             child: Align(

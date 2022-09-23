@@ -6,13 +6,21 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../config/colorconfig.dart';
 
 class Send_Box_UI extends StatefulWidget {
-  const Send_Box_UI({Key? key}) : super(key: key);
+  Send_Box_UI({Key? key}) : super(key: key);
 
   @override
   State<Send_Box_UI> createState() => _Send_Box_UIState();
 }
 
 class _Send_Box_UIState extends State<Send_Box_UI> {
+  @override
+  void initState() {
+    message = "";
+    // TODO: implement initState
+    super.initState();
+  }
+
+  var message;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,6 +46,11 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
             height: 2.8.hp,
             //  40,
             child: TextField(
+              onChanged: (value) {
+                setState(() {
+                  message = value;
+                });
+              },
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: "Type your message",
@@ -65,7 +78,7 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
             width: 4.0.wp,
           ),
           Visibility(
-            visible: false,
+            visible: message == "" ? false : true,
             child: Text(
               "Send",
               style: GoogleFonts.poppins(
@@ -78,7 +91,7 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
             ),
           ),
           Visibility(
-            visible: true,
+            visible: message != "" ? false : true,
             child: Row(
               children: [
                 Transform.rotate(

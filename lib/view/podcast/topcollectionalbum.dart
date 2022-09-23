@@ -116,11 +116,12 @@ class _Top_Collection_Album_UIState extends State<Top_Collection_Album_UI> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            if (controller.podcastplayblutton.value == true) {
-                              controller.podcastplayblutton.value = false;
-                            } else {
-                              controller.podcastplayblutton.value = true;
-                            }
+                            controller.podcastplayblutton.value = true;
+                            // if (controller.podcastplayblutton.value == true) {
+                            //   controller.podcastplayblutton.value = false;
+                            // } else {
+                            //   controller.podcastplayblutton.value = true;
+                            // }
                           });
                         },
                         child: Container(

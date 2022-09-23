@@ -69,46 +69,53 @@ class SignInPage extends StatelessWidget {
 
             ///login through FaceBook
 
-            Container(
-              height: 6.0.hp,
-              // 47,
-              width: 90.0.wp,
-              // 308,
-              decoration: BoxDecoration(
-                color: SigninButton_CL,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 4.0.wp,
-                  ),
-                  Icon(
-                    Icons.facebook,
-                    color: FB_CL,
-                    size: 40,
-                  ),
-                  // SizedBox(
-                  //   width: 9.0.wp,
-                  // ),
-                  Expanded(child: SizedBox()),
-                  Text(
-                    "Continue with facebook",
-                    style: GoogleFonts.poppins(
-                      color: SigninBtn_Content_CL,
-                      textStyle: TextStyle(
-                        fontSize: 9.5.sp,
-                        fontWeight: FontWeight.w500,
+            GestureDetector(
+              onTap: () {
+                Get.to(
+                  () => Welcome_Page(),
+                );
+              },
+              child: Container(
+                height: 6.0.hp,
+                // 47,
+                width: 90.0.wp,
+                // 308,
+                decoration: BoxDecoration(
+                  color: SigninButton_CL,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 4.0.wp,
+                    ),
+                    Icon(
+                      Icons.facebook,
+                      color: FB_CL,
+                      size: 40,
+                    ),
+                    // SizedBox(
+                    //   width: 9.0.wp,
+                    // ),
+                    Expanded(child: SizedBox()),
+                    Text(
+                      "Continue with facebook",
+                      style: GoogleFonts.poppins(
+                        color: SigninBtn_Content_CL,
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 3.0.hp,
-                    // 28,
-                  ),
-                  Expanded(child: SizedBox())
-                ],
+                    SizedBox(
+                      width: 3.0.hp,
+                      // 28,
+                    ),
+                    Expanded(child: SizedBox())
+                  ],
+                ),
               ),
             ),
             SizedBox(

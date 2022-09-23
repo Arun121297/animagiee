@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../animagieeprofile/animalsprofiles.dart';
-
+import '../userprofile/userprofile.dart';
 import 'notificationlist.dart';
 
 class Notification_Content_Design_UI extends StatefulWidget {
@@ -225,7 +224,7 @@ class _Notification_Content_Design_UIState
                     ////Friend Request
                     GestureDetector(
                       onTap: () {
-                        Get.to(Animals_Profiles_UI());
+                        Get.to(User_Profile());
                       },
                       child: SizedBox(
                         height: 12.0.hp,

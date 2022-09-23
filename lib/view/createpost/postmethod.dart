@@ -54,6 +54,7 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
                         (states) => Colors.black), //<-- SEE HERE
                     onChanged: (value) {
                       setState(() {
+                        // controller.post_absorbing_bool.value = true;
                         controller.posttype_bool.value = true;
                         site = BestTutorSite.Individual;
                         ;

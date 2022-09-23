@@ -119,6 +119,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 10.0.sp),
+                  width: MediaQuery.of(context).size.width,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -155,7 +156,6 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
                       )
                     ],
                   ),
-                  width: MediaQuery.of(context).size.width,
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 10.0.sp),

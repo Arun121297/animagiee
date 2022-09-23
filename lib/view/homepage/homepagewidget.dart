@@ -15,12 +15,27 @@ import 'adminpost.dart';
 
 import 'createpost.dart';
 
-class Homepage_Wid extends StatelessWidget {
+class Homepage_Wid extends StatefulWidget {
   const Homepage_Wid({Key? key}) : super(key: key);
+
+  @override
+  State<Homepage_Wid> createState() => _Homepage_WidState();
+}
+
+class _Homepage_WidState extends State<Homepage_Wid> {
+  Controller controller = Get.put(Controller());
+  @override
+  void initState() {
+    controller.podcastplayblutton = false.obs;
+    // controller.podcastplayblutton = false.obs;
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     Controller controller = Get.put(Controller());
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: Customized_Bottom_Bar(),
@@ -29,42 +44,6 @@ class Homepage_Wid extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              ///appbar
-              // Material(
-              //   elevation: 3,
-              //   child: SizedBox(
-              //     width: MediaQuery.of(context).size.width,
-              //     height: 7.0.hp,
-              //     // 53.0.hp,
-              //     child: Row(
-              //       children: [
-              //         Container(
-              //           height: 7.0.hp,
-              //           child: Container(
-              //             margin: EdgeInsets.only(left: 10.0.sp),
-              //             width: 40.0.wp,
-              //             // 122,
-              //             height: 28.0.hp,
-              //             child: Image.asset("images/ani.png"),
-              //           ),
-              //         ),
-              //         Expanded(child: SizedBox()),
-              //         Row(
-              //           mainAxisAlignment: MainAxisAlignment.end,
-              //           children: [
-              //             Search_UI(),
-              //             Chat_Icon_UI(),
-              //             PodCast_UI(),
-              //             Notification_UI(),
-              //             SizedBox(
-              //               width: 4.0.wp,
-              //             )
-              //           ],
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               AppbarContainer(
                 title: "",
                 backarrow: false,

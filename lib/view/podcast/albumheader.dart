@@ -51,11 +51,12 @@ class _Album_Header_UIState extends State<Album_Header_UI> {
         GestureDetector(
           onTap: () {
             setState(() {
-              if (controller.podcastplayblutton.value == true) {
-                controller.podcastplayblutton.value = false;
-              } else {
-                controller.podcastplayblutton.value = true;
-              }
+              controller.podcastplayblutton.value = true;
+              // if (controller.podcastplayblutton.value == true) {
+              //   controller.podcastplayblutton.value = false;
+              // } else {
+              //   controller.podcastplayblutton.value = true;
+              // }
             });
           },
           child: Align(
