@@ -36,6 +36,7 @@ class _Appoinment_Page_UIState extends State<Appoinment_Page_UI> {
                   backarrow: true,
                   podcast: false,
                   edit: false,
+                  notification_back_arrow: false,
                   firstscreen: false,
                   navipage: null,
                   fun: My_Work_Design_UI(),

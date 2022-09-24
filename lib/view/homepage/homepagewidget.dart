@@ -51,6 +51,7 @@ class _Homepage_WidState extends State<Homepage_Wid> {
                 navipage: null,
                 notification: true,
                 edit: false,
+                notification_back_arrow: false,
                 search: true,
                 chat: true,
                 logo: true,

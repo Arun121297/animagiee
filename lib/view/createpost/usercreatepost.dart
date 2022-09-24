@@ -54,6 +54,7 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
               backarrow: false,
               firstscreen: true,
               navipage: 0,
+              notification_back_arrow: false,
               notification: true,
               edit: false,
               search: true,

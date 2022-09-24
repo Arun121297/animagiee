@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:animagieeui/view/home.dart';
 import 'package:flutter/material.dart';
 
+import '../createpost/videoplayer.dart';
+
 class Splash_Screen extends StatefulWidget {
   @override
   _Splash_ScreenState createState() => _Splash_ScreenState();
@@ -25,9 +27,10 @@ class _Splash_ScreenState extends State<Splash_Screen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white, child: Image.asset("images/animagie_logo.png")
-        //  FlutterLogo(size: MediaQuery.of(context).size.height)
-        );
+    return AnimatedContainer(
+      duration: Duration(microseconds: 200),
+      child: Container(
+          color: Colors.white, child: Image.asset("images/animagie_logo.png")),
+    );
   }
 }

@@ -40,6 +40,7 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
             navipage: null,
             podcast: false,
             notification: true,
+            notification_back_arrow: false,
             search: true,
             fun: Home_Page(),
           ),

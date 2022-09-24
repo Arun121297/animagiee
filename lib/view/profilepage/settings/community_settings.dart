@@ -30,6 +30,7 @@ class _Community_Settings_UIState extends State<Community_Settings_UI> {
               backarrow: true,
               chat: false,
               logo: false,
+              notification_back_arrow: false,
               notification: true,
               search: true,
               edit: false,

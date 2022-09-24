@@ -37,6 +37,7 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
               AppbarContainer(
                 title: "New Group",
                 logo: false,
+                notification_back_arrow: false,
                 notification: false,
                 search: false,
                 edit: false,

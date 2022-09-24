@@ -32,6 +32,7 @@ class _Private_Security_Design_UIState
             backarrow: true,
             chat: false,
             logo: false,
+            notification_back_arrow: false,
             notification: true,
             search: true,
             edit: false,

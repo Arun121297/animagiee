@@ -87,17 +87,21 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             height: 13.0.hp,
             // 100,
             width: 89.0.wp, //  326,
-            child: TextField(
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintStyle: GoogleFonts.jost(
-                      textStyle: TextStyle(
-                        fontSize: 10,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w400,
+
+            child: Padding(
+              padding: EdgeInsets.only(left: 8.0.sp),
+              child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintStyle: GoogleFonts.jost(
+                        textStyle: TextStyle(
+                          fontSize: 10,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                    hintText: "  Lorem ipsum dolor sit amet, consectetur.")),
+                      hintText: "Lorem ipsum dolor sit amet, consectetur.")),
+            ),
           ),
         ),
         SizedBox(
@@ -128,19 +132,23 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
-            child: TextField(
-                decoration: InputDecoration(
-              border: InputBorder.none,
-              hintStyle: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 9.5.sp,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w400,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 8.0.sp, top: 0.0, bottom: 6.0.sp, right: 0.0),
+              child: TextField(
+                  decoration: InputDecoration(
+                border: InputBorder.none,
+                hintStyle: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 9.5.sp,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-              hintText: "  First Name",
-              // hintText: "First Name"
-            )),
+                hintText: "First Name",
+                // hintText: "First Name"
+              )),
+            ),
           ),
         ),
         SizedBox(
@@ -171,19 +179,23 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
-            child: TextField(
-                decoration: InputDecoration(
-              border: InputBorder.none,
-              hintStyle: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 9.5.sp,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w400,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 8.0.sp, top: 0.0, bottom: 6.0.sp, right: 0.0),
+              child: TextField(
+                  decoration: InputDecoration(
+                border: InputBorder.none,
+                hintStyle: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 9.5.sp,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-              hintText: "  Last Name",
-              // hintText: "First Name"
-            )),
+                hintText: "Last Name",
+                // hintText: "First Name"
+              )),
+            ),
           ),
         ),
         SizedBox(
@@ -519,19 +531,23 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     decoration: BoxDecoration(
                         border: Border.all(width: 1, color: Colors.grey),
                         borderRadius: BorderRadius.circular(5.0.sp)),
-                    child: TextField(
-                        decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintStyle: GoogleFonts.jost(
-                        textStyle: TextStyle(
-                          fontSize: 9.5.sp,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w400,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
+                      child: TextField(
+                          decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintStyle: GoogleFonts.jost(
+                          textStyle: TextStyle(
+                            fontSize: 9.5.sp,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                      hintText: "  DD/MM/YYYY",
-                      // hintText: "First Name"
-                    )),
+                        hintText: "DD/MM/YYYY",
+                        // hintText: "First Name"
+                      )),
+                    ),
                   ),
                 ),
               ],
@@ -566,19 +582,23 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
-            child: TextField(
-                decoration: InputDecoration(
-              border: InputBorder.none,
-              labelStyle: GoogleFonts.jost(
-                textStyle: TextStyle(
-                  fontSize: 9.5.sp,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w400,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 8.0.sp, top: 3.0, bottom: 0.0.sp, right: 0.0),
+              child: TextField(
+                  decoration: InputDecoration(
+                border: InputBorder.none,
+                labelStyle: GoogleFonts.jost(
+                  textStyle: TextStyle(
+                    fontSize: 9.5.sp,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-              labelText: "  Email",
-              // hintText: "First Name"
-            )),
+                labelText: "Email",
+                // hintText: "First Name"
+              )),
+            ),
           ),
         ),
         SizedBox(
@@ -609,20 +629,24 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
-            child: TextField(
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintStyle: GoogleFonts.jost(
-                    textStyle: TextStyle(
-                      fontSize: 9.5.sp,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w400,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
+              child: TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintStyle: GoogleFonts.jost(
+                      textStyle: TextStyle(
+                        fontSize: 9.5.sp,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  hintText: "  Mobile Number",
-                  // hintText: "First Name"
-                )),
+                    hintText: "Mobile Number",
+                    // hintText: "First Name"
+                  )),
+            ),
           ),
         ),
         SizedBox(
@@ -653,18 +677,22 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
-            child: TextField(
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintStyle: GoogleFonts.jost(
-                      textStyle: TextStyle(
-                        fontSize: 9.5.sp,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w400,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
+              child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintStyle: GoogleFonts.jost(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                    // labelText: "  Address",
-                    hintText: "  Address")),
+                      // labelText: "  Address",
+                      hintText: "Address")),
+            ),
           ),
         ),
         SizedBox(
@@ -899,19 +927,23 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             decoration: BoxDecoration(
                 border: Border.all(width: 1, color: Colors.grey),
                 borderRadius: BorderRadius.circular(5.0.sp)),
-            child: TextField(
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintStyle: GoogleFonts.jost(
-                      textStyle: TextStyle(
-                        fontSize: 9.5.sp,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w400,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 8.0.sp, top: 0.0, bottom: 6.5.sp, right: 0.0),
+              child: TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintStyle: GoogleFonts.jost(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                    // labelText: "  Pin Code",
-                    hintText: "  Pin Code")),
+                      // labelText: "  Pin Code",
+                      hintText: "Pin Code")),
+            ),
           ),
         ),
       ],

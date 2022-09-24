@@ -42,6 +42,7 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
                 backarrow: false,
                 firstscreen: true,
                 navipage: 0,
+                notification_back_arrow: false,
                 notification: true,
                 edit: false,
                 search: true,

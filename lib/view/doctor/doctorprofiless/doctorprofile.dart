@@ -38,6 +38,7 @@ class _Doctor_Profile_UIState extends State<Doctor_Profile_UI> {
                 title: "Doctor",
                 backarrow: true,
                 firstscreen: false,
+                notification_back_arrow: false,
                 navipage: null,
                 notification: true,
                 edit: false,

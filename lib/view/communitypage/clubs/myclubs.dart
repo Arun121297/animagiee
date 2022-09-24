@@ -50,6 +50,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
               backarrow: true,
               edit: false,
               chat: false,
+              notification_back_arrow: false,
               notification: true,
               firstscreen: false,
               navipage: null,

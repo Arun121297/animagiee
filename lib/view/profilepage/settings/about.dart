@@ -34,6 +34,7 @@ class _About_Design_UIState extends State<About_Design_UI> {
               search: true,
               edit: false,
               firstscreen: false,
+              notification_back_arrow: false,
               navipage: null,
               logo: false,
               podcast: false,

@@ -45,6 +45,7 @@ class _Top_Collection_Album_UIState extends State<Top_Collection_Album_UI> {
             edit: false,
             firstscreen: false,
             navipage: null,
+            notification_back_arrow: false,
             podcast: false,
             fun: Audio_Podcast_UI(),
           ),

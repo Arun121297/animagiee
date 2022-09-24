@@ -37,6 +37,7 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
               chat: false,
               logo: false,
               notification: true,
+              notification_back_arrow: false,
               search: true,
               podcast: false,
               edit: false,

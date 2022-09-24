@@ -49,6 +49,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
             notification: true,
             search: false,
             backarrow: true,
+            notification_back_arrow: false,
             podcast: false,
             chat: false,
             edit: false,

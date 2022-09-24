@@ -44,6 +44,7 @@ class _Doctors_Appoinment_Detaild_UIState
               chat: false,
               logo: false,
               podcast: false,
+              notification_back_arrow: false,
               fun: Appoinment_Page_UI(),
             ),
             Expanded(

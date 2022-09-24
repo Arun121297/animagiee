@@ -31,6 +31,7 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
                 backarrow: false,
                 chat: false,
                 firstscreen: true,
+                notification_back_arrow: false,
                 logo: false,
                 podcast: false,
                 search: false,

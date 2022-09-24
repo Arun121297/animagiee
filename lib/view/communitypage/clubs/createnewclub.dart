@@ -37,6 +37,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
             title: "Create New Club",
             backarrow: true,
             firstscreen: false,
+            notification_back_arrow: false,
             navipage: null,
             notification: true,
             edit: false,

@@ -38,6 +38,7 @@ class _View_All_Suggested_List_UIState
                 backarrow: true,
                 chat: false,
                 logo: false,
+                notification_back_arrow: false,
                 notification: true,
                 podcast: false,
                 search: false,

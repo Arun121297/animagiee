@@ -29,6 +29,7 @@ class _My_Communities_UIState extends State<My_Communities_UI> {
               chat: false,
               notification: true,
               search: true,
+              notification_back_arrow: false,
               logo: false,
               edit: false,
               firstscreen: false,

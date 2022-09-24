@@ -37,6 +37,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
             search: true,
             logo: false,
             edit: false,
+            notification_back_arrow: false,
             firstscreen: false,
             navipage: null,
             podcast: false,

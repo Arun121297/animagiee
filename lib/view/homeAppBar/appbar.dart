@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
+import '../mywork/timer.dart';
 import '../profilepage/editprofilepage.dart';
 import 'chat.dart';
 import 'notification.dart';
@@ -24,6 +25,8 @@ class AppbarContainer extends StatefulWidget {
   bool edit;
   bool firstscreen;
   var navipage;
+  bool notification_back_arrow;
+  // var notification_Function;
 
   AppbarContainer(
       {Key? key,
@@ -36,7 +39,9 @@ class AppbarContainer extends StatefulWidget {
       this.fun,
       required this.edit,
       this.navipage,
+      // this.notification_Function,
       required this.firstscreen,
+      required this.notification_back_arrow,
       required this.chat})
       : super(key: key);
 
@@ -69,7 +74,26 @@ class _AppbarContainerState extends State<AppbarContainer> {
                       child: Image.asset("images/ani.png"),
                     ),
                   ),
+
+                  ///notificatiobackarrow
+                  Visibility(
+                    visible: widget.notification_back_arrow,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        size: 12.0.sp,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          // widget.notification_Function;
+                          Navigator.pop(context);
+                        });
+                      },
+                    ),
+                  ),
+
                   //balance screen back arrow
+
                   Visibility(
                     visible: widget.backarrow,
                     child: IconButton(
@@ -139,15 +163,55 @@ class _AppbarContainerState extends State<AppbarContainer> {
                 ),
               ),
             ),
-            // logo: false,
-            //         notification: true,
-            //         search: false,
-            //         backarrow: true,
-            //         podcast: false,
-            //         chat: false,
-            //         edit: false,
-            //         firstscreen: false,
-            //         navipage: null,
+
+            ///otpTimer startchat
+            Visibility(
+              visible: false,
+              child: SizedBox(
+                child: Row(
+                  children: [
+                    // Expanded(child: Container()),
+                    GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            reviewSectionPopUp();
+                          });
+                        },
+                        child: OtpTimer()),
+                    SizedBox(
+                      width: 3.0.wp,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        if (controller.chatoption.value == false) {
+                          controller.chatoption.value = true;
+                        } else {
+                          controller.chatoption.value = false;
+                        }
+                      },
+                      child: SizedBox(
+                        height: 2.0.hp,
+                        // 16,
+                        width: 5.0.wp,
+                        // 16,
+                        child: Image.asset(
+                          "images/burger.png",
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 2.0.wp,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Visibility(
+                visible: widget.notification_back_arrow,
+                child: SizedBox(
+                  width: 12.0.wp,
+                )),
+
             ///only notification
             Visibility(
               visible: widget.search == false &&
@@ -240,5 +304,136 @@ class _AppbarContainerState extends State<AppbarContainer> {
         ),
       ),
     );
+  }
+
+  reviewSectionPopUp() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) => Dialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(12.0.sp)), //this right here
+              child: Container(
+                // color: Colors.green,
+                height: 50.0.hp,
+                //  417.0,
+                width: 90.0.wp,
+                //  323.0,
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Stack(children: [
+                      Container(
+                        height: 25.0.hp,
+                        // 212,
+                        width: 90.0.wp,
+                        // 323,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(12),
+                                topLeft: Radius.circular(12)),
+                            image: DecorationImage(
+                                image: AssetImage("images/Intersect.png"),
+                                fit: BoxFit.cover)),
+                      ),
+                      Container(
+                          width: 90.0.wp,
+                          //  323,
+                          alignment: Alignment.topRight,
+                          child: Transform.rotate(
+                            angle: 5.5,
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: Icon(Icons.add_circle_outlined)),
+                          )),
+                      Align(
+                          heightFactor: 1.4,
+                          alignment: Alignment.bottomCenter,
+                          child: CircleAvatar(
+                            radius: 50.0.sp,
+                          )),
+                    ]),
+                    Expanded(child: SizedBox()),
+                    Text(
+                      "Make your ratings for"
+                      "the session!!!",
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 11.0.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            // var starclr;
+                            return SizedBox(
+                              child: GestureDetector(
+                                onTap: () {
+                                  print(index);
+                                  setState(() {});
+                                },
+                                child: Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        size: 24.0.sp,
+                                        color: reviewPopUp_CL,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        size: 20.0.sp,
+                                        color: Colors.white,
+                                      )
+                                    ]),
+                              ),
+                            );
+                          }),
+                    ),
+                    SizedBox(
+                      height: 3.0.hp,
+                    ),
+
+                    GestureDetector(
+                      onTap: () {
+                        // Get.to();
+                      },
+                      child: Container(
+                        height: 5.0.hp,
+                        //  34,
+                        width: 70.0.wp,
+                        //  249,
+                        decoration: BoxDecoration(
+                            color: buttonColor1_CL,
+                            borderRadius: BorderRadius.circular(15)),
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Submit",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              color: SigninButton_CL,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(child: SizedBox()),
+                    // controller.communityNext("Make Payment", null)
+                  ],
+                ),
+              ),
+            ));
   }
 }

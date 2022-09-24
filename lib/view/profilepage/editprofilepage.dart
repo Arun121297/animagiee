@@ -39,6 +39,7 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
               notification: false,
               search: false,
               backarrow: true,
+              notification_back_arrow: false,
               chat: false,
               edit: false,
               firstscreen: false,

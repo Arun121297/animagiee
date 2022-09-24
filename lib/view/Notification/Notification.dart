@@ -2,6 +2,7 @@ import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/view/homeAppBar/appbar.dart';
+import 'package:animagieeui/view/homepage/homepage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -24,6 +25,9 @@ class _Notification_Content_Design_UIState
   ScrollController scrollController = ScrollController();
   bool follow_request_accecpt = true;
   var onItem;
+  popupnotification() {
+    Get.to(Home_Page());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,7 @@ class _Notification_Content_Design_UIState
                 title: "Notification",
                 logo: false,
                 notification: false,
+                notification_back_arrow: true,
                 search: true,
                 backarrow: false,
                 podcast: false,
@@ -45,10 +50,6 @@ class _Notification_Content_Design_UIState
                 fun: null,
                 navipage: null,
                 chat: false),
-
-            // Notification_AppBar_UI(
-            //   title: "Notification",
-            // ),
             Expanded(
                 child: SingleChildScrollView(
               controller: scrollController,

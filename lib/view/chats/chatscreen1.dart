@@ -51,6 +51,7 @@ class _Chat_UIState extends State<Chat_UI> {
             children: [
               AppbarContainer(
                 title: "Chat",
+                notification_back_arrow: false,
                 firstscreen: false,
                 logo: false,
                 notification: false,

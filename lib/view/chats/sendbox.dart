@@ -61,17 +61,7 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  isCollapsed: false
-                  // label: Text("Type your message"),
-                  // // labelText: ,
-                  // labelStyle: GoogleFonts.poppins(
-                  //   textStyle: TextStyle(
-                  //     fontSize: 8.0.sp,
-                  //     color: sendBox_CL,
-                  //     fontWeight: FontWeight.w500,
-                  //   ),
-                  // ),
-                  ),
+                  isCollapsed: false),
             ),
           ),
           SizedBox(
@@ -79,15 +69,23 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
           ),
           Visibility(
             visible: message == "" ? false : true,
-            child: Text(
-              "Send",
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 10.0.sp,
-                  color: send_button_CL,
-                  fontWeight: FontWeight.w500,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 25.8.wp,
                 ),
-              ),
+                Text(
+                  "Send",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 10.0.sp,
+                      color: send_button_CL,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Visibility(

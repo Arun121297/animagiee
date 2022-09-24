@@ -35,6 +35,7 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                 notification: true,
                 search: true,
                 edit: false,
+                notification_back_arrow: false,
                 firstscreen: false,
                 navipage: null,
                 podcast: false,

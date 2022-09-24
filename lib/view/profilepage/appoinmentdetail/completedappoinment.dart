@@ -44,6 +44,7 @@ class _DoctorAppoinmentDetails_Completed_UIState
                 logo: false,
                 edit: false,
                 firstscreen: false,
+                notification_back_arrow: false,
                 navipage: null,
                 podcast: false,
                 fun: AppoinmentDetails_UI(),

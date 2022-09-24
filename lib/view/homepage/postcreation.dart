@@ -32,6 +32,7 @@ class _PostState extends State<Post> {
               navipage: null,
               notification: true,
               edit: false,
+              notification_back_arrow: false,
               search: true,
               chat: false,
               logo: false,
