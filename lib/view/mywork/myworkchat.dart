@@ -22,13 +22,11 @@ class MyWork_Chat_UI extends StatefulWidget {
 class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
   Controller controller = Get.put(Controller());
   // var otptimer;
-  // @override
-  // void initState() {
-  //   controller.chatoption = false.obs;
-  //   // otptimer == 60 ? reviewSectionPopUp() : null;
-  //   // TODO: implement initState
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,20 +37,20 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
             child: Column(
               children: [
                 // Doctors_Appoinment_Detaild_UI
-                AppbarContainer(
-                    title: "Karthi",
-                    logo: false,
-                    // chat_timer: true,
-                    notification: false,
-                    search: false,
-                    backarrow: true,
-                    podcast: false,
-                    edit: false,
-                    firstscreen: false,
-                    notification_back_arrow: false,
-                    chat: false),
-                // myworkchatscreenapp(
-                //     "Karthi", Doctors_Appoinment_Detaild_UI(), context),
+                // AppbarContainer(
+                //     title: "Karthi",
+                //     logo: false,
+                //     // chat_timer: true,
+                //     notification: false,
+                //     search: false,
+                //     backarrow: true,
+                //     podcast: false,
+                //     edit: false,
+                //     firstscreen: false,
+                //     notification_back_arrow: false,
+                //     chat: false),
+                myworkchatscreenapp(
+                    "Karthi", Doctors_Appoinment_Detaild_UI(), context),
                 Expanded(
                     child: ListView.builder(
                   itemCount: 5,
@@ -76,7 +74,9 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
                                 children: [
                                   Row(
                                     children: [
-                                      CircleAvatar(),
+                                      CircleAvatar(
+                                          backgroundImage: ExactAssetImage(
+                                              "images/doc_3.jpg")),
                                       Container(
                                         height: 4.0.hp,
                                         //  31,
@@ -130,7 +130,7 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
                                         height: 4.5.hp,
                                         // 60,
                                         width: 45.0.wp,
-                                        //  199,
+
                                         // height: 31,
                                         // width: 159,
                                         decoration: BoxDecoration(
@@ -265,77 +265,80 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
     );
   }
 
-  // myworkchatscreenapp(title, fun, context) {
-  //   return Material(
-  //     elevation: 3,
-  //     child: Container(
-  //       width: MediaQuery.of(context).size.width,
-  //       child: Row(children: [
-  //         // Back_Button_UI()
-  //         IconButton(
-  //           icon: Icon(
-  //             Icons.arrow_back_ios_new,
-  //             size: 12.0.sp,
-  //           ),
-  //           onPressed: () {
-  //             Get.to(fun);
-  //           },
-  //         ),
-  //         Expanded(child: Container()),
-  //         Expanded(child: SizedBox()),
-  //         SizedBox(
-  //           width: 3.0.wp,
-  //         ),
-  //         Row(
-  //           children: [
-  //             CircleAvatar(
-  //               radius: 13.0.sp,
-  //               backgroundColor: animagiee_CL,
-  //               child: CircleAvatar(radius: 12.0.sp),
-  //             ),
-  //             SizedBox(
-  //               width: 10,
-  //             ),
-  //             Text(title)
-  //           ],
-  //         ),
-  //         Expanded(child: Container()),
-  //         GestureDetector(
-  //             onTap: () {
-  //               setState(() {
-  //                 reviewSectionPopUp();
-  //               });
-  //             },
-  //             child: OtpTimer()),
-  //         SizedBox(
-  //           width: 3.0.wp,
-  //         ),
+  myworkchatscreenapp(title, fun, context) {
+    return Material(
+      elevation: 3,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Row(children: [
+          // Back_Button_UI()
+          IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              size: 12.0.sp,
+            ),
+            onPressed: () {
+              Get.to(fun);
+            },
+          ),
+          Expanded(child: Container()),
+          Expanded(child: SizedBox()),
+          SizedBox(
+            width: 3.0.wp,
+          ),
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 13.0.sp,
+                backgroundColor: animagiee_CL,
+                child: CircleAvatar(
+                    backgroundImage: ExactAssetImage("images/doc_5.jpg"),
+                    radius: 12.0.sp),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(title)
+            ],
+          ),
+          Expanded(child: Container()),
+          GestureDetector(
+              onTap: () {
+                setState(() {
+                  chatTimePaymentPOPup();
+                  reviewSectionPopUp();
+                });
+              },
+              child: OtpTimer()),
+          SizedBox(
+            width: 3.0.wp,
+          ),
 
-  //         GestureDetector(
-  //           onTap: () {
-  //             if (controller.chatoption.value == false) {
-  //               controller.chatoption.value = true;
-  //             } else {
-  //               controller.chatoption.value = false;
-  //             }
-  //           },
-  //           child: SizedBox(
-  //             height: 2.0.hp,
-  //             // 16,
-  //             width: 5.0.wp,
-  //             // 16,
-  //             child: Image.asset(
-  //               "images/burger.png",
-  //             ),
-  //           ),
-  //         ),
-  //         SizedBox(
-  //           width: 2.0.wp,
-  //         )
-  //       ]),
-  //     ),
-  //   );
-  // }
+          GestureDetector(
+            onTap: () {
+              if (controller.chatoption.value == false) {
+                controller.chatoption.value = true;
+              } else {
+                controller.chatoption.value = false;
+              }
+            },
+            child: SizedBox(
+              height: 2.0.hp,
+              // 16,
+              width: 5.0.wp,
+              // 16,
+              child: Image.asset(
+                "images/burger.png",
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 2.0.wp,
+          )
+        ]),
+      ),
+    );
+  }
 
   chatTimePaymentPOPup() {
     return showDialog(
@@ -346,7 +349,7 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
               child: Container(
                 // color: Colors.green,
 
-                height: 50.0.hp,
+                height: 55.0.hp,
                 //  417.0,
                 width: 90.0.wp,
                 //  323.0,
@@ -364,9 +367,12 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
                               Navigator.pop(context);
                             },
                             icon: Icon(Icons.close_rounded))),
-                    Container(
-                        height: 194,
-                        width: 194,
+                    SizedBox(
+                        // color: Colors.blueAccent,
+                        height: 25.0.hp,
+                        // 194,
+                        width: 60.0.wp,
+                        // 194,
                         child: Image.asset("images/65014-dog-walking.gif")),
                     Text(
                       "Oop’s the session is going to end now!!!",
@@ -418,7 +424,7 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
                           "Make Payment",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16.0.sp,
                               color: SigninButton_CL,
                               fontWeight: FontWeight.w600,
                             ),
@@ -426,7 +432,6 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
                         ),
                       ),
                     )
-                    // controller.communityNext("Make Payment", null)
                   ],
                 ),
               ),
@@ -481,6 +486,8 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
                           heightFactor: 1.4,
                           alignment: Alignment.bottomCenter,
                           child: CircleAvatar(
+                            backgroundImage:
+                                ExactAssetImage("images/doc_3.jpg"),
                             radius: 50.0.sp,
                           )),
                     ]),
@@ -535,6 +542,7 @@ class _MyWork_Chat_UIState extends State<MyWork_Chat_UI> {
 
                     GestureDetector(
                       onTap: () {
+                        Navigator.pop(context);
                         // Get.to();
                       },
                       child: Container(

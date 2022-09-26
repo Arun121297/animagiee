@@ -23,8 +23,10 @@ class _Notification_Content_Design_UIState
     extends State<Notification_Content_Design_UI> {
   Controller controller = Get.put(Controller());
   ScrollController scrollController = ScrollController();
-  bool follow_request_accecpt = true;
+  // bool follow_request_accecpt = true;
+  var follow_request_accecpt = 0;
   var onItem;
+  var followrequest = "Accept";
   popupnotification() {
     Get.to(Home_Page());
   }
@@ -120,7 +122,7 @@ class _Notification_Content_Design_UIState
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           SizedBox(
-                            width: 10,
+                            width: 0.0.wp,
                           ),
                           CircleAvatar(
                             backgroundColor: Colors.black,
@@ -131,6 +133,9 @@ class _Notification_Content_Design_UIState
                                 color: animagiee_CL,
                               ),
                             ),
+                          ),
+                          SizedBox(
+                            width: 0.0.wp,
                           ),
                           SizedBox(
                             width: 60.0.wp,
@@ -205,12 +210,15 @@ class _Notification_Content_Design_UIState
                               ],
                             ),
                           ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.more_horiz,
-                                color: Colors.grey,
-                              )),
+                          SizedBox(
+                            width: 10.0.wp,
+                          )
+                          // IconButton(
+                          //     onPressed: () {},
+                          //     icon: Icon(
+                          //       Icons.more_horiz,
+                          //       color: Colors.grey,
+                          //     )),
                           // SizedBox(width: 2,)
                         ],
                       ),
@@ -233,9 +241,15 @@ class _Notification_Content_Design_UIState
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
+                            SizedBox(
+                              width: 0.0.wp,
+                            ),
                             CircleAvatar(
                               backgroundImage:
                                   ExactAssetImage("images/myprofilebg.jpg"),
+                            ),
+                            SizedBox(
+                              width: 0.0.wp,
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -269,7 +283,17 @@ class _Notification_Content_Design_UIState
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          follow_request_accecpt = false;
+                                          // follow_request_accecpt = false;
+                                          follow_request_accecpt += 1;
+                                          if (follow_request_accecpt == 1) {
+                                            followrequest = "Accecpted";
+                                          } else if (follow_request_accecpt ==
+                                              2) {
+                                            followrequest = "Follow";
+                                          } else if (follow_request_accecpt ==
+                                              3) {
+                                            followrequest = "Following";
+                                          }
                                         });
                                       },
                                       child: Container(
@@ -279,9 +303,10 @@ class _Notification_Content_Design_UIState
                                         //  100,
                                         alignment: Alignment.center,
                                         child: Text(
-                                          follow_request_accecpt == false
-                                              ? "Accecpted"
-                                              : "Accept",
+                                          followrequest,
+                                          // follow_request_accecpt == false
+                                          //     ? "Accecpted"
+                                          //     : "Accept",
                                           style: GoogleFonts.poppins(
                                             textStyle: TextStyle(
                                               fontSize: 9.5.sp,
@@ -304,7 +329,9 @@ class _Notification_Content_Design_UIState
                                       width: 5,
                                     ),
                                     Visibility(
-                                      visible: follow_request_accecpt,
+                                      visible: follow_request_accecpt >= 1
+                                          ? false
+                                          : true,
                                       child: GestureDetector(
                                         onTap: () {},
                                         child: Container(
@@ -339,14 +366,20 @@ class _Notification_Content_Design_UIState
                               ],
                             ),
                             Visibility(
-                              visible: follow_request_accecpt,
-                              child: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.more_horiz,
-                                    color: Colors.grey,
-                                  )),
-                            )
+                                visible:
+                                    follow_request_accecpt >= 1 ? true : false,
+                                child: SizedBox(
+                                  width: 30.0.wp,
+                                )),
+                            // Visibility(
+                            //   visible: follow_request_accecpt,
+                            //   child: IconButton(
+                            //       onPressed: () {},
+                            //       icon: Icon(
+                            //         Icons.more_horiz,
+                            //         color: Colors.grey,
+                            //       )),
+                            // )
                           ],
                         ),
                       ),
