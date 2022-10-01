@@ -105,6 +105,7 @@ class _User_ProfileState extends State<User_Profile> {
             icon:
                 Icon(Icons.arrow_back_ios, size: 12.0.sp, color: Colors.black),
             onPressed: () {
+              // Navigator.pop(context);
               Get.to(Animals_Profiles_UI());
             }),
         backgroundColor: Colors.white,

@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/doctor/doctorprofiless/header.dart';
 import 'package:animagieeui/view/homepage/share.dart';
 import 'package:animagieeui/view/homepage/suggestion.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
 import '../../controller/controller.dart';
+import '../animagieeprofile/animalsprofiles.dart';
+import '../userprofile/userprofile.dart';
 import 'bookmark.dart';
 import 'commend.dart';
 import 'likes.dart';
@@ -44,20 +47,35 @@ class _Admin_PostState extends State<Admin_Post> {
                       SizedBox(
                         width: 5,
                       ),
-                      CircleAvatar(
-                        backgroundImage:
-                            ExactAssetImage(controller.Home_Post[index]),
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(User_Profile());
+                        },
+                        child: CircleAvatar(
+                          backgroundImage:
+                              ExactAssetImage(controller.Home_Post[index]),
+                        ),
                       ),
                       SizedBox(
                         width: 5,
                       ),
-                      Text(
-                        "AdminName $index",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 11.5.sp,
-                            color: buttonColor1_CL,
-                            fontWeight: FontWeight.w500,
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(User_Profile());
+                        },
+                        child: SizedBox(
+                          width: 70.0.wp,
+                          // color: Colors.amber,
+                          child: Text(
+                            "AdminName $index",
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 11.5.sp,
+                                color: buttonColor1_CL,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
                         ),
                       ),

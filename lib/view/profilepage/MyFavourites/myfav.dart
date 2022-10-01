@@ -13,6 +13,7 @@ import '../../homepage/bookmark.dart';
 import '../../homepage/commend.dart';
 import '../../homepage/likes.dart';
 import '../../homepage/share.dart';
+import '../../userprofile/userprofile.dart';
 import '../myprofile.dart';
 
 class My_Favourites_UI extends StatefulWidget {
@@ -67,20 +68,34 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                           SizedBox(
                             width: 5,
                           ),
-                          CircleAvatar(
-                            backgroundImage:
-                                ExactAssetImage(controller.Home_Post[index]),
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(User_Profile());
+                            },
+                            child: CircleAvatar(
+                              backgroundImage:
+                                  ExactAssetImage(controller.Home_Post[index]),
+                            ),
                           ),
                           SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            "AdminName $index",
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                fontSize: 12.0.sp,
-                                color: buttonColor1_CL,
-                                fontWeight: FontWeight.w500,
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(User_Profile());
+                            },
+                            child: SizedBox(
+                              width: 70.0.wp,
+                              child: Text(
+                                "AdminName $index",
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 12.0.sp,
+                                    color: buttonColor1_CL,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                               ),
                             ),
                           ),

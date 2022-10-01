@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/enum/enum.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +24,7 @@ class _OtpTimerState extends State<OtpTimer> {
 
   String get timerText =>
       '${((timerMaxSeconds - widget.currentSeconds) ~/ 60).toString().padLeft(2, '0')}: ${((timerMaxSeconds - widget.currentSeconds) % 60).toString().padLeft(2, '0')}';
-
+  Timer? fetchtime;
   startTimeout([int? milliseconds]) {
     var duration = interval;
     Timer.periodic(duration, (timer) {
@@ -31,6 +32,7 @@ class _OtpTimerState extends State<OtpTimer> {
         print(timer.tick);
         widget.currentSeconds = timer.tick;
         if (timer.tick >= timerMaxSeconds) timer.cancel();
+        fetchtime = timer;
       });
       // fetchtime = int.parse(timerText);
     });
@@ -39,6 +41,8 @@ class _OtpTimerState extends State<OtpTimer> {
   @override
   void initState() {
     startTimeout();
+
+ 
     // alert();
     // print(timerText == 890 ? "yes" : "NO");
     // timerText == 00 ? alert() : null;
