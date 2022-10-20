@@ -56,11 +56,11 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 5.9.hp,
+              height: 5.5.hp,
               //  51,
               width: 10.0.wp,
               //  38,
-              margin: EdgeInsets.only(bottom: 8.5.sp),
+              margin: EdgeInsets.only(bottom: 8.9.sp),
               decoration: BoxDecoration(
                   color: controller.selectedIndex.value == 0
                       ? Colors.black
@@ -80,7 +80,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-                height: 5.9.hp,
+                height: 5.5.hp,
                 //  51,
                 width: 10.0.wp,
                 //  38,
@@ -104,7 +104,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 5.9.hp,
+              height: 5.5.hp,
               //  51,
               width: 10.0.wp,
               //  38,
@@ -128,7 +128,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 5.9.hp,
+              height: 5.5.hp,
               //  51,
               width: 10.0.wp,
               //  38,
@@ -161,7 +161,7 @@ class _Customized_Bottom_BarState extends State<Customized_Bottom_Bar> {
           BottomNavigationBarItem(
             label: "",
             icon: Container(
-              height: 5.9.hp,
+              height: 5.5.hp,
               //  51,
               width: 10.0.wp,
               //  38,

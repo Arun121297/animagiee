@@ -28,7 +28,7 @@ class _Admin_PostState extends State<Admin_Post> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height - 210,
+      height: MediaQuery.of(context).size.height - 212,
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
