@@ -67,11 +67,11 @@ class _Admin_PostState extends State<Admin_Post> {
                           width: 70.0.wp,
                           // color: Colors.amber,
                           child: Text(
-                            "AdminName $index",
+                            "AdminPost $index",
                             overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                fontSize: 11.5.sp,
+                                fontSize: 10.5.sp,
                                 color: buttonColor1_CL,
                                 fontWeight: FontWeight.w500,
                               ),

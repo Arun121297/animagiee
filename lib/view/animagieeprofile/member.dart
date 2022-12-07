@@ -7,12 +7,12 @@ class Pageview2_Member extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: ListView.builder(
           itemCount: 40,
           shrinkWrap: true,
           // physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => Member_List_Content()),
+          itemBuilder: (context, index) => const Member_List_Content()),
     );
   }
 }

@@ -10,7 +10,11 @@ class Doctor extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Customized_Bottom_Bar(),
-      body: Doctors_List_UI(),
+      body: WillPopScope(
+          onWillPop: () {
+            return null!;
+          },
+          child: Doctors_List_UI()),
     );
   }
 }

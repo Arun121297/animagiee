@@ -87,11 +87,11 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                             child: SizedBox(
                               width: 70.0.wp,
                               child: Text(
-                                "AdminName $index",
+                                "My Fav $index",
                                 overflow: TextOverflow.ellipsis,
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
-                                    fontSize: 12.0.sp,
+                                    fontSize: 10.5.sp,
                                     color: buttonColor1_CL,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -255,7 +255,7 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                           "Laoreet nunc morbi lectus donec.",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              fontSize: 10.0.sp,
+                              fontSize: 9.5.sp,
                               color: dummycontent_Cl,
                               fontWeight: FontWeight.w500,
                             ),

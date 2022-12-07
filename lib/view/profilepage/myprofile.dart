@@ -20,26 +20,31 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Customized_Bottom_Bar(),
-      body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              AppbarContainer(
-                edit: true,
-                notification: false,
-                navipage: 0,
-                backarrow: false,
-                chat: false,
-                firstscreen: true,
-                notification_back_arrow: false,
-                logo: false,
-                podcast: false,
-                search: false,
-                fun: null,
-                title: "Profile",
-              ),
-              MY_Profile_Header_UI()
-            ],
+      body: WillPopScope(
+        onWillPop: () {
+          return null!;
+        },
+        child: SafeArea(
+          child: Container(
+            child: Column(
+              children: [
+                AppbarContainer(
+                  edit: true,
+                  notification: false,
+                  navipage: 0,
+                  backarrow: false,
+                  chat: false,
+                  firstscreen: true,
+                  notification_back_arrow: false,
+                  logo: false,
+                  podcast: false,
+                  search: false,
+                  fun: null,
+                  title: "Profile",
+                ),
+                MY_Profile_Header_UI()
+              ],
+            ),
           ),
         ),
       ),

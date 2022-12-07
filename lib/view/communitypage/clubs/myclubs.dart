@@ -37,104 +37,113 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
     super.initState();
   }
 
+  back() async {
+    await Get.to(Home_Page());
+  }
+
   Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppbarContainer(
-              title: "My Clubs",
-              backarrow: true,
-              edit: false,
-              chat: false,
-              notification_back_arrow: false,
-              notification: true,
-              firstscreen: false,
-              navipage: null,
-              search: true,
-              logo: false,
-              podcast: false,
-              fun: Home_Page(),
-            ),
-            // controller.clubapp("My Clubs", Home_Page(), context),
-            GestureDetector(
-              onTap: () {
-                Get.to(Create_New_Club_UI());
-              },
-              child: Container(
-                height: 10.0.hp,
-                // 87,
-                // color: Colors.orange,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 22.0.sp),
-                      child: CircleAvatar(
-                          child: IconButton(
-                              icon: Icon(
-                                Icons.person_add,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {
-                                Get.to(Create_New_Club_UI());
-                              }),
-                          backgroundColor: animagiee_CL),
-                    ),
-                    SizedBox(width: 5.0.sp
-                        // 22,
-                        ),
-                    Text(
-                      "Create New Club",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 12.0.sp,
-                          color: dummycontent_Cl,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+      body: WillPopScope(
+        onWillPop: () {
+          return back();
+        },
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppbarContainer(
+                title: "My Clubs",
+                backarrow: true,
+                edit: false,
+                chat: false,
+                notification_back_arrow: false,
+                notification: true,
+                firstscreen: false,
+                navipage: null,
+                search: true,
+                logo: false,
+                podcast: false,
+                fun: Home_Page(),
               ),
-            ),
-            Container(
-              color: Sub_Container_CL,
-              height: 5.0.hp,
-              //  35,
-              width: MediaQuery.of(context).size.width,
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "   My Subscriptions",
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 11.0.sp,
-                    color: dummycontent_Cl,
-                    fontWeight: FontWeight.w400,
+              // controller.clubapp("My Clubs", Home_Page(), context),
+              GestureDetector(
+                onTap: () {
+                  Get.to(Create_New_Club_UI());
+                },
+                child: Container(
+                  height: 10.0.hp,
+                  // 87,
+                  // color: Colors.orange,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 22.0.sp),
+                        child: CircleAvatar(
+                            child: IconButton(
+                                icon: Icon(
+                                  Icons.person_add,
+                                  color: Colors.black,
+                                ),
+                                onPressed: () {
+                                  Get.to(Create_New_Club_UI());
+                                }),
+                            backgroundColor: animagiee_CL),
+                      ),
+                      SizedBox(width: 5.0.sp
+                          // 22,
+                          ),
+                      Text(
+                        "Create New Club",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 12.0.sp,
+                            color: dummycontent_Cl,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-            ),
-            controller.communitylist.isEmpty
-                ? Align(
-                    heightFactor: 30,
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Text("No Datas"),
+              Container(
+                color: Sub_Container_CL,
+                height: 5.0.hp,
+                //  35,
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "   My Subscriptions",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 11.0.sp,
+                      color: dummycontent_Cl,
+                      fontWeight: FontWeight.w400,
                     ),
-                  )
-                : SizedBox(
-                    height: MediaQuery.of(context).size.height - 290,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: controller.communitylist.length,
-                        itemBuilder: (context, index) => My_Sub_List_Content(
-                              fetchindex: index,
-                            )),
-                  )
-          ],
+                  ),
+                ),
+              ),
+              controller.communitylist.isEmpty
+                  ? Align(
+                      heightFactor: 30,
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Text("No Datas"),
+                      ),
+                    )
+                  : SizedBox(
+                      height: MediaQuery.of(context).size.height - 290,
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: controller.communitylist.length,
+                          itemBuilder: (context, index) => My_Sub_List_Content(
+                                fetchindex: index,
+                              )),
+                    )
+            ],
+          ),
         ),
       ),
     );

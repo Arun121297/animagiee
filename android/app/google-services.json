@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "844165986744",
+    "project_id": "fir-animagiee",
+    "storage_bucket": "fir-animagiee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844165986744:android:a3115feb7312f531aff74d",
+        "android_client_info": {
+          "package_name": "com.example.animagieeui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844165986744-dgj0dm7hvjb1jo1ngdjdianuaeombrjp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.animagieeui",
+            "certificate_hash": "c91ef4f968394fe0889551d6e6561daa4a117c44"
+          }
+        },
+        {
+          "client_id": "844165986744-nh4ege9efb3a3f9t973u1s7vuuoobf51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3vVGHpqDCpcdgViDq6vcvtGtWJtbAQDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844165986744-nh4ege9efb3a3f9t973u1s7vuuoobf51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

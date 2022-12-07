@@ -49,6 +49,11 @@ dependencies:
   video_player: ^2.4.7
   lottie: ^1.4.2
   flutter_bounce: ^1.1.0
+  searchfield: ^0.7.2
+  firebase_core: ^2.3.0
+  firebase_auth: ^4.1.5
+  google_sign_in: ^5.4.2
+  flutter_facebook_auth: ^5.0.6
 
 
 dev_dependencies:

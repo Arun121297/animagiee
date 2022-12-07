@@ -71,7 +71,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
                           width: 5,
                         ),
                         Text(
-                          "Karthi $index",
+                          "My Post $index",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 10.5.sp,
@@ -81,84 +81,84 @@ class _My_Post_UIState extends State<My_Post_UI> {
                           ),
                         ),
                         Expanded(child: Container()),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              showModalBottomSheet(
-                                context: context,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20))),
-                                builder: (context) {
-                                  return Container(
-                                    height: 174,
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Unfollow",
-                                          style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
-                                              fontSize: 10.0.sp,
-                                              color: club_Text_1,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ),
-                                        Divider(
-                                          color: Colors.black,
-                                          endIndent: 30,
-                                          indent: 30,
-                                          // height: 5,
-                                        ),
-                                        Text(
-                                          "Report",
-                                          style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
-                                              fontSize: 10.0.sp,
-                                              color: club_Text_1,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ),
-                                        Divider(
-                                          color: Colors.black,
-                                          endIndent: 30,
-                                          indent: 30,
-                                          // height: 5,
-                                        ),
-                                        Text(
-                                          "Block",
-                                          style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
-                                              fontSize: 10.0.sp,
-                                              color: club_Text_1,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                            });
-                          },
-                          child: SizedBox(
-                            height: 2.0.hp,
-                            // 16,
-                            width: 5.0.wp,
-                            // 16,
-                            child: Image.asset(
-                              "images/burger.png",
-                              // cacheHeight: 16,
-                              // cacheWidth: 16,
-                            ),
-                          ),
-                        ),
+                        // GestureDetector(
+                        //   onTap: () {
+                        //     setState(() {
+                        //       showModalBottomSheet(
+                        //         context: context,
+                        //         shape: RoundedRectangleBorder(
+                        //             borderRadius: BorderRadius.only(
+                        //                 topLeft: Radius.circular(20),
+                        //                 topRight: Radius.circular(20))),
+                        //         builder: (context) {
+                        //           return Container(
+                        //             height: 174,
+                        //             width: MediaQuery.of(context).size.width,
+                        //             child: Column(
+                        //               mainAxisAlignment:
+                        //                   MainAxisAlignment.spaceEvenly,
+                        //               children: [
+                        //                 Text(
+                        //                   "Unfollow",
+                        //                   style: GoogleFonts.poppins(
+                        //                     textStyle: TextStyle(
+                        //                       fontSize: 10.0.sp,
+                        //                       color: club_Text_1,
+                        //                       fontWeight: FontWeight.w500,
+                        //                     ),
+                        //                   ),
+                        //                 ),
+                        //                 Divider(
+                        //                   color: Colors.black,
+                        //                   endIndent: 30,
+                        //                   indent: 30,
+                        //                   // height: 5,
+                        //                 ),
+                        //                 Text(
+                        //                   "Report",
+                        //                   style: GoogleFonts.poppins(
+                        //                     textStyle: TextStyle(
+                        //                       fontSize: 10.0.sp,
+                        //                       color: club_Text_1,
+                        //                       fontWeight: FontWeight.w500,
+                        //                     ),
+                        //                   ),
+                        //                 ),
+                        //                 Divider(
+                        //                   color: Colors.black,
+                        //                   endIndent: 30,
+                        //                   indent: 30,
+                        //                   // height: 5,
+                        //                 ),
+                        //                 Text(
+                        //                   "Block",
+                        //                   style: GoogleFonts.poppins(
+                        //                     textStyle: TextStyle(
+                        //                       fontSize: 10.0.sp,
+                        //                       color: club_Text_1,
+                        //                       fontWeight: FontWeight.w500,
+                        //                     ),
+                        //                   ),
+                        //                 ),
+                        //               ],
+                        //             ),
+                        //           );
+                        //         },
+                        //       );
+                        //     });
+                        //   },
+                        //   child: SizedBox(
+                        //     height: 2.0.hp,
+                        //     // 16,
+                        //     width: 5.0.wp,
+                        //     // 16,
+                        //     child: Image.asset(
+                        //       "images/burger.png",
+                        //       // cacheHeight: 16,
+                        //       // cacheWidth: 16,
+                        //     ),
+                        //   ),
+                        // ),
                         SizedBox(
                           width: 5,
                         )
@@ -177,7 +177,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
                         "Laoreet nunc morbi lectus donec.",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.0.sp,
+                            fontSize: 9.5.sp,
                             color: dummycontent_Cl,
                             fontWeight: FontWeight.w500,
                           ),

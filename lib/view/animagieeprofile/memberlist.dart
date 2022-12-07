@@ -39,7 +39,7 @@ class _Member_List_ContentState extends State<Member_List_Content> {
             "Karthi",
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
-                fontSize: 10.0.sp,
+                fontSize: 10.5.sp,
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
               ),

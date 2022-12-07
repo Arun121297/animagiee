@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/controller/Appbar/appbarcontroller.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/view/homeAppBar/prot.dart';
 import 'package:animagieeui/view/homeAppBar/search.dart';
@@ -39,7 +40,6 @@ class AppbarContainer extends StatefulWidget {
       this.fun,
       required this.edit,
       this.navipage,
-      // this.notification_Function,
       required this.firstscreen,
       required this.notification_back_arrow,
       required this.chat})
@@ -51,6 +51,7 @@ class AppbarContainer extends StatefulWidget {
 
 class _AppbarContainerState extends State<AppbarContainer> {
   Controller controller = Get.put(Controller());
+  AppbarController appbarController = Get.put(AppbarController());
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -240,6 +241,9 @@ class _AppbarContainerState extends State<AppbarContainer> {
                 width: 18.0.wp,
               ),
             ),
+            // Visibility(
+            //     visible: widget.search && appbarController.searchfield.value,
+            //     child: SizedBox(height: 10, width: 90, child: TextFormField())),
             Container(
               height: 7.0.hp,
               child: Row(

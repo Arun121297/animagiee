@@ -39,32 +39,37 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: Customized_Bottom_Bar(),
-      body: SafeArea(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            children: [
-              AppbarContainer(
-                title: "",
-                backarrow: false,
-                firstscreen: false,
-                navipage: null,
-                notification: true,
-                edit: false,
-                notification_back_arrow: false,
-                search: true,
-                chat: true,
-                logo: true,
-                podcast: true,
-                fun: null,
-              ),
+      body: WillPopScope(
+        onWillPop: () {
+          return null!;
+        },
+        child: SafeArea(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              children: [
+                AppbarContainer(
+                  title: "",
+                  backarrow: false,
+                  firstscreen: false,
+                  navipage: null,
+                  notification: true,
+                  edit: false,
+                  notification_back_arrow: false,
+                  search: true,
+                  chat: true,
+                  logo: true,
+                  podcast: true,
+                  fun: null,
+                ),
 
-              ///createpost
-              CreatePost(),
+                ///createpost
+                CreatePost(),
 
-              ////adminpost
-              Admin_Post()
-            ],
+                ////adminpost
+                Admin_Post()
+              ],
+            ),
           ),
         ),
       ),

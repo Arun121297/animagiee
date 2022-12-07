@@ -172,6 +172,10 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
     return _randomChildren;
   }
 
+  back() async {
+    await Get.to(MyClubs_UI());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -208,56 +212,61 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
         ),
         elevation: 3,
       ),
-      body: DefaultTabController(
-        length: 2,
-        child: NestedScrollView(
-          // allows you to build a list of elements that would be scrolled away till the body reached the top
-          headerSliverBuilder: (context, _) {
-            return [
-              SliverList(
-                delegate: SliverChildListDelegate(
-                  _randomHeightWidgets(context),
+      body: WillPopScope(
+        onWillPop: () {
+          return back();
+        },
+        child: DefaultTabController(
+          length: 2,
+          child: NestedScrollView(
+            // allows you to build a list of elements that would be scrolled away till the body reached the top
+            headerSliverBuilder: (context, _) {
+              return [
+                SliverList(
+                  delegate: SliverChildListDelegate(
+                    _randomHeightWidgets(context),
+                  ),
                 ),
-              ),
-            ];
-          },
-          // You tab view goes here
-          body: Column(
-            children: <Widget>[
-              TabBar(
-                indicatorColor: animagiee_CL,
-                // labelColor: animagiee_CL,
-                tabs: [
-                  Tab(
-                      child: Text(
-                    'Post',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 9.0.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
+              ];
+            },
+            // You tab view goes here
+            body: Column(
+              children: <Widget>[
+                TabBar(
+                  indicatorColor: animagiee_CL,
+                  // labelColor: animagiee_CL,
+                  tabs: [
+                    Tab(
+                        child: Text(
+                      'Post',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.0.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                  )),
-                  Tab(
-                      child: Text(
-                    'Member',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 9.0.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
+                    )),
+                    Tab(
+                        child: Text(
+                      'Member',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.0.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                  ))
-                ],
-              ),
-              Expanded(
-                child: TabBarView(
-                  children: [Pageview1_Post(), Pageview2_Member()],
+                    ))
+                  ],
                 ),
-              ),
-            ],
+                Expanded(
+                  child: TabBarView(
+                    children: [Pageview1_Post(), Pageview2_Member()],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

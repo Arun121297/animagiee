@@ -49,7 +49,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                     width: 5,
                   ),
                   Text(
-                    "AdminName $index",
+                    "MemberPosts $index",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                         fontSize: 10.5.sp,
@@ -60,71 +60,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                   ),
                   Expanded(child: Container()),
                   GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        showModalBottomSheet(
-                          context: context,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20),
-                                  topRight: Radius.circular(20))),
-                          builder: (context) {
-                            return Container(
-                              height: 174,
-                              width: MediaQuery.of(context).size.width,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    "Unfollow",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                        fontSize: 10.0.sp,
-                                        color: club_Text_1,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                  Divider(
-                                    color: Colors.black,
-                                    endIndent: 30,
-                                    indent: 30,
-                                    // height: 5,
-                                  ),
-                                  Text(
-                                    "Report",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                        fontSize: 10.0.sp,
-                                        color: club_Text_1,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                  Divider(
-                                    color: Colors.black,
-                                    endIndent: 30,
-                                    indent: 30,
-                                    // height: 5,
-                                  ),
-                                  Text(
-                                    "Block",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                        fontSize: 10.0.sp,
-                                        color: club_Text_1,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                      });
-                    },
+                    onTap: () => btmsheet(),
                     child: SizedBox(
                       height: 2.0.hp,
                       // 16,
@@ -231,6 +167,68 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
           ),
         ),
       ),
+    );
+  }
+
+  btmsheet() {
+    return showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      builder: (context) {
+        return Container(
+          height: 174,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Unfollow",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.black,
+                endIndent: 30,
+                indent: 30,
+                // height: 5,
+              ),
+              Text(
+                "Report",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.black,
+                endIndent: 30,
+                indent: 30,
+                // height: 5,
+              ),
+              Text(
+                "Block",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

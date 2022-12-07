@@ -32,41 +32,46 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Customized_Bottom_Bar(),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              // Communitiefrontscreen(),
-              AppbarContainer(
-                title: "Communities",
-                backarrow: false,
-                firstscreen: true,
-                navipage: 0,
-                notification_back_arrow: false,
-                notification: true,
-                edit: false,
-                search: true,
-                chat: false,
-                logo: false,
-                podcast: false,
-                fun: null,
-              ),
-              // Profile_AppBar_UI(
-              //     edit: false,
-              //     notification: true,
-              //     navipage: 0,
-              //     title: "Communities"),
-              // controller.clubapp(
-              //     "Communities",
-              //     // null,
-              //     navigate(),
-              //     // Home_Page(),
-              //     context),
-              SizedBox(height: 3.0.hp),
-              Community_UI(),
-              SizedBox(height: 14.0.hp),
-              controller.communityNext("Next", MyClubs_UI()),
-            ],
+      body: WillPopScope(
+        onWillPop: () {
+          return null!;
+        },
+        child: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                // Communitiefrontscreen(),
+                AppbarContainer(
+                  title: "Communities",
+                  backarrow: false,
+                  firstscreen: true,
+                  navipage: 0,
+                  notification_back_arrow: false,
+                  notification: true,
+                  edit: false,
+                  search: true,
+                  chat: false,
+                  logo: false,
+                  podcast: false,
+                  fun: null,
+                ),
+                // Profile_AppBar_UI(
+                //     edit: false,
+                //     notification: true,
+                //     navipage: 0,
+                //     title: "Communities"),
+                // controller.clubapp(
+                //     "Communities",
+                //     // null,
+                //     navigate(),
+                //     // Home_Page(),
+                //     context),
+                SizedBox(height: 3.0.hp),
+                Community_UI(),
+                SizedBox(height: 14.0.hp),
+                controller.communityNext("Next", MyClubs_UI()),
+              ],
+            ),
           ),
         ),
       ),

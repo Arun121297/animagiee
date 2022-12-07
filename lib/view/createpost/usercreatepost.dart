@@ -45,187 +45,193 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Customized_Bottom_Bar(),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppbarContainer(
-              title: "Post",
-              backarrow: false,
-              firstscreen: true,
-              navipage: 0,
-              notification_back_arrow: false,
-              notification: true,
-              edit: false,
-              search: true,
-              chat: false,
-              logo: false,
-              podcast: false,
-              fun: null,
-            ),
-            // Profile_AppBar_UI(
-            //     edit: false, notification: true, navipage: 0, title: "Post"),
-            // Postfrontscreen(),
-            // controller.clubapp("Post", Home_Page(), context),
-            SizedBox(
-              height: 2.0.hp,
-              //  22,
-            ),
-            Expanded(
-                child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 6.0.sp),
-                        child: Text(
-                          "Post Type",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 9.5.sp,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 5.0.sp
-                          // 12,
-                          ),
-                      Post_Method_UI(),
-                      SizedBox(height: 8.0.wp
-                          // 24,
-                          ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 5.0.sp),
-                        child: Text(
-                          "Select group",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 9.5.sp,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 1.0.hp
-                          //  12,
-                          ),
-                      Create_Post_UI(),
-                      SizedBox(height: 1.0.hp
-                          //  12,
-                          ),
-                      Emogie_Description_UI(),
-                      // SizedBox(
-                      //   height: 24,
-                      // ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Visibility(
-                          visible: controller.file.path.isEmpty ? false : true,
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 5,
+      body: WillPopScope(
+        onWillPop: () {
+          return null!;
+        },
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppbarContainer(
+                title: "Post",
+                backarrow: false,
+                firstscreen: true,
+                navipage: 0,
+                notification_back_arrow: false,
+                notification: true,
+                edit: false,
+                search: true,
+                chat: false,
+                logo: false,
+                podcast: false,
+                fun: null,
+              ),
+              // Profile_AppBar_UI(
+              //     edit: false, notification: true, navipage: 0, title: "Post"),
+              // Postfrontscreen(),
+              // controller.clubapp("Post", Home_Page(), context),
+              SizedBox(
+                height: 2.0.hp,
+                //  22,
+              ),
+              Expanded(
+                  child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 6.0.sp),
+                          child: Text(
+                            "Post Type",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 9.5.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
                               ),
-                              Obx(() {
-                                if (controller.imagevideo.value.type ==
-                                    "image") {
-                                  return Container(
-                                    height: 20.0.hp,
-                                    //  134,
-                                    width: 93.0.wp,
-                                    // 339,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: FileImage(File(controller
-                                            .imagevideo.value.url
-                                            .toString())),
-                                      ),
-                                      borderRadius:
-                                          BorderRadius.circular(8.0.sp),
-                                      border: Border.all(
-                                          width: 2, color: animagiee_CL),
-                                    ),
-                                  );
-                                } else {
-                                  return Container(
-                                    height: 20.0.hp,
-                                    //  134,
-                                    width: 93.0.wp,
-                                    // 339,
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(8.0.sp),
-                                      border: Border.all(
-                                          width: 2, color: animagiee_CL),
-                                    ),
-                                    child: Video_Player(
-                                      urls: controller.imagevideo.value.url
-                                          .toString(),
-                                    ),
-                                  );
-                                }
-                              })
-                            ],
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 1.0.hp,
-                      ),
-                      SizedBox(
-                        width: 97.0.wp,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [Add_Photos_UI(), Add_Video_UI()]),
-                      ),
+                        SizedBox(height: 5.0.sp
+                            // 12,
+                            ),
+                        Post_Method_UI(),
+                        SizedBox(height: 8.0.wp
+                            // 24,
+                            ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 5.0.sp),
+                          child: Text(
+                            "Select group",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 9.5.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 1.0.hp
+                            //  12,
+                            ),
+                        Create_Post_UI(),
+                        SizedBox(height: 1.0.hp
+                            //  12,
+                            ),
+                        Emogie_Description_UI(),
+                        // SizedBox(
+                        //   height: 24,
+                        // ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Visibility(
+                            visible:
+                                controller.file.path.isEmpty ? false : true,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Obx(() {
+                                  if (controller.imagevideo.value.type ==
+                                      "image") {
+                                    return Container(
+                                      height: 20.0.hp,
+                                      //  134,
+                                      width: 93.0.wp,
+                                      // 339,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: FileImage(File(controller
+                                              .imagevideo.value.url
+                                              .toString())),
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0.sp),
+                                        border: Border.all(
+                                            width: 2, color: animagiee_CL),
+                                      ),
+                                    );
+                                  } else {
+                                    return Container(
+                                      height: 20.0.hp,
+                                      //  134,
+                                      width: 93.0.wp,
+                                      // 339,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0.sp),
+                                        border: Border.all(
+                                            width: 2, color: animagiee_CL),
+                                      ),
+                                      child: Video_Player(
+                                        urls: controller.imagevideo.value.url
+                                            .toString(),
+                                      ),
+                                    );
+                                  }
+                                })
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.0.hp,
+                        ),
+                        SizedBox(
+                          width: 97.0.wp,
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [Add_Photos_UI(), Add_Video_UI()]),
+                        ),
 
-                      Tag_People_UI(),
-                      SizedBox(
-                        height: 3.0.hp,
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: GestureDetector(
-                          onTap: () {
-                            controller.selectedIndex.value = 0;
-                          },
-                          child: Container(
-                            height: 6.0.hp,
-                            width: 90.0.wp,
-                            // 310,
-                            decoration: BoxDecoration(
-                                color: buttonColor1_CL,
-                                borderRadius: BorderRadius.circular(15)),
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Post",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 18,
-                                  color: SigninButton_CL,
-                                  fontWeight: FontWeight.w600,
+                        Tag_People_UI(),
+                        SizedBox(
+                          height: 3.0.hp,
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: GestureDetector(
+                            onTap: () {
+                              controller.selectedIndex.value = 0;
+                            },
+                            child: Container(
+                              height: 6.0.hp,
+                              width: 90.0.wp,
+                              // 310,
+                              decoration: BoxDecoration(
+                                  color: buttonColor1_CL,
+                                  borderRadius: BorderRadius.circular(15)),
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Post",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 18,
+                                    color: SigninButton_CL,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
 
-                      SizedBox(height: 2.5.sp)
-                      // 10,
-                    ],
+                        SizedBox(height: 2.5.sp)
+                        // 10,
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ))
-          ],
+              ))
+            ],
+          ),
         ),
       ),
     );
