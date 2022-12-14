@@ -42,6 +42,8 @@ class _Top_Collection_Album_UIState extends State<Top_Collection_Album_UI> {
             logo: false,
             notification: true,
             search: true,
+            searchfunction: true,
+            searchfunctionclose: false,
             edit: false,
             firstscreen: false,
             navipage: null,

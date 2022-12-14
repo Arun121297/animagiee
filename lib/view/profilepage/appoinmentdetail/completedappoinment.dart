@@ -43,6 +43,8 @@ class _DoctorAppoinmentDetails_Completed_UIState
                 search: true,
                 logo: false,
                 edit: false,
+                searchfunction: true,
+                searchfunctionclose: false,
                 firstscreen: false,
                 notification_back_arrow: false,
                 navipage: null,

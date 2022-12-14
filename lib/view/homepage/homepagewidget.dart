@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:flutter/material.dart';
@@ -34,18 +36,16 @@ class _Homepage_WidState extends State<Homepage_Wid> {
 
   @override
   Widget build(BuildContext context) {
-    Controller controller = Get.put(Controller());
-
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: Customized_Bottom_Bar(),
       body: WillPopScope(
         onWillPop: () {
           return null!;
         },
         child: SafeArea(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
+          child: SizedBox(
+            // height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
                 AppbarContainer(
@@ -61,9 +61,9 @@ class _Homepage_WidState extends State<Homepage_Wid> {
                   logo: true,
                   podcast: true,
                   fun: null,
+                  searchfunction: true,
+                  searchfunctionclose: false,
                 ),
-
-                ///createpost
                 CreatePost(),
 
                 ////adminpost
@@ -76,3 +76,20 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     );
   }
 }
+  // AppbarContainer(
+  //                 title: "",
+  //                 backarrow: false,
+  //                 firstscreen: false,
+  //                 navipage: null,
+  //                 notification: true,
+  //                 edit: false,
+  //                 notification_back_arrow: false,
+  //                 search: true,
+  //                 chat: true,
+  //                 logo: true,
+  //                 podcast: true,
+  //                 fun: null,
+  //                 searchfunction: true,
+  //                 searchfunctionclose: false,
+  //               ),
+

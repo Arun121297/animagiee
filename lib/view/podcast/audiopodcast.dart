@@ -51,6 +51,8 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
             backarrow: true,
             notification_back_arrow: false,
             podcast: false,
+            searchfunction: true,
+            searchfunctionclose: false,
             chat: false,
             edit: false,
             firstscreen: false,

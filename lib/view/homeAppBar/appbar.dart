@@ -27,11 +27,15 @@ class AppbarContainer extends StatefulWidget {
   bool firstscreen;
   var navipage;
   bool notification_back_arrow;
+  var searchfunction;
+  var searchfunctionclose;
   // var notification_Function;
 
   AppbarContainer(
       {Key? key,
       this.title,
+      this.searchfunction,
+      this.searchfunctionclose,
       required this.logo,
       required this.notification,
       required this.search,
@@ -54,256 +58,306 @@ class _AppbarContainerState extends State<AppbarContainer> {
   AppbarController appbarController = Get.put(AppbarController());
   @override
   Widget build(BuildContext context) {
+    // widget.searchfunction = true;
     return Material(
       elevation: 3,
       child: SizedBox(
         height: 7.0.hp,
         width: MediaQuery.of(context).size.width,
-        child: Row(
+        child: Stack(
+          alignment: Alignment.center,
           children: [
-            Container(
+            Visibility(
+              visible: widget.searchfunction,
               child: Row(
                 children: [
-                  ///logo
+                  Container(
+                    child: Row(
+                      children: [
+                        ///logo
+                        Visibility(
+                          visible: widget.logo,
+                          child: Container(
+                            margin: EdgeInsets.only(left: 10.0.sp),
+                            width: 30.0.wp,
+                            // 122,
+                            height: 28.0.hp,
+                            child: Image.asset("images/ani.png"),
+                          ),
+                        ),
+
+                        ///notificatiobackarrow
+                        Visibility(
+                          visible: widget.notification_back_arrow,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios_new,
+                              size: 12.0.sp,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                // widget.notification_Function;
+                                Navigator.pop(context);
+                              });
+                            },
+                          ),
+                        ),
+
+                        //balance screen back arrow
+
+                        Visibility(
+                          visible: widget.backarrow,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios_new,
+                              size: 12.0.sp,
+                            ),
+                            onPressed: () {
+                              Get.to(widget.fun);
+                            },
+                          ),
+                        ),
+                        //firstscreen backarrow
+                        Visibility(
+                          visible: widget.firstscreen,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios_new,
+                              size: 12.0.sp,
+                            ),
+                            onPressed: () {
+                              controller.selectedIndex.value = widget.navipage;
+                              // Get.to(widget.fun);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  ///logo hide spacer
                   Visibility(
-                    visible: widget.logo,
+                    visible: widget.logo == false ? true : false,
+                    child: SizedBox(
+                      width: 7.0.wp,
+                    ),
+                  ),
+
+                  ///(logo backarrow chat podcast notification edit) => false => spacer
+                  Visibility(
+                    visible: widget.logo == false &&
+                            widget.backarrow == false &&
+                            widget.chat == false &&
+                            widget.podcast == false &&
+                            widget.notification == false &&
+                            widget.edit == false
+                        ? true
+                        : false,
+                    child: SizedBox(
+                      width: 11.0.wp,
+                    ),
+                  ),
+                  Expanded(
+                    // flex: 1,
                     child: Container(
-                      margin: EdgeInsets.only(left: 10.0.sp),
-                      width: 30.0.wp,
-                      // 122,
-                      height: 28.0.hp,
-                      child: Image.asset("images/ani.png"),
-                    ),
-                  ),
-
-                  ///notificatiobackarrow
-                  Visibility(
-                    visible: widget.notification_back_arrow,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_ios_new,
-                        size: 12.0.sp,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          // widget.notification_Function;
-                          Navigator.pop(context);
-                        });
-                      },
-                    ),
-                  ),
-
-                  //balance screen back arrow
-
-                  Visibility(
-                    visible: widget.backarrow,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_ios_new,
-                        size: 12.0.sp,
-                      ),
-                      onPressed: () {
-                        Get.to(widget.fun);
-                      },
-                    ),
-                  ),
-                  //firstscreen backarrow
-                  Visibility(
-                    visible: widget.firstscreen,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_ios_new,
-                        size: 12.0.sp,
-                      ),
-                      onPressed: () {
-                        controller.selectedIndex.value = widget.navipage;
-                        // Get.to(widget.fun);
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            ///logo hide spacer
-            Visibility(
-              visible: widget.logo == false ? true : false,
-              child: SizedBox(
-                width: 7.0.wp,
-              ),
-            ),
-
-            ///(logo backarrow chat podcast notification edit) => false => spacer
-            Visibility(
-              visible: widget.logo == false &&
-                      widget.backarrow == false &&
-                      widget.chat == false &&
-                      widget.podcast == false &&
-                      widget.notification == false &&
-                      widget.edit == false
-                  ? true
-                  : false,
-              child: SizedBox(
-                width: 11.0.wp,
-              ),
-            ),
-            Expanded(
-              // flex: 1,
-              child: Container(
-                alignment: Alignment.center,
-                height: 7.0.hp,
-                child: Text(
-                  widget.title,
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 10.5.sp,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            ///otpTimer startchat
-            // Visibility(
-            //   visible: false,
-            //   child: SizedBox(
-            //     child: Row(
-            //       children: [
-            //         // Expanded(child: Container()),
-            //         GestureDetector(
-            //             onTap: () {
-            //               setState(() {
-            //                 reviewSectionPopUp();
-            //               });
-            //             },
-            //             child: OtpTimer()),
-            //         SizedBox(
-            //           width: 3.0.wp,
-            //         ),
-            //         GestureDetector(
-            //           onTap: () {
-            //             if (controller.chatoption.value == false) {
-            //               controller.chatoption.value = true;
-            //             } else {
-            //               controller.chatoption.value = false;
-            //             }
-            //           },
-            //           child: SizedBox(
-            //             height: 2.0.hp,
-            //             // 16,
-            //             width: 5.0.wp,
-            //             // 16,
-            //             child: Image.asset(
-            //               "images/burger.png",
-            //             ),
-            //           ),
-            //         ),
-            //         SizedBox(
-            //           width: 2.0.wp,
-            //         )
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            Visibility(
-                visible: widget.notification_back_arrow,
-                child: SizedBox(
-                  width: 12.0.wp,
-                )),
-
-            ///only notification
-            Visibility(
-              visible: widget.search == false &&
-                      widget.chat == false &&
-                      widget.podcast == false &&
-                      widget.notification == true &&
-                      widget.edit == false &&
-                      widget.firstscreen == false &&
-                      widget.backarrow == true &&
-                      widget.logo == false
-                  ? true
-                  : false,
-              child: SizedBox(
-                width: 13.0.wp,
-              ),
-            ),
-            Visibility(
-              visible: widget.search == false &&
-                      widget.chat == false &&
-                      widget.podcast == false &&
-                      widget.notification == false &&
-                      widget.edit == false
-                  ? true
-                  : false,
-              child: SizedBox(
-                width: 18.0.wp,
-              ),
-            ),
-            // Visibility(
-            //     visible: widget.search && appbarController.searchfield.value,
-            //     child: SizedBox(height: 10, width: 90, child: TextFormField())),
-            Container(
-              height: 7.0.hp,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Visibility(visible: widget.search, child: Search_UI()),
-                  Visibility(visible: widget.chat, child: Chat_Icon_UI()),
-                  Visibility(visible: widget.podcast, child: PodCast_UI()),
-                  Visibility(
-                      visible: widget.notification, child: Notification_UI()),
-                  // SizedBox(
-                  //   width: 4.0.wp,
-                  // )
-                ],
-              ),
-            ),
-
-            Visibility(
-              visible: widget.edit,
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(Edit_Profile_UI());
-                },
-                child: Container(
-                  height: 3.3.hp,
-                  //  20,
-                  width: 20.0.wp,
-                  // 70,
-                  decoration: BoxDecoration(
-                      color: animagiee_CL,
-                      borderRadius: BorderRadius.circular(20)),
-                  alignment: Alignment.center,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        "Edit",
-                        style: GoogleFonts.roboto(
+                      alignment: Alignment.center,
+                      height: 7.0.hp,
+                      child: Text(
+                        widget.title,
+                        style: GoogleFonts.poppins(
                           textStyle: TextStyle(
+                            fontSize: 10.5.sp,
                             color: Colors.black,
-                            fontSize: 9.0.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 5.0.hp,
-                        width: 3.0.wp,
-                        child: Image.asset(
-                          "images/editicon.png",
-                        ),
-                      )
-                    ],
+                    ),
                   ),
-                ),
+
+                  ///otpTimer startchat
+                  // Visibility(
+                  //   visible: false,
+                  //   child: SizedBox(
+                  //     child: Row(
+                  //       children: [
+                  //         // Expanded(child: Container()),
+                  //         GestureDetector(
+                  //             onTap: () {
+                  //               setState(() {
+                  //                 reviewSectionPopUp();
+                  //               });
+                  //             },
+                  //             child: OtpTimer()),
+                  //         SizedBox(
+                  //           width: 3.0.wp,
+                  //         ),
+                  //         GestureDetector(
+                  //           onTap: () {
+                  //             if (controller.chatoption.value == false) {
+                  //               controller.chatoption.value = true;
+                  //             } else {
+                  //               controller.chatoption.value = false;
+                  //             }
+                  //           },
+                  //           child: SizedBox(
+                  //             height: 2.0.hp,
+                  //             // 16,
+                  //             width: 5.0.wp,
+                  //             // 16,
+                  //             child: Image.asset(
+                  //               "images/burger.png",
+                  //             ),
+                  //           ),
+                  //         ),
+                  //         SizedBox(
+                  //           width: 2.0.wp,
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  Visibility(
+                      visible: widget.notification_back_arrow,
+                      child: SizedBox(
+                        width: 12.0.wp,
+                      )),
+
+                  ///only notification
+                  Visibility(
+                    visible: widget.search == false &&
+                            widget.chat == false &&
+                            widget.podcast == false &&
+                            widget.notification == true &&
+                            widget.edit == false &&
+                            widget.firstscreen == false &&
+                            widget.backarrow == true &&
+                            widget.logo == false
+                        ? true
+                        : false,
+                    child: SizedBox(
+                      width: 13.0.wp,
+                    ),
+                  ),
+                  Visibility(
+                    visible: widget.search == false &&
+                            widget.chat == false &&
+                            widget.podcast == false &&
+                            widget.notification == false &&
+                            widget.edit == false
+                        ? true
+                        : false,
+                    child: SizedBox(
+                      width: 18.0.wp,
+                    ),
+                  ),
+                  // SizedBox(width: 100, height: 6.0.hp, child: const TextField()),
+
+                  // Visibility(
+                  //     visible: widget.search && appbarController.searchfield.value,
+                  //     child: SizedBox(height: 10, width: 90, child: TextFormField())),
+                  SizedBox(
+                    height: 7.0.hp,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Visibility(
+                          visible: widget.search,
+                          child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  widget.searchfunction = false;
+                                  widget.searchfunctionclose = true;
+                                });
+                              },
+                              icon: const Icon(
+                                Icons.search,
+                                color: Colors.black,
+                              )),
+                        ),
+                        Visibility(
+                            visible: widget.chat, child: const Chat_Icon_UI()),
+                        Visibility(
+                            visible: widget.podcast, child: const PodCast_UI()),
+                        Visibility(
+                            visible: widget.notification,
+                            child: const Notification_UI()),
+                        // SizedBox(
+                        //   width: 4.0.wp,
+                        // )
+                      ],
+                    ),
+                  ),
+
+                  Visibility(
+                    visible: widget.edit,
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(const Edit_Profile_UI());
+                      },
+                      child: Container(
+                        height: 3.3.hp,
+                        //  20,
+                        width: 20.0.wp,
+                        // 70,
+                        decoration: BoxDecoration(
+                            color: animagiee_CL,
+                            borderRadius: BorderRadius.circular(20)),
+                        alignment: Alignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "Edit",
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 9.0.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5.0.hp,
+                              width: 3.0.wp,
+                              child: Image.asset(
+                                "images/editicon.png",
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 2.0.wp,
+                  )
+                ],
               ),
             ),
-            SizedBox(
-              width: 2.0.wp,
-            )
+            Visibility(
+                visible: widget.searchfunctionclose,
+                child: SizedBox(
+                    height: 6.0.hp,
+                    // width: 300,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                            height: 6.0.hp,
+                            width: 300,
+                            child: const TextField()),
+                        SizedBox(
+                          child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  widget.searchfunction = true;
+                                  widget.searchfunctionclose = false;
+                                });
+                              },
+                              icon: const Icon(Icons.close)),
+                        )
+                      ],
+                    )))
           ],
         ),
       ),

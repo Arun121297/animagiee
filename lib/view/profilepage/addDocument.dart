@@ -35,6 +35,8 @@ class _Add_Document_UIState extends State<Add_Document_UI> {
               chat: false,
               logo: false,
               notification: true,
+              searchfunction: true,
+              searchfunctionclose: false,
               notification_back_arrow: false,
               edit: false,
               firstscreen: false,

@@ -13,7 +13,7 @@ class CreatePost extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(Post());
+        Get.to(const Post());
       },
       child: Container(
         height: 9.0.hp,
@@ -26,8 +26,9 @@ class CreatePost extends StatelessWidget {
             SizedBox(
               width: 5.0.wp,
             ),
-            CircleAvatar(backgroundImage: ExactAssetImage("images/Fishes.jpg")),
-            VerticalDivider(color: Colors.transparent, width: 13),
+            const CircleAvatar(
+                backgroundImage: ExactAssetImage("images/Fishes.jpg")),
+            const VerticalDivider(color: Colors.transparent, width: 13),
             Container(
                 width: 60.0.wp,
                 // 218,

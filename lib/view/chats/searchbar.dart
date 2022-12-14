@@ -20,7 +20,7 @@ class _chat_Search_UIState extends State<chat_Search_UI> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0.sp),
       ),
-      child: Container(
+      child: SizedBox(
         width: 90.0.wp,
         // 302,
         height: 5.0.hp,
@@ -31,8 +31,8 @@ class _chat_Search_UIState extends State<chat_Search_UI> {
           child: Row(
               // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Icon(Icons.search),
-                SizedBox(
+                const Icon(Icons.search),
+                const SizedBox(
                   width: 10,
                 ),
                 Text(

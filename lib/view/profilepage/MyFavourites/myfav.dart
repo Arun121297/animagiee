@@ -43,6 +43,8 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
               podcast: false,
               edit: false,
               firstscreen: false,
+              searchfunction: true,
+              searchfunctionclose: false,
               navipage: null,
               fun: Home_Page(),
             ),

@@ -34,6 +34,8 @@ class _AppoinmentDetails_UIState extends State<AppoinmentDetails_UI> {
                 logo: false,
                 notification: true,
                 search: true,
+                searchfunction: true,
+                searchfunctionclose: false,
                 edit: false,
                 notification_back_arrow: false,
                 firstscreen: false,

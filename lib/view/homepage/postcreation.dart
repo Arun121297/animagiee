@@ -31,6 +31,8 @@ class _PostState extends State<Post> {
               firstscreen: false,
               navipage: null,
               notification: true,
+              searchfunction: true,
+              searchfunctionclose: false,
               edit: false,
               notification_back_arrow: false,
               search: true,

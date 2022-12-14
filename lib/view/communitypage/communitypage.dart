@@ -31,6 +31,7 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: Customized_Bottom_Bar(),
       body: WillPopScope(
         onWillPop: () {
@@ -54,6 +55,8 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
                   logo: false,
                   podcast: false,
                   fun: null,
+                  searchfunction: true,
+                  searchfunctionclose: false,
                 ),
                 // Profile_AppBar_UI(
                 //     edit: false,

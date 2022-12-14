@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Search_UI extends StatefulWidget {
-  const Search_UI({Key? key}) : super(key: key);
+  var onpressed;
+  Search_UI({Key? key, this.onpressed}) : super(key: key);
 
   @override
   State<Search_UI> createState() => _Search_UIState();
@@ -16,15 +17,17 @@ class _Search_UIState extends State<Search_UI> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          // setState(() {
-          //   if (appbarController.searchfield.value == true) {
-          //     appbarController.searchfield.value = false;
-          //   } else {
-          //     appbarController.searchfield.value = true;
-          //   }
-          // });
-        },
+        onPressed: () {},
+        // => widget.onpressed,
+        // () {
+        //   // setState(() {
+        //   //   if (appbarController.searchfield.value == true) {
+        //   //     appbarController.searchfield.value = false;
+        //   //   } else {
+        //   //     appbarController.searchfield.value = true;
+        //   //   }
+        //   // });
+        // },
         icon: Icon(
           Icons.search,
           color: Colors.black,

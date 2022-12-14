@@ -39,6 +39,8 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
             firstscreen: false,
             navipage: null,
             podcast: false,
+            searchfunction: true,
+            searchfunctionclose: false,
             notification: true,
             notification_back_arrow: false,
             search: true,

@@ -34,6 +34,8 @@ class _My_Communities_UIState extends State<My_Communities_UI> {
               edit: false,
               firstscreen: false,
               navipage: null,
+              searchfunction: true,
+              searchfunctionclose: false,
               podcast: false,
               fun: Home_Page(),
             ),

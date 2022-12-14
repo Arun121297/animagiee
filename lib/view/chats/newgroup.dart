@@ -35,6 +35,8 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppbarContainer(
+                searchfunction: true,
+                searchfunctionclose: false,
                 title: "New Group",
                 logo: false,
                 notification_back_arrow: false,

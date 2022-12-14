@@ -51,6 +51,8 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
           podcast: false,
           search: false,
           notification_back_arrow: false,
+          searchfunction: true,
+          searchfunctionclose: false,
           edit: false,
           firstscreen: false,
           navipage: null,

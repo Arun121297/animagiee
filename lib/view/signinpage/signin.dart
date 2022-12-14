@@ -10,6 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../config/colorconfig.dart';
+import '../../controller/controller.dart';
 import '../intrestpage.dart';
 
 class SignInPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _SignInPageState extends State<SignInPage> {
   var username5 = '';
 
   var username6 = '';
-
+  Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -91,12 +92,14 @@ class _SignInPageState extends State<SignInPage> {
               height: 9.0.hp,
               //  75,
             ),
+            // SizedBox(child: Text("Email--->${username3}/Fb--->${fbuserEmail}")),
 
             ///login through FaceBook
 
             GestureDetector(
               onTap: () {
-                signInWithFacebook();
+                // signInWithFacebook();
+
                 setState(() {});
               }, // {
 
@@ -153,23 +156,23 @@ class _SignInPageState extends State<SignInPage> {
             ),
 
             ///login through Google
-            // ElevatedButton(
-            //     onPressed: () async {
-            //       await Firebase.initializeApp();
-
-            //       await GoogleSignIn().signOut();
-            //       await FacebookAuth.instance.logOut();
-            //     },
-            //     child: Text("flogout")),
+            ElevatedButton(
+                onPressed: () async {
+                  await Firebase.initializeApp();
+                  await GoogleSignIn().signOut();
+                  await FacebookAuth.instance.logOut();
+                },
+                child: const Text("flogout")),
             GestureDetector(
               onTap: () {
                 signInWithGoogle();
+
                 setState(() {});
               },
               // {
-              //   // Get.to(
-              //   //   () => Welcome_Page(),
-              //   // );
+              // Get.to(
+              //   () => Welcome_Page(),
+              // );
               // },
               child: Container(
                   decoration: BoxDecoration(
@@ -192,7 +195,7 @@ class _SignInPageState extends State<SignInPage> {
                         child:
                             Image.asset('images/GGogle.png', fit: BoxFit.cover),
                       ),
-                      Expanded(child: SizedBox()),
+                      const Expanded(child: SizedBox()),
                       Text(
                         "Continue with Google",
                         style: GoogleFonts.poppins(
@@ -207,7 +210,7 @@ class _SignInPageState extends State<SignInPage> {
                         width: 4.0.hp,
                         // 28,
                       ),
-                      Expanded(child: SizedBox()),
+                      const Expanded(child: SizedBox()),
                     ],
                   )),
             ),
@@ -230,8 +233,11 @@ class _SignInPageState extends State<SignInPage> {
     log('try-3');
 
     final userdata = await FacebookAuth.instance.getUserData();
-    fbuserEmail = userdata['email'];
-    log("fbname-->${fbuserEmail}");
+    controller.Fbemail.value = userdata['email'];
+    log("fbname-->${controller.Fbemail.value}");
+    // Get.to(
+    //   () => Welcome_Page(),
+    // );
     // Once signed in, return the UserCredential
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
@@ -256,15 +262,17 @@ class _SignInPageState extends State<SignInPage> {
     username = googleUser!.id.toString();
     username1 = googleUser.displayName.toString();
     username2 = googleUser.serverAuthCode.toString();
-    username3 = googleUser.email.toString();
+    controller.email.value = googleUser.email.toString();
     username4 = googleUser.photoUrl.toString();
     username5 = googleUser.authHeaders.toString();
     username6 = googleUser.authentication.asStream().toString();
-
+    Get.to(
+      () => Welcome_Page(),
+    );
     log("id-->$username");
     log("displayname-->$username1");
     log("serverAuthCode-->$username2");
-    log("email--->$username3");
+    log("email--->${controller.email.value}");
     log("photoUrl-->$username4");
     log("authHeaders-->$username5");
     log("authentication-->$username6");

@@ -35,6 +35,8 @@ class _Appoinment_Page_UIState extends State<Appoinment_Page_UI> {
                   search: true,
                   backarrow: true,
                   podcast: false,
+                  searchfunction: true,
+                  searchfunctionclose: false,
                   edit: false,
                   notification_back_arrow: false,
                   firstscreen: false,

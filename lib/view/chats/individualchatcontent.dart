@@ -7,7 +7,9 @@ import '../../config/colorconfig.dart';
 
 class Individual_Chat_Content extends StatefulWidget {
   var fetchindex;
-  Individual_Chat_Content({Key? key, this.fetchindex}) : super(key: key);
+  var doc;
+  Individual_Chat_Content({Key? key, this.fetchindex, this.doc})
+      : super(key: key);
 
   @override
   State<Individual_Chat_Content> createState() =>
@@ -47,7 +49,9 @@ class _Individual_Chat_ContentState extends State<Individual_Chat_Content> {
                           height: 4.0.hp,
                           //  31,
                           width: 43.0.wp,
+                          alignment: Alignment.center,
                           // 159,
+                          child: Text("${widget.doc}"),
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(238, 238, 238, 1),
                               borderRadius: BorderRadius.only(

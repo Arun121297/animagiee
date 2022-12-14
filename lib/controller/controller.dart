@@ -31,6 +31,8 @@ class Controller extends GetxController {
     false,
     false,
   ].obs;
+  RxString email = ''.obs;
+  RxString Fbemail = ''.obs;
   // var selectingCategories = List<dynamic>.empty(growable: true).obs;
 
   // var selectingCategories = List<bool>.generate(20, (index) => false);
@@ -95,7 +97,7 @@ class Controller extends GetxController {
         child: Text(
           title,
           style: GoogleFonts.poppins(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               fontSize: 18,
               color: SigninButton_CL,
               fontWeight: FontWeight.w600,

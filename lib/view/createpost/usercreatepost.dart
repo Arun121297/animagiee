@@ -44,6 +44,7 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: Customized_Bottom_Bar(),
       body: WillPopScope(
         onWillPop: () {
@@ -62,6 +63,8 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                 notification: true,
                 edit: false,
                 search: true,
+                searchfunction: true,
+                searchfunctionclose: false,
                 chat: false,
                 logo: false,
                 podcast: false,

@@ -43,6 +43,8 @@ class _My_Work_Design_UIState extends State<My_Work_Design_UI> {
                   backarrow: true,
                   notification_back_arrow: false,
                   podcast: false,
+                  searchfunction: true,
+                  searchfunctionclose: false,
                   edit: false,
                   firstscreen: false,
                   navipage: null,

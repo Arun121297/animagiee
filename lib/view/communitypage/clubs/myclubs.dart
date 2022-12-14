@@ -60,6 +60,8 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                 chat: false,
                 notification_back_arrow: false,
                 notification: true,
+                searchfunction: true,
+                searchfunctionclose: false,
                 firstscreen: false,
                 navipage: null,
                 search: true,

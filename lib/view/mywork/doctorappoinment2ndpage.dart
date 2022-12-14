@@ -38,6 +38,8 @@ class _Doctors_Appoinment_Detaild_UIState
               backarrow: true,
               firstscreen: false,
               navipage: null,
+              searchfunction: true,
+              searchfunctionclose: false,
               notification: true,
               edit: false,
               search: true,

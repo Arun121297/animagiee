@@ -36,6 +36,8 @@ class _Community_Settings_UIState extends State<Community_Settings_UI> {
               edit: false,
               firstscreen: false,
               navipage: null,
+              searchfunction: true,
+              searchfunctionclose: false,
               podcast: false,
               fun: Settings_Page_1_UI(),
             ),

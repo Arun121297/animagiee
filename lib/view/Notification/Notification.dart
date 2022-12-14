@@ -51,6 +51,8 @@ class _Notification_Content_Design_UIState
                 firstscreen: false,
                 fun: null,
                 navipage: null,
+                searchfunction: true,
+                searchfunctionclose: false,
                 chat: false),
             Expanded(
                 child: SingleChildScrollView(

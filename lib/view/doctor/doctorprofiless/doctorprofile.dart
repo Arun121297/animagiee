@@ -42,6 +42,8 @@ class _Doctor_Profile_UIState extends State<Doctor_Profile_UI> {
                 navipage: null,
                 notification: true,
                 edit: false,
+                searchfunction: true,
+                searchfunctionclose: false,
                 search: true,
                 chat: false,
                 logo: false,

@@ -9,6 +9,7 @@ class Doctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: Customized_Bottom_Bar(),
       body: WillPopScope(
           onWillPop: () {

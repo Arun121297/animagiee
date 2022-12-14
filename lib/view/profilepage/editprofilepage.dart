@@ -38,6 +38,8 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
               logo: false,
               notification: false,
               search: false,
+              searchfunction: true,
+              searchfunctionclose: false,
               backarrow: true,
               notification_back_arrow: false,
               chat: false,

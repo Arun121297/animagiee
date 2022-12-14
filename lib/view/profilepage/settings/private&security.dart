@@ -36,6 +36,8 @@ class _Private_Security_Design_UIState
             notification: true,
             search: true,
             edit: false,
+            searchfunction: true,
+            searchfunctionclose: false,
             firstscreen: false,
             navipage: null,
             podcast: false,

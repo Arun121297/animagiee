@@ -38,6 +38,8 @@ class _Doctors_List_UIState extends State<Doctors_List_UI> {
               notification: true,
               edit: false,
               search: true,
+              searchfunction: true,
+              searchfunctionclose: false,
               chat: false,
               notification_back_arrow: false,
               logo: false,

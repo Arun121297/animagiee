@@ -40,6 +40,8 @@ class _View_All_Suggested_List_UIState
                 logo: false,
                 notification_back_arrow: false,
                 notification: true,
+                searchfunction: true,
+                searchfunctionclose: false,
                 podcast: false,
                 search: false,
                 edit: false,

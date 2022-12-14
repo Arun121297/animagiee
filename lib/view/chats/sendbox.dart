@@ -1,9 +1,13 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/controller/Chat/chat-1.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../config/colorconfig.dart';
+import 'Message.dart';
 
 class Send_Box_UI extends StatefulWidget {
   Send_Box_UI({Key? key}) : super(key: key);
@@ -13,8 +17,11 @@ class Send_Box_UI extends StatefulWidget {
 }
 
 class _Send_Box_UIState extends State<Send_Box_UI> {
+  TextEditingController sentbutton = TextEditingController();
+  ChatController chatController = Get.put(ChatController());
   @override
   void initState() {
+    sentbutton = TextEditingController();
     message = "";
     // TODO: implement initState
     super.initState();
@@ -46,6 +53,7 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
             height: 2.8.hp,
             //  40,
             child: TextField(
+              controller: sentbutton,
               onChanged: (value) {
                 setState(() {
                   message = value;
@@ -75,13 +83,31 @@ class _Send_Box_UIState extends State<Send_Box_UI> {
                 SizedBox(
                   width: 25.8.wp,
                 ),
-                Text(
-                  "Send",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 10.0.sp,
-                      color: send_button_CL,
-                      fontWeight: FontWeight.w500,
+                GestureDetector(
+                  onTap: (() {
+                    setState(() {
+                      //  FirebaseFirestore.instance
+                      //     .collection('chat')
+                      //     .add({'text': ''});
+                      FirebaseFirestore.instance
+                          .collection('data')
+                          .add({'text': sentbutton.text});
+                      final msg = Message(
+                        isSentByMe: true,
+                        text: sentbutton.text,
+                        date: DateTime.now(),
+                      );
+                      chatController.messsages.add(msg);
+                    });
+                  }),
+                  child: Text(
+                    "Send",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 10.0.sp,
+                        color: send_button_CL,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),

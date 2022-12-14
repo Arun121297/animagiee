@@ -34,6 +34,8 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
                   navipage: 0,
                   backarrow: false,
                   chat: false,
+                  searchfunction: true,
+                  searchfunctionclose: false,
                   firstscreen: true,
                   notification_back_arrow: false,
                   logo: false,
