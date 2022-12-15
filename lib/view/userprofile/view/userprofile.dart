@@ -5,7 +5,7 @@ import 'package:animagieeui/view/userprofile/view/page2communitie.dart';
 
 import 'package:animagieeui/view/userprofile/view/userprofdiscription.dart';
 import 'package:animagieeui/view/userprofile/view/userprofileimage.dart';
-import 'package:animagieeui/view/userprofile/userprofilename.dart';
+import 'package:animagieeui/view/userprofile/view/userprofilename.dart';
 
 import 'package:flutter/material.dart';
 
