@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/communitypage/view/communiti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -8,9 +9,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../config/colorconfig.dart';
 import '../controller/controller.dart';
-import 'communitypage/communiti.dart';
-import 'homepage/homepage.dart';
-import 'homepage/homepagewidget.dart';
+// import 'communitypage/view/communiti.dart';
+import 'homepage/view/homepage.dart';
+import 'homepage/view/homepagewidget.dart';
 
 class Welcome_Page extends StatefulWidget {
   const Welcome_Page({Key? key}) : super(key: key);

@@ -3,18 +3,12 @@ import 'dart:io';
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+// import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
 
 import '../config/colorconfig.dart';
-
-import '../view/homeAppBar/chat.dart';
-import '../view/homeAppBar/notification.dart';
-import '../view/homeAppBar/prot.dart';
-import '../view/homeAppBar/search.dart';
-import '../view/homepage/homepage.dart';
 
 class Controller extends GetxController {
   // final growableList =

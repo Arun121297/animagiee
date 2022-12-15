@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 
 import '../controller/controller.dart';
-import '../view/communitypage/communitypage.dart';
-import '../view/createpost/usercreatepost.dart';
-import '../view/doctor/doctor.dart';
-import '../view/homepage/homepagewidget.dart';
-import '../view/profilepage/myprofile.dart';
+import '../view/communitypage/view/communitypage.dart';
+import '../view/createpost/view/usercreatepost.dart';
+import '../view/doctor/view/doctor.dart';
+import '../view/homepage/view/homepagewidget.dart';
+import '../view/profilepage/view/myprofile.dart';
 
 Controller controller = Get.put(Controller());
 List wid = [
