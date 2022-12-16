@@ -1,19 +1,27 @@
 import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/home.dart';
+import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:animagieeui/view/mywork/view/myworkpage1.dart';
 import 'package:animagieeui/view/profilepage/view/settings/about.dart';
 import 'package:animagieeui/view/profilepage/view/settings/mycommunities.dart';
 import 'package:animagieeui/view/profilepage/view/settings/settings.dart';
+import 'package:animagieeui/view/signinpage/view/signin.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
+import '../../../main.dart';
 import 'MyFavourites/myfav.dart';
 import 'appoinmentdetail/appoinmentdetails.dart';
 import 'settings/mypost.dart';
@@ -36,6 +44,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
     super.initState();
   }
 
+  InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
@@ -397,7 +406,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               ),
                               Text(
                                 // "23",
-                                " ${controller.communitylist.length}",
+                                " ${instanceContoroller.communitylist.length}",
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                     fontSize: 9.5.sp,
@@ -683,43 +692,46 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     ),
                   ),
                   SizedBox(height: 3.0.hp),
-                  Container(
-                    height: 6.0.hp,
-                    // 46,
-                    width: 90.0.wp,
-                    // 330,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          // color: Colors.orange,
-                          width: 28.0.wp,
-                          //  95,
-                          child: Text(
-                            "Logout",
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                fontSize: 9.5.sp,
-                                color: Settings_Text_CL,
-                                fontWeight: FontWeight.w500,
+                  GestureDetector(
+                    onTap: () => logout(),
+                    child: Container(
+                      height: 6.0.hp,
+                      // 46,
+                      width: 90.0.wp,
+                      decoration: BoxDecoration(
+                          color: boxcolor_CL,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(width: 1, color: Colors.grey)),
+                      // 330,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            // color: Colors.orange,
+                            width: 28.0.wp,
+                            //  95,
+                            child: Text(
+                              "Logout",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 9.5.sp,
+                                  color: Settings_Text_CL,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        // SizedBox(
-                        //   width: 5,
-                        // ),
-                        Icon(
-                          Icons.logout,
-                          color: animagiee_CL,
-                        )
-                      ],
+                          // SizedBox(
+                          //   width: 5,
+                          // ),
+                          Icon(
+                            Icons.logout,
+                            color: animagiee_CL,
+                          )
+                        ],
+                      ),
                     ),
-                    decoration: BoxDecoration(
-                        color: boxcolor_CL,
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(width: 1, color: Colors.grey)),
                   ),
                   SizedBox(
                     height: 5.0.hp,
@@ -731,5 +743,21 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
         ),
       ),
     );
+  }
+
+  logout() async {
+    SharedPreferences _sharedPreferences =
+        await SharedPreferences.getInstance();
+    _sharedPreferences.clear().then((value) {
+      // Get.back();
+      Get.deleteAll();
+
+      // Get.offNamed('/login');
+    });
+
+    await Firebase.initializeApp();
+    await GoogleSignIn().signOut();
+    await FacebookAuth.instance.logOut();
+    Get.to(SecondScreen());
   }
 }

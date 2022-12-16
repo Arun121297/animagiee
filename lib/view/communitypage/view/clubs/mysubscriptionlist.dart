@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../config/colorconfig.dart';
 import '../../../../controller/controller.dart';
 import '../../../animagieeprofile/view/animalsprofiles.dart';
+import '../../../instancepage/controller/instancecontroller.dart';
 
 class My_Sub_List_Content extends StatefulWidget {
   var fetchindex;
@@ -17,6 +18,7 @@ class My_Sub_List_Content extends StatefulWidget {
 }
 
 class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
+  InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   Controller controller = Get.put(Controller());
   bool visibility = false;
   @override
@@ -40,17 +42,17 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
                   //  16,
                 ),
                 CircleAvatar(
-                  backgroundImage: ExactAssetImage(
-                      controller.communitylistimage[widget.fetchindex]),
+                  backgroundImage: NetworkImage(instanceContoroller
+                      .communitylistimage[widget.fetchindex]),
                 ),
                 SizedBox(width: 4.0.wp
                     //  13,
                     ),
-                Text(controller.communitylist[widget.fetchindex]),
+                Text(instanceContoroller.communitiesname[widget.fetchindex]),
                 Expanded(child: Container()),
                 GestureDetector(
                   onTap: () {
-                    print(controller.communitylist.length);
+                    print(instanceContoroller.communitylist.length);
                     setState(() {
                       if (visibility == false) {
                         visibility = true;

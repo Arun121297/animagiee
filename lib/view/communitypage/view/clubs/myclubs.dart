@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/data/pages.dart';
+import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 // import 'package:animagieeui/view/bottombarfile/view/bottomnavibar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class MyClubs_UI extends StatefulWidget {
 }
 
 class _MyClubs_UIState extends State<MyClubs_UI> {
+  InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   @override
   void initState() {
     controller.clubprofileimage = File("");
@@ -127,7 +129,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                   ),
                 ),
               ),
-              controller.communitylist.isEmpty
+              instanceContoroller.communitylist.isEmpty
                   ? Align(
                       heightFactor: 30,
                       child: Container(
@@ -139,7 +141,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                       height: MediaQuery.of(context).size.height - 290,
                       child: ListView.builder(
                           shrinkWrap: true,
-                          itemCount: controller.communitylist.length,
+                          itemCount: instanceContoroller.communitylist.length,
                           itemBuilder: (context, index) => My_Sub_List_Content(
                                 fetchindex: index,
                               )),

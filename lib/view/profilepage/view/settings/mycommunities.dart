@@ -1,4 +1,5 @@
 import 'package:animagieeui/view/homepage/view/homepage.dart';
+import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -17,6 +18,7 @@ class My_Communities_UI extends StatefulWidget {
 
 class _My_Communities_UIState extends State<My_Communities_UI> {
   Controller controller = Get.put(Controller());
+  InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +43,7 @@ class _My_Communities_UIState extends State<My_Communities_UI> {
             ),
 
             // controller.clubapp("My Communities", Home_Page(), context),
-            controller.communitylist.isEmpty
+            instanceContoroller.communitylist.isEmpty
                 ? Align(
                     heightFactor: 30,
                     child: Container(
@@ -53,7 +55,7 @@ class _My_Communities_UIState extends State<My_Communities_UI> {
                     height: MediaQuery.of(context).size.height - 290,
                     child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: controller.communitylist.length,
+                        itemCount: instanceContoroller.communitylist.length,
                         itemBuilder: (context, index) => My_Sub_List_Content(
                               fetchindex: index,
                             )),

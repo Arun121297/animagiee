@@ -4,10 +4,12 @@ import 'package:animagieeui/config/extension.dart';
 // import 'package:animagieeui/view/animagieeprofile/view/post.dart';
 import 'package:animagieeui/view/homeAppBar/view/notification.dart';
 import 'package:animagieeui/view/homeAppBar/view/search.dart';
+import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
@@ -32,7 +34,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
   double get randHeight => Random().nextInt(100).toDouble();
   Controller controller = Get.put(Controller());
   List<Widget> _randomChildren = [];
-
+  InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   // Children with random heights - You can build your widgets of unknown heights here
   // I'm just passing the context in case if any widgets built here needs  access to context based data like Theme or MediaQuery
   List<Widget> _randomHeightWidgets(BuildContext context) {
@@ -123,7 +125,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            print(controller.communitylist.length);
+                            print(instanceContoroller.communitylist.length);
                           },
                           child: Container(
                             height: 3.0.hp,

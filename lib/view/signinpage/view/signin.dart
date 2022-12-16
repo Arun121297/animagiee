@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/signinpage/controller/signincontroller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -8,10 +9,11 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../config/colorconfig.dart';
-import '../../controller/controller.dart';
-import '../intrestpage.dart';
+import '../../../config/colorconfig.dart';
+import '../../../controller/controller.dart';
+import '../../instancepage/view/intrestpage.dart';
 
 class SignInPage extends StatefulWidget {
   SignInPage({Key? key}) : super(key: key);
@@ -21,7 +23,9 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  SigninController signinController = Get.put(SigninController());
   var fbuserEmail;
+  var fbusername;
   var username = '';
 
   var username1 = '';
@@ -158,6 +162,10 @@ class _SignInPageState extends State<SignInPage> {
             ///login through Google
             ElevatedButton(
                 onPressed: () async {
+                  SharedPreferences _sharedPreferences =
+                      await SharedPreferences.getInstance();
+                  _sharedPreferences.clear();
+
                   await Firebase.initializeApp();
                   await GoogleSignIn().signOut();
                   await FacebookAuth.instance.logOut();
@@ -233,8 +241,13 @@ class _SignInPageState extends State<SignInPage> {
     log('try-3');
 
     final userdata = await FacebookAuth.instance.getUserData();
-    controller.Fbemail.value = userdata['email'];
-    log("fbname-->${controller.Fbemail.value}");
+    fbuserEmail = userdata['email'];
+    fbusername = userdata['public_profile'];
+
+    log("fbname-->$fbuserEmail");
+    log("fbusername-->$fbusername");
+    // signinController.signinfunction(fbuserEmail, fbusername);
+
     // Get.to(
     //   () => Welcome_Page(),
     // );
@@ -262,13 +275,15 @@ class _SignInPageState extends State<SignInPage> {
     username = googleUser!.id.toString();
     username1 = googleUser.displayName.toString();
     username2 = googleUser.serverAuthCode.toString();
-    controller.email.value = googleUser.email.toString();
+    username3 = googleUser.email.toString();
     username4 = googleUser.photoUrl.toString();
     username5 = googleUser.authHeaders.toString();
     username6 = googleUser.authentication.asStream().toString();
-    Get.to(
-      () => Welcome_Page(),
-    );
+    signinController.signinfunction(username3, username1);
+
+    // Get.to(
+    //   () => Welcome_Page(),
+    // );
     log("id-->$username");
     log("displayname-->$username1");
     log("serverAuthCode-->$username2");

@@ -65,8 +65,8 @@ class Controller extends GetxController {
   File profileglobalbackgroundimage = File("");
 
   ///myclubs
-  List communitylist = [];
-  List communitylistimage = [];
+
+  // List communitylistimage = [];
   RxBool chatoption = false.obs;
   //
   RxBool profilechangebool = false.obs;
