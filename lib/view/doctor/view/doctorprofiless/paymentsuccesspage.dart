@@ -113,8 +113,31 @@ class _Successfull_Payment_UIState extends State<Successfull_Payment_UI> {
                   ),
                   Align(
                     alignment: Alignment.center,
-                    child:
-                        controller.communityNext("Back to home", Home_Page()),
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(Home_Page());
+                        // Get.to(fun);
+                      },
+                      child: Container(
+                        height: 43,
+                        width: 310,
+                        decoration: BoxDecoration(
+                            color: buttonColor1_CL,
+                            borderRadius: BorderRadius.circular(15)),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Back to home',
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              fontSize: 18,
+                              color: SigninButton_CL,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    // controller.communityNext("Back to home", Home_Page()),
                   )
                 ],
               ),

@@ -197,10 +197,33 @@ class _My_Work_Design_UIState extends State<My_Work_Design_UI> {
 
                           ///button
                           Align(
-                            alignment: Alignment.center,
-                            child:
-                                controller.communityNext("Update", Home_Page()),
-                          ),
+                              alignment: Alignment.center,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.to(Home_Page());
+                                  // Get.to(fun);
+                                },
+                                child: Container(
+                                  height: 43,
+                                  width: 310,
+                                  decoration: BoxDecoration(
+                                      color: buttonColor1_CL,
+                                      borderRadius: BorderRadius.circular(15)),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    'Update',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: const TextStyle(
+                                        fontSize: 18,
+                                        color: SigninButton_CL,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                              // controller.communityNext("Update", Home_Page()),
+                              ),
 
                           SizedBox(
                             height: 3.0.hp,

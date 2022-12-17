@@ -133,8 +133,32 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
               ),
               Align(
                 alignment: Alignment.center,
-                child: controller.communityNext(
-                    "Add to Group", Group_Chat_Screen_UI()),
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(Group_Chat_Screen_UI());
+                    // Get.to(fun);
+                  },
+                  child: Container(
+                    height: 43,
+                    width: 310,
+                    decoration: BoxDecoration(
+                        color: buttonColor1_CL,
+                        borderRadius: BorderRadius.circular(15)),
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Add to Group',
+                      style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                          fontSize: 18,
+                          color: SigninButton_CL,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                // child: controller.communityNext(
+                //     "Add to Group", Group_Chat_Screen_UI()),
               )
             ],
           ),

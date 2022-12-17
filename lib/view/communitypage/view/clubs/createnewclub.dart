@@ -359,7 +359,31 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
           ),
           SizedBox(height: 40),
           // controller.communityNext("Create", Completed_Club_UI())
-          controller.communityNext("Create", MyClubs_UI())
+          GestureDetector(
+            onTap: () {
+              Get.to(MyClubs_UI());
+              // Get.to(fun);
+            },
+            child: Container(
+              height: 43,
+              width: 310,
+              decoration: BoxDecoration(
+                  color: buttonColor1_CL,
+                  borderRadius: BorderRadius.circular(15)),
+              alignment: Alignment.center,
+              child: Text(
+                'Create',
+                style: GoogleFonts.poppins(
+                  textStyle: const TextStyle(
+                    fontSize: 18,
+                    color: SigninButton_CL,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          // controller.communityNext("Create", MyClubs_UI())
         ]),
       ),
     );

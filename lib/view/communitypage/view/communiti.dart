@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../controller/controller.dart';
 import '../../instancepage/controller/updateinstancecontroller.dart';
+// import '../controller/updateinstancecontroller.dart';
 
 class Community_UI extends StatefulWidget {
   const Community_UI({Key? key}) : super(key: key);
@@ -20,8 +21,8 @@ class Community_UI extends StatefulWidget {
 class _Community_UIState extends State<Community_UI> {
   Controller controller = Get.put(Controller());
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
-  // UpdataInstanceController updataInstanceController =
-  //     Get.put(UpdataInstanceController());
+  UpdataInstanceController updataInstanceController =
+      Get.put(UpdataInstanceController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -60,13 +61,12 @@ class _Community_UIState extends State<Community_UI> {
                       instanceContoroller.communitiesname.removeWhere(
                           (element) => element == (data[i].communityName));
                     } else {
-                      instanceContoroller.communitylist.add(data[i].id);
+                      instanceContoroller.communitylist.add(data[i].id!);
                       instanceContoroller.communitylistimage
                           .add(data[index].imageUrl);
                       instanceContoroller.communitiesname
                           .add((data[i].communityName));
                     }
-
                     log("communitylist${instanceContoroller.communitylist}");
                     log("communitylistimage${instanceContoroller.communitylistimage}");
                     log("communitiesname${instanceContoroller.communitiesname}");

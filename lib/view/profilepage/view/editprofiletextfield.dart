@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/profilepage/controller/editcontr/editController.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +20,7 @@ class Edit_Profile_TextField_UI extends StatefulWidget {
 }
 
 class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
+  EditScreenController editScreenController = Get.put(EditScreenController());
   var city = [
     'Nagercovil',
     'KKKKK',
@@ -91,6 +93,10 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
             child: Padding(
               padding: EdgeInsets.only(left: 8.0.sp),
               child: TextField(
+                  controller: editScreenController.about,
+                  onChanged: (val) {
+                    editScreenController.abt = editScreenController.about.text;
+                  },
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintStyle: GoogleFonts.jost(

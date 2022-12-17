@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/data/pages.dart';
+import 'package:animagieeui/view/profilepage/controller/editcontr/editController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,6 +25,7 @@ class Edit_Profile_UI extends StatefulWidget {
 }
 
 class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
+  EditScreenController editScreenController = Get.put(EditScreenController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +65,10 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
+                        //edit api
+                        editScreenController.editprofileservicesection(
+                            editScreenController.abt);
+                        //
                         controller.pFglobalprofileimage =
                             File(controller.pFprofileimage.path);
                         controller.profileglobalbackgroundimage =

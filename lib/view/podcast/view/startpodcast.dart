@@ -151,7 +151,31 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                     //  40,
                   ),
                   Align(
-                    child: controller.communityNext("Post", Audio_Podcast_UI()),
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(Audio_Podcast_UI());
+                        // Get.to(fun);
+                      },
+                      child: Container(
+                        height: 43,
+                        width: 310,
+                        decoration: BoxDecoration(
+                            color: buttonColor1_CL,
+                            borderRadius: BorderRadius.circular(15)),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Post',
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              fontSize: 18,
+                              color: SigninButton_CL,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    // child: controller.communityNext("Post", Audio_Podcast_UI()),
                     alignment: Alignment.center,
                   ),
                 ],

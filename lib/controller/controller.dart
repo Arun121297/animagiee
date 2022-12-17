@@ -77,30 +77,31 @@ class Controller extends GetxController {
   Rx<FilepickerType> imagevideo = FilepickerType(type: "", url: "").obs;
   VideoPlayerController? videocontroller;
 
-  communityNext(title, fun) {
-    return GestureDetector(
-      onTap: () {
-        Get.to(fun);
-      },
-      child: Container(
-        height: 43,
-        width: 310,
-        decoration: BoxDecoration(
-            color: buttonColor1_CL, borderRadius: BorderRadius.circular(15)),
-        alignment: Alignment.center,
-        child: Text(
-          title,
-          style: GoogleFonts.poppins(
-            textStyle: const TextStyle(
-              fontSize: 18,
-              color: SigninButton_CL,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  // communityNext(title, fun) {
+  //   return GestureDetector(
+  //     onTap: () {
+  //       fun;
+  //       // Get.to(fun);
+  //     },
+  //     child: Container(
+  //       height: 43,
+  //       width: 310,
+  //       decoration: BoxDecoration(
+  //           color: buttonColor1_CL, borderRadius: BorderRadius.circular(15)),
+  //       alignment: Alignment.center,
+  //       child: Text(
+  //         title,
+  //         style: GoogleFonts.poppins(
+  //           textStyle: const TextStyle(
+  //             fontSize: 18,
+  //             color: SigninButton_CL,
+  //             fontWeight: FontWeight.w600,
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   // clubapp(title, fun, context) {
   //   return Material(

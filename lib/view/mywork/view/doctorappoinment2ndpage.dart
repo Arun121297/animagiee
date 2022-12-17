@@ -114,8 +114,33 @@ class _Doctors_Appoinment_Detaild_UIState
 
                   Align(
                       alignment: Alignment.center,
-                      child: controller.communityNext(
-                          "Start chat", MyWork_Chat_UI()))
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.to(MyWork_Chat_UI());
+                          // Get.to(fun);
+                        },
+                        child: Container(
+                          height: 43,
+                          width: 310,
+                          decoration: BoxDecoration(
+                              color: buttonColor1_CL,
+                              borderRadius: BorderRadius.circular(15)),
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Start chat',
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                fontSize: 18,
+                                color: SigninButton_CL,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ))
+
+                  // controller.communityNext(
+                  //     "Start chat", MyWork_Chat_UI()))
                 ],
               ),
             ))

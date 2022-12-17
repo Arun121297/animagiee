@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/communitypage/view/communiti.dart';
+import 'package:animagieeui/utils/constance.dart';
+// import 'package:animagieeui/view/instancepage/view/communiti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -12,6 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 // import 'communitypage/view/communiti.dart';
+import '../../communitypage/view/communiti.dart';
 import '../../homepage/view/homepage.dart';
 import '../../homepage/view/homepagewidget.dart';
 import '../controller/instancecontroller.dart';
@@ -64,6 +66,7 @@ class _Welcome_PageState extends State<Welcome_Page> {
   }
 
   Controller controller = Get.put(Controller());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,12 +160,33 @@ class _Welcome_PageState extends State<Welcome_Page> {
                       height: 3.0.hp,
                       //  30,
                     ),
+                    // GestureDetector(
+                    //   onTap: () => commuities(),
+                    //   // setState(() {});
+                    //   // },
+                    //   child: Container(
+                    //     height: 43,
+                    //     width: 310,
+                    //     decoration: BoxDecoration(
+                    //         color: buttonColor1_CL,
+                    //         borderRadius: BorderRadius.circular(15)),
+                    //     alignment: Alignment.center,
+                    //     child: Text(
+                    //       'Next',
+                    //       style: GoogleFonts.poppins(
+                    //         textStyle: const TextStyle(
+                    //           fontSize: 18,
+                    //           color: SigninButton_CL,
+                    //           fontWeight: FontWeight.w600,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // )
                     GestureDetector(
                       onTap: () {
-                        setState(() {
-                          commuities();
-                        });
-                        setState(() {});
+                        commuities();
+                        // Get.to(fun);
                       },
                       child: Container(
                         height: 43,
@@ -182,7 +206,7 @@ class _Welcome_PageState extends State<Welcome_Page> {
                           ),
                         ),
                       ),
-                    )
+                    ),
                     // controller.communityNext("Next", commuities())
                   ],
                 ),
@@ -195,13 +219,14 @@ class _Welcome_PageState extends State<Welcome_Page> {
   }
 
   commuities() {
-    var id = instanceContoroller.communitylist
-        .map((item) => item)
-        .toList()
-        .join(",");
-    log("List-->${instanceContoroller.communitylist}");
-    log("id-->$id");
-    updataInstanceController.updateinstancecontroller(instancelist: id);
-    // Get.to(Home_Page());
+    // var id = instanceContoroller.communitylist
+    //     .map((item) => item)
+    //     .toList()
+    //     .join(",");
+    // log("List-->${instanceContoroller.communitylist}");
+    // log("id-->$id");
+    updataInstanceController
+        .updateinstancecontroller(instanceContoroller.communitylist);
+    Get.to(Home_Page());
   }
 }

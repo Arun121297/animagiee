@@ -3,4 +3,6 @@ class Urls {
   static const login = '${baseUrl}api/user/registersandlogin';
   static const communities = '${baseUrl}api/community/communitydetails';
   static const updatecommunities = '${baseUrl}api/community/mycommunityupdate';
+  static const profile = '${baseUrl}api/user/registerDeatils';
+  static const editprofile = '${baseUrl}api/user/editprofile';
 }

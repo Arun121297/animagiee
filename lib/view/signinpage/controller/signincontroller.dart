@@ -27,7 +27,7 @@ class SigninController extends GetxController {
         getsigninmodel.add(response);
         log("datassss->>>>>>>>>${getsigninmodel[0].data}");
         loadingindicator(false);
-        Get.to(const Welcome_Page());
+        Get.to(Welcome_Page());
         // log(loadingindicator.toString());
       } else {
         // Fluttertoast.showToast(msg: response!.message!);

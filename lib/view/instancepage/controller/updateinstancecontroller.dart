@@ -4,11 +4,11 @@ import '../model/updateinstance.dart';
 import '../service/updateinstanceservice.dart';
 
 class UpdataInstanceController extends GetxController {
-  RxBool updateinstanceloadingindicator = false.obs;
+  RxBool updateinstanceloadingindicator = true.obs;
   RxList<UpdateInstanceModel> getUpdateinstancedata =
       <UpdateInstanceModel>[].obs;
   var clint = UpdateInstanceService();
-  Future updateinstancecontroller({instancelist}) async {
+  Future updateinstancecontroller(instancelist) async {
     var response = await clint.updateService(instancelist: instancelist);
     try {
       if (response != null) {

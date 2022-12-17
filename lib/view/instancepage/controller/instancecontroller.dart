@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../model/instancemodel.dart';
 
 class InstanceContoroller extends GetxController {
-  List communitylist = [];
+  List<String> communitylist = [];
   List communitylistimage = [];
   List communitiesname = [];
   RxBool instancescreenloadingindicator = true.obs;

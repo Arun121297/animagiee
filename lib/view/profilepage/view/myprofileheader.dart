@@ -4,6 +4,7 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/home.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:animagieeui/view/mywork/view/myworkpage1.dart';
+import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:animagieeui/view/profilepage/view/settings/about.dart';
 import 'package:animagieeui/view/profilepage/view/settings/mycommunities.dart';
 import 'package:animagieeui/view/profilepage/view/settings/settings.dart';
@@ -34,8 +35,10 @@ class MY_Profile_Header_UI extends StatefulWidget {
 }
 
 class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
+  ProfileController profileController = Get.put(ProfileController());
   @override
   void initState() {
+    profileController.profilecontrollerfunction();
     controller.profilebackgroundimage =
         File(controller.profileglobalbackgroundimage.path);
     controller.pFprofileimage = File(controller.pFglobalprofileimage.path);
@@ -48,6 +51,14 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
   Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
+    var data = profileController.getprofiledata[0].data;
+    // return
+    // Obx(() {
+    //   if (profileController.profileloadingindecator.value) {
+    //     return Center(
+    //       child: CircularProgressIndicator(),
+    //     );
+    //   } else {
     return Expanded(
       child: SingleChildScrollView(
         child: Container(
@@ -64,16 +75,16 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       //     controller.profileglobalbackgroundimage.path.isEmpty
                       //         ? animagiee_CL
                       //         : Colors.transparent,
-                      image:
-                          controller.profileglobalbackgroundimage.path.isEmpty
-                              ? DecorationImage(
-                                  image: AssetImage("images/emptyimage.jfif"),
-                                  fit: BoxFit.cover)
-                              : DecorationImage(
-                                  image: FileImage(
-                                      controller.profileglobalbackgroundimage),
-                                  fit: BoxFit.cover),
-                      borderRadius: BorderRadius.only(
+                      image: controller
+                              .profileglobalbackgroundimage.path.isEmpty
+                          ? const DecorationImage(
+                              image: AssetImage("images/emptyimage.jfif"),
+                              fit: BoxFit.cover)
+                          : DecorationImage(
+                              image:
+                                  NetworkImage(data!.profilebackimg.toString()),
+                              fit: BoxFit.cover),
+                      borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(15),
                           bottomRight: Radius.circular(15))),
                   width: MediaQuery.of(context).size.width,
@@ -82,7 +93,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                   //  108,
                 ),
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.black38,
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(15),
@@ -154,14 +165,15 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       backgroundColor: Colors.white,
                       child: controller.pFglobalprofileimage.path.isEmpty
                           ? CircleAvatar(
-                              backgroundImage:
-                                  ExactAssetImage("images/emptyimage.jfif"),
+                              backgroundImage: const ExactAssetImage(
+                                  "images/emptyimage.jfif"),
                               // backgroundColor: animagiee_CL,
                               radius: 40.0.sp,
                             )
                           : CircleAvatar(
-                              backgroundImage:
-                                  FileImage(controller.pFglobalprofileimage),
+                              backgroundImage: NetworkImage(
+                                data!.profileicon.toString(),
+                              ),
                               // backgroundColor: animagiee_CL,
                               radius: 40.0.sp,
                             ),
@@ -174,7 +186,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       padding: EdgeInsets.only(left: 30.0.sp, top: 6.0.sp),
                       margin: EdgeInsets.only(left: 30.0.sp),
                       child: Text(
-                        "MY Profile",
+                        data!.username.toString(),
                         style: GoogleFonts.jost(
                           textStyle: TextStyle(
                             fontSize: 19.5.sp,
@@ -187,9 +199,9 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
               ]),
             ),
             Container(
-              margin: EdgeInsets.only(left: 20),
+              margin: const EdgeInsets.only(left: 20),
               child: Text(
-                "Lorem ipsum dolor sit amet, consectetur.",
+                data.about.toString(),
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
                     fontSize: 9.5.sp,
@@ -229,11 +241,11 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           ),
                         ),
                       ),
-                      VerticalDivider(
+                      const VerticalDivider(
                         color: animagiee_CL,
                       ),
                       Text(
-                        "95",
+                        data.followerUser!.length.toString(),
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                             fontSize: 9.5.sp,
@@ -269,11 +281,11 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           ),
                         ),
                       ),
-                      VerticalDivider(
+                      const VerticalDivider(
                         color: animagiee_CL,
                       ),
                       Text(
-                        "195",
+                        data.followingUser!.length.toString(),
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
                             fontSize: 9.5.sp,
@@ -297,7 +309,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       color: animagiee_CL,
                     ),
                   ),
-                  child: Icon(Icons.settings),
+                  child: const Icon(Icons.settings),
                 )
               ],
             ),
@@ -312,7 +324,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(My_Post_UI());
+                      Get.to(const My_Post_UI());
                     },
                     child: Card(
                       elevation: 3,
@@ -345,7 +357,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                                   ),
                                 ),
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 endIndent: 5,
                                 indent: 5,
                                 color: Colors.grey,
@@ -353,7 +365,8 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                                 width: 2,
                               ),
                               Text(
-                                "34",
+                                profileController.getprofiledata[0].postCount
+                                    .toString(),
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                     fontSize: 9.5.sp,
@@ -368,7 +381,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(My_Communities_UI());
+                      Get.to(const My_Communities_UI());
                     },
                     child: Card(
                       elevation: 3,
@@ -397,7 +410,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                                   ),
                                 ),
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 endIndent: 5,
                                 indent: 5,
                                 color: Colors.grey,
@@ -406,7 +419,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               ),
                               Text(
                                 // "23",
-                                " ${instanceContoroller.communitylist.length}",
+                                data.interestedCommunities!.length.toString(),
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                     fontSize: 9.5.sp,
@@ -433,12 +446,16 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(My_Favourites_UI());
+                      Get.to(const My_Favourites_UI());
                     },
                     child: Container(
                       height: 6.0.hp,
                       // 46,
                       width: 90.0.wp,
+                      decoration: BoxDecoration(
+                          color: boxcolor_CL,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(width: 1, color: Colors.grey)),
                       // 330,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -459,16 +476,12 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               ),
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.bookmark,
                             color: animagiee_CL,
                           )
                         ],
                       ),
-                      decoration: BoxDecoration(
-                          color: boxcolor_CL,
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(width: 1, color: Colors.grey)),
                     ),
                   ),
                   Visibility(
@@ -481,7 +494,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     visible: controller.profilechangebool.value,
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(My_Work_Design_UI());
+                        Get.to(const My_Work_Design_UI());
                         // Get.to(Scaffold(
                         //   body:
                         //   // About_Design_UI(),
@@ -491,6 +504,10 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                         height: 6.0.hp,
                         // 46,
                         width: 90.0.wp,
+                        decoration: BoxDecoration(
+                            color: boxcolor_CL,
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(width: 1, color: Colors.grey)),
                         // 330,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -528,10 +545,6 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                             )
                           ],
                         ),
-                        decoration: BoxDecoration(
-                            color: boxcolor_CL,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(width: 1, color: Colors.grey)),
                       ),
                     ),
                   ),
@@ -540,7 +553,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     visible: controller.profilechangebool.value,
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(Scaffold(
+                        Get.to(const Scaffold(
                           body: About_Design_UI(),
                         ));
                       },
@@ -548,6 +561,10 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                         height: 6.0.hp,
                         // 46,
                         width: 90.0.wp,
+                        decoration: BoxDecoration(
+                            color: boxcolor_CL,
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(width: 1, color: Colors.grey)),
                         // 330,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -585,10 +602,6 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                             )
                           ],
                         ),
-                        decoration: BoxDecoration(
-                            color: boxcolor_CL,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(width: 1, color: Colors.grey)),
                       ),
                     ),
                   ),
@@ -596,17 +609,21 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     visible: controller.appoinmentdetailshide.value,
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(AppoinmentDetails_UI());
+                        Get.to(const AppoinmentDetails_UI());
                       },
                       child: Container(
                         height: 6.0.hp,
                         // 46,
                         width: 90.0.wp,
+                        decoration: BoxDecoration(
+                            color: boxcolor_CL,
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(width: 1, color: Colors.grey)),
                         // 330,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             SizedBox(
@@ -623,7 +640,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               ),
                             ),
                             // Flexible(child: SizedBox()),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             SizedBox(
@@ -637,25 +654,25 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                                 // width: 17,
                               ),
                             ),
-                            VerticalDivider()
+                            const VerticalDivider()
                           ],
                         ),
-                        decoration: BoxDecoration(
-                            color: boxcolor_CL,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(width: 1, color: Colors.grey)),
                       ),
                     ),
                   ),
                   SizedBox(height: 3.0.hp),
                   GestureDetector(
                     onTap: () {
-                      Get.to(Settings_Page_1_UI());
+                      Get.to(const Settings_Page_1_UI());
                     },
                     child: Container(
                       height: 6.0.hp,
                       // 46,
                       width: 90.0.wp,
+                      decoration: BoxDecoration(
+                          color: boxcolor_CL,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(width: 1, color: Colors.grey)),
                       // 330,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -679,16 +696,12 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           // VerticalDivider(
                           //   color: Colors.transparent,
                           // ),
-                          Icon(
+                          const Icon(
                             Icons.settings,
                             color: animagiee_CL,
                           )
                         ],
                       ),
-                      decoration: BoxDecoration(
-                          color: boxcolor_CL,
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(width: 1, color: Colors.grey)),
                     ),
                   ),
                   SizedBox(height: 3.0.hp),
@@ -725,7 +738,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           // SizedBox(
                           //   width: 5,
                           // ),
-                          Icon(
+                          const Icon(
                             Icons.logout,
                             color: animagiee_CL,
                           )
@@ -744,6 +757,8 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
       ),
     );
   }
+  // });
+  // }
 
   logout() async {
     SharedPreferences _sharedPreferences =
