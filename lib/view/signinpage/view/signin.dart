@@ -97,7 +97,6 @@ class _SignInPageState extends State<SignInPage> {
               height: 9.0.hp,
               //  75,
             ),
-            // SizedBox(child: Text("Email--->${username3}/Fb--->${fbuserEmail}")),
 
             ///login through FaceBook
 
@@ -251,7 +250,7 @@ class _SignInPageState extends State<SignInPage> {
     log("fbname-->$fbuserEmail");
     log("name-->$fbusername");
     log("fbbd-->$fbbd");
-    signinController.signinfunction(fbuserEmail, fbusername);
+    // signinController.signinfunction(fbuserEmail, fbusername);
 
     // Get.to(
     //   () => Welcome_Page(),
@@ -284,11 +283,11 @@ class _SignInPageState extends State<SignInPage> {
     username4 = googleUser.photoUrl.toString();
     username5 = googleUser.authHeaders.toString();
     username6 = googleUser.authentication.asStream().toString();
-    // signinController.signinfunction(username3, username1);
+    signinController.signinfunction(username3, username1);
 
-    Get.to(
-      () => Welcome_Page(),
-    );
+    // Get.to(
+    //   () => Welcome_Page(),
+    // );
     log("id-->$username");
     log("displayname-->$username1");
     log("serverAuthCode-->$username2");
