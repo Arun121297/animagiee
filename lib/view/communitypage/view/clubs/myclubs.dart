@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/data/pages.dart';
+import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 // import 'package:animagieeui/view/bottombarfile/view/bottomnavibar.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,6 +32,7 @@ class MyClubs_UI extends StatefulWidget {
 
 class _MyClubs_UIState extends State<MyClubs_UI> {
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
+  ClubController clubController = Get.put(ClubController());
   @override
   void initState() {
     controller.clubprofileimage = File("");

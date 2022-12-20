@@ -8,6 +8,7 @@ class InstanceContoroller extends GetxController {
   List communitylist = [];
   List communitylistimage = [];
   List communitiesname = [];
+  final data = <Datum>[].obs;
   RxBool instancescreenloadingindicator = true.obs;
   RxList<CommunitiesList> getinstancedata = <CommunitiesList>[].obs;
   var clint = InstanceService();
@@ -17,7 +18,7 @@ class InstanceContoroller extends GetxController {
       getinstancedata.clear();
       if (response != null) {
         getinstancedata.add(response);
-
+        data.value = response.data!;
         instancescreenloadingindicator(false);
       } else {
         instancescreenloadingindicator(false);
