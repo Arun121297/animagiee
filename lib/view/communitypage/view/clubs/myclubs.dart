@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/data/pages.dart';
+import 'package:animagieeui/view/communitypage/controller/createclubcontroller.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 // import 'package:animagieeui/view/bottombarfile/view/bottomnavibar.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,10 +32,13 @@ class MyClubs_UI extends StatefulWidget {
 
 class _MyClubs_UIState extends State<MyClubs_UI> {
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
+  CreatedClubController createdClubController =
+      Get.put(CreatedClubController());
   @override
   void initState() {
     controller.clubprofileimage = File("");
     controller.clubbackgroundimage = File("");
+    createdClubController.clubcreatedcontroller();
     // TODO: implement initState
     super.initState();
   }
@@ -119,6 +123,129 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                 width: MediaQuery.of(context).size.width,
                 alignment: Alignment.centerLeft,
                 child: Text(
+                  "   My Created Club",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 11.0.sp,
+                      color: dummycontent_Cl,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+              ),
+
+////
+              ///Created Club
+              Obx(() {
+                if (createdClubController.clubcreatedloadingindicator.value) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (createdClubController.getcreateclubdata.isEmpty) {
+                  return Center(
+                    child: Text("No Club Created"),
+                  );
+                } else {
+                  return SizedBox(
+                    height: 20.0.hp,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount:
+                            createdClubController.getcreateclubdata.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  // Get.to(Animals_Profiles_UI());
+                                });
+                              },
+                              child: Card(
+                                child: SizedBox(
+                                  height: 7.0.hp,
+                                  // 56,
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 6.0.wp,
+                                        //  16,
+                                      ),
+                                      CircleAvatar(
+                                        backgroundImage: NetworkImage(
+                                            createdClubController
+                                                .getcreateclubdata[0]
+                                                .data![index]
+                                                .clubicon
+                                                .toString()),
+                                      ),
+                                      SizedBox(width: 4.0.wp
+                                          //  13,
+                                          ),
+                                      Text(createdClubController
+                                          .getcreateclubdata[0]
+                                          .data![index]
+                                          .clubName
+                                          .toString()),
+                                      // Expanded(child: Container()),
+                                      // GestureDetector(
+                                      //   onTap: () {
+                                      //     print(instanceContoroller.communitylist.length);
+                                      //     setState(() {
+                                      //       if (visibility == false) {
+                                      //         visibility = true;
+                                      //       } else {
+                                      //         visibility = false;
+                                      //       }
+                                      //     });
+                                      //   },
+                                      //   child: Container(
+                                      //     height: 3.5.hp,
+                                      //     //  26,
+                                      //     width: 24.0.wp,
+                                      //     // 90,
+                                      //     alignment: Alignment.center,
+                                      //     decoration: BoxDecoration(
+                                      //         color: animagiee_CL,
+                                      //         borderRadius: BorderRadius.circular(5.0.sp)),
+                                      //     child: Text(
+                                      //       visibility == true ? "Joined" : "Request",
+                                      //       style: GoogleFonts.poppins(
+                                      //         textStyle: TextStyle(
+                                      //           fontSize: 9.0.sp,
+                                      //           color: Colors.white,
+                                      //           fontWeight: FontWeight.w500,
+                                      //         ),
+                                      //       ),
+                                      //     ),
+                                      //   ),
+                                      // ),
+                                      SizedBox(width: 3.0.wp
+                                          // 12,
+                                          )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                          // Container(
+                          //   child: Text(createdClubController
+                          //       .getcreateclubdata[0].data![index].clubName
+                          //       .toString()),
+                          // );
+                        }),
+                  );
+                }
+                // Container();
+              }),
+              Container(
+                color: Sub_Container_CL,
+                height: 5.0.hp,
+                //  35,
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.centerLeft,
+                child: Text(
                   "   My Subscriptions",
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
@@ -131,14 +258,16 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
               ),
               instanceContoroller.communitylist.isEmpty
                   ? Align(
-                      heightFactor: 30,
+                      heightFactor: 20,
                       child: Container(
                         alignment: Alignment.center,
                         child: Text("No Datas"),
                       ),
                     )
-                  : SizedBox(
-                      height: MediaQuery.of(context).size.height - 290,
+                  : Container(
+                      color: Colors.transparent,
+                      height: 48.0.hp,
+                      // MediaQuery.of(context).size.height / 2.1,
                       child: ListView.builder(
                           shrinkWrap: true,
                           itemCount: instanceContoroller.communitylist.length,

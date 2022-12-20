@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/data/pages.dart';
 import 'package:animagieeui/view/profilepage/controller/editcontr/editController.dart';
+import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,11 +30,22 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
   EditScreenController editScreenController = Get.put(EditScreenController());
   ProfileBGImageController profileBGImageController =
       Get.put(ProfileBGImageController());
+  ProfileController profileController = Get.put(ProfileController());
   @override
   void initState() {
     // TODO: implement initState
     editScreenController.pFprofileimage = File("");
     profileBGImageController.profilebackgroundimage = File('');
+    profileController.profilecontrollerfunction().then((value) async {
+      var data = profileController.getprofiledata[0].data;
+      editScreenController.about.text = data!.about.toString();
+      editScreenController.fname.text = data.firstName.toString();
+      editScreenController.lname.text = data.lastName.toString();
+      editScreenController.dob.text = data.dob.toString();
+      editScreenController.mNumber.text = data.mobNo.toString();
+      editScreenController.address.text = data.address.toString();
+      editScreenController.pincode.text = data.pinCode.toString();
+    });
     super.initState();
   }
 

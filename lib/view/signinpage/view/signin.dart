@@ -26,6 +26,7 @@ class _SignInPageState extends State<SignInPage> {
   SigninController signinController = Get.put(SigninController());
   var fbuserEmail;
   var fbusername;
+  var fbbd;
   var username = '';
 
   var username1 = '';
@@ -102,7 +103,7 @@ class _SignInPageState extends State<SignInPage> {
 
             GestureDetector(
               onTap: () {
-                // signInWithFacebook();
+                signInWithFacebook();
 
                 setState(() {});
               }, // {
@@ -231,8 +232,8 @@ class _SignInPageState extends State<SignInPage> {
   Future<UserCredential> signInWithFacebook() async {
     log('try-1');
     // Trigger the sign-in flow
-    final LoginResult loginResult = await FacebookAuth.instance
-        .login(permissions: ['email', 'public_profile', 'user_birthday']);
+    final LoginResult loginResult =
+        await FacebookAuth.instance.login(permissions: ['email', 'name', 'id']);
     log('try-2');
 
     // Create a credential from the access token
@@ -242,11 +243,14 @@ class _SignInPageState extends State<SignInPage> {
 
     final userdata = await FacebookAuth.instance.getUserData();
     fbuserEmail = userdata['email'];
-    fbusername = userdata['public_profile'];
+    fbusername = userdata['name'];
+    fbbd = userdata['id'];
 
+    log("usaerdata-->$userdata");
     log("fbname-->$fbuserEmail");
-    log("fbusername-->$fbusername");
-    // signinController.signinfunction(fbuserEmail, fbusername);
+    log("name-->$fbusername");
+    log("fbbd-->$fbbd");
+    signinController.signinfunction(fbuserEmail, fbusername);
 
     // Get.to(
     //   () => Welcome_Page(),

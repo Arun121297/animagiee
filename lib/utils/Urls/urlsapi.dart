@@ -7,4 +7,5 @@ class Urls {
   static const editprofile = '${baseUrl}api/user/editprofile';
   // static const mysubscription = '${baseUrl}api/community/myselected';
   static const bgimage = '${baseUrl}api/user/createbackgroundprofile';
+  static const clubcreationlist = "${baseUrl}api/club/joinedClublist";
 }

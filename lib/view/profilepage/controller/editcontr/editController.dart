@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:animagieeui/view/profilepage/model/editmodel.dart';
 import 'package:animagieeui/view/profilepage/service/editservice.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,6 +30,7 @@ class EditScreenController extends GetxController {
 
   // RxList<EditModel> geteditdata = <EditModel>[].obs;
   var clint = EditScreenService();
+  ProfileController profileController = Get.put(ProfileController());
   Future editprofileservicesection(
     context,
   ) async {
@@ -50,6 +52,7 @@ class EditScreenController extends GetxController {
 
       if (response != null) {
         editscreenloadingindicator(false);
+        profileController.profileloadingindecator(true);
       } else {
         editscreenloadingindicator(false);
       }
