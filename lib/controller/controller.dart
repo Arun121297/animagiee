@@ -57,12 +57,10 @@ class Controller extends GetxController {
   File clubglobalbackgroundimage = File("");
 
   ///profile filepicker locally
-  File pFprofileimage = File("");
-  File profilebackgroundimage = File("");
 
   ///profile filepicker globally
-  File pFglobalprofileimage = File("");
-  File profileglobalbackgroundimage = File("");
+  // File pFglobalprofileimage = File("");
+  // File profileglobalbackgroundimage = File("");
 
   ///myclubs
 

@@ -12,6 +12,7 @@ import '../../../config/colorconfig.dart';
 
 import '../../homeAppBar/view/appbar.dart';
 import '../../homepage/view/homepage.dart';
+import '../controller/editcontr/backgroundimagecontroller.dart';
 import 'addDocument.dart';
 import 'editprofileappbar.dart';
 import 'editprofileheader.dart';
@@ -26,6 +27,16 @@ class Edit_Profile_UI extends StatefulWidget {
 
 class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
   EditScreenController editScreenController = Get.put(EditScreenController());
+  ProfileBGImageController profileBGImageController =
+      Get.put(ProfileBGImageController());
+  @override
+  void initState() {
+    // TODO: implement initState
+    editScreenController.pFprofileimage = File("");
+    profileBGImageController.profilebackgroundimage = File('');
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,12 +78,10 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
                       setState(() {
                         //edit api
                         editScreenController.editprofileservicesection(
-                            editScreenController.abt);
-                        //
-                        controller.pFglobalprofileimage =
-                            File(controller.pFprofileimage.path);
-                        controller.profileglobalbackgroundimage =
-                            File(controller.profilebackgroundimage.path);
+                          context,
+                        );
+                        //bgimage Api
+                        profileBGImageController.profileBgController(context);
                       });
                       Get.to(Home_Page());
                     },

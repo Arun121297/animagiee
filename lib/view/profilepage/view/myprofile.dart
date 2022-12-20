@@ -1,13 +1,18 @@
+import 'dart:io';
+
 import 'package:animagieeui/view/doctor/view/doctorprofiless/header.dart';
 import 'package:animagieeui/view/homeAppBar/view/appbar.dart';
+import 'package:animagieeui/view/profilepage/controller/editcontr/backgroundimagecontroller.dart';
 import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
+import '../../../controller/controller.dart';
 import '../../bottombarfile/view/bottomnavibar.dart';
 // import '../bottombarfile/view/bottomnavibar.dart';
+import '../controller/editcontr/editController.dart';
 import 'myprofileheader.dart';
 import 'profileappbar.dart';
 
@@ -20,6 +25,10 @@ class My_Profile_UI extends StatefulWidget {
 
 class _My_Profile_UIState extends State<My_Profile_UI> {
   ProfileController profileController = Get.put(ProfileController());
+  ProfileBGImageController profileBGImageController =
+      Get.put(ProfileBGImageController());
+  EditScreenController editScreenController = Get.put(EditScreenController());
+  Controller controller = Get.put(Controller());
   @override
   void initState() {
     // TODO: implement initState
@@ -28,10 +37,9 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
   }
 
   fetchdata() async {
-    await profileController.profilecontrollerfunction().then((value) {
-      var data = profileController.getprofiledata[0].data;
-      profileController.abt = data!.about!;
-    });
+    await profileController.profilecontrollerfunction().then((value) {});
+    profileBGImageController.profilebackgroundimage = File('');
+    editScreenController.pFprofileimage = File('');
   }
 
   @override

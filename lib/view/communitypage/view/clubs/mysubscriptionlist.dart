@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/communitypage/controller/mysubscriptioncontroller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -20,6 +21,8 @@ class My_Sub_List_Content extends StatefulWidget {
 class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   Controller controller = Get.put(Controller());
+  MySubscriptionController mySubscriptionController =
+      Get.put(MySubscriptionController());
   bool visibility = false;
   @override
   Widget build(BuildContext context) {

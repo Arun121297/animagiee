@@ -7,30 +7,70 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../utils/Urls/urlsapi.dart';
 import '../../../utils/constance.dart';
 import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart' as dio;
+import 'package:http_parser/http_parser.dart';
 
 class EditScreenService {
-  Future<EditModel?> editprofileservicesection({yourself}) async {
+  Future<EditModel?> editprofileservicesection(
+      {yourself, profile_picture, fname}) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
     var token = sharedPreferences.getString(Constants.authToken);
-    var data = {"about": yourself.toString()};
-    var request = await http.post(
-      Uri.parse(Urls.editprofile),
-      headers: {
-        'Authorization': 'Bearer $token',
-      },
-      body: data,
-    );
-
-    log("Datasss john${request.body}");
-
-    if (request.statusCode == 200) {
-      var json = jsonDecode(request.body);
-      // log(json.toString());
-
-      return editModelFromJson(request.body);
-    } else {
-      log("error");
+    String fileNames = '';
+    if (profile_picture != '') {
+      log("Filename-->$fileNames");
+      fileNames = profile_picture.toString().split('/').last;
+      log("Filename-->$fileNames");
     }
+    log("Fname-->$fname");
+    log("PF-->$profile_picture");
+    log("ABT-->$yourself");
+    try {
+      dio.FormData formData;
+      if (profile_picture == '') {
+        formData = dio.FormData.fromMap(
+            {"firstName": fname, "about": yourself, "profileicon": ''});
+      } else {
+        formData = dio.FormData.fromMap({
+          "firstName": fname.toString(),
+          "about": yourself.toString(),
+          "profileicon": await dio.MultipartFile.fromFile(
+            profile_picture,
+            filename: fileNames,
+            contentType: MediaType(
+              "image",
+              "jpg",
+            ),
+          ),
+        });
+      }
+
+      dio.Response response = await dio.Dio().post(Urls.editprofile,
+          data: formData,
+          options: dio.Options(
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer $token',
+            },
+          ));
+
+      log("Datasss john${response.data}");
+
+      if (response.statusCode == 200) {
+        var json = jsonDecode(response.data);
+        // log(json.toString());
+
+        return editModelFromJson(json);
+      } else {
+        log("error");
+      }
+    } catch (e) {
+      rethrow;
+    }
+
+    // if (globalpFimage != '') {
+    //   log("Filename-->$GfileNames");
+    //   GfileNames = globalpFimage.toString().split('/').last;
+    // }
   }
 }

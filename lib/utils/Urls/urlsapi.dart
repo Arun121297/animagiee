@@ -5,4 +5,6 @@ class Urls {
   static const updatecommunities = '${baseUrl}api/community/mycommunityupdate';
   static const profile = '${baseUrl}api/user/registerDeatils';
   static const editprofile = '${baseUrl}api/user/editprofile';
+  // static const mysubscription = '${baseUrl}api/community/myselected';
+  static const bgimage = '${baseUrl}api/user/createbackgroundprofile';
 }

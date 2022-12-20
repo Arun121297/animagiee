@@ -13,8 +13,9 @@ class ProfileController extends GetxController {
     var response = await clint.profileservicesection();
     log("rse");
     try {
-      getprofiledata.clear();
+      profileloadingindecator(true);
       if (response != null) {
+        getprofiledata.clear();
         getprofiledata.add(response);
         log("profile${getprofiledata}");
         profileloadingindecator(false);

@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/homeAppBar/view/commingzoon.dart';
 // import 'package:animagieeui/view/homepage/view/homepage.dart';
 
 import 'package:flutter/material.dart';
@@ -48,104 +49,61 @@ class _Doctors_List_UIState extends State<Doctors_List_UI> {
               podcast: false,
               fun: null,
             ),
-            // Profile_AppBar_UI(
-            //     edit: false, notification: true, navipage: 0, title: "Doctor"),
-            // Doctorfrontscreen(),
-            // controller.clubapp("Doctor", Home_Page(), context),
+
             SizedBox(
-              height: 3.0.hp,
+              height: 25.0.hp,
               //  31,
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height - 189,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Stack(alignment: Alignment.center, children: [
-                    Card(
-                      child: SizedBox(
-                        height: 14.0.hp,
-                        // 110,
-                        width: 95.0.wp,
-                        // 329,
-                        child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Doctor_Profile_Image_UI(fetchindex: index),
-                            const Expanded(child: SizedBox()),
-                            Doctor_Details_UI(fetchindex: index),
-                            const Expanded(child: SizedBox()),
-                            Doctor_Appoinment_UI(
-                              fetchindex: index,
-                            ),
-                            SizedBox(
-                              width: 4.0.wp,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Visibility(
-                      visible: index == 3 ? true : false,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.black54,
-                            borderRadius: BorderRadius.circular(3.0.sp)),
-                        height: 14.0.hp,
-                        // 110,
-                        width: 95.0.wp,
-                        // 329,
-                      ),
-                    )
-                  ]);
-                },
-              ),
-            )
+            const CommingZoon()
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.height - 189,
+            //   child: ListView.builder(
+            //     shrinkWrap: true,
+            //     itemCount: 10,
+            //     itemBuilder: (context, index) {
+            //       return Stack(alignment: Alignment.center, children: [
+            //         Card(
+            //           child: SizedBox(
+            //             height: 14.0.hp,
+            //             // 110,
+            //             width: 95.0.wp,
+            //             // 329,
+            //             child: Row(
+            //               // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //               children: [
+            //                 Doctor_Profile_Image_UI(fetchindex: index),
+            //                 const Expanded(child: SizedBox()),
+            //                 Doctor_Details_UI(fetchindex: index),
+            //                 const Expanded(child: SizedBox()),
+            //                 Doctor_Appoinment_UI(
+            //                   fetchindex: index,
+            //                 ),
+            //                 SizedBox(
+            //                   width: 4.0.wp,
+            //                 )
+            //               ],
+            //             ),
+            //           ),
+            //         ),
+            //         Visibility(
+            //           visible: index == 3 ? true : false,
+            //           child: Container(
+            //             decoration: BoxDecoration(
+            //                 color: Colors.black54,
+            //                 borderRadius: BorderRadius.circular(3.0.sp)),
+            //             height: 14.0.hp,
+            //             // 110,
+            //             width: 95.0.wp,
+            //             // 329,
+            //           ),
+            //         )
+            //       ]);
+            //     },
+            //   ),
+            // )
           ],
         ),
       ),
     );
   }
-
-  // Doctorfrontscreen() {
-  //   return Material(
-  //     elevation: 3,
-  //     child: Container(
-  //       width: MediaQuery.of(context).size.width,
-  //       child: Row(children: [
-  //         IconButton(
-  //           icon: Icon(
-  //             Icons.arrow_back_ios_new,
-  //             size: 12.0.sp,
-  //           ),
-  //           onPressed: () {
-  //             controller.selectedIndex.value = 0;
-  //             // Get.to(fun);
-  //           },
-  //         ),
-  //         Expanded(child: SizedBox()),
-  //         Padding(
-  //           padding: const EdgeInsets.only(left: 30.0),
-  //           child: Text(
-  //             "Doctor",
-  //             style: GoogleFonts.poppins(
-  //               textStyle: TextStyle(
-  //                 fontSize: 10.5.sp,
-  //                 color: Colors.black,
-  //                 fontWeight: FontWeight.w500,
-  //               ),
-  //             ),
-  //           ),
-  //         ),
-  //         Expanded(child: Container()),
-  //         Search_UI(),
-  //         Notification_UI(),
-  //         SizedBox(
-  //           width: 3.0.wp,
-  //         )
-  //       ]),
-  //     ),
-  //   );
-  // }
 }

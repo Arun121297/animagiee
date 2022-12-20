@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/profilepage/controller/editcontr/backgroundimagecontroller.dart';
+import 'package:animagieeui/view/profilepage/controller/editcontr/editController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,6 +12,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
+import '../controller/profilecontroller.dart';
 
 class Edit_Profile_Header_UI extends StatefulWidget {
   const Edit_Profile_Header_UI({Key? key}) : super(key: key);
@@ -20,7 +23,10 @@ class Edit_Profile_Header_UI extends StatefulWidget {
 
 class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
   Controller controller = Get.put(Controller());
-
+  ProfileController profileController = Get.put(ProfileController());
+  EditScreenController editScreenController = Get.put(EditScreenController());
+  ProfileBGImageController profileBGImageController =
+      Get.put(ProfileBGImageController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,58 +34,93 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
       height: 22.0.hp,
       //  168,
       child: Stack(children: [
-        Container(
-          decoration: BoxDecoration(
-              color: controller.profilebackgroundimage.path.isEmpty
-                  ? animagiee_CL
-                  : Colors.transparent,
-              image: DecorationImage(
-                  image: FileImage(controller.profilebackgroundimage),
-                  fit: BoxFit.cover),
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15))),
+        SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: 14.0.hp,
+          child: Stack(
+            children: [
+              if (profileBGImageController.profilebackgroundimage.path ==
+                  '') ...[
+                if (profileController.getprofiledata[0].data!.profilebackimg ==
+                    '') ...[
+                  Container(
+                    // ignore: prefer_const_constructors
+                    decoration: BoxDecoration(
+                        color: animagiee_CL,
+                        // image: const DecorationImage(
+                        //     image: ExactAssetImage("images/emptyimage.jfif"),
+                        //     fit: BoxFit.cover),
+                        borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15))),
+                    width: MediaQuery.of(context).size.width,
+                    height: 14.0.hp,
 
-          //  108,
-        ),
-        Container(
-          decoration: BoxDecoration(
-              color: Colors.black38,
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15))),
-          width: MediaQuery.of(context).size.width,
-          height: 14.0.hp,
-          //  108,
-        ),
-        // Container(
-        //   decoration: BoxDecoration(
-        //       image: DecorationImage(
-        //           image: AssetImage("images/myprofilebg.jpg"),
-        //           fit: BoxFit.cover),
-        //       color: animagiee_CL,
-        //       borderRadius: BorderRadius.only(
-        //           bottomLeft: Radius.circular(15.0.sp),
-        //           bottomRight: Radius.circular(15.0.sp))),
-        //   width: MediaQuery.of(context).size.width,
-        //   height: 13.0.hp,
-        //   // 108,
-        //   // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
-        // ),
-        // Container(
-        //   decoration: BoxDecoration(
-        //       color: Colors.black38,
-        //       borderRadius: BorderRadius.only(
-        //           bottomLeft: Radius.circular(15.0.sp),
-        //           bottomRight: Radius.circular(15.0.sp))),
-        //   width: MediaQuery.of(context).size.width,
-        //   height: 13.0.hp,
-        //   // 108,
-        //   // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
-        // ),
+                    //  108,
+                  ),
+                ] else ...[
+                  Container(
+                    // ignore: prefer_const_constructors
+                    decoration: BoxDecoration(
+                        // color: Colors.transparent,
+                        image: DecorationImage(
+                            image: NetworkImage(profileController
+                                .getprofiledata[0].data!.profilebackimg
+                                .toString()),
+                            fit: BoxFit.cover),
+                        borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15))),
+                    width: MediaQuery.of(context).size.width,
+                    height: 14.0.hp,
 
+                    //  108,
+                  ),
+                ]
+              ] else ...[
+                Container(
+                  // ignore: prefer_const_constructors
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      image: DecorationImage(
+                          image: FileImage(
+                              profileBGImageController.profilebackgroundimage),
+                          fit: BoxFit.cover),
+                      borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15))),
+                  width: MediaQuery.of(context).size.width,
+                  height: 14.0.hp,
+
+                  //  108,
+                ),
+              ],
+              // Container(
+              //   decoration: BoxDecoration(
+              //       color: Colors.transparent,
+              //       image: DecorationImage(
+              //           image: FileImage(controller.profilebackgroundimage),
+              //           fit: BoxFit.cover),
+              //       borderRadius: const BorderRadius.only(
+              //           bottomLeft: Radius.circular(15),
+              //           bottomRight: Radius.circular(15))),
+              //   width: MediaQuery.of(context).size.width,
+              //   height: 14.0.hp,
+
+              //   //  108,
+              // ),
+              Container(
+                decoration: const BoxDecoration(
+                    color: Colors.black38,
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15))),
+                width: MediaQuery.of(context).size.width,
+                height: 14.0.hp,
+                //  108,
+              ),
+            ],
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Align(
@@ -98,7 +139,6 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
             ),
           ),
         ),
-
         Padding(
           padding: EdgeInsets.all(48.0.sp),
           child: Row(
@@ -133,21 +173,64 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           child: Align(
             heightFactor: 1.4,
             alignment: Alignment.centerLeft,
-            child: CircleAvatar(
-                radius: 42.0.sp,
-                backgroundColor: Colors.white,
-                child: controller.pFprofileimage.path.isEmpty
-                    ? CircleAvatar(
-                        backgroundImage:
-                            ExactAssetImage("images/emptyimage.jfif"),
+            child: Row(
+              children: [
+                if (editScreenController.pFprofileimage.path == '') ...[
+                  if (profileController.getprofiledata[0].data!.profileicon ==
+                      ''
+                  // .getProfilemodel[0].data!.profilePicture ==
+                  ) ...[
+                    CircleAvatar(
+                        radius: 42.0.sp,
+                        backgroundColor: Colors.white,
+                        child: CircleAvatar(
+                          backgroundImage:
+                              const ExactAssetImage("images/emptyimage.jfif"),
+                          radius: 40.0.sp,
+                        ))
+                  ] else ...[
+                    CircleAvatar(
+                      radius: 42.0.sp,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(profileController
+                            .getprofiledata[0].data!.profileicon
+                            .toString()),
                         // backgroundColor: animagiee_CL,
                         radius: 40.0.sp,
-                      )
-                    : CircleAvatar(
-                        backgroundImage: FileImage(controller.pFprofileimage),
-                        // backgroundColor: animagiee_CL,
-                        radius: 40.0.sp,
-                      )),
+                      ),
+                    )
+                  ]
+                ] else ...[
+                  CircleAvatar(
+                    radius: 42.0.sp,
+                    backgroundColor: Colors.white,
+                    child: CircleAvatar(
+                      backgroundImage:
+                          FileImage(editScreenController.pFprofileimage),
+                      // backgroundColor: animagiee_CL,
+                      radius: 40.0.sp,
+                    ),
+                  )
+                ],
+                // CircleAvatar(
+                //     radius: 42.0.sp,
+                //     backgroundColor: Colors.white,
+                //     child: controller.pFprofileimage.path.isEmpty
+                //         ? CircleAvatar(
+                //             backgroundImage:
+                //                 ExactAssetImage("images/emptyimage.jfif"),
+                //             // backgroundColor: animagiee_CL,
+                //             radius: 40.0.sp,
+                //           )
+                //         : CircleAvatar(
+                //             backgroundImage:
+                //                 FileImage(controller.pFprofileimage),
+                //             // backgroundColor: animagiee_CL,
+                //             radius: 40.0.sp,
+                //           )),
+              ],
+            ),
           ),
         ),
         Padding(
@@ -181,7 +264,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
 
     if (result != null) {
       setState(() {
-        controller.profilebackgroundimage = File(result.path);
+        profileBGImageController.profilebackgroundimage = File(result.path);
       });
     } else {
       return null;
@@ -195,7 +278,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
 
     if (result != null) {
       setState(() {
-        controller.pFprofileimage = File(result.path);
+        editScreenController.pFprofileimage = File(result.path);
       });
     } else {
       return null;

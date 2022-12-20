@@ -39,9 +39,9 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
   @override
   void initState() {
     profileController.profilecontrollerfunction();
-    controller.profilebackgroundimage =
-        File(controller.profileglobalbackgroundimage.path);
-    controller.pFprofileimage = File(controller.pFglobalprofileimage.path);
+    // controller.profilebackgroundimage =
+    //     File(controller.profileglobalbackgroundimage.path);
+    // controller.pFprofileimage = File(controller.pFglobalprofileimage.path);
 
     // TODO: implement initState
     super.initState();
@@ -75,14 +75,13 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       //     controller.profileglobalbackgroundimage.path.isEmpty
                       //         ? animagiee_CL
                       //         : Colors.transparent,
-                      image: controller
-                              .profileglobalbackgroundimage.path.isEmpty
+                      image: data!.profilebackimg == ''
                           ? const DecorationImage(
                               image: AssetImage("images/emptyimage.jfif"),
                               fit: BoxFit.cover)
                           : DecorationImage(
                               image:
-                                  NetworkImage(data!.profilebackimg.toString()),
+                                  NetworkImage(data.profilebackimg.toString()),
                               fit: BoxFit.cover),
                       borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(15),
@@ -102,59 +101,6 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                   height: 14.0.hp,
                   //  108,
                 ),
-
-                // Container(
-                //   decoration: BoxDecoration(
-                //       color:
-                //           controller.profileglobalbackgroundimage.path.isEmpty
-                //               ? animagiee_CL
-                //               : Colors.transparent,
-                //       image: DecorationImage(
-                //           image: FileImage(
-                //             controller.clubglobalbackgroundimage,
-                //           ),
-                //           fit: BoxFit.cover),
-                //       borderRadius: BorderRadius.only(
-                //           bottomLeft: Radius.circular(15),
-                //           bottomRight: Radius.circular(15))),
-                //   width: MediaQuery.of(context).size.width,
-                //   height: 14.0.hp,
-                //   //  108,
-                // ),
-                // Container(
-                //   decoration: BoxDecoration(
-                //       color: Colors.black38,
-                //       borderRadius: BorderRadius.only(
-                //           bottomLeft: Radius.circular(15),
-                //           bottomRight: Radius.circular(15))),
-                //   width: MediaQuery.of(context).size.width,
-                //   height: 14.0.hp,
-                //   //  108,
-                // ),
-                // Container(
-                //   decoration: BoxDecoration(
-                //       image: DecorationImage(
-                //           image: AssetImage("images/myprofilebg.jpg"),
-                //           fit: BoxFit.cover),
-                //       color: animagiee_CL,
-                //       borderRadius: BorderRadius.only(
-                //           bottomLeft: Radius.circular(15.0.sp),
-                //           bottomRight: Radius.circular(15.0.sp))),
-                //   width: MediaQuery.of(context).size.width,
-                //   height: 13.0.hp,
-                //   // 108,
-                //   // child: Image.asset("images/Dogs.jpg", fit: BoxFit.cover),
-                // ),
-                // Container(
-                //   decoration: BoxDecoration(
-                //       color: Colors.black38,
-                //       borderRadius: BorderRadius.only(
-                //           bottomLeft: Radius.circular(15.0.sp),
-                //           bottomRight: Radius.circular(15.0.sp))),
-                //   width: MediaQuery.of(context).size.width,
-                //   height: 13.0.hp,
-                // ),
-
                 Padding(
                   padding: EdgeInsets.only(top: 30.0.sp, left: 15.0.sp),
                   child: Align(
@@ -163,8 +109,10 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     child: CircleAvatar(
                       radius: 42.0.sp,
                       backgroundColor: Colors.white,
-                      child: controller.pFglobalprofileimage.path.isEmpty
-                          ? CircleAvatar(
+                      child: data.profileicon == ''
+                          ?
+                          // controller.pFglobalprofileimage.path.isEmpty
+                          CircleAvatar(
                               backgroundImage: const ExactAssetImage(
                                   "images/emptyimage.jfif"),
                               // backgroundColor: animagiee_CL,
@@ -172,7 +120,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                             )
                           : CircleAvatar(
                               backgroundImage: NetworkImage(
-                                data!.profileicon.toString(),
+                                data.profileicon.toString(),
                               ),
                               // backgroundColor: animagiee_CL,
                               radius: 40.0.sp,
@@ -186,7 +134,9 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       padding: EdgeInsets.only(left: 30.0.sp, top: 6.0.sp),
                       margin: EdgeInsets.only(left: 30.0.sp),
                       child: Text(
-                        data!.username.toString(),
+                        data.firstName!.isEmpty
+                            ? data.username.toString()
+                            : data.firstName.toString(),
                         style: GoogleFonts.jost(
                           textStyle: TextStyle(
                             fontSize: 19.5.sp,

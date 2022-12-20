@@ -77,7 +77,7 @@ class Datum {
   dynamic mobNo;
   String? address;
   dynamic pinCode;
-  List<dynamic>? interestedCommunities;
+  List<String>? interestedCommunities;
   List<dynamic>? followingUser;
   List<dynamic>? followerUser;
   bool? accActivate;
@@ -104,7 +104,7 @@ class Datum {
         address: json["address"],
         pinCode: json["pinCode"],
         interestedCommunities:
-            List<dynamic>.from(json["interestedCommunities"].map((x) => x)),
+            List<String>.from(json["interestedCommunities"].map((x) => x)),
         followingUser: List<dynamic>.from(json["followingUser"].map((x) => x)),
         followerUser: List<dynamic>.from(json["followerUser"].map((x) => x)),
         accActivate: json["accActivate"],
