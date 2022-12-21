@@ -10,8 +10,8 @@ class CreatedClubController extends GetxController {
   Future clubcreatedcontroller() async {
     var response = await clint.createdclubservice();
     try {
-      getcreateclubdata.clear();
       if (response != null) {
+        getcreateclubdata.clear();
         getcreateclubdata.add(response);
 
         clubcreatedloadingindicator(false);

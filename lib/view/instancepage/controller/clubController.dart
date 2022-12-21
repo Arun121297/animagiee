@@ -11,7 +11,8 @@ import 'package:get/get.dart';
 class ClubController extends GetxController {
   File pFprofileimage = File("");
   RxList<ClubCreationModel> clubcreationdata = <ClubCreationModel>[].obs;
-  final relatedData = <Data>[].obs;
+  RxBool clubcretedataloadingindicator = true.obs;
+  // final relatedData = <Data>[].obs;
   TextEditingController groupName = TextEditingController();
   TextEditingController clubDescription = TextEditingController();
   TextEditingController clubName = TextEditingController();
@@ -19,7 +20,16 @@ class ClubController extends GetxController {
   String id = '';
   RxString communityTypeisPrivat = ''.obs;
   var clint = ClubService();
-  Future clubApi() async {
+  Future clubApi(
+      //   {
+      //   clubDescription,
+      //   clubName,
+      //   community,
+      //   communityTypeisPrivate,
+      //   file,
+      //   groupName,
+      // }
+      ) async {
     try {
       var response;
       response = await clint.clubService(
@@ -34,6 +44,7 @@ class ClubController extends GetxController {
         Get.to(MyClubs_UI());
         // clubcreationdata.clear();
         // clubcreationdata.add(response);
+        clubcretedataloadingindicator(false);
       } else {
         return null;
       }

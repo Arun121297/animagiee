@@ -66,13 +66,12 @@ class ClubIconService {
             )),
       });
 
-      var response =
-          await dio.Dio().post('http://192.168.1.32:9000/api/club/iconcreation',
-              data: formData,
-              options: dio.Options(headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer $token',
-              }));
+      var response = await dio.Dio().post(Urls.clubiconcreation,
+          data: formData,
+          options: dio.Options(headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer $token',
+          }));
       print('response-----${response.data}');
       print(response.statusCode);
       if (response.statusCode == 200) {

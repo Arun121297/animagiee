@@ -52,7 +52,6 @@ class EditScreenController extends GetxController {
 
       if (response != null) {
         editscreenloadingindicator(false);
-        profileController.profileloadingindecator(true);
       } else {
         editscreenloadingindicator(false);
       }

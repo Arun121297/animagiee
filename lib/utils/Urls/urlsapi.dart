@@ -9,4 +9,5 @@ class Urls {
   static const bgimage = '${baseUrl}api/user/createbackgroundprofile';
   static const clubcreationlist = "${baseUrl}api/club/joinedClublist";
   static const clubcreation = '${baseUrl}api/club/clubcreation';
+  static const clubiconcreation = '${baseUrl}api/club/iconcreation';
 }

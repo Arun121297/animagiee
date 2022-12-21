@@ -37,7 +37,7 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
   }
 
   fetchdata() async {
-    await profileController.profilecontrollerfunction().then((value) {});
+    await profileController.profilecontrollerfunction();
     profileBGImageController.profilebackgroundimage = File('');
     editScreenController.pFprofileimage = File('');
   }

@@ -24,10 +24,11 @@ class SigninController extends GetxController {
       if (response != null) {
         _sharedPreferences.setString(Constants.authToken, response.token!);
         log("tokenreg-->${response.token}");
+        getsigninmodel.clear();
         getsigninmodel.add(response);
         log("datassss->>>>>>>>>${getsigninmodel[0].data}");
         loadingindicator(false);
-        Get.to(Welcome_Page());
+        Get.to(const Welcome_Page());
         // log(loadingindicator.toString());
       } else {
         // Fluttertoast.showToast(msg: response!.message!);

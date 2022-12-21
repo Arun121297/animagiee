@@ -1,9 +1,11 @@
 import 'dart:math';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/communitypage/view/clubs/myclubs.dart';
 // import 'package:animagieeui/view/animagieeprofile/view/post.dart';
 import 'package:animagieeui/view/homeAppBar/view/notification.dart';
 import 'package:animagieeui/view/homeAppBar/view/search.dart';
+import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +13,13 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 
-import '../../../config/colorconfig.dart';
-import '../../../controller/controller.dart';
-
-import '../../communitypage/view/clubs/myclubs.dart';
-
-import 'post.dart';
-import 'member.dart';
+import '../../../../../config/colorconfig.dart';
+import '../../../../../controller/controller.dart';
+import '../../../../animagieeprofile/view/member.dart';
+import '../../../../animagieeprofile/view/post.dart';
+import '../../../../instancepage/controller/clubIconController.dart';
+import 'addmember.dart';
+import 'editdeletclub.dart';
 
 // class Animals_Profiles_UI extends StatefulWidget {
 //   const Animals_Profiles_UI({Key? key}) : super(key: key);
@@ -25,12 +27,12 @@ import 'member.dart';
 //   @override
 //   State<Animals_Profiles_UI> createState() => _Animals_Profiles_UIState();
 // }
-class Animals_Profiles_UI extends StatefulWidget {
+class MyClubCreation extends StatefulWidget {
   @override
-  _Animals_Profiles_UIState createState() => _Animals_Profiles_UIState();
+  _MyClubCreationState createState() => _MyClubCreationState();
 }
 
-class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
+class _MyClubCreationState extends State<MyClubCreation> {
   double get randHeight => Random().nextInt(100).toDouble();
   Controller controller = Get.put(Controller());
   List<Widget> _randomChildren = [];
@@ -125,7 +127,9 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            print(instanceContoroller.communitylist.length);
+                            // print(instanceContoroller.communitylist.length);
+                            Get.to(MyClubAddMember());
+                            setState(() {});
                           },
                           child: Container(
                             height: 3.0.hp,
@@ -137,7 +141,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                 color: animagiee_CL,
                                 borderRadius: BorderRadius.circular(15.0.sp)),
                             child: Text(
-                              "Joined",
+                              "Add members",
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                   fontSize: 9.0.sp,
@@ -152,7 +156,26 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                     ),
                   ),
                 ),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        ///edit and delet my club
+                        Get.to(EditandDeleteMyClub());
+                      });
+                    },
+                    child: SizedBox(
+                      height: 6.0.hp,
+                      width: 9.0.wp,
+                      child: Image.asset("images/edit.png"),
+                    ),
+                  ),
+                ),
+              ),
             ]),
           ),
           Padding(
@@ -179,8 +202,37 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
     await Get.to(MyClubs_UI());
   }
 
+  // ClubController clubController = Get.put(ClubController());
+  // ClubIconController clubIconController = Get.put(ClubIconController());
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   clubController.clubApi(
+  //     clubDescription: clubController.clubDescription.text,
+  //     clubName: clubController.clubName.text,
+  //     community: clubController.id,
+  //     communityTypeisPrivate: clubController.communityTypeisPrivate.value,
+  //     file: clubController.pFprofileimage.path,
+  //     groupName: clubController.groupName.text,
+  //   );
+  //   clubIconController.clubIconApi();
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
+    // return Obx(() {
+    //   if (clubController.clubcretedataloadingindicator.value) {
+    //     return const Scaffold(
+    //         body: Center(
+    //       child: CircularProgressIndicator(),
+    //     ));
+    //   } else if (clubController.clubcreationdata.isEmpty) {
+    //     return const Scaffold(
+    //         body: Center(
+    //       child: Text("No Club Created"),
+    //     ));
+    //   } else {
     return Scaffold(
       // Persistent AppBar that never scrolls
       appBar: AppBar(
@@ -204,7 +256,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
         toolbarHeight: 7.0.hp,
         centerTitle: true,
         title: Text(
-          'Dogs FC',
+          'Communitie name',
           style: GoogleFonts.poppins(
             textStyle: TextStyle(
               fontSize: 10.5.sp,
@@ -263,16 +315,18 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                     ))
                   ],
                 ),
-                Expanded(
-                  child: TabBarView(
-                    children: [Pageview1_Post(), Pageview2_Member()],
-                  ),
-                ),
+                // Expanded(
+                //   child: TabBarView(
+                //     // children: [Pageview1_Post(), Pageview2_Member()],
+                //   ),
+                // ),
               ],
             ),
           ),
         ),
       ),
     );
+    // }
+    // });
   }
 }

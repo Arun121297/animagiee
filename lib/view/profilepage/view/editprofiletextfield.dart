@@ -323,96 +323,96 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
           visible: workwithus,
           child: Column(
             children: [
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0.sp)),
-                child: Container(
-                  height: 6.5.hp,
-                  // 43,
-                  width: 89.0.wp,
-                  //  326,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey, width: 1),
-                      color: animagiee_CL,
-                      borderRadius: BorderRadius.circular(5.0.sp)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        "Do you like to work with us",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.0.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            workwithus = false;
-                            Get.to(Add_Document_UI());
-                          });
-                        },
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0.sp)),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 3.5.hp,
-                            // 29,
-                            width: 18.0.wp,
-                            // 64,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5.0.sp),
-                              color: Colors.black,
-                            ),
-                            child: Text(
-                              "Yes",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0.sp)),
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 3.5.hp,
-                          // 29,
-                          width: 18.0.wp,
-                          // 64,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5.0.sp),
-                            color: Colors.black,
-                          ),
-                          child: Text(
-                            "No",
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                fontSize: 9.0.sp,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 2.0.hp,
-              ),
+              // Card(
+              //   shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(5.0.sp)),
+              //   child: Container(
+              //     height: 6.5.hp,
+              //     // 43,
+              //     width: 89.0.wp,
+              //     //  326,
+              //     decoration: BoxDecoration(
+              //         border: Border.all(color: Colors.grey, width: 1),
+              //         color: animagiee_CL,
+              //         borderRadius: BorderRadius.circular(5.0.sp)),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //       children: [
+              //         Text(
+              //           "Do you like to work with us",
+              //           style: GoogleFonts.poppins(
+              //             textStyle: TextStyle(
+              //               fontSize: 9.0.sp,
+              //               color: Colors.black,
+              //               fontWeight: FontWeight.w500,
+              //             ),
+              //           ),
+              //         ),
+              //         GestureDetector(
+              //           onTap: () {
+              //             setState(() {
+              //               workwithus = false;
+              //               Get.to(Add_Document_UI());
+              //             });
+              //           },
+              //           child: Card(
+              //             shape: RoundedRectangleBorder(
+              //                 borderRadius: BorderRadius.circular(5.0.sp)),
+              //             child: Container(
+              //               alignment: Alignment.center,
+              //               height: 3.5.hp,
+              //               // 29,
+              //               width: 18.0.wp,
+              //               // 64,
+              //               decoration: BoxDecoration(
+              //                 borderRadius: BorderRadius.circular(5.0.sp),
+              //                 color: Colors.black,
+              //               ),
+              //               child: Text(
+              //                 "Yes",
+              //                 style: GoogleFonts.poppins(
+              //                   textStyle: TextStyle(
+              //                     fontSize: 9.0.sp,
+              //                     color: Colors.white,
+              //                     fontWeight: FontWeight.w500,
+              //                   ),
+              //                 ),
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //         Card(
+              //           shape: RoundedRectangleBorder(
+              //               borderRadius: BorderRadius.circular(5.0.sp)),
+              //           child: Container(
+              //             alignment: Alignment.center,
+              //             height: 3.5.hp,
+              //             // 29,
+              //             width: 18.0.wp,
+              //             // 64,
+              //             decoration: BoxDecoration(
+              //               borderRadius: BorderRadius.circular(5.0.sp),
+              //               color: Colors.black,
+              //             ),
+              //             child: Text(
+              //               "No",
+              //               style: GoogleFonts.poppins(
+              //                 textStyle: TextStyle(
+              //                   fontSize: 9.0.sp,
+              //                   color: Colors.white,
+              //                   fontWeight: FontWeight.w500,
+              //                 ),
+              //               ),
+              //             ),
+              //           ),
+              //         )
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: 2.0.hp,
+              // ),
             ],
           ),
         ),

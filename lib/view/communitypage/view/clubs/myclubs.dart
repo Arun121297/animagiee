@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
@@ -22,6 +23,7 @@ import '../../../homeAppBar/view/search.dart';
 import '../../../homepage/view/homepage.dart';
 import '../communitypage.dart';
 import 'createnewclub.dart';
+import 'clubcreation/mycreatedclub.dart';
 import 'mysubscriptionlist.dart';
 
 class MyClubs_UI extends StatefulWidget {
@@ -125,7 +127,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                 width: MediaQuery.of(context).size.width,
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "   My Created Club",
+                  "   My Club",
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
                       fontSize: 11.0.sp,
@@ -149,7 +151,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                   );
                 } else {
                   return SizedBox(
-                    height: 20.0.hp,
+                    height: 25.0.hp,
                     child: ListView.builder(
                         shrinkWrap: true,
                         itemCount: createdClubController
@@ -184,11 +186,64 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                       SizedBox(width: 4.0.wp
                                           //  13,
                                           ),
-                                      Text(createdClubController
-                                          .getcreateclubdata[0]
-                                          .data![index]
-                                          .clubName
-                                          .toString()),
+                                      Text(
+                                        createdClubController
+                                            .getcreateclubdata[0]
+                                            .data![index]
+                                            .clubName
+                                            .toString(),
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            fontSize: 11.0.sp,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(child: Container()),
+                                      GestureDetector(
+                                        onTap: () {
+                                          ///ppass created club id
+                                          log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
+                                          Get.to(MyClubCreation());
+                                        },
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            // Expanded(child: SizedBox()),
+                                            Container(
+                                              height: 3.5.hp,
+                                              //  26,
+                                              width: 9.0.wp,
+                                              // 90,
+                                              alignment: Alignment.center,
+                                              // decoration: BoxDecoration(
+                                              //     color: animagiee_CL,
+                                              //     borderRadius:
+                                              //         BorderRadius.circular(
+                                              //             5.0.sp)),
+                                              child: Text(
+                                                "visit",
+                                                style: GoogleFonts.poppins(
+                                                  textStyle: TextStyle(
+                                                    fontSize: 9.5.sp,
+                                                    color: animagiee_CL,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Icon(
+                                              Icons.arrow_forward_ios_rounded,
+                                              size: 10,
+                                            ),
+                                            // Expanded(child: SizedBox()),
+                                          ],
+                                        ),
+                                      ),
                                       SizedBox(width: 3.0.wp
                                           // 12,
                                           )
@@ -222,7 +277,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
               ),
               instanceContoroller.communitylist.isEmpty
                   ? Align(
-                      heightFactor: 20,
+                      heightFactor: 15,
                       child: Container(
                         alignment: Alignment.center,
                         child: Text("No Datas"),
@@ -230,7 +285,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                     )
                   : Container(
                       color: Colors.transparent,
-                      height: 48.0.hp,
+                      height: 40.0.hp,
                       // MediaQuery.of(context).size.height / 2.1,
                       child: ListView.builder(
                           shrinkWrap: true,

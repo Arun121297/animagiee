@@ -34,19 +34,23 @@ class CreatedClubModel {
 class Datum {
   Datum({
     this.clubicon,
+    this.clubid,
     this.clubName,
   });
 
   String? clubicon;
+  String? clubid;
   String? clubName;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         clubicon: json["clubicon"],
+        clubid: json["clubid"],
         clubName: json["clubName"],
       );
 
   Map<String, dynamic> toJson() => {
         "clubicon": clubicon,
+        "clubid": clubid,
         "clubName": clubName,
       };
 }

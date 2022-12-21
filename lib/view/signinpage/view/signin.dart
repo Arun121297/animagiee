@@ -251,7 +251,7 @@ class _SignInPageState extends State<SignInPage> {
     log("fbname-->$fbuserEmail");
     log("name-->$fbusername");
     log("fbbd-->$fbbd");
-    signinController.signinfunction(fbuserEmail, fbusername);
+    // signinController.signinfunction(fbuserEmail, fbusername);
 
     // Get.to(
     //   () => Welcome_Page(),
@@ -292,7 +292,7 @@ class _SignInPageState extends State<SignInPage> {
     log("id-->$username");
     log("displayname-->$username1");
     log("serverAuthCode-->$username2");
-    log("email--->${controller.email.value}");
+    log("email--->${username3}");
     log("photoUrl-->$username4");
     log("authHeaders-->$username5");
     log("authentication-->$username6");

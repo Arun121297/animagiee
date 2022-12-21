@@ -10,10 +10,10 @@ class ProfileController extends GetxController {
   RxList<ProfileModel> getprofiledata = <ProfileModel>[].obs;
   var clint = ProfileService();
   Future profilecontrollerfunction() async {
+    // profileloadingindecator(true);
     var response = await clint.profileservicesection();
     log("rse");
     try {
-      profileloadingindecator(true);
       if (response != null) {
         getprofiledata.clear();
         getprofiledata.add(response);
