@@ -174,15 +174,15 @@ class _SignInPageState extends State<SignInPage> {
                 child: const Text("flogout")),
             GestureDetector(
               onTap: () {
-                // signInWithGoogle();
+                signInWithGoogle();
 
                 setState(() {});
 
-                {
-                  Get.to(
-                    () => Welcome_Page(),
-                  );
-                }
+                // {
+                //   Get.to(
+                //     () => Welcome_Page(),
+                //   );
+                // }
               },
               child: Container(
                   decoration: BoxDecoration(
@@ -284,11 +284,11 @@ class _SignInPageState extends State<SignInPage> {
     username4 = googleUser.photoUrl.toString();
     username5 = googleUser.authHeaders.toString();
     username6 = googleUser.authentication.asStream().toString();
-    // signinController.signinfunction(username3, username1);
+    signinController.signinfunction(username3, username1);
 
-    Get.to(
-      () => Welcome_Page(),
-    );
+    // Get.to(
+    //   () => Welcome_Page(),
+    // );
     log("id-->$username");
     log("displayname-->$username1");
     log("serverAuthCode-->$username2");

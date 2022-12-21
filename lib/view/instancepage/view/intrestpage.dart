@@ -38,28 +38,6 @@ class _Welcome_PageState extends State<Welcome_Page> {
     super.initState();
   }
 
-  // List Catagaries = [
-  //   "images/Cats.jpg",
-  //   "images/Dogs.jpg",
-  //   "images/Exotic_Birds.jpg",
-  //   "images/Fishes.jpg",
-  //   "images/horse.jpg",
-  //   "images/Livestock.jpg",
-  //   "images/Mammals.jpg",
-  //   "images/Poultry.jpg",
-  //   "images/Reptiles_and_Amphibians.jpg",
-  // ];
-  // List CataName = [
-  //   "Cats",
-  //   "Dogs",
-  //   "Exotic_Birds",
-  //   "Fishes",
-  //   "horse",
-  //   "Livestock",
-  //   "Mammals",
-  //   "Poultry",
-  //   "Reptiles&Amphibians"
-  // ];
   clear() {
     controller.Fbemail.value = '';
     controller.email.value = '';
@@ -71,7 +49,7 @@ class _Welcome_PageState extends State<Welcome_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() {
-        if (instanceContoroller.instancescreenloadingindicator.value) {
+        if (instanceContoroller.instancescreenloadingindicator.value == true) {
           return const Center(
             child: CircularProgressIndicator(),
           );

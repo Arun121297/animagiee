@@ -20,7 +20,7 @@ class SigninController extends GetxController {
         await SharedPreferences.getInstance();
     try {
       var response = await clint.signinservice(email: email, username: email);
-      log("signincontroller-->$response");
+      // log("signincontroller-->$response");
       if (response != null) {
         _sharedPreferences.setString(Constants.authToken, response.token!);
         log("tokenreg-->${response.token}");

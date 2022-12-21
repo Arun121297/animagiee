@@ -31,6 +31,7 @@ class ClubController extends GetxController {
         groupName: groupName.text,
       );
       if (response != null) {
+        Get.to(MyClubs_UI());
         // clubcreationdata.clear();
         // clubcreationdata.add(response);
       } else {

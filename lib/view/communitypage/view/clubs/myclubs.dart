@@ -152,8 +152,8 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                     height: 20.0.hp,
                     child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount:
-                            createdClubController.getcreateclubdata.length,
+                        itemCount: createdClubController
+                            .getcreateclubdata[0].data!.length,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -189,39 +189,6 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                           .data![index]
                                           .clubName
                                           .toString()),
-                                      // Expanded(child: Container()),
-                                      // GestureDetector(
-                                      //   onTap: () {
-                                      //     print(instanceContoroller.communitylist.length);
-                                      //     setState(() {
-                                      //       if (visibility == false) {
-                                      //         visibility = true;
-                                      //       } else {
-                                      //         visibility = false;
-                                      //       }
-                                      //     });
-                                      //   },
-                                      //   child: Container(
-                                      //     height: 3.5.hp,
-                                      //     //  26,
-                                      //     width: 24.0.wp,
-                                      //     // 90,
-                                      //     alignment: Alignment.center,
-                                      //     decoration: BoxDecoration(
-                                      //         color: animagiee_CL,
-                                      //         borderRadius: BorderRadius.circular(5.0.sp)),
-                                      //     child: Text(
-                                      //       visibility == true ? "Joined" : "Request",
-                                      //       style: GoogleFonts.poppins(
-                                      //         textStyle: TextStyle(
-                                      //           fontSize: 9.0.sp,
-                                      //           color: Colors.white,
-                                      //           fontWeight: FontWeight.w500,
-                                      //         ),
-                                      //       ),
-                                      //     ),
-                                      //   ),
-                                      // ),
                                       SizedBox(width: 3.0.wp
                                           // 12,
                                           )
@@ -231,11 +198,6 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                               ),
                             ),
                           );
-                          // Container(
-                          //   child: Text(createdClubController
-                          //       .getcreateclubdata[0].data![index].clubName
-                          //       .toString()),
-                          // );
                         }),
                   );
                 }
