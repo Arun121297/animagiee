@@ -10,4 +10,5 @@ class Urls {
   static const clubcreationlist = "${baseUrl}api/club/joinedClublist";
   static const clubcreation = '${baseUrl}api/club/clubcreation';
   static const clubiconcreation = '${baseUrl}api/club/iconcreation';
+  static const userpostlist = '${baseUrl}api/post/myhome';
 }
