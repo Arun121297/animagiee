@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name='app_name'>animagieeui</string> 
-<string name="facebook_app_id">1263735077687931</string>
-<string name="fb_login_protocol_scheme">fb1263735077687931</string>
-<string name="facebook_client_token">07ffea399331d8919b8bb5ff5bbdf7ca</string>
+<string name='app_name'>fir-animagiee</string> 
+<string name="facebook_app_id">1153936455236282</string>
+<string name="fb_login_protocol_scheme">fb1153936455236282</string>
+<string name="facebook_client_token">a5a0bde650def6aa1a9fdd02980838e6</string>
 </resources>

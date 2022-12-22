@@ -231,34 +231,63 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   Future<UserCredential> signInWithFacebook() async {
-    log('try-1');
     // Trigger the sign-in flow
-    final LoginResult loginResult =
-        await FacebookAuth.instance.login(permissions: ['email', 'name', 'id']);
-    log('try-2');
-
+    log(("login-->}"));
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+    log(("login-->${loginResult.status}"));
     // Create a credential from the access token
     final OAuthCredential facebookAuthCredential =
         FacebookAuthProvider.credential(loginResult.accessToken!.token);
-    log('try-3');
 
     final userdata = await FacebookAuth.instance.getUserData();
+
+    // log("data-->${userdata}");
+    // log("data-->${userdata['email']}");
+    // // log("data-->${userdata['public_profile']}");
+    // log("data-->${userdata['name']}");
+    // log("data-->${userdata['id']}");
+    // log("data-->${userdata['email']}");
     fbuserEmail = userdata['email'];
     fbusername = userdata['name'];
-    fbbd = userdata['id'];
+    // fbbd = userdata['openid'];
+    signinController.signinfunction(fbuserEmail, fbusername);
 
-    log("usaerdata-->$userdata");
-    log("fbname-->$fbuserEmail");
-    log("name-->$fbusername");
-    log("fbbd-->$fbbd");
-    // signinController.signinfunction(fbuserEmail, fbusername);
-
-    // Get.to(
-    //   () => Welcome_Page(),
-    // );
+    // log("usaerdata-->$userdata");
+    // log("fbname-->$fbuserEmail");
+    // log("name-->$fbusername");
+    // log("fbbd-->$fbbd");
     // Once signed in, return the UserCredential
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
+  // Future<UserCredential> signInWithFacebook() async {
+  //   log('try-1');
+  //   // Trigger the sign-in flow
+  //   final LoginResult loginResult =
+  //       await FacebookAuth.instance.login(permissions: ['email', 'name', 'id']);
+  //   log('try-2');
+
+  //   // Create a credential from the access token
+  //   final OAuthCredential facebookAuthCredential =
+  //       FacebookAuthProvider.credential(loginResult.accessToken!.token);
+  //   log('try-3');
+
+  //   final userdata = await FacebookAuth.instance.getUserData();
+  //   fbuserEmail = userdata['email'];
+  //   fbusername = userdata['name'];
+  //   fbbd = userdata['id'];
+
+  //   log("usaerdata-->$userdata");
+  //   log("fbname-->$fbuserEmail");
+  //   log("name-->$fbusername");
+  //   log("fbbd-->$fbbd");
+  //   // signinController.signinfunction(fbuserEmail, fbusername);
+
+  //   // Get.to(
+  //   //   () => Welcome_Page(),
+  //   // );
+  //   // Once signed in, return the UserCredential
+  //   return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+  // }
 
 /////////////////////////////////////////////////////////////////
   ///
