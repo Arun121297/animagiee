@@ -299,8 +299,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                             : clubController.id,
                         icon: const Icon(Icons.keyboard_arrow_down),
                         elevation: 16,
-                        style: const TextStyle(
-                            color: Color.fromRGBO(176, 176, 176, 1)),
+                        style: const TextStyle(color: club_Text_1),
                         underline: Container(
                           height: 2,
                           color: Colors.transparent,
@@ -367,8 +366,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                             : clubController.communityTypeisPrivat.value,
                         icon: const Icon(Icons.keyboard_arrow_down),
                         elevation: 16,
-                        style: const TextStyle(
-                            color: Color.fromRGBO(176, 176, 176, 1)),
+                        style: const TextStyle(color: club_Text_1),
                         underline: Container(
                           height: 2,
                           color: Colors.transparent,

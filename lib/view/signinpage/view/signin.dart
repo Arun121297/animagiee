@@ -201,7 +201,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       CircleAvatar(
                         backgroundColor: Colors.transparent,
-                        // backgroundImage: ExactAssetImage('images/Google__G__Logo.svg.webp'),
+                        // backgroundImage: ExactAssetImage('images/Google_G_Logo.svg.webp'),
                         child:
                             Image.asset('images/GGogle.png', fit: BoxFit.cover),
                       ),
@@ -251,7 +251,7 @@ class _SignInPageState extends State<SignInPage> {
     log("fbname-->$fbuserEmail");
     log("name-->$fbusername");
     log("fbbd-->$fbbd");
-    signinController.signinfunction(fbuserEmail, fbusername);
+    // signinController.signinfunction(fbuserEmail, fbusername);
 
     // Get.to(
     //   () => Welcome_Page(),
@@ -284,15 +284,15 @@ class _SignInPageState extends State<SignInPage> {
     username4 = googleUser.photoUrl.toString();
     username5 = googleUser.authHeaders.toString();
     username6 = googleUser.authentication.asStream().toString();
-    // signinController.signinfunction(username3, username1);
+    signinController.signinfunction(username3, username1);
 
-    Get.to(
-      () => Welcome_Page(),
-    );
+    // Get.to(
+    //   () => Welcome_Page(),
+    // );
     log("id-->$username");
     log("displayname-->$username1");
     log("serverAuthCode-->$username2");
-    log("email--->${controller.email.value}");
+    log("email--->${username3}");
     log("photoUrl-->$username4");
     log("authHeaders-->$username5");
     log("authentication-->$username6");

@@ -72,7 +72,9 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Get.to(User_Profile());
+                              Get.to(User_Profile(
+                                id: '',
+                              ));
                             },
                             child: CircleAvatar(
                               backgroundImage:
@@ -84,7 +86,9 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Get.to(User_Profile());
+                              Get.to(User_Profile(
+                                id: '',
+                              ));
                             },
                             child: SizedBox(
                               width: 70.0.wp,

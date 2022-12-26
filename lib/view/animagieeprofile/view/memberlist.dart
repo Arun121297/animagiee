@@ -26,7 +26,9 @@ class _Member_List_ContentState extends State<Member_List_Content> {
           padding: EdgeInsets.all(8.0.sp),
           child: GestureDetector(
             onTap: () {
-              Get.to(User_Profile());
+              Get.to(User_Profile(
+                id: '',
+              ));
             },
             child: CircleAvatar(
               backgroundImage: ExactAssetImage(
