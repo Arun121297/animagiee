@@ -19,9 +19,10 @@ class UserPostListService {
     try {
       var res = await client.get(Uri.parse(Urls.userpostlist), headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer $token',
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMxZWY3YmQ5OGFiZTI1OGQ1ZDM3YiIsImVtYWlsb3JwaG9uZSI6ImFydW4ubmsxMjEyOTdAZ21haWwuY29tIiwiaWF0IjoxNjcxMjYzOTY0fQ.qKpI6VLl24PFUdbSgVNXh9w2wlCwHKtWCysh4S3oVEw',
       });
-      print(res.body);
+      log(res.body);
       if (res.statusCode == 200) {
         log("result-->${res.body}");
         return userPostListModelFromJson(res.body);
@@ -31,7 +32,7 @@ class UserPostListService {
     } catch (e) {
       //
       //
-      print('yes${e}');
+      print('yes$e');
       return null;
     }
   }

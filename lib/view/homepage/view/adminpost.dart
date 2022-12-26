@@ -50,7 +50,8 @@ class _Admin_PostState extends State<Admin_Post> {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      } else if (userPostListController.data[0].data!.isEmpty) {
+      } else if (userPostListController.data.isEmpty ||
+          userPostListController.data[0].data!.isEmpty) {
         return Container(
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.height - 212,

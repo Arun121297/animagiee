@@ -26,7 +26,6 @@ import 'messagebutton.dart';
 
 import 'page1userpost.dart';
 // import '../page2communitie.dart';
-import 'pageview.dart';
 import 'profilebackgroundimage.dart';
 import 'settings.dart';
 
@@ -59,7 +58,7 @@ class _User_ProfileState extends State<User_Profile> {
       return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         // controller.clubapp("Profile", Animals_Profiles_UI(), context),
         Stack(children: [
-          Profile_BG_Image_UI(),
+          const Profile_BG_Image_UI(),
           Container(
             decoration: BoxDecoration(
                 color: Colors.black38,
@@ -71,21 +70,23 @@ class _User_ProfileState extends State<User_Profile> {
             // 108,
             // child: Image.asset("images/groupphoto.jpg", fit: BoxFit.cover),
           ),
-          User_Profile_Image_UI(),
+          const User_Profile_Image_UI(),
           User_Profile_Name_UI(),
-          Message_Button_UI()
+          Message_Button_UI(
+            userId: widget.id,
+          )
         ]),
-        User_Profile_Discription_UI(),
+        const User_Profile_Discription_UI(),
         SizedBox(
           height: 2.4.hp,
           //  20,
         ),
-        Container(
+        SizedBox(
           height: 3.8.hp, //  30,
           // color: Colors.green,
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [Followers_UI(), Following_UI(), Setting_UI()]),
+              children: const [Followers_UI(), Following_UI(), Setting_UI()]),
         ),
       ]);
     });
@@ -109,7 +110,7 @@ class _User_ProfileState extends State<User_Profile> {
           SizedBox(
             width: 3.0.wp,
           ),
-          Notification_UI(),
+          const Notification_UI(),
           SizedBox(
             width: 4.0.wp,
           )
@@ -153,7 +154,7 @@ class _User_ProfileState extends State<User_Profile> {
           body: Column(
             children: <Widget>[
               TabBar(
-                indicator: UnderlineTabIndicator(
+                indicator: const UnderlineTabIndicator(
                     borderSide: BorderSide(width: 3.0, color: animagiee_CL),
                     insets: EdgeInsets.only(left: 5.0, right: 5.0)),
                 indicatorColor: animagiee_CL,

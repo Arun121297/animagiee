@@ -17,7 +17,7 @@ class ProfileController extends GetxController {
       if (response != null) {
         getprofiledata.clear();
         getprofiledata.add(response);
-        log("profile${getprofiledata}");
+        log("profile$getprofiledata");
         profileloadingindecator(false);
       } else {
         profileloadingindecator(false);

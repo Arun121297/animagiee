@@ -1,8 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +16,7 @@ class _User_Profile_Name_UIState extends State<User_Profile_Name_UI> {
   Widget build(BuildContext context) {
     return Obx(
       () => userPostProfileController.data.isEmpty
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(
               color: Colors.grey,
               strokeWidth: 2,
