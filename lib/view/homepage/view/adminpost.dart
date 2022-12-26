@@ -259,7 +259,7 @@ class _Admin_PostState extends State<Admin_Post> {
                       ),
                     ),
                     Visibility(
-                        visible: index == 3 ? true : false,
+                        visible: index == 1 ? true : false,
                         child: Suggested_For_You_UI()),
                   ],
                 );
