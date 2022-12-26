@@ -25,7 +25,7 @@ class ProfileBGImageController extends GetxController {
       var response;
 
       if (profilebackgroundimage == File('')) {
-        response = await clint.profilebGimageservice(bgimage: '');
+        response = await clint.profilebGimageservice(bgimage: File(''));
       } else {
         response = await clint.profilebGimageservice(
             bgimage: profilebackgroundimage.path);

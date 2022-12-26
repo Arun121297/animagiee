@@ -75,7 +75,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                       //     controller.profileglobalbackgroundimage.path.isEmpty
                       //         ? animagiee_CL
                       //         : Colors.transparent,
-                      image: data!.profilebackimg == ''
+                      image: data!.profilebackimg!.isEmpty
                           ? const DecorationImage(
                               image: AssetImage("images/emptyimage.jfif"),
                               fit: BoxFit.cover)
@@ -109,7 +109,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                     child: CircleAvatar(
                       radius: 42.0.sp,
                       backgroundColor: Colors.white,
-                      child: data.profileicon == ''
+                      child: data.profileicon!.isEmpty
                           ?
                           // controller.pFglobalprofileimage.path.isEmpty
                           CircleAvatar(

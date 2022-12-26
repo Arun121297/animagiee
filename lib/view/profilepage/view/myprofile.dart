@@ -37,7 +37,9 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
   }
 
   fetchdata() async {
-    await profileController.profilecontrollerfunction();
+    await profileController.profilecontrollerfunction().then((value) {
+      profileController.getprofiledata[0].data!.about;
+    });
     profileBGImageController.profilebackgroundimage = File('');
     editScreenController.pFprofileimage = File('');
   }
@@ -48,7 +50,7 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
       bottomNavigationBar: const Customized_Bottom_Bar(),
       body: Obx(() {
         // Obx(() {
-        if (profileController.profileloadingindecator.value == true) {
+        if (profileController.profileloadingindecator.value) {
           return const Center(
             child: CircularProgressIndicator(),
           );

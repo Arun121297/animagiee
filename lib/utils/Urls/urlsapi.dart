@@ -1,3 +1,5 @@
+import 'package:animagieeui/view/homepage/model/suggestedFriendListModel.dart';
+
 class Urls {
   static const baseUrl = 'http://192.168.1.32:9000/';
   static const login = '${baseUrl}api/user/registersandlogin';
@@ -16,4 +18,5 @@ class Urls {
   static const userpostprofile = '${baseUrl}api/post/userPostProfile';
   static const userpostprofileget = '${baseUrl}api/post/postwithlike';
   static const communitiUserpost = '${baseUrl}api/club/joinedClublistother';
+  static const SuggestedFriendList = '${baseUrl}api/user/suggestionfriendlist';
 }

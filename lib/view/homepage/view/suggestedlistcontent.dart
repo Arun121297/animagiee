@@ -33,11 +33,6 @@ class _Suggested_List_ContentState extends State<Suggested_List_Content> {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.0.sp),
-          // borderRadius: BorderRadius.only(
-          //     bottomLeft: Radius.circular(40.0.sp),
-          //     bottomRight: Radius.circular(40.0.sp),
-          //     topLeft: Radius.circular(5.0.sp),
-          //     topRight: Radius.circular(5.0.sp)),
           border: Border.all(color: Colors.grey, width: 2)),
       height: 13.0.hp,
       // 135,

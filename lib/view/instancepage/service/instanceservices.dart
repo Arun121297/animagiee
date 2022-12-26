@@ -13,8 +13,8 @@ class InstanceService {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var token = sharedPreferences.getString(Constants.authToken);
     try {
-      var url =
-          Uri.parse('http://192.168.1.32:9000/api/community/communitydetails');
+      log("cmtoken-->$token");
+      var url = Uri.parse(Urls.communities);
       var response = await http.get(url, headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $token',
