@@ -111,6 +111,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                   alignment: Alignment.bottomRight,
                   child: SizedBox(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
@@ -123,30 +124,60 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                             ),
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            print(instanceContoroller.communitylist.length);
-                          },
-                          child: Container(
-                            height: 3.0.hp,
-                            // 26,
-                            width: 23.0.wp,
-                            // 90,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: animagiee_CL,
-                                borderRadius: BorderRadius.circular(15.0.sp)),
-                            child: Text(
-                              "Joined",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.0.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              height: 3.0.hp,
+                              // 26,
+                              width: 23.0.wp,
+                              // 90,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: animagiee_CL,
+                                  borderRadius: BorderRadius.circular(15.0.sp)),
+                              child: Text(
+                                "Message",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 5.0.sp),
+                              child: GestureDetector(
+                                onTap: () {
+                                  print(
+                                      instanceContoroller.communitylist.length);
+                                },
+                                child: Container(
+                                  height: 3.0.hp,
+                                  // 26,
+                                  width: 23.0.wp,
+                                  // 90,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: animagiee_CL,
+                                      borderRadius:
+                                          BorderRadius.circular(15.0.sp)),
+                                  child: Text(
+                                    "Add Members",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.0.sp,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -176,7 +207,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
   }
 
   back() async {
-    await Get.to(MyClubs_UI());
+    Navigator.pop(context);
   }
 
   @override
@@ -198,7 +229,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
             icon:
                 Icon(Icons.arrow_back_ios, size: 12.0.sp, color: Colors.black),
             onPressed: () {
-              Get.to(MyClubs_UI());
+              Navigator.pop(context);
             }),
         backgroundColor: Colors.white,
         toolbarHeight: 7.0.hp,

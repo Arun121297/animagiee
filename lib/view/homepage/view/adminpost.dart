@@ -1,10 +1,13 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/createpost/view/videoplayer.dart';
 import 'package:animagieeui/view/doctor/view/doctorprofiless/header.dart';
 import 'package:animagieeui/view/homepage/view/share.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
+import 'package:animagieeui/view/instancepage/controller/user_postListController.dart';
+import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -79,11 +82,17 @@ class _Admin_PostState extends State<Admin_Post> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Get.to(User_Profile());
+                                  Get.to(User_Profile(
+                                    id: userPostListController
+                                        .data[index].postowner!.id
+                                        .toString(),
+                                  ));
                                 },
                                 child: CircleAvatar(
                                   backgroundImage: NetworkImage(
-                                      data[index].profileicon.toString()),
+                                      userPostListController
+                                          .data[index].profileicon
+                                          .toString()),
                                 ),
                               ),
                               SizedBox(
@@ -91,7 +100,11 @@ class _Admin_PostState extends State<Admin_Post> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Get.to(User_Profile());
+                                  Get.to(User_Profile(
+                                    id: userPostListController
+                                        .data[index].postowner!.id
+                                        .toString(),
+                                  ));
                                 },
                                 child: SizedBox(
                                   width: 70.0.wp,

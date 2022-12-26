@@ -235,7 +235,9 @@ class _Notification_Content_Design_UIState
                     ////Friend Request
                     GestureDetector(
                       onTap: () {
-                        Get.to(User_Profile());
+                        Get.to(User_Profile(
+                          id: '',
+                        ));
                       },
                       child: SizedBox(
                         height: 12.0.hp,

@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/instancepage/controller/communiti_userList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,14 +10,16 @@ import '../../../config/colorconfig.dart';
 import '../../animagieeprofile/view/animalsprofiles.dart';
 
 class Page2_Communitie_List extends StatefulWidget {
-  const Page2_Communitie_List({Key? key}) : super(key: key);
-
+  String name;
+  String icon;
+  Page2_Communitie_List({required this.name, required this.icon});
   @override
   State<Page2_Communitie_List> createState() => _Page2_Communitie_ListState();
 }
 
 class _Page2_Communitie_ListState extends State<Page2_Communitie_List> {
   var sampleimage = "images/Cats.jpg";
+  CommunitiPostListController communitiPostListController = Get.find();
 
   bool visible = false;
   @override
@@ -31,10 +34,10 @@ class _Page2_Communitie_ListState extends State<Page2_Communitie_List> {
             Padding(
               padding: const EdgeInsets.all(9.0),
               child: CircleAvatar(
-                backgroundImage: ExactAssetImage(sampleimage),
+                backgroundImage: NetworkImage(widget.icon),
               ),
             ),
-            Text("Cats"),
+            Text(widget.name),
             Expanded(child: Container()),
             GestureDetector(
               onTap: () {

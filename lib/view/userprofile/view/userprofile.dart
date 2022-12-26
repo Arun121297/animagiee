@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
+import 'package:animagieeui/view/instancepage/controller/userprofile_getpost.dart';
 import 'package:animagieeui/view/userprofile/view/page2communitie.dart';
 
 import 'package:animagieeui/view/userprofile/view/userprofdiscription.dart';
@@ -29,7 +31,8 @@ import 'profilebackgroundimage.dart';
 import 'settings.dart';
 
 class User_Profile extends StatefulWidget {
-  User_Profile({Key? key}) : super(key: key);
+  String id;
+  User_Profile({required this.id});
 
   @override
   State<User_Profile> createState() => _User_ProfileState();
@@ -39,7 +42,10 @@ class _User_ProfileState extends State<User_Profile> {
   double get randHeight => Random().nextInt(100).toDouble();
   Controller controller = Get.put(Controller());
   List<Widget> _randomChildren = [];
-
+  UserPostProfileController userPostProfileController =
+      Get.put(UserPostProfileController());
+  UserPostProfilePostController userPostProfilePostController =
+      Get.put(UserPostProfilePostController());
   // Children with random heights - You can build your widgets of unknown heights here
   // I'm just passing the context in case if any widgets built here needs  access to context based data like Theme or MediaQuery
   List<Widget> _randomHeightWidgets(BuildContext context) {
@@ -61,7 +67,7 @@ class _User_ProfileState extends State<User_Profile> {
                     bottomLeft: Radius.circular(15.0.sp),
                     bottomRight: Radius.circular(15.0.sp))),
             width: MediaQuery.of(context).size.width,
-            height: 13.0.hp,
+            height: 16.0.hp,
             // 108,
             // child: Image.asset("images/groupphoto.jpg", fit: BoxFit.cover),
           ),
@@ -85,6 +91,12 @@ class _User_ProfileState extends State<User_Profile> {
     });
 
     return _randomChildren;
+  }
+
+  @override
+  void initState() {
+    userPostProfileController.userProfile(widget.id);
+    super.initState();
   }
 
   @override
@@ -141,6 +153,9 @@ class _User_ProfileState extends State<User_Profile> {
           body: Column(
             children: <Widget>[
               TabBar(
+                indicator: UnderlineTabIndicator(
+                    borderSide: BorderSide(width: 3.0, color: animagiee_CL),
+                    insets: EdgeInsets.only(left: 5.0, right: 5.0)),
                 indicatorColor: animagiee_CL,
                 // labelColor: animagiee_CL,
                 tabs: [
@@ -168,11 +183,13 @@ class _User_ProfileState extends State<User_Profile> {
                   ))
                 ],
               ),
-              const Expanded(
+              Expanded(
                 child: TabBarView(
                   children: [
-                    UserProfile_Page1_UI(),
-                    UserPage_Communitie_Page2()
+                    UserProfile_Page1_UI(id: widget.id),
+                    UserPage_Communitie_Page2(
+                      id: widget.id,
+                    )
                   ],
                 ),
               ),
@@ -181,6 +198,7 @@ class _User_ProfileState extends State<User_Profile> {
         ),
       ),
     );
+
 // class _User_ProfileState extends State<User_Profile> {
 //   Controller controller = Get.put(Controller());
 
