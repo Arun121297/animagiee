@@ -107,11 +107,12 @@ class _Homepage_WidState extends State<Homepage_Wid> {
                   fun: null,
                   searchfunction: true,
                   searchfunctionclose: false,
+                  searchlist: "",
                 ),
                 const CreatePost(),
 
                 ////adminpost
-                const Admin_Post()
+                const Expanded(child: Admin_Post())
               ],
             ),
           ),

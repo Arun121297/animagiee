@@ -29,6 +29,7 @@ class AppbarContainer extends StatefulWidget {
   bool notification_back_arrow;
   var searchfunction;
   var searchfunctionclose;
+  var searchlist;
   // var notification_Function;
 
   AppbarContainer(
@@ -36,6 +37,7 @@ class AppbarContainer extends StatefulWidget {
       this.title,
       this.searchfunction,
       this.searchfunctionclose,
+      this.searchlist,
       required this.logo,
       required this.notification,
       required this.search,
@@ -266,6 +268,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
                           child: IconButton(
                               onPressed: () {
                                 setState(() {
+                                  widget.searchlist;
                                   widget.searchfunction = false;
                                   widget.searchfunctionclose = true;
                                 });

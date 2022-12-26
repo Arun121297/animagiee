@@ -1,23 +1,34 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../config/colorconfig.dart';
+import '../controller/suggestedfriendController.dart';
 
 class Suggested_List_Content extends StatefulWidget {
   var fetchindex;
-  Suggested_List_Content({Key? key, this.fetchindex}) : super(key: key);
+  // var data;
+  Suggested_List_Content({
+    Key? key,
+    this.fetchindex,
+  }) : super(key: key);
 
   @override
   State<Suggested_List_Content> createState() => _Suggested_List_ContentState();
 }
 
 class _Suggested_List_ContentState extends State<Suggested_List_Content> {
+  SugestedFrindListController sugestedFrindListController =
+      Get.put(SugestedFrindListController());
   bool visible = false;
-  var sugimage = "images/Reptiles_and_Amphibians.jpg";
+  // var sugimage = "images/Reptiles_and_Amphibians.jpg";
   @override
   Widget build(BuildContext context) {
+    var data = sugestedFrindListController.Suggesteddata[0].data;
+    var uname =
+        data![widget.fetchindex].username!.replaceAll(RegExp('@gmail.com'), '');
     return Container(
       decoration: BoxDecoration(
           color: Colors.white,
@@ -39,12 +50,22 @@ class _Suggested_List_ContentState extends State<Suggested_List_Content> {
             height: 1.0.hp,
             //  10,
           ),
-          CircleAvatar(
-            radius: 40.0.sp, backgroundImage: ExactAssetImage(sugimage),
-            //  50,
-          ),
+          data[widget.fetchindex].profileicon == ''
+              ? CircleAvatar(
+                  radius: 40.0.sp,
+                  backgroundColor: animagiee_CL,
+                  // backgroundImage:
+                  //     NetworkImage("${data[widget.fetchindex].profileicon}"),
+                  //  50,
+                )
+              : CircleAvatar(
+                  radius: 40.0.sp,
+                  backgroundImage:
+                      NetworkImage("${data[widget.fetchindex].profileicon}"),
+                  //  50,
+                ),
           Text(
-            "Suggested: ${widget.fetchindex}",
+            uname.toString(),
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
                 fontSize: 7.0.sp,
@@ -75,7 +96,7 @@ class _Suggested_List_ContentState extends State<Suggested_List_Content> {
               // 117,
               alignment: Alignment.center,
               child: Text(
-                visible == true ? "Join" : "Request",
+                visible == true ? "Joined" : "Request",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
                     fontSize: 8.0.sp,

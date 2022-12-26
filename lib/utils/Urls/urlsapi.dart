@@ -10,5 +10,10 @@ class Urls {
   static const clubcreationlist = "${baseUrl}api/club/joinedClublist";
   static const clubcreation = '${baseUrl}api/club/clubcreation';
   static const clubiconcreation = '${baseUrl}api/club/iconcreation';
+  // static const userpostlist = '${baseUrl}api/post/myhome';
   static const userpostlist = '${baseUrl}api/post/myhome';
+  static const homesearch = '${baseUrl}api/post/homeUserOrpostsearch';
+  static const userpostprofile = '${baseUrl}api/post/userPostProfile';
+  static const userpostprofileget = '${baseUrl}api/post/postwithlike';
+  static const communitiUserpost = '${baseUrl}api/club/joinedClublistother';
 }

@@ -37,6 +37,7 @@ class Datum {
     this.indiviual,
     this.addImagesOrVideos,
     this.posttype,
+    this.postowner,
     this.profileicon,
     this.username,
     this.description,
@@ -50,6 +51,7 @@ class Datum {
   bool? indiviual;
   String? addImagesOrVideos;
   String? posttype;
+  Postowner? postowner;
   String? profileicon;
   String? username;
   String? description;
@@ -63,6 +65,7 @@ class Datum {
         indiviual: json["indiviual"],
         addImagesOrVideos: json["addImagesOrVideos"],
         posttype: json["posttype"],
+        postowner: Postowner.fromJson(json["postowner"]),
         profileicon: json["profileicon"],
         username: json["username"],
         description: json["description"],
@@ -77,6 +80,7 @@ class Datum {
         "indiviual": indiviual,
         "addImagesOrVideos": addImagesOrVideos,
         "posttype": posttype,
+        "postowner": postowner!.toJson(),
         "profileicon": profileicon,
         "username": username,
         "description": description,
@@ -84,5 +88,29 @@ class Datum {
         "postViewCount": postViewCount,
         "liked": liked,
         "saved": saved,
+      };
+}
+
+class Postowner {
+  Postowner({
+    this.id,
+    this.profileicon,
+    this.username,
+  });
+
+  String? id;
+  String? profileicon;
+  String? username;
+
+  factory Postowner.fromJson(Map<String, dynamic> json) => Postowner(
+        id: json["_id"],
+        profileicon: json["profileicon"],
+        username: json["username"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "_id": id,
+        "profileicon": profileicon,
+        "username": username,
       };
 }
