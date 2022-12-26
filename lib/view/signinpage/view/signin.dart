@@ -13,10 +13,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
-import '../../instancepage/view/intrestpage.dart';
 
 class SignInPage extends StatefulWidget {
-  SignInPage({Key? key}) : super(key: key);
+  const SignInPage({Key? key}) : super(key: key);
 
   @override
   State<SignInPage> createState() => _SignInPageState();
@@ -68,7 +67,7 @@ class _SignInPageState extends State<SignInPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 13,
             ),
             Text(
@@ -127,7 +126,7 @@ class _SignInPageState extends State<SignInPage> {
                     SizedBox(
                       width: 4.0.wp,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.facebook,
                       color: FB_CL,
                       size: 40,
@@ -135,7 +134,7 @@ class _SignInPageState extends State<SignInPage> {
                     // SizedBox(
                     //   width: 9.0.wp,
                     // ),
-                    Expanded(child: SizedBox()),
+                    const Expanded(child: SizedBox()),
                     Text(
                       "Continue with facebook",
                       style: GoogleFonts.poppins(
@@ -150,7 +149,7 @@ class _SignInPageState extends State<SignInPage> {
                       width: 3.0.hp,
                       // 28,
                     ),
-                    Expanded(child: SizedBox())
+                    const Expanded(child: SizedBox())
                   ],
                 ),
               ),
@@ -163,9 +162,9 @@ class _SignInPageState extends State<SignInPage> {
             ///login through Google
             ElevatedButton(
                 onPressed: () async {
-                  SharedPreferences _sharedPreferences =
+                  SharedPreferences sharedPreferences =
                       await SharedPreferences.getInstance();
-                  _sharedPreferences.clear();
+                  sharedPreferences.clear();
 
                   await Firebase.initializeApp();
                   await GoogleSignIn().signOut();
@@ -321,7 +320,7 @@ class _SignInPageState extends State<SignInPage> {
     log("id-->$username");
     log("displayname-->$username1");
     log("serverAuthCode-->$username2");
-    log("email--->${username3}");
+    log("email--->$username3");
     log("photoUrl-->$username4");
     log("authHeaders-->$username5");
     log("authentication-->$username6");

@@ -9,11 +9,11 @@ import '../view/profilepage/view/myprofile.dart';
 
 Controller controller = Get.put(Controller());
 List wid = [
-  Homepage_Wid(),
+  const Homepage_Wid(),
   Community_Page_UI(),
   UserProfile_CreatePost_UI(),
-  Doctor(),
-  My_Profile_UI()
+  const Doctor(),
+  const My_Profile_UI()
 ];
 var videoimage_files = [
   {"type": "image", "url": controller.file.path},

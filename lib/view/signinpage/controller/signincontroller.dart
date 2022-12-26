@@ -16,19 +16,23 @@ class SigninController extends GetxController {
   RxList<SigninRegister> getsigninmodel = <SigninRegister>[].obs;
   var clint = SigninService();
   signinfunction(email, username) async {
-    SharedPreferences _sharedPreferences =
-        await SharedPreferences.getInstance();
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     try {
       var response = await clint.signinservice(email: email, username: email);
       // log("signincontroller-->$response");
       if (response != null) {
-        _sharedPreferences.setString(Constants.authToken, response.token!);
+        sharedPreferences.setString(Constants.authToken, response.token!);
+        sharedPreferences.setString(
+            Constants.userName, response.data!.first.username!);
+        sharedPreferences.setString(Constants.userId, response.data!.first.id!);
+        sharedPreferences.setString(
+            Constants.profileImage, response.data!.first.profileicon ?? "");
         log("tokenreg-->${response.token}");
         getsigninmodel.clear();
         getsigninmodel.add(response);
         log("datassss->>>>>>>>>${getsigninmodel[0].data}");
         loadingindicator(false);
-        Get.to(const Welcome_Page());
+        Get.to(() => const Welcome_Page());
         // log(loadingindicator.toString());
       } else {
         // Fluttertoast.showToast(msg: response!.message!);

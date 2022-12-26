@@ -31,5 +31,6 @@ class ProfileService {
     } else {
       log("error");
     }
+    return null;
   }
 }

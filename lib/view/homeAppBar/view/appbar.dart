@@ -2,15 +2,12 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/Appbar/appbarcontroller.dart';
 import 'package:animagieeui/controller/controller.dart';
 // import 'package:animagieeui/view/homeAppBar/view/prot.dart';
-import 'package:animagieeui/view/homeAppBar/view/search.dart';
-import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
-import '../../mywork/view/timer.dart';
 import '../../profilepage/view/editprofilepage.dart';
 import 'chat.dart';
 import 'prot.dart';

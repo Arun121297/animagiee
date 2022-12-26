@@ -51,7 +51,7 @@ class _Admin_PostState extends State<Admin_Post> {
         return Container(
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.height - 212,
-            child: Text("No User Post"));
+            child: const Text("No User Post"));
       } else {
         return SizedBox(
           height: MediaQuery.of(context).size.height - 212,
@@ -69,12 +69,12 @@ class _Admin_PostState extends State<Admin_Post> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Row(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               GestureDetector(
@@ -86,7 +86,7 @@ class _Admin_PostState extends State<Admin_Post> {
                                       data[index].profileicon.toString()),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               GestureDetector(
@@ -126,7 +126,7 @@ class _Admin_PostState extends State<Admin_Post> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 8,
                               )
                             ],
@@ -212,7 +212,7 @@ class _Admin_PostState extends State<Admin_Post> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 12,
                                 ),
                                 Text(
@@ -240,17 +240,17 @@ class _Admin_PostState extends State<Admin_Post> {
                             ),
                           ),
                           Row(children: [
-                            Likes_UI(),
+                            const Likes_UI(),
                             SizedBox(
                               width: 2.0.wp,
                             ),
-                            Comment_UI(),
+                            const Comment_UI(),
                             SizedBox(
                               width: 1.8.wp,
                             ),
-                            Share_UI(),
+                            const Share_UI(),
                             Expanded(child: Container()),
-                            BookMark_UI(),
+                            const BookMark_UI(),
                           ]),
                           SizedBox(height: 2.0.sp
                               //  10,
@@ -272,11 +272,11 @@ class _Admin_PostState extends State<Admin_Post> {
   popup() {
     return showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       builder: (context) {
-        return Container(
+        return SizedBox(
           height: 20.0.hp,
           //  174,
           width: MediaQuery.of(context).size.width,
@@ -293,7 +293,7 @@ class _Admin_PostState extends State<Admin_Post> {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.black,
                 endIndent: 30,
                 indent: 30,
@@ -309,7 +309,7 @@ class _Admin_PostState extends State<Admin_Post> {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.black,
                 endIndent: 30,
                 indent: 30,

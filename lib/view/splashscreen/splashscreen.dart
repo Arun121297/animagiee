@@ -13,7 +13,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 3),
+      const Duration(seconds: 3),
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -26,7 +26,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(microseconds: 200),
+      duration: const Duration(microseconds: 200),
       child: Container(
           color: Colors.white, child: Image.asset("images/animagie_logo.png")),
     );

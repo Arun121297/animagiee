@@ -1,12 +1,11 @@
-import 'dart:developer';
-
-import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../chat/allConstents/firestore_constants.dart';
+import '../../../utils/constance.dart';
 import '../../bottombarfile/view/bottomnavibar.dart';
 import '../../homeAppBar/view/appbar.dart';
 // import '../createpost.dart';
@@ -22,19 +21,68 @@ class Homepage_Wid extends StatefulWidget {
 
 class _Homepage_WidState extends State<Homepage_Wid> {
   Controller controller = Get.put(Controller());
+  final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
   @override
   void initState() {
     controller.podcastplayblutton = false.obs;
-    // controller.podcastplayblutton = false.obs;
-    // TODO: implement initState
+    fetchData();
     super.initState();
+  }
+
+  fetchData() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    var userId = sharedPreferences.getString(Constants.userId);
+    if (userId!.isNotEmpty) {
+      createUserInFirebase(userId);
+    }
+  }
+
+//for Chat
+  Future<void> createUserInFirebase(userId) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String myUserName = (prefs.getString(Constants.userName) ?? '');
+    String myPhotoUrl = (prefs.getString(Constants.profileImage) ?? '');
+    String firebaseToken = (prefs.getString(Constants.firebaseToken) ?? '');
+    //for chat
+    final QuerySnapshot result = await firebaseFirestore
+        .collection(FirestoreConstants.pathUserCollection)
+        .where(FirestoreConstants.id, isEqualTo: userId)
+        .get();
+
+    final List<DocumentSnapshot> document = result.docs;
+    if (document.isEmpty) {
+      firebaseFirestore
+          .collection(FirestoreConstants.pathUserCollection)
+          .doc(userId)
+          .set({
+        FirestoreConstants.nickname: myUserName,
+        // FirestoreConstants.photoUrl: user.photoURL,
+        FirestoreConstants.id: userId,
+        'createdAt': DateTime.now().millisecondsSinceEpoch.toString(),
+        FirestoreConstants.photoUrl: myPhotoUrl,
+        FirestoreConstants.chattingWith: null,
+        FirestoreConstants.onlineStatus: 'online',
+        FirestoreConstants.blockedList: [],
+        Constants.firebaseToken: firebaseToken
+      });
+    } else {
+      //update image and name
+      firebaseFirestore
+          .collection(FirestoreConstants.pathUserCollection)
+          .doc(userId)
+          .update({
+        FirestoreConstants.nickname: myUserName,
+        FirestoreConstants.photoUrl: myPhotoUrl,
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      bottomNavigationBar: Customized_Bottom_Bar(),
+      bottomNavigationBar: const Customized_Bottom_Bar(),
       body: WillPopScope(
         onWillPop: () {
           return null!;
@@ -60,10 +108,10 @@ class _Homepage_WidState extends State<Homepage_Wid> {
                   searchfunction: true,
                   searchfunctionclose: false,
                 ),
-                CreatePost(),
+                const CreatePost(),
 
                 ////adminpost
-                Admin_Post()
+                const Admin_Post()
               ],
             ),
           ),

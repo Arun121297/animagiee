@@ -67,6 +67,7 @@ class EditScreenService {
     } catch (e) {
       rethrow;
     }
+    return null;
 
     // if (globalpFimage != '') {
     //   log("Filename-->$GfileNames");

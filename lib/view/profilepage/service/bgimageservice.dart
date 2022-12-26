@@ -59,5 +59,6 @@ class BGService {
     } catch (e) {
       rethrow;
     }
+    return null;
   }
 }
