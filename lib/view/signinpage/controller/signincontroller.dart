@@ -17,11 +17,13 @@ class SigninController extends GetxController {
   var clint = SigninService();
   signinfunction(email, username) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
     try {
-      var response = await clint.signinservice(email: email, username: email);
+      var response =
+          await clint.signinservice(email: email, username: username);
       // log("signincontroller-->$response");
       if (response != null) {
-        sharedPreferences.setString(Constants.authToken, response.token!);
+        sharedPreferences.setString(Constants.authToken, response.token ?? "");
         sharedPreferences.setString(
             Constants.userName, response.data!.first.username!);
         sharedPreferences.setString(Constants.userId, response.data!.first.id!);

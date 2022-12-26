@@ -14,13 +14,12 @@ class UserPostListService {
 
   static Future<UserPostListModel?> userPostListService() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? token = prefs.getString(Constants.authToken);
+    var token = prefs.getString(Constants.authToken);
+    log(token!);
     // String baseUrl = (prefs.getString('url') ?? Urls.baseUrl);
     try {
-      var res = await client.get(Uri.parse(Urls.userpostlist), headers: {
-        'Content-Type': 'application/json',
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMxZWY3YmQ5OGFiZTI1OGQ1ZDM3YiIsImVtYWlsb3JwaG9uZSI6ImFydW4ubmsxMjEyOTdAZ21haWwuY29tIiwiaWF0IjoxNjcxMjYzOTY0fQ.qKpI6VLl24PFUdbSgVNXh9w2wlCwHKtWCysh4S3oVEw',
+      var res = await http.get(Uri.parse(Urls.userpostlist), headers: {
+        'Authorization': 'Bearer $token',
       });
       log(res.body);
       if (res.statusCode == 200) {
