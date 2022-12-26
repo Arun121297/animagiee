@@ -83,16 +83,12 @@ class _Admin_PostState extends State<Admin_Post> {
                               GestureDetector(
                                 onTap: () {
                                   Get.to(User_Profile(
-                                    id: userPostListController
-                                        .data[index].postowner!.id
-                                        .toString(),
+                                    id: data[index].postowner!.id.toString(),
                                   ));
                                 },
                                 child: CircleAvatar(
                                   backgroundImage: NetworkImage(
-                                      userPostListController
-                                          .data[index].profileicon
-                                          .toString()),
+                                      data[index].profileicon.toString()),
                                 ),
                               ),
                               SizedBox(
@@ -101,9 +97,7 @@ class _Admin_PostState extends State<Admin_Post> {
                               GestureDetector(
                                 onTap: () {
                                   Get.to(User_Profile(
-                                    id: userPostListController
-                                        .data[index].postowner!.id
-                                        .toString(),
+                                    id: data[index].postowner!.id.toString(),
                                   ));
                                 },
                                 child: SizedBox(
