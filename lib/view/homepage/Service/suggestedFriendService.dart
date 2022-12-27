@@ -18,12 +18,10 @@ class UserSuggestenFriendService {
     String? token = prefs.getString(Constants.authToken);
     // String baseUrl = (prefs.getString('url') ?? Urls.baseUrl);
     try {
-      var res = await client.get(
-          Uri.parse('http://192.168.1.32:9000/api/user/suggestionfriendlist'),
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer $token',
-          });
+      var res = await client.get(Uri.parse(Urls.SuggestedFriendList), headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token',
+      });
       print("resbody${res.body}");
       if (res.statusCode == 200) {
         log("sugresult-->${res.body}");

@@ -12,9 +12,9 @@ import '../../view/loader/loader.dart';
 
 class EditScreenController extends GetxController {
   TextEditingController about = TextEditingController();
-  String abt = '';
+  // String abt = '';
   TextEditingController fname = TextEditingController();
-  String firstname = '';
+  // String firstname = '';
   TextEditingController lname = TextEditingController();
   TextEditingController dob = TextEditingController();
   TextEditingController email = TextEditingController();
@@ -42,9 +42,23 @@ class EditScreenController extends GetxController {
       var response;
       if (pFprofileimage == File('')) {
         response = await clint.editprofileservicesection(
-            fname: fname.text, yourself: about.text, profile_picture: '');
+            lname: lname.text,
+            address: address.text,
+            dob: dob.text,
+            mnumber: mNumber.text,
+            picode: pincode.text,
+            fname: fname.text,
+            email: email.text,
+            yourself: about.text,
+            profile_picture: File(''));
       } else {
         response = await clint.editprofileservicesection(
+            lname: lname.text,
+            address: address.text,
+            email: email.text,
+            dob: dob.text,
+            mnumber: mNumber.text,
+            picode: pincode.text,
             fname: fname.text,
             yourself: about.text,
             profile_picture: pFprofileimage.path);

@@ -9,6 +9,7 @@ import '../../../utils/constance.dart';
 import '../../bottombarfile/view/bottomnavibar.dart';
 import '../../homeAppBar/view/appbar.dart';
 // import '../createpost.dart';
+import '../controller/homescreen1controller.dart';
 import 'adminpost.dart';
 import 'createpost.dart';
 
@@ -23,8 +24,12 @@ class _Homepage_WidState extends State<Homepage_Wid> {
   Controller controller = Get.put(Controller());
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
+  UserPostListController userPostListController =
+      Get.put(UserPostListController());
   @override
   void initState() {
+    // userPostListController.isLoadingService(true);
+    userPostListController.ottApiCall();
     controller.podcastplayblutton = false.obs;
     fetchData();
     super.initState();

@@ -36,15 +36,14 @@ class BGService {
         });
       }
 
-      dio.Response response = await dio.Dio()
-          .post('http://192.168.1.32:9000/api/user/createbackgroundprofile',
-              data: formData,
-              options: dio.Options(
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': 'Bearer $token',
-                },
-              ));
+      dio.Response response = await dio.Dio().post(Urls.bgimage,
+          data: formData,
+          options: dio.Options(
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer $token',
+            },
+          ));
 
       log("Datasss john${response.data}");
 
