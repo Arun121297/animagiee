@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../chat/allConstents/firestore_constants.dart';
+import '../../../chat/single_chat/allConstents/firestore_constants.dart';
 import '../../../utils/constance.dart';
 import '../../bottombarfile/view/bottomnavibar.dart';
 import '../../homeAppBar/view/appbar.dart';

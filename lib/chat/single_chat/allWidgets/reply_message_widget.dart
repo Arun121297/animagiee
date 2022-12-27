@@ -1,4 +1,5 @@
-import '../../config/colorconfig.dart';
+import 'package:animagieeui/config/colorconfig.dart';
+
 import '../allConstents/color_constants.dart';
 import '../chat_provider.dart';
 import 'package:flutter/material.dart';

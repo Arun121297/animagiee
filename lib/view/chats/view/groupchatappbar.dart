@@ -20,7 +20,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
   Widget build(BuildContext context) {
     return Material(
       elevation: 3,
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Row(children: [
           // Back_Button_UI(),
@@ -31,7 +31,10 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
               size: 12.0.sp,
             ),
             onPressed: () {
-              Get.to(Chat_UI());
+              // TODO:add userID
+              Get.to(() => Chat_UI(
+                    userId: "",
+                  ));
             },
           ),
           Expanded(child: Container()),
@@ -42,7 +45,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
           ),
           Row(
             children: [
-              Container(
+              SizedBox(
                 width: 37.0.wp,
                 // 129,
                 // color: Colors.orange,
@@ -54,7 +57,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                       backgroundColor: animagiee_CL,
                       child: CircleAvatar(
                         backgroundImage:
-                            ExactAssetImage("images/myprofilebg.jpg"),
+                            const ExactAssetImage("images/myprofilebg.jpg"),
                         radius: 10.0.sp,
                         // backgroundColor: Colors.green,
                       ),
@@ -67,7 +70,8 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                       backgroundColor: animagiee_CL,
                       child: CircleAvatar(
                         radius: 11.5.sp,
-                        backgroundImage: ExactAssetImage("images/doc_3.jpg"),
+                        backgroundImage:
+                            const ExactAssetImage("images/doc_3.jpg"),
                       ),
                     ),
                   ),
@@ -79,7 +83,7 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                       child: CircleAvatar(
                         radius: 10.0.sp,
                         backgroundImage:
-                            ExactAssetImage("images/myprofilebg.jpg"),
+                            const ExactAssetImage("images/myprofilebg.jpg"),
                       ),
                     ),
                   ),
@@ -90,7 +94,8 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                       backgroundColor: animagiee_CL,
                       child: CircleAvatar(
                         radius: 11.5.sp,
-                        backgroundImage: ExactAssetImage("images/Dogs.jpg"),
+                        backgroundImage:
+                            const ExactAssetImage("images/Dogs.jpg"),
                       ),
                     ),
                   ),
@@ -99,7 +104,8 @@ class _GroupChat_AppBar_UIState extends State<GroupChat_AppBar_UI> {
                     backgroundColor: animagiee_CL,
                     child: CircleAvatar(
                       radius: 13.0.sp,
-                      backgroundImage: ExactAssetImage("images/doc_4.jpg"),
+                      backgroundImage:
+                          const ExactAssetImage("images/doc_4.jpg"),
                     ),
                   ),
                 ]),

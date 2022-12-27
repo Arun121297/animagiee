@@ -1,0 +1,32 @@
+class FirestoreConstants {
+  static const pathUserCollection = "group";
+  static const pathMessageCollection = "messages";
+  static const nickname = "nickname";
+  static const aboutMe = "aboutMe";
+  static const photoUrl = "photoUrl";
+  static const phoneNumber = "phoneNumber";
+  static const id = "id";
+  static const chattingWith = "chattingWith";
+  static const idFrom = "idFrom";
+  static const idTo = "idTo";
+  static const timestamp = "timestamp";
+  static const content = "content";
+  static const type = "type";
+  static const reply = "reply";
+  static const deleteForMe = "deleteForMe";
+  static const onlineStatus = "onlineStatus";
+  static const isPrivateGroup = "isPrivateGroup";
+  static const description = "description";
+  static const community = "community";
+  static const clubAdmin = "clubAdmin";
+  static const communityPersons = "communityPersons";
+  static const chatHistoryList = "chatHistoryList";
+  static const group = "group";
+  static const groupHistory = "groupHistoryList";
+  static const lastMessage = "lastMessage";
+  static const peerId = "peerId";
+  static const peerName = "peerName";
+  static const peerImage = "peerImage";
+  static const unseenMessageCount = "unseenMessageCount";
+  static const blockedList = "blockedList";
+}

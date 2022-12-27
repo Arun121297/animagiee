@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "844165986744",
+    "firebase_url": "https://fir-animagiee-default-rtdb.firebaseio.com",
     "project_id": "fir-animagiee",
     "storage_bucket": "fir-animagiee.appspot.com"
   },
@@ -19,6 +20,14 @@
           "android_info": {
             "package_name": "com.example.animagieeui",
             "certificate_hash": "c91ef4f968394fe0889551d6e6561daa4a117c44"
+          }
+        },
+        {
+          "client_id": "844165986744-fr8g1mn3psbo9flc5ea4stfugse7m4tt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.animagieeui",
+            "certificate_hash": "1e7f807738763ae5d19cc480e7053b23b127e5e6"
           }
         },
         {

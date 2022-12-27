@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../chat/allConstents/firestore_constants.dart';
-import '../../../chat/chat_page.dart';
+import '../../../chat/single_chat/allConstents/firestore_constants.dart';
+import '../../../chat/single_chat/chat_page.dart';
 import '../../../config/colorconfig.dart';
 import '../../instancepage/controller/userprofie_viewController.dart';
 

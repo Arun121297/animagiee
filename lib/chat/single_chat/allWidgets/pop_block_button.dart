@@ -77,10 +77,9 @@ class PopUpBlockButton extends StatelessWidget {
                                                           peerId);
                                                       Navigator.of(context)
                                                           .pop();
-                                                      final snackBar =
-                                                          const SnackBar(
-                                                              content: Text(
-                                                                  'You unblocked this user'));
+                                                      const snackBar = SnackBar(
+                                                          content: Text(
+                                                              'You unblocked this user'));
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .showSnackBar(
@@ -135,7 +134,7 @@ class PopUpBlockButton extends StatelessWidget {
                                                   chatProvider.blockUser(
                                                       currentUserId, peerId);
                                                   Navigator.of(context).pop();
-                                                  final snackBar = const SnackBar(
+                                                  const snackBar = SnackBar(
                                                       content: Text(
                                                           'You blocked this user'));
                                                   ScaffoldMessenger.of(context)

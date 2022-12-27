@@ -1,12 +1,9 @@
-import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:animagieeui/utils/Urls/urlsapi.dart';
 import 'package:animagieeui/utils/constance.dart';
 import 'package:animagieeui/view/instancepage/model/club.dart';
 import 'package:dio/dio.dart' as dio;
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -53,7 +50,8 @@ class ClubService {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer $token',
           }));
-      print('response-----${response.data}');
+      log('response-----${response.data}');
+
       print(response.statusCode);
       if (response.statusCode == 200) {
         // final responseData = json.decode(response.data);

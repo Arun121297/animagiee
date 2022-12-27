@@ -1,27 +1,22 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:animagieeui/chat/group_chat/allConstents/firestore_constants.dart';
+import 'package:animagieeui/chat/group_chat/chat_page.dart';
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/data/pages.dart';
 import 'package:animagieeui/view/communitypage/controller/createclubcontroller.dart';
 import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:animagieeui/view/bottombarfile/view/bottomnavibar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../config/colorconfig.dart';
 import '../../../../controller/controller.dart';
-import '../../../animagieeprofile/view/animalsprofiles.dart';
 import '../../../homeAppBar/view/appbar.dart';
-import '../../../homeAppBar/view/notification.dart';
-import '../../../homeAppBar/view/search.dart';
 import '../../../homepage/view/homepage.dart';
-import '../communitypage.dart';
 import 'createnewclub.dart';
 import 'clubcreation/mycreatedclub.dart';
 import 'mysubscriptionlist.dart';
@@ -82,9 +77,9 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
               // controller.clubapp("My Clubs", Home_Page(), context),
               GestureDetector(
                 onTap: () {
-                  Get.to(Create_New_Club_UI());
+                  Get.to(const Create_New_Club_UI());
                 },
-                child: Container(
+                child: SizedBox(
                   height: 10.0.hp,
                   // 87,
                   // color: Colors.orange,
@@ -93,15 +88,15 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                       Padding(
                         padding: EdgeInsets.only(left: 22.0.sp),
                         child: CircleAvatar(
+                            backgroundColor: animagiee_CL,
                             child: IconButton(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.person_add,
                                   color: Colors.black,
                                 ),
                                 onPressed: () {
-                                  Get.to(Create_New_Club_UI());
-                                }),
-                            backgroundColor: animagiee_CL),
+                                  Get.to(const Create_New_Club_UI());
+                                })),
                       ),
                       SizedBox(width: 5.0.sp
                           // 22,
@@ -142,11 +137,11 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
               ///Created Club
               Obx(() {
                 if (createdClubController.clubcreatedloadingindicator.value) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (createdClubController.getcreateclubdata.isEmpty) {
-                  return Center(
+                  return const Center(
                     child: Text("No Club Created"),
                   );
                 } else {
@@ -157,14 +152,114 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                         itemCount: createdClubController
                             .getcreateclubdata[0].data!.length,
                         itemBuilder: (context, index) {
+                          var listData = createdClubController
+                              .getcreateclubdata[0].data![index];
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: GestureDetector(
                               onTap: () {
-                                setState(() {
-                                  // Get.to(Animals_Profiles_UI());
+                                // Fluttertoast.showToast(msg: "yes");
+                                FirebaseFirestore.instance
+                                    .collection(FirestoreConstants.group)
+                                    .doc(listData.clubid)
+                                    .get()
+                                    .then((doc) {
+                                  if (doc.exists) {
+                                    Get.to(() => GroupChatPage(
+                                          peerId: listData.clubid!,
+                                          peerAvatar: listData.clubicon!,
+                                          peerNickname: listData.clubName!,
+                                          currentUserId: listData.clubid!,
+                                        ));
+                                  } else {
+                                    //check other user updated the app?, if not show "This user doesn't have the updated version of the app to chat, "
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) =>
+                                            StatefulBuilder(
+                                                builder: (context, setState) {
+                                              return Dialog(
+                                                child: SizedBox(
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height /
+                                                      6,
+                                                  child: Column(
+                                                    children: [
+                                                      Container(
+                                                        margin: EdgeInsets.only(
+                                                          bottom: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.04,
+                                                        ),
+                                                        height: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height /
+                                                            20,
+                                                        width: double.infinity,
+                                                        color: animagiee_CL,
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          child: Align(
+                                                            alignment: Alignment
+                                                                .centerRight,
+                                                            child: Padding(
+                                                              padding: EdgeInsets.only(
+                                                                  right: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .width *
+                                                                      0.03),
+                                                              child: const Icon(
+                                                                Icons.close,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'unable to chat with this  shop!',
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.04,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              );
+                                            }));
+                                  }
                                 });
+
+                                // Get.to(() => ChatListingScreen());
                               },
+
+                              /* onTap: () {
+                                // setState(() {
+                                //   // Get.to(Animals_Profiles_UI());
+                                // });
+
+                                // Get.to(() => GroupChatPage(
+                                //       peerId: listData.clubid!,
+                                //       peerAvatar: listData.clubicon!,
+                                //       peerNickname: listData.clubName!,
+                                //       currentUserId: listData.clubid!,
+                                //     ));
+                              }, */
                               child: Card(
                                 child: SizedBox(
                                   height: 7.0.hp,
@@ -236,7 +331,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                                 ),
                                               ),
                                             ),
-                                            Icon(
+                                            const Icon(
                                               Icons.arrow_forward_ios_rounded,
                                               size: 10,
                                             ),
@@ -280,7 +375,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                       heightFactor: 15,
                       child: Container(
                         alignment: Alignment.center,
-                        child: Text("No Datas"),
+                        child: const Text("No Datas"),
                       ),
                     )
                   : Container(

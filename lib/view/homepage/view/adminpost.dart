@@ -2,12 +2,9 @@ import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/createpost/view/videoplayer.dart';
-import 'package:animagieeui/view/doctor/view/doctorprofiless/header.dart';
 import 'package:animagieeui/view/homepage/view/share.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
-import 'package:animagieeui/view/instancepage/controller/user_postListController.dart';
-import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -15,14 +12,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
-import '../../animagieeprofile/view/animalsprofiles.dart';
-import '../../createpost/view/videoplayer.dart';
 import '../../userprofile/view/userprofile.dart';
 import '../controller/homescreen1controller.dart';
 import 'bookmark.dart';
 import 'commend.dart';
 import 'likes.dart';
-import 'share.dart';
 
 class Admin_Post extends StatefulWidget {
   const Admin_Post({Key? key}) : super(key: key);
@@ -105,7 +99,7 @@ class _Admin_PostState extends State<Admin_Post> {
                                   width: 70.0.wp,
                                   // color: Colors.amber,
                                   child: Text(
-                                    data[index].username.toString(),
+                                    data[index].postowner!.username.toString(),
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(

@@ -1,3 +1,5 @@
+import 'package:animagieeui/chat/group_chat/chat_listing_screen.dart';
+import 'package:animagieeui/chat/single_chat/chat_listing_screen.dart';
 import 'package:animagieeui/config/extension.dart';
 
 import 'package:animagieeui/view/chats/view/searchbar.dart';
@@ -11,12 +13,11 @@ import '../../../controller/controller.dart';
 
 import '../../homeAppBar/view/appbar.dart';
 import '../../homepage/view/homepage.dart';
-import 'individualchat.dart';
-import 'groupchat.dart';
 // import 'individualchat.dart';
 
 class Chat_UI extends StatefulWidget {
-  const Chat_UI({Key? key}) : super(key: key);
+  Chat_UI({Key? key, required this.userId}) : super(key: key);
+  String? userId;
 
   @override
   State<Chat_UI> createState() => _Chat_UIState();
@@ -39,7 +40,6 @@ class _Chat_UIState extends State<Chat_UI> {
   void initState() {
     fetchindex = 0;
     controller.chatoption = false.obs;
-    // TODO: implement initState
     super.initState();
   }
 
@@ -71,7 +71,7 @@ class _Chat_UIState extends State<Chat_UI> {
                 height: 3.0.hp,
                 // 27,
               ),
-              chat_Search_UI(),
+              const chat_Search_UI(),
               SizedBox(
                 height: 4.0.hp,
                 //  31,
@@ -123,7 +123,7 @@ class _Chat_UIState extends State<Chat_UI> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Row(
@@ -140,7 +140,7 @@ class _Chat_UIState extends State<Chat_UI> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               SizedBox(
@@ -153,7 +153,11 @@ class _Chat_UIState extends State<Chat_UI> {
                     });
                   },
                   controller: pageController,
-                  children: [Group_Chat_UI(), Separate_Chat_UI()],
+                  children: [
+                    GroupChatListingScreen(widget.userId!),
+                    // const Group_Chat_UI(),
+                    ChatListingScreen(widget.userId!)
+                  ],
                 ),
               )
             ],

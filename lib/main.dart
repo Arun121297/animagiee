@@ -1,3 +1,5 @@
+import 'package:animagieeui/chat/group_chat/chat_provider.dart';
+import 'package:animagieeui/chat/single_chat/chat_provider.dart';
 import 'package:animagieeui/view/splashscreen/splashscreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,15 +10,14 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'chat/chat_provider.dart';
 import 'config/check_login.dart';
 import 'config/firebase_token.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  token = await CheckLogin().checkLogin();
   SharedPreferences prefs = await SharedPreferences.getInstance();
+  token = await CheckLogin().checkLogin();
   Provider.debugCheckInvalidValueType = null;
 
   runApp(MyApp(
@@ -57,6 +58,13 @@ class _MyAppState extends State<MyApp> {
         //   },
         //   initialData: null,
         // ),
+        Provider<GroupChatProvider>(
+          create: (_) => GroupChatProvider(
+            firebaseFirestore: widget.firebaseFirestore,
+            prefs: widget.prefs,
+            firebaseStorage: widget.firebaseStorage,
+          ),
+        ),
         Provider<ChatProvider>(
           create: (_) => ChatProvider(
             firebaseFirestore: widget.firebaseFirestore,

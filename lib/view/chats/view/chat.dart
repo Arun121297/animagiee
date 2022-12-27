@@ -16,7 +16,7 @@ import 'Message.dart';
 // import 'individualchatcontent.dart';
 
 class Chatting_Screen_UI extends StatefulWidget {
-  Chatting_Screen_UI({Key? key}) : super(key: key);
+  const Chatting_Screen_UI({Key? key}) : super(key: key);
 
   @override
   State<Chatting_Screen_UI> createState() => _Chatting_Screen_UIState();
@@ -33,7 +33,13 @@ class _Chatting_Screen_UIState extends State<Chatting_Screen_UI> {
           SizedBox(
             child: Column(
               children: [
-                controller.chatscreenapp("Karthi", const Chat_UI(), context),
+                // TODO:add userID
+                controller.chatscreenapp(
+                    "Karthi",
+                    Chat_UI(
+                      userId: "",
+                    ),
+                    context),
                 Expanded(
                   child:
                       // Message()

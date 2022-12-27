@@ -1,18 +1,18 @@
 import 'dart:io';
 import 'dart:math';
 
-import '../chat/allConstents/color_constants.dart';
-import '../chat/allModels/message_chat.dart';
-import '../chat/allModels/reply_chat.dart';
-import '../chat/allWidgets/loading_view.dart';
-import '../chat/allWidgets/pop_block_button.dart';
-import '../chat/allWidgets/reply_message_widget.dart';
-import '../chat/chat_controller.dart';
-import '../chat/chat_provider.dart';
-import '../chat/allConstents/firestore_constants.dart';
-import '../chat/full_photo_page.dart';
-import '../config/colorconfig.dart';
-import '../config/constant.dart';
+import '../../config/colorconfig.dart';
+import '../group_chat/allConstents/color_constants.dart';
+import '../group_chat/allModels/message_chat.dart';
+import '../group_chat/allModels/reply_chat.dart';
+import '../group_chat/allWidgets/loading_view.dart';
+import '../group_chat/allWidgets/pop_block_button.dart';
+import '../group_chat/allWidgets/reply_message_widget.dart';
+import '../group_chat/chat_controller.dart';
+import '../group_chat/chat_provider.dart';
+import '../group_chat/allConstents/firestore_constants.dart';
+import '../group_chat/full_photo_page.dart';
+import '../../config/constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -26,34 +26,37 @@ import 'package:provider/src/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
-import '../chat/allConstents/date_time_extension.dart' as times;
+import '../group_chat/allConstents/date_time_extension.dart' as times;
 
-class ChatPage extends StatefulWidget {
+class GroupChatPage extends StatefulWidget {
   final String peerId;
   final String peerAvatar;
   final String peerNickname;
+  String currentUserId;
 
-  const ChatPage({
-    Key? key,
-    required this.peerId,
-    required this.peerAvatar,
-    required this.peerNickname,
-  }) : super(key: key);
-
-  @override
-  State createState() => ChatPageState(
-        peerId: peerId,
-        peerAvatar: peerAvatar,
-        peerNickname: peerNickname,
-      );
-}
-
-class ChatPageState extends State<ChatPage> {
-  ChatPageState(
+  GroupChatPage(
       {Key? key,
       required this.peerId,
       required this.peerAvatar,
-      required this.peerNickname});
+      required this.peerNickname,
+      required this.currentUserId})
+      : super(key: key);
+
+  @override
+  State createState() => GroupChatPageState(
+      peerId: peerId,
+      peerAvatar: peerAvatar,
+      peerNickname: peerNickname,
+      currentUserId: currentUserId);
+}
+
+class GroupChatPageState extends State<GroupChatPage> {
+  GroupChatPageState(
+      {Key? key,
+      required this.peerId,
+      required this.peerAvatar,
+      required this.peerNickname,
+      required this.currentUserId});
 
   String peerId;
   String peerAvatar;
@@ -78,7 +81,7 @@ class ChatPageState extends State<ChatPage> {
   final FocusNode focusNode = FocusNode();
   final ChatController chatController = Get.put(ChatController());
 
-  late ChatProvider chatProvider;
+  late GroupChatProvider chatProvider;
   // late AuthProvider authProvider;
 
   static const inputTopRadius = Radius.circular(12);
@@ -91,10 +94,9 @@ class ChatPageState extends State<ChatPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
-    chatProvider = context.read<ChatProvider>();
+    chatProvider = context.read<GroupChatProvider>();
     // authProvider = context.read<AuthProvider>();
 
     focusNode.addListener(onFocusChange);
@@ -112,7 +114,7 @@ class ChatPageState extends State<ChatPage> {
         .then((value) => messageLength = value.docs.length - 1);
     //if last item add timestamp
     FirebaseFirestore.instance
-        .collection(FirestoreConstants.chatHistoryList)
+        .collection(FirestoreConstants.groupHistory)
         .doc(currentUserId)
         .collection(currentUserId)
         .doc(groupChatId)
@@ -120,7 +122,7 @@ class ChatPageState extends State<ChatPage> {
         .then((doc) {
       if (doc.exists) {
         firebaseFirestore
-            .collection(FirestoreConstants.chatHistoryList)
+            .collection(FirestoreConstants.groupHistory)
             .doc(currentUserId)
             .collection(currentUserId)
             .doc(groupChatId)
@@ -434,7 +436,7 @@ class ChatPageState extends State<ChatPage> {
                 SizedBox(
                   height: mediaQuery.width * 0.01,
                 ),
-                Container(
+                /*   Container(
                   // width: SizeConfig.blockSizeHorizontal!*40,
                   child: StreamBuilder<DocumentSnapshot>(
                     stream: chatProvider.getOnlineStatus(peerId),
@@ -466,6 +468,7 @@ class ChatPageState extends State<ChatPage> {
                     },
                   ),
                 ),
+               */
               ],
             ),
           ],
@@ -763,8 +766,10 @@ class ChatPageState extends State<ChatPage> {
                                           .doc(currentUserId)
                                           .get();
 
-                                  List blockedByList = (snapshotBlockedByList
-                                      .data()! as dynamic)["blockedBy"];
+                                  List blockedByList = [];
+                                  // TODO:remove block comment
+                                  // (snapshotBlockedByList
+                                  //     .data()! as dynamic)["blockedBy"];
 
                                   DocumentSnapshot snapshotBlockedList =
                                       await firebaseFirestore
@@ -773,8 +778,9 @@ class ChatPageState extends State<ChatPage> {
                                           .doc(currentUserId)
                                           .get();
 
-                                  List blockedList = (snapshotBlockedList
-                                      .data()! as dynamic)["blockedList"];
+                                  List blockedList = [];
+                                  // (snapshotBlockedList
+                                  //     .data()! as dynamic)["blockedList"];
 
                                   if (blockedByList.contains(peerId)) {
                                     Future.delayed(

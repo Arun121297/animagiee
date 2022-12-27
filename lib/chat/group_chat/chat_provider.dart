@@ -1,20 +1,20 @@
 import 'dart:io';
 
-import '../chat/allModels/message_chat.dart';
-import '../chat/allConstents/firestore_constants.dart';
-import '../chat/allModels/message_history_item.dart';
+import '../group_chat/allModels/message_chat.dart';
+import '../group_chat/allConstents/firestore_constants.dart';
+import '../group_chat/allModels/message_history_item.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ChatProvider extends GetxController {
+class GroupChatProvider extends GetxController {
   final SharedPreferences prefs;
   final FirebaseFirestore firebaseFirestore;
   final FirebaseStorage firebaseStorage;
   RxBool isStatusUpdated = false.obs;
 
-  ChatProvider({
+  GroupChatProvider({
     required this.firebaseFirestore,
     required this.prefs,
     required this.firebaseStorage,
@@ -58,7 +58,7 @@ class ChatProvider extends GetxController {
   Stream<DocumentSnapshot> getUserSeenStatus(
       String peerId, String groupChatId) {
     return firebaseFirestore
-        .collection(FirestoreConstants.chatHistoryList)
+        .collection(FirestoreConstants.groupHistory)
         .doc(peerId)
         .collection(peerId)
         .doc(groupChatId)
@@ -82,7 +82,7 @@ class ChatProvider extends GetxController {
   Stream<QuerySnapshot> getChatHistoryListStream(
       int limit, String currentUserId) {
     return firebaseFirestore
-        .collection(FirestoreConstants.chatHistoryList)
+        .collection(FirestoreConstants.groupHistory)
         .doc(currentUserId)
         .collection(currentUserId)
         // .where(FirestoreConstants.deleteForMe, isNotEqualTo: currentUserId)
@@ -121,7 +121,7 @@ class ChatProvider extends GetxController {
 
     //
     FirebaseFirestore.instance
-        .collection(FirestoreConstants.chatHistoryList)
+        .collection(FirestoreConstants.groupHistory)
         .doc(currentUserId)
         .collection(currentUserId)
         .doc(groupChatId)
@@ -129,7 +129,7 @@ class ChatProvider extends GetxController {
         .then((doc) {
       if (doc.exists) {
         FirebaseFirestore.instance
-            .collection(FirestoreConstants.chatHistoryList)
+            .collection(FirestoreConstants.groupHistory)
             .doc(peerId)
             .collection(peerId)
             .doc(groupChatId)
@@ -139,7 +139,7 @@ class ChatProvider extends GetxController {
             //if Collection Present, set unseenMessageCount to increment of previous value
             //current user
             final DocumentSnapshot result = await firebaseFirestore
-                .collection(FirestoreConstants.chatHistoryList)
+                .collection(FirestoreConstants.groupHistory)
                 .doc(currentUserId)
                 .collection(currentUserId)
                 .doc(groupChatId)
@@ -150,7 +150,7 @@ class ChatProvider extends GetxController {
 
             //opp user
             final DocumentSnapshot result2 = await firebaseFirestore
-                .collection(FirestoreConstants.chatHistoryList)
+                .collection(FirestoreConstants.groupHistory)
                 .doc(peerId)
                 .collection(peerId)
                 .doc(groupChatId)
@@ -254,7 +254,7 @@ class ChatProvider extends GetxController {
     getProfileData(currentUserId: currentUserId, peerId: peerId).then((value) {
       //chatHistoryList my node ref
       DocumentReference documentReference1 = firebaseFirestore
-          .collection(FirestoreConstants.chatHistoryList)
+          .collection(FirestoreConstants.groupHistory)
           .doc(currentUserId)
           .collection(currentUserId)
           .doc(groupChatId);
@@ -269,7 +269,7 @@ class ChatProvider extends GetxController {
 
       //chatHistoryList opp user node ref
       DocumentReference documentReference2 = firebaseFirestore
-          .collection(FirestoreConstants.chatHistoryList)
+          .collection(FirestoreConstants.groupHistory)
           .doc(peerId)
           .collection(peerId)
           .doc(groupChatId);

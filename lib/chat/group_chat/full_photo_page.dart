@@ -1,5 +1,5 @@
-import '../chat/allConstents/app_constants.dart';
-import '../chat/allConstents/color_constants.dart';
+import '../group_chat/allConstents/app_constants.dart';
+import '../group_chat/allConstents/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 

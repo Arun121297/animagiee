@@ -4,12 +4,9 @@ import 'dart:io';
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 
-import 'package:animagieeui/view/communitypage/view/clubs/completedclub.dart';
 import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/clubIconController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
-import 'package:animagieeui/view/instancepage/model/instancemodel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -70,7 +67,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
               chat: false,
               logo: false,
               podcast: false,
-              fun: MyClubs_UI(),
+              fun: const MyClubs_UI(),
             ),
             SizedBox(
               height: 20.0.hp,
@@ -88,7 +85,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                               clubIconController.profilebackgroundimage,
                             ),
                             fit: BoxFit.cover),
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(15),
                             bottomRight: Radius.circular(15))),
                     width: MediaQuery.of(context).size.width,
@@ -97,7 +94,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                     //  108,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.black38,
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(15),
@@ -196,7 +193,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               width: 70.0.wp,
               //  258,
               child: TextField(
@@ -214,11 +211,11 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
-              margin: EdgeInsets.only(left: 10),
+              margin: const EdgeInsets.only(left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -243,7 +240,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                           height: 5.0.hp,
                           child: TextField(
                               controller: clubController.clubName,
-                              decoration: new InputDecoration(
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                               )))),
                   Padding(
@@ -267,7 +264,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                           height: 5.0.hp,
                           child: TextField(
                               controller: clubController.clubDescription,
-                              decoration: new InputDecoration(
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                               )))),
                   Padding(
@@ -288,7 +285,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                   Card(
                     elevation: 3,
                     child: Container(
-                      margin: EdgeInsets.only(left: 10),
+                      margin: const EdgeInsets.only(left: 10),
                       width: 87.5.wp,
                       // 320,
                       height: 5.0.hp,
@@ -338,7 +335,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 2,
                         ),
                         SizedBox(
@@ -356,7 +353,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                   Card(
                     elevation: 3,
                     child: Container(
-                      margin: EdgeInsets.only(left: 10),
+                      margin: const EdgeInsets.only(left: 10),
                       width: 87.0.wp,
                       height: 5.0.hp,
                       child: DropdownButton<String>(
@@ -396,7 +393,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                 ],
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             GestureDetector(
               onTap: () {
                 clubController.clubApi();
@@ -435,7 +432,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
     if (result != null) {
       setState(() {
         clubController.pFprofileimage = File(result.path);
-        log("${clubController.pFprofileimage.path}");
+        log(clubController.pFprofileimage.path);
         // controller.file = File(result.path);
         // controller.imagevideo(FilepickerType(type: "image", url: result.path));
       });

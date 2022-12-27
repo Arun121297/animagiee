@@ -1,14 +1,18 @@
 import 'dart:io';
 
-import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/chat/group_chat/allConstents/firestore_constants.dart';
 import 'package:animagieeui/view/communitypage/view/clubs/myclubs.dart';
-import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:animagieeui/view/instancepage/model/club.dart';
 import 'package:animagieeui/view/instancepage/service/club_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ClubController extends GetxController {
+  final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
   File pFprofileimage = File("");
   RxList<ClubCreationModel> clubcreationdata = <ClubCreationModel>[].obs;
   RxBool clubcretedataloadingindicator = true.obs;
@@ -31,7 +35,7 @@ class ClubController extends GetxController {
       // }
       ) async {
     try {
-      var response;
+      ClubCreationModel? response;
       response = await clint.clubService(
         clubDescription: clubDescription.text,
         clubName: clubName.text,
@@ -41,7 +45,9 @@ class ClubController extends GetxController {
         groupName: groupName.text,
       );
       if (response != null) {
-        Get.to(MyClubs_UI());
+        createUserInFirebase(response.data!.id, response);
+        Get.to(const MyClubs_UI());
+
         // clubcreationdata.clear();
         // clubcreationdata.add(response);
         clubcretedataloadingindicator(false);
@@ -51,6 +57,38 @@ class ClubController extends GetxController {
     } catch (e) {
       print("e$e");
       rethrow;
+    }
+  }
+
+  //for Chat
+  Future<void> createUserInFirebase(clubId, ClubCreationModel response) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    //for chat
+    final QuerySnapshot result = await firebaseFirestore
+        .collection(FirestoreConstants.pathUserCollection)
+        .where(FirestoreConstants.id, isEqualTo: clubId)
+        .get();
+
+    final List<DocumentSnapshot> document = result.docs;
+    if (document.isEmpty) {
+      firebaseFirestore
+          .collection(FirestoreConstants.pathUserCollection)
+          .doc(clubId)
+          .set({
+        FirestoreConstants.nickname: response.data!.clubName,
+        // FirestoreConstants.photoUrl: user.photoURL,
+        FirestoreConstants.id: clubId,
+        'createdAt': response.data!.createdAt,
+        FirestoreConstants.photoUrl: response.data!.clubicon,
+        FirestoreConstants.isPrivateGroup:
+            response.data!.communityTypeisPrivate,
+        FirestoreConstants.communityPersons: response.data!.communitypersons,
+        FirestoreConstants.description: response.data!.clubDescription,
+        FirestoreConstants.clubAdmin: response.data!.makeBy,
+      });
+    } else {
+      Fluttertoast.showToast(msg: "Something went wrong");
     }
   }
 }

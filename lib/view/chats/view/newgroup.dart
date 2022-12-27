@@ -48,14 +48,17 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                 navipage: null,
                 chat: false,
                 podcast: false,
-                fun: Chat_UI(),
+                // TODO:add userID
+                fun: Chat_UI(
+                  userId: "",
+                ),
               ),
               // controller.chatapp("New Group", Chat_UI(), context),
               SizedBox(
                 height: 3.0.hp,
                 //  26,
               ),
-              Align(alignment: Alignment.center, child: chat_Search_UI()),
+              const Align(alignment: Alignment.center, child: chat_Search_UI()),
               SizedBox(
                 height: 4.0.hp,
                 // 32,
@@ -69,7 +72,7 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                             Stack(alignment: Alignment.bottomRight, children: [
                       CircleAvatar(
                         backgroundColor: Colors.grey.shade300,
-                        child: Icon(
+                        child: const Icon(
                           Icons.person,
                           color: Colors.grey,
                         ),
@@ -88,12 +91,12 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                       width: 3.0.wp,
                       //  17,
                     ),
-                    Container(
+                    SizedBox(
                       width: 75.0.wp,
                       // 260,
                       child: TextField(
                         decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
+                            border: const UnderlineInputBorder(),
                             hintText: "Group Name",
                             // labelText: 'Group name',
                             hintStyle: TextStyle(
@@ -118,7 +121,7 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                   ),
                 ),
               ),
-              Divider(),
+              const Divider(),
               SizedBox(
                 height: 50.0.hp,
                 //  360,
@@ -135,7 +138,7 @@ class _Create_New_Group_UIState extends State<Create_New_Group_UI> {
                 alignment: Alignment.center,
                 child: GestureDetector(
                   onTap: () {
-                    Get.to(Group_Chat_Screen_UI());
+                    Get.to(const Group_Chat_Screen_UI());
                     // Get.to(fun);
                   },
                   child: Container(

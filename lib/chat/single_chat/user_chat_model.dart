@@ -1,4 +1,4 @@
-import '../chat/allConstents/firestore_constants.dart';
+import '../single_chat/allConstents/firestore_constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserChat {

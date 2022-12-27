@@ -1,34 +1,33 @@
 import 'dart:async';
 
-import '../chat/allConstents/firestore_constants.dart';
-import '../chat/allModels/message_history_item.dart';
-import '../chat/chat_listing_searchScreen.dart';
-import '../chat/chat_page.dart';
-import '../chat/chat_provider.dart';
+import '../group_chat/allConstents/firestore_constants.dart';
+import '../group_chat/allModels/message_history_item.dart';
+import '../group_chat/chat_page.dart';
+import '../group_chat/chat_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import '../chat/allConstents/date_time_extension.dart' as times;
+import '../group_chat/allConstents/date_time_extension.dart' as times;
 import 'package:shimmer/shimmer.dart';
 
-import '../config/colorconfig.dart';
+import '../../config/colorconfig.dart';
 
-class ChatListingScreen extends StatefulWidget {
+class GroupChatListingScreen extends StatefulWidget {
   final String currentUserId;
 
-  const ChatListingScreen(this.currentUserId);
+  const GroupChatListingScreen(this.currentUserId);
 
   @override
-  _ChatListingScreenState createState() => _ChatListingScreenState();
+  _GroupChatListingScreenState createState() => _GroupChatListingScreenState();
 }
 
-class _ChatListingScreenState extends State<ChatListingScreen> {
+class _GroupChatListingScreenState extends State<GroupChatListingScreen> {
   List<QueryDocumentSnapshot> listMessage = List.from([]);
   // List<MessageHistoryItem> listMsg = [];
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   final ScrollController listScrollController = ScrollController();
-  late ChatProvider chatProvider;
+  late GroupChatProvider chatProvider;
   int _limit = 20;
   final int _limitIncrement = 20;
 
@@ -36,7 +35,7 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
   void initState() {
     super.initState();
 
-    chatProvider = context.read<ChatProvider>();
+    chatProvider = context.read<GroupChatProvider>();
 
     listScrollController.addListener(_scrollListener);
 
@@ -111,7 +110,7 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
             child: Column(
           children: [
             //Top Bar
-            Stack(
+            /*  Stack(
               alignment: Alignment.center,
               children: [
                 Text(
@@ -230,12 +229,12 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
                 //     ))
               ],
             ),
-
+ */
             //Search Bar
-            InkWell(
+            /*     InkWell(
               onTap: () {
                 Get.to(
-                  ChatListingSearchScreen(widget.currentUserId),
+                  GroupChatListingSearchScreen(widget.currentUserId),
                 );
               },
               child: Container(
@@ -266,9 +265,9 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
                     )),
               ),
             ),
-
+ */
             //Messages Text
-            Container(
+            /*    Container(
               margin: EdgeInsets.only(
                   left: mediaQuery.width * 0.03,
                   top: mediaQuery.width * 0.05,
@@ -285,7 +284,7 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
                 ],
               ),
             ),
-
+ */
             //Users List
             Expanded(
                 child: StreamBuilder<QuerySnapshot>(
@@ -297,11 +296,8 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
                         listMessage.clear();
                         listMessage.addAll(snapshot.data!.docs);
                         if (listMessage.isEmpty) {
-                          return Padding(
-                            padding: EdgeInsets.only(
-                              top: mediaQuery.width * 0.05,
-                            ),
-                            child: const Text('No messages found!'),
+                          return const Center(
+                            child: Text('No groups found!'),
                           );
                         }
                         return ListView.builder(
@@ -343,12 +339,14 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
                                               numericDates: false, date: date);
                                       return InkWell(
                                         onTap: () {
-                                          Get.to(() => ChatPage(
+                                          Get.to(() => GroupChatPage(
                                                 peerNickname:
                                                     messageHistoryItem.peerName,
                                                 peerAvatar: messageHistoryItem
                                                     .peerImage,
                                                 peerId:
+                                                    messageHistoryItem.peerId,
+                                                currentUserId:
                                                     messageHistoryItem.peerId,
                                               ));
                                         },

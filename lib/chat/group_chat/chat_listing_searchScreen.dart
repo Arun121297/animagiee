@@ -1,27 +1,28 @@
 import 'dart:async';
 
-import '../chat/allConstents/firestore_constants.dart';
-import '../chat/allModels/message_history_item.dart';
-import '../chat/chat_page.dart';
-import '../chat/chat_provider.dart';
+import '../../config/colorconfig.dart';
+import '../group_chat/allConstents/firestore_constants.dart';
+import '../group_chat/allModels/message_history_item.dart';
+import '../group_chat/chat_page.dart';
+import '../group_chat/chat_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import '../chat/allConstents/date_time_extension.dart' as times;
-import '../config/colorconfig.dart';
+import '../group_chat/allConstents/date_time_extension.dart' as times;
 
-class ChatListingSearchScreen extends StatefulWidget {
+class GroupChatListingSearchScreen extends StatefulWidget {
   final String currentUserId;
 
-  const ChatListingSearchScreen(this.currentUserId);
+  const GroupChatListingSearchScreen(this.currentUserId);
 
   @override
-  _ChatListingSearchScreenState createState() =>
-      _ChatListingSearchScreenState();
+  _GroupChatListingSearchScreenState createState() =>
+      _GroupChatListingSearchScreenState();
 }
 
-class _ChatListingSearchScreenState extends State<ChatListingSearchScreen> {
+class _GroupChatListingSearchScreenState
+    extends State<GroupChatListingSearchScreen> {
   List<QueryDocumentSnapshot> listMessage = List.from([]);
   List<MessageHistoryItem> listMsg = [];
   List<MessageHistoryItem> totallistMsg = [];
@@ -29,14 +30,14 @@ class _ChatListingSearchScreenState extends State<ChatListingSearchScreen> {
   final StreamController<List<MessageHistoryItem>> _streamController =
       StreamController<List<MessageHistoryItem>>();
   Stream<List<MessageHistoryItem>> get _stream => _streamController.stream;
-  late ChatProvider chatProvider;
+  late GroupChatProvider chatProvider;
   final int _limit = 20;
 
   @override
   void initState() {
     super.initState();
 
-    chatProvider = context.read<ChatProvider>();
+    chatProvider = context.read<GroupChatProvider>();
 
     getChatMessages();
   }
@@ -87,7 +88,7 @@ class _ChatListingSearchScreenState extends State<ChatListingSearchScreen> {
     listMsg.clear();
     totallistMsg.clear();
     QuerySnapshot data = await firebaseFirestore
-        .collection(FirestoreConstants.chatHistoryList)
+        .collection(FirestoreConstants.groupHistory)
         .doc(widget.currentUserId)
         .collection(widget.currentUserId)
         // .where(FirestoreConstants.deleteForMe, isNotEqualTo: currentUserId)
@@ -211,10 +212,11 @@ class _ChatListingSearchScreenState extends State<ChatListingSearchScreen> {
                                       numericDates: false, date: date);
                               return InkWell(
                                 onTap: () {
-                                  Get.to(() => ChatPage(
+                                  Get.to(() => GroupChatPage(
                                         peerNickname: listMsg[index].peerName,
                                         peerAvatar: listMsg[index].peerImage,
                                         peerId: listMsg[index].peerId,
+                                        currentUserId: listMsg[index].peerId,
                                       ));
                                 },
                                 child: Container(
