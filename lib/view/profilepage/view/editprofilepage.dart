@@ -37,17 +37,28 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
     editScreenController.pFprofileimage = File("");
     profileBGImageController.profilebackgroundimage = File('');
     profileController.profilecontrollerfunction().then((value) async {
-      var data = profileController.getprofiledata[0].data;
+      var data = await profileController.getprofiledata[0].data;
       editScreenController.about.text = data!.about.toString();
       editScreenController.fname.text = data.firstName.toString();
       editScreenController.lname.text = data.lastName.toString();
       editScreenController.dob.text = data.dob.toString();
       editScreenController.mNumber.text = data.mobNo.toString();
+      editScreenController.email.text = data.email.toString();
       editScreenController.address.text = data.address.toString();
       editScreenController.pincode.text = data.pinCode.toString();
+      editScreenController.pFprofileimage = File(data.profileicon.toString());
+      profileBGImageController.profilebackgroundimage =
+          File(data.profilebackimg.toString());
     });
     super.initState();
   }
+
+  // @override
+  // void dispose() {
+  //   // TODO: implement dispose
+  //   Get.delete<ProfileController>();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +70,7 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
           children: [
             // Edit_Profile_AppBar_UI(),
             AppbarContainer(
-              title: "Profile",
+              title: "EProfile",
               logo: false,
               notification: false,
               search: false,

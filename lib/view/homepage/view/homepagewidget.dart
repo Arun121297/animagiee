@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import '../../bottombarfile/view/bottomnavibar.dart';
 import '../../homeAppBar/view/appbar.dart';
 // import '../createpost.dart';
+import '../controller/homescreen1controller.dart';
 import 'adminpost.dart';
 import 'createpost.dart';
 
@@ -22,8 +23,12 @@ class Homepage_Wid extends StatefulWidget {
 
 class _Homepage_WidState extends State<Homepage_Wid> {
   Controller controller = Get.put(Controller());
+  UserPostListController userPostListController =
+      Get.put(UserPostListController());
   @override
   void initState() {
+    // userPostListController.isLoadingService(true);
+    userPostListController.ottApiCall();
     controller.podcastplayblutton = false.obs;
     // controller.podcastplayblutton = false.obs;
     // TODO: implement initState

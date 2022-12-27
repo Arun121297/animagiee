@@ -54,6 +54,10 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
           return const Center(
             child: CircularProgressIndicator(),
           );
+        } else if (profileController.getprofiledata.isEmpty) {
+          return Center(
+            child: Text("Profile"),
+          );
         } else {
           return WillPopScope(
             onWillPop: () {

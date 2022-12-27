@@ -96,8 +96,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   controller: editScreenController.about,
                   onChanged: (val) {
                     setState(() {
-                      editScreenController.abt =
-                          editScreenController.about.text;
+                      // editScreenController.abt =
+                      //     editScreenController.about.text;
                     });
                   },
                   decoration: InputDecoration(
@@ -148,7 +148,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   controller: editScreenController.fname,
                   onChanged: (val) {
                     setState(() {
-                      editScreenController.firstname = val;
+                      // editScreenController.firstname = val;
                     });
                   },
                   decoration: InputDecoration(
@@ -198,18 +198,19 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               padding: EdgeInsets.only(
                   left: 8.0.sp, top: 0.0, bottom: 6.0.sp, right: 0.0),
               child: TextField(
+                  controller: editScreenController.lname,
                   decoration: InputDecoration(
-                border: InputBorder.none,
-                hintStyle: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 9.5.sp,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                hintText: "Last Name",
-                // hintText: "First Name"
-              )),
+                    border: InputBorder.none,
+                    hintStyle: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 9.5.sp,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    hintText: "Last Name",
+                    // hintText: "First Name"
+                  )),
             ),
           ),
         ),
@@ -255,7 +256,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         margin: EdgeInsets.only(left: 10),
                         child: Text(
                           items,
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Colors.black),
                         )),
                   );
                 }).toList();
@@ -457,7 +458,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                                 margin: EdgeInsets.only(left: 10),
                                 child: Text(
                                   items,
-                                  style: TextStyle(color: Colors.grey),
+                                  style: TextStyle(color: Colors.black),
                                 )),
                           );
                         }).toList();
@@ -550,18 +551,19 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       padding: EdgeInsets.only(
                           left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
                       child: TextField(
+                          controller: editScreenController.dob,
                           decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintStyle: GoogleFonts.jost(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        hintText: "DD/MM/YYYY",
-                        // hintText: "First Name"
-                      )),
+                            border: InputBorder.none,
+                            hintStyle: GoogleFonts.jost(
+                              textStyle: TextStyle(
+                                fontSize: 9.5.sp,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            hintText: "DD/MM/YYYY",
+                            // hintText: "First Name"
+                          )),
                     ),
                   ),
                 ),
@@ -599,18 +601,18 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 borderRadius: BorderRadius.circular(5.0.sp)),
             child: Padding(
               padding: EdgeInsets.only(
-                  left: 8.0.sp, top: 3.0, bottom: 0.0.sp, right: 0.0),
+                  left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
               child: TextField(
                   decoration: InputDecoration(
                 border: InputBorder.none,
-                labelStyle: GoogleFonts.jost(
+                hintStyle: GoogleFonts.jost(
                   textStyle: TextStyle(
                     fontSize: 9.5.sp,
                     color: Colors.grey,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                labelText: "Email",
+                hintText: "Email",
                 // hintText: "First Name"
               )),
             ),
@@ -648,6 +650,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               padding: EdgeInsets.only(
                   left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
               child: TextField(
+                  controller: editScreenController.mNumber,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -696,6 +699,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               padding: EdgeInsets.only(
                   left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
               child: TextField(
+                  controller: editScreenController.address,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintStyle: GoogleFonts.jost(
@@ -946,6 +950,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               padding: EdgeInsets.only(
                   left: 8.0.sp, top: 0.0, bottom: 6.5.sp, right: 0.0),
               child: TextField(
+                  controller: editScreenController.pincode,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       border: InputBorder.none,

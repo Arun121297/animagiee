@@ -60,6 +60,7 @@ dependencies:
   dio: ^4.0.6
   http_parser: ^4.0.2
   flutter_facebook_auth: ^5.0.6
+  cached_network_image: ^3.2.3
    
 
 

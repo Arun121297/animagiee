@@ -12,7 +12,15 @@ import 'package:http_parser/http_parser.dart';
 
 class EditScreenService {
   Future<EditModel?> editprofileservicesection(
-      {yourself, profile_picture, fname}) async {
+      {yourself,
+      profile_picture,
+      fname,
+      lname,
+      dob,
+      email,
+      address,
+      picode,
+      mnumber}) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
     var token = sharedPreferences.getString(Constants.authToken);
@@ -28,10 +36,25 @@ class EditScreenService {
     try {
       dio.FormData formData;
       if (profile_picture == '') {
-        formData = dio.FormData.fromMap(
-            {"firstName": fname, "about": yourself, "profileicon": ''});
+        formData = dio.FormData.fromMap({
+          "firstName": fname.toString(),
+          "about": yourself.toString(),
+          "profileicon": '',
+          'dob': dob.toString(),
+          "email": email.toString(),
+          "mobNo": mnumber.toString(),
+          "address": address.toString(),
+          "pinCode": picode.toString(),
+          "lastName": lname.toString()
+        });
       } else {
         formData = dio.FormData.fromMap({
+          'dob': dob.toString(),
+          "lastName": lname.toString(),
+          "email": email.toString(),
+          "mobNo": mnumber.toString(),
+          "address": address.toString(),
+          "pinCode": picode.toString(),
           "firstName": fname.toString(),
           "about": yourself.toString(),
           "profileicon": await dio.MultipartFile.fromFile(

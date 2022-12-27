@@ -8,6 +8,7 @@ import 'package:animagieeui/view/homepage/view/share.dart';
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
 import 'package:animagieeui/view/instancepage/controller/user_postListController.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -36,12 +37,11 @@ class _Admin_PostState extends State<Admin_Post> {
   UserPostListController userPostListController =
       Get.put(UserPostListController());
 
-  @override
-  void initState() {
-    userPostListController.ottApiCall();
-    log("sdatassss_____---->${userPostListController.data}");
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   log("sdatassss_____---->${userPostListController.data}");
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _Admin_PostState extends State<Admin_Post> {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      } else if (userPostListController.data[0].data!.isEmpty) {
+      } else if (userPostListController.data.isEmpty) {
         return Container(
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.height - 212,
@@ -61,9 +61,9 @@ class _Admin_PostState extends State<Admin_Post> {
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: userPostListController.data[0].data!.length,
+              itemCount: userPostListController.data.length,
               itemBuilder: (context, index) {
-                var data = userPostListController.data[0].data!;
+                var data = userPostListController.data;
                 return Column(
                   children: [
                     Card(
@@ -87,7 +87,25 @@ class _Admin_PostState extends State<Admin_Post> {
                                   ));
                                 },
                                 child: CircleAvatar(
+                                  // decoration:
+                                  //     BoxDecoration(shape: BoxShape.circle),
+                                  // child: ClipRRect(
+                                  //   child: CachedNetworkImage(
+                                  //       fit: BoxFit.cover,
+                                  //       // alignment: Alignment.center,
+                                  //       placeholder: (context, url) => SizedBox(
+                                  //           height: 5,
+                                  //           width: 5,
+                                  //           child:
+                                  //               const CircularProgressIndicator()),
+                                  //       imageUrl:
+                                  //           data[index].profileicon.toString()),
+                                  // ),
+
                                   backgroundImage: NetworkImage(
+                                      // placeholder: ((context, url) =>
+                                      //     CircularProgressIndicator()),
+                                      // imageUrl:
                                       data[index].profileicon.toString()),
                                 ),
                               ),
@@ -155,24 +173,33 @@ class _Admin_PostState extends State<Admin_Post> {
                             height: 1.0.hp,
                             //  12,
                           ),
-                          userPostListController
-                                      .data[0].data![index].posttype ==
-                                  "image"
-                              ? Container(
-                                  height: 45.0.hp,
-                                  //  346,
-                                  width: 95.0.wp,
-                                  // 346,
-                                  decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.circular(15.0.sp),
-                                    image: DecorationImage(
-                                      image: NetworkImage(userPostListController
-                                          .data[0]
-                                          .data![index]
-                                          .addImagesOrVideos
-                                          .toString()),
-                                      fit: BoxFit.cover,
+                          userPostListController.data[index].posttype == "image"
+                              ? Center(
+                                  child: Container(
+                                    height: 45.0.hp,
+                                    //  346,
+                                    width: 95.0.wp,
+                                    // 346,
+                                    alignment: Alignment.center,
+                                    // decoration: BoxDecoration(
+                                    //   // borderRadius:
+                                    //       // BorderRadius.circular(15.0.sp),
+                                    // ),
+                                    child: ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(10.0.sp),
+                                      child: CachedNetworkImage(
+                                          fit: BoxFit.cover,
+                                          // alignment: Alignment.center,
+                                          placeholder: (context, url) => Center(
+                                              child: SizedBox(
+                                                  height: 10,
+                                                  width: 10,
+                                                  child:
+                                                      const CircularProgressIndicator())),
+                                          imageUrl: userPostListController
+                                              .data[index].addImagesOrVideos
+                                              .toString()),
                                     ),
                                   ),
                                 )
@@ -188,7 +215,7 @@ class _Admin_PostState extends State<Admin_Post> {
                                   ),
                                   child: Video_Player(
                                     urls: userPostListController
-                                        .data[0].data![index].addImagesOrVideos
+                                        .data[index].addImagesOrVideos
                                         .toString(),
                                   ),
                                 ),
