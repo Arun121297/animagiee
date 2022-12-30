@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/createpost/better_player.dart';
 
 // import 'package:animagieeui/view/createpost/view/postmethod.dart';
 // import 'package:animagieeui/view/createpost/view/tagpeople.dart';
@@ -181,8 +182,8 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                                         border: Border.all(
                                             width: 2, color: animagiee_CL),
                                       ),
-                                      child: Video_Player(
-                                        urls: controller.imagevideo.value.url
+                                      child: BetterVideoPlayer(
+                                        url: controller.imagevideo.value.url
                                             .toString(),
                                       ),
                                     );

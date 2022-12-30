@@ -36,21 +36,25 @@ class Datum {
     this.id,
     this.profileicon,
     this.username,
+    this.requestStatus,
   });
 
   String? id;
   String? profileicon;
   String? username;
+  String? requestStatus;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["_id"],
         profileicon: json["profileicon"],
         username: json["username"],
+        requestStatus: json["requestStatus"],
       );
 
   Map<String, dynamic> toJson() => {
         "_id": id,
         "profileicon": profileicon,
         "username": username,
+        "requestStatus": requestStatus,
       };
 }

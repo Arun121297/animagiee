@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/createpost/better_player.dart';
 import 'package:animagieeui/view/createpost/view/videoplayer.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofile_getpost.dart';
 import 'package:flutter/material.dart';
@@ -140,8 +141,8 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           borderRadius: BorderRadius.circular(8.0.sp),
                           border: Border.all(width: 2, color: animagiee_CL),
                         ),
-                        child: Video_Player(
-                          urls: userPostProfilePostController
+                        child: BetterVideoPlayer(
+                          url: userPostProfilePostController
                               .data[index].addImagesOrVideos
                               .toString(),
                         ),

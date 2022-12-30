@@ -763,8 +763,9 @@ class ChatPageState extends State<ChatPage> {
                                           .doc(currentUserId)
                                           .get();
 
-                                  List blockedByList = (snapshotBlockedByList
-                                      .data()! as dynamic)["blockedBy"];
+                                  List blockedByList = [];
+                                  // (snapshotBlockedByList
+                                  // .data()! as dynamic)["blockedBy"];
 
                                   DocumentSnapshot snapshotBlockedList =
                                       await firebaseFirestore

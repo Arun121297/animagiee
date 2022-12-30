@@ -1,6 +1,7 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/Appbar/appbarcontroller.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homeAppBar/searchScreen.dart';
 // import 'package:animagieeui/view/homeAppBar/view/prot.dart';
 
 import 'package:flutter/material.dart';
@@ -58,6 +59,7 @@ class AppbarContainer extends StatefulWidget {
 class _AppbarContainerState extends State<AppbarContainer> {
   Controller controller = Get.put(Controller());
   AppbarController appbarController = Get.put(AppbarController());
+
   @override
   Widget build(BuildContext context) {
     // widget.searchfunction = true;
@@ -268,9 +270,10 @@ class _AppbarContainerState extends State<AppbarContainer> {
                           child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  widget.searchlist;
-                                  widget.searchfunction = false;
-                                  widget.searchfunctionclose = true;
+                                  Get.to(const SearchScreen());
+                                  // widget.searchlist;
+                                  // widget.searchfunction = false;
+                                  // widget.searchfunctionclose = true;
                                 });
                               },
                               icon: const Icon(

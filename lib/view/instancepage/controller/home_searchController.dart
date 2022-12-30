@@ -12,7 +12,7 @@ class SearchHomeController extends GetxController {
   RxBool textFocus = false.obs;
   //var loginData = List<FarmerLoginModel>().obs;
   TextEditingController searchTextController = TextEditingController();
-  List<HomeSearchModel> get bemeliUserList {
+  List<HomeSearchModel> get homeSearchList {
     return [...searchUserList];
   }
 
@@ -25,11 +25,11 @@ class SearchHomeController extends GetxController {
     userList.clear();
 
     try {
-      var bemeliUserListData =
+      var homeSearchListData =
           await SearchHomeServices.searchHomeService(userName);
 
-      if (bemeliUserListData != null) {
-        searchUserList.add(bemeliUserListData);
+      if (homeSearchListData != null) {
+        searchUserList.add(homeSearchListData);
         userList.addAll(searchUserList[0].data!);
 
         isLoadingService(true);

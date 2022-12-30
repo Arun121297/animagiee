@@ -63,7 +63,7 @@ class Datum {
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         postid: json["postid"],
         indiviual: json["indiviual"],
-        addImagesOrVideos: json["addImagesOrVideos"],
+        addImagesOrVideos: json["addImagesOrVideos"] ?? "",
         posttype: json["posttype"],
         postowner: Postowner.fromJson(json["postowner"]),
         profileicon: json["profileicon"],

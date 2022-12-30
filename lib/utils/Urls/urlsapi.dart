@@ -16,4 +16,11 @@ class Urls {
   static const userpostprofile = '${baseUrl}api/post/userPostProfile';
   static const userpostprofileget = '${baseUrl}api/post/postwithlike';
   static const communitiUserpost = '${baseUrl}api/club/joinedClublistother';
+  static const followrequest = '${baseUrl}api/follow/ani_followrequest';
+  static const followgetrequest = '${baseUrl}api/follow/listFriendrequest';
+  static const confirmfollowrequest = '${baseUrl}api/follow/acceptRequest';
+  static const deletefollowrequest = '${baseUrl}api/follow/ignoreRequest';
+  static const myfollower = '${baseUrl}api/follow/myFollowers';
+  static const myfolloweruser = '${baseUrl}api/follow/myFollowingusers';
+  static const otheruserfollow = '${baseUrl}api/follow/otherFollowers';
 }

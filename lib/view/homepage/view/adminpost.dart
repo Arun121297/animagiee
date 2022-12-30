@@ -1,13 +1,13 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/createpost/view/videoplayer.dart';
+import 'package:animagieeui/view/createpost/better_player.dart';
+
 import 'package:animagieeui/view/doctor/view/doctorprofiless/header.dart';
 import 'package:animagieeui/view/homepage/view/share.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
-import 'package:animagieeui/view/instancepage/controller/user_postListController.dart';
-import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -15,8 +15,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
-import '../../animagieeprofile/view/animalsprofiles.dart';
-import '../../createpost/view/videoplayer.dart';
+
 import '../../userprofile/view/userprofile.dart';
 import '../controller/homescreen1controller.dart';
 import 'bookmark.dart';
@@ -88,8 +87,10 @@ class _Admin_PostState extends State<Admin_Post> {
                                   ));
                                 },
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      data[index].profileicon.toString()),
+                                  backgroundImage: NetworkImage(data[index]
+                                      .postowner!
+                                      .profileicon
+                                      .toString()),
                                 ),
                               ),
                               const SizedBox(
@@ -105,7 +106,7 @@ class _Admin_PostState extends State<Admin_Post> {
                                   width: 70.0.wp,
                                   // color: Colors.amber,
                                   child: Text(
-                                    data[index].username.toString(),
+                                    data[index].postowner!.username.toString(),
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
@@ -156,9 +157,7 @@ class _Admin_PostState extends State<Admin_Post> {
                             height: 1.0.hp,
                             //  12,
                           ),
-                          userPostListController
-                                      .data[0].data![index].posttype ==
-                                  "image"
+                          data[index].posttype == "image"
                               ? Container(
                                   height: 45.0.hp,
                                   //  346,
@@ -168,9 +167,7 @@ class _Admin_PostState extends State<Admin_Post> {
                                     borderRadius:
                                         BorderRadius.circular(15.0.sp),
                                     image: DecorationImage(
-                                      image: NetworkImage(userPostListController
-                                          .data[0]
-                                          .data![index]
+                                      image: NetworkImage(data[index]
                                           .addImagesOrVideos
                                           .toString()),
                                       fit: BoxFit.cover,
@@ -178,21 +175,24 @@ class _Admin_PostState extends State<Admin_Post> {
                                   ),
                                 )
                               : Container(
-                                  height: 20.0.hp,
+                                  height: 45.0.hp,
                                   //  134,
                                   width: 93.0.wp,
                                   // 339,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8.0.sp),
-                                    border: Border.all(
-                                        width: 2, color: animagiee_CL),
+                                    borderRadius:
+                                        BorderRadius.circular(15.0.sp),
                                   ),
-                                  child: Video_Player(
-                                    urls: userPostListController
-                                        .data[0].data![index].addImagesOrVideos
-                                        .toString(),
+                                  child: BetterVideoPlayer(
+                                      url: data[index]
+                                          .addImagesOrVideos
+                                          .toString())
+                                  //     Video_Player(
+                                  //   urls: data[index]
+                                  //       .addImagesOrVideos
+                                  //       .toString(),
+                                  // ),
                                   ),
-                                ),
                           // Container(
                           //   height: 45.0.hp,
                           //   //  346,
