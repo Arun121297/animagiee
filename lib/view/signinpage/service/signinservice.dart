@@ -9,7 +9,8 @@ import '../model/signinreg.dart';
 class SigninService {
   Future<SigninRegister?> signinservice({email, username}) async {
     // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    // var token = sharedPreferences.getString(Constants.authToken);
+    // var token = sharedPr } else {
+
     // log("token-->$token");
     try {
       var data = {'emailorphone': email, 'username': username};

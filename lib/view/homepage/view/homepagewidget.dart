@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animagieeui/controller/controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,7 @@ class _Homepage_WidState extends State<Homepage_Wid> {
 
   UserPostListController userPostListController =
       Get.put(UserPostListController());
+  String? profileImage = "";
   @override
   void initState() {
     // userPostListController.isLoadingService(true);
@@ -38,6 +41,9 @@ class _Homepage_WidState extends State<Homepage_Wid> {
   fetchData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userId = sharedPreferences.getString(Constants.userId);
+    profileImage = sharedPreferences.getString(Constants.profileImage);
+    log(profileImage!);
+    setState(() {});
     if (userId!.isNotEmpty) {
       createUserInFirebase(userId);
     }
@@ -88,41 +94,47 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: const Customized_Bottom_Bar(),
-      body: WillPopScope(
-        onWillPop: () {
-          return null!;
-        },
-        child: SafeArea(
-          child: SizedBox(
-            // height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: [
-                AppbarContainer(
-                  title: "",
-                  backarrow: false,
-                  firstscreen: false,
-                  navipage: null,
-                  notification: true,
-                  edit: false,
-                  notification_back_arrow: false,
-                  search: true,
-                  chat: true,
-                  logo: true,
-                  podcast: true,
-                  fun: null,
-                  searchfunction: true,
-                  searchfunctionclose: false,
-                  searchlist: "",
-                ),
-                const CreatePost(),
+      body: profileImage!.isEmpty
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : WillPopScope(
+              onWillPop: () {
+                return null!;
+              },
+              child: SafeArea(
+                child: SizedBox(
+                  // height: MediaQuery.of(context).size.height,
+                  child: Column(
+                    children: [
+                      AppbarContainer(
+                        title: "",
+                        backarrow: false,
+                        firstscreen: false,
+                        navipage: null,
+                        notification: true,
+                        edit: false,
+                        notification_back_arrow: false,
+                        search: true,
+                        chat: true,
+                        logo: true,
+                        podcast: true,
+                        fun: null,
+                        searchfunction: true,
+                        searchfunctionclose: false,
+                        searchlist: "",
+                      ),
+                      CreatePost(
+                        profileImage: profileImage,
+                      ),
 
-                ////adminpost
-                const Expanded(child: Admin_Post())
-              ],
+                      ////adminpost
+                      const Expanded(child: Admin_Post())
+                    ],
+                  ),
+                ),
+              ),
             ),
-          ),
-        ),
-      ),
     );
   }
 }

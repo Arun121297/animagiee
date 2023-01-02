@@ -36,7 +36,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
       bottomNavigationBar: Obx(() {
         return Visibility(
           visible: controller.podcastplayblutton.value,
-          child: Playing_Music_UI(),
+          child: const Playing_Music_UI(),
         );
       }),
       // bottomNavigationBar: Customized_Bottom_Bar(),
@@ -64,7 +64,7 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
           SizedBox(
             height: 25.0.hp,
           ),
-          const CommingZoon()
+          CommingZoon()
           // Expanded(
           //     child: SingleChildScrollView(
           //         child: SizedBox(

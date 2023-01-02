@@ -6,14 +6,20 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'postcreation.dart';
 
-class CreatePost extends StatelessWidget {
-  const CreatePost({Key? key}) : super(key: key);
+class CreatePost extends StatefulWidget {
+  CreatePost({Key? key, required this.profileImage}) : super(key: key);
+  String? profileImage;
 
+  @override
+  State<CreatePost> createState() => _CreatePostState();
+}
+
+class _CreatePostState extends State<CreatePost> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(const Post());
+        Get.to(() => const Post());
       },
       child: Container(
         height: 9.0.hp,
@@ -26,8 +32,11 @@ class CreatePost extends StatelessWidget {
             SizedBox(
               width: 5.0.wp,
             ),
-            const CircleAvatar(
-                backgroundImage: ExactAssetImage("images/Fishes.jpg")),
+            widget.profileImage!.isNotEmpty
+                ? CircleAvatar(
+                    backgroundImage: NetworkImage(widget.profileImage ?? ""))
+                : const CircleAvatar(
+                    backgroundImage: ExactAssetImage("images/Fishes.jpg")),
             const VerticalDivider(color: Colors.transparent, width: 13),
             Container(
                 width: 60.0.wp,

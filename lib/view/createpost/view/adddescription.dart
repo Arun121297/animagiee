@@ -1,19 +1,20 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/post/controllers/post_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
 
-class Emogie_Description_UI extends StatefulWidget {
-  const Emogie_Description_UI({Key? key}) : super(key: key);
+class EmogieDescriptionUI extends StatefulWidget {
+  const EmogieDescriptionUI({Key? key}) : super(key: key);
 
   @override
-  State<Emogie_Description_UI> createState() => _Emogie_Description_UIState();
+  State<EmogieDescriptionUI> createState() => _EmogieDescriptionUIState();
 }
 
-class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
+class _EmogieDescriptionUIState extends State<EmogieDescriptionUI> {
+  final PostController _controller = Get.find();
   List emogi = [
     "images/emogi_1.png",
     "images/emoji_2.png",
@@ -25,7 +26,7 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // color: Color.fromRGBO(76, 175, 80, 1),
       height: 25.0.hp,
       // 200,
@@ -36,9 +37,16 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
             elevation: 3,
             child: Container(
               margin: EdgeInsets.only(left: 15.0.sp),
+              height: 22.0.hp,
+              //  150,
+              width: 97.0.wp,
+              // 349,
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10.0.sp)),
               child: TextField(
                 maxLines: 5,
                 minLines: 1,
+                controller: _controller.description,
                 decoration: InputDecoration.collapsed(
                     hintStyle: GoogleFonts.poppins(
                       height: 3,
@@ -50,16 +58,10 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
                     ),
                     hintText: 'Add your Description Here'),
               ),
-              height: 22.0.hp,
-              //  150,
-              width: 97.0.wp,
-              // 349,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10.0.sp)),
             ),
           ),
         ),
-        Positioned(
+        /*    Positioned(
           top: 90.0.sp,
           left: 0.0,
           right: 0.0,
@@ -78,7 +80,7 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
                   borderRadius: BorderRadius.circular(10.0.sp)),
               child: ListView.separated(
                 separatorBuilder: (context, index) {
-                  return SizedBox(
+                  return const SizedBox(
                     width: 2,
                   );
                 },
@@ -95,6 +97,7 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
             ),
           ),
         )
+       */
       ]),
     );
   }

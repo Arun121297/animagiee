@@ -115,7 +115,9 @@ class _AppbarContainerState extends State<AppbarContainer> {
                               size: 12.0.sp,
                             ),
                             onPressed: () {
-                              Get.to(widget.fun);
+                              // TODO:when your need to change page just remove comment
+                              // Get.to(widget.fun);
+                              Get.back();
                             },
                           ),
                         ),

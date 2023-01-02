@@ -1,6 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/communitypage/view/communiti.dart';
-import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:animagieeui/view/instancepage/controller/updateinstancecontroller.dart';
 
@@ -12,13 +11,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 
-import '../../../data/pages.dart';
 import '../../bottombarfile/view/bottomnavibar.dart';
 // import '../../bottombarfile/view/bottomnavibar.dart';
 import '../../homeAppBar/view/appbar.dart';
-import '../../homeAppBar/view/notification.dart';
-import '../../homeAppBar/view/search.dart';
-import '../../profilepage/view/profileappbar.dart';
 // import '../../instancepage/view/communiti.dart';
 // import 'communiti.dart';
 
@@ -26,7 +21,7 @@ import 'clubs/myclubs.dart';
 // import 'communitieslist.dart';
 
 class Community_Page_UI extends StatefulWidget {
-  Community_Page_UI({Key? key}) : super(key: key);
+  const Community_Page_UI({Key? key}) : super(key: key);
 
   @override
   State<Community_Page_UI> createState() => _Community_Page_UIState();
@@ -41,14 +36,14 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      bottomNavigationBar: Customized_Bottom_Bar(),
+      bottomNavigationBar: const Customized_Bottom_Bar(),
       body: Obx(() {
         if (instanceContoroller.instancescreenloadingindicator.value) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (instanceContoroller.getinstancedata.isEmpty) {
-          return Center(
+          return const Center(
             child: Text("no Communities"),
           );
         } else {
@@ -89,7 +84,7 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
                     //     // Home_Page(),
                     //     context),
                     SizedBox(height: 3.0.hp),
-                    Community_UI(),
+                    const Community_UI(),
                     // Communitieslist(),
                     SizedBox(height: 14.0.hp),
                     GestureDetector(

@@ -57,7 +57,7 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
           edit: false,
           firstscreen: false,
           navipage: null,
-          fun: Audio_Podcast_UI(),
+          fun: const Audio_Podcast_UI(),
           title: "Audio Podcast",
         ),
 
@@ -107,7 +107,7 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                   SizedBox(height: 5.0.sp
                       // 12,
                       ),
-                  Podcast_Post_Method_UI(),
+                  const Podcast_Post_Method_UI(),
                   SizedBox(height: 8.0.wp
                       // 24,
                       ),
@@ -127,7 +127,7 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                   SizedBox(height: 1.0.hp
                       //  12,
                       ),
-                  PodCast_Creating_Group_UI(),
+                  const PodCast_Creating_Group_UI(),
                   SizedBox(height: 1.0.hp
                       //  12,
                       ),
@@ -137,7 +137,7 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [addAudio(), addImage()]),
                   ),
-                  Emogie_Description_UI(),
+                  const EmogieDescriptionUI(),
                   // SizedBox(
                   //   height: 24,
                   // ),
@@ -145,12 +145,13 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                   SizedBox(
                     height: 1.0.hp,
                   ),
-                  Timer(),
+                  const Timer(),
                   SizedBox(
                     height: 7.0.hp,
                     //  40,
                   ),
                   Align(
+                    alignment: Alignment.center,
                     child: GestureDetector(
                       onTap: () {
                         Get.to(Audio_Podcast_UI());
@@ -175,8 +176,6 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                         ),
                       ),
                     ),
-                    // child: controller.communityNext("Post", Audio_Podcast_UI()),
-                    alignment: Alignment.center,
                   ),
                 ],
               ),
@@ -199,6 +198,9 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
           },
           child: Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            height: 6.0.hp,
+            //  45,
+            width: 45.0.wp,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -218,9 +220,6 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                 ),
               ],
             ),
-            height: 6.0.hp,
-            //  45,
-            width: 45.0.wp,
             //  150,
           ),
         ));
@@ -238,6 +237,9 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
           },
           child: Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            height: 6.0.hp,
+            //  45,
+            width: 45.0.wp,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -257,9 +259,6 @@ class _Start_Your_Podcast_UIState extends State<Start_Your_Podcast_UI> {
                 ),
               ],
             ),
-            height: 6.0.hp,
-            //  45,
-            width: 45.0.wp,
             //  150,
           ),
         ));

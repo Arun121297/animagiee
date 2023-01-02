@@ -13,9 +13,6 @@ import '../../homeAppBar/view/appbar.dart';
 // import '../../homeAppBar/view/search.dart';
 // import '../../profilepage/profileappbar.dart';
 // import 'appoinmentavalable.dart';
-import 'appoinmentavalable.dart';
-import 'dotordetails.dart';
-import 'doctorprofilephoto.dart';
 // import 'dotordetails.dart';
 
 class Doctors_List_UI extends StatefulWidget {
@@ -54,7 +51,7 @@ class _Doctors_List_UIState extends State<Doctors_List_UI> {
               height: 25.0.hp,
               //  31,
             ),
-            const CommingZoon()
+            CommingZoon()
             // SizedBox(
             //   height: MediaQuery.of(context).size.height - 189,
             //   child: ListView.builder(

@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
@@ -196,20 +197,25 @@ class _Admin_PostState extends State<Admin_Post> {
                                     ),
                                   ),
                                 )
-                              : Container(
-                                  height: 20.0.hp,
-                                  //  134,
-                                  width: 93.0.wp,
-                                  // 339,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8.0.sp),
-                                    border: Border.all(
-                                        width: 2, color: animagiee_CL),
-                                  ),
-                                  child: Video_Player(
-                                    urls: userPostListController
-                                        .data[index].addImagesOrVideos
-                                        .toString(),
+                              : VisibilityDetector(
+                                  onVisibilityChanged: (info) {},
+                                  key: Key(index.toString()),
+                                  child: Container(
+                                    height: 20.0.hp,
+                                    //  134,
+                                    width: 93.0.wp,
+                                    // 339,
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.circular(8.0.sp),
+                                      border: Border.all(
+                                          width: 2, color: animagiee_CL),
+                                    ),
+                                    child: Video_Player(
+                                      urls: userPostListController
+                                          .data[index].addImagesOrVideos
+                                          .toString(),
+                                    ),
                                   ),
                                 ),
                           // Container(

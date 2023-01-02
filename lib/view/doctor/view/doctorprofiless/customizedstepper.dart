@@ -29,8 +29,8 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Expanded(child: SizedBox()),
-                Container(
+                const Expanded(child: SizedBox()),
+                SizedBox(
                   // color: Colors.green,
                   width: 9.0.wp,
                   child: Stack(alignment: Alignment.center, children: [
@@ -50,14 +50,14 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                   ]),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.only(left: 10),
                   // color: Colors.green,
-                  child: Text(
+                  child: const Text(
                     " -------------------",
                     style: TextStyle(color: Colors.red),
                   ),
                 ),
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
                 Stack(alignment: Alignment.center, children: [
                   CircleAvatar(
                     radius: 8.5.sp,
@@ -76,12 +76,12 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     ),
                   ),
                 ]),
-                Expanded(child: SizedBox()),
-                Text(
+                const Expanded(child: SizedBox()),
+                const Text(
                   " -------------------",
                   style: TextStyle(color: Colors.red),
                 ),
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
                 Stack(alignment: Alignment.center, children: [
                   CircleAvatar(
                     radius: 8.5.sp,
@@ -100,7 +100,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     ),
                   ),
                 ]),
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
               ],
             ),
             SizedBox(
@@ -124,7 +124,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     ),
                   ),
                 ),
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
                 Container(
                   child: Text(
                     "Pet information",
@@ -137,7 +137,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                     ),
                   ),
                 ),
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
                 Container(
                   child: Text(
                     "Checkout",
@@ -163,7 +163,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                 ? stepper2()
                 : stepindex == 3
                     ? stepper3()
-                    : SizedBox(),
+                    : const SizedBox(),
         SizedBox(
           height: 1.0.hp,
         ),
@@ -185,7 +185,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
               SizedBox(
                 width: 2.0.wp,
               ),
-              Icon(Icons.calendar_month_outlined),
+              const Icon(Icons.calendar_month_outlined),
               SizedBox(
                 width: 2.0.wp,
               ),
@@ -204,7 +204,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
           SizedBox(
             height: 2.0.hp,
           ),
-          Carosel_slider_Appointment_UI(),
+          const Carosel_slider_Appointment_UI(),
           SizedBox(
             height: 2.0.hp,
             //  20,
@@ -214,7 +214,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
               SizedBox(
                 width: 2.0.wp,
               ),
-              Icon(Icons.alarm),
+              const Icon(Icons.alarm),
               SizedBox(
                 width: 2.0.wp,
               ),
@@ -241,8 +241,8 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
             color: doctor_CL,
             alignment: Alignment.center,
             child: GridView.builder(
-                physics: ScrollPhysics(),
-                padding: EdgeInsets.all(8.0),
+                physics: const ScrollPhysics(),
+                padding: const EdgeInsets.all(8.0),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   // childAspectRatio: 5,
@@ -363,11 +363,10 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                 height: 5.0.hp,
                 //  40,
                 child: TextField(
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     filled: true,
                     enabledBorder: const OutlineInputBorder(
-                      borderSide:
-                          const BorderSide(color: animagiee_CL, width: 0.0),
+                      borderSide: BorderSide(color: animagiee_CL, width: 0.0),
                     ),
                     // focusedBorder: ...
                     border: OutlineInputBorder(
@@ -396,11 +395,10 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                 height: 5.0.hp,
                 //  40,
                 child: TextField(
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     filled: true,
                     enabledBorder: const OutlineInputBorder(
-                      borderSide:
-                          const BorderSide(color: animagiee_CL, width: 0.0),
+                      borderSide: BorderSide(color: animagiee_CL, width: 0.0),
                     ),
                     // focusedBorder: ...
                     border: OutlineInputBorder(
@@ -429,11 +427,10 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                 height: 10.0.hp,
                 // 80,
                 child: TextField(
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     filled: true,
                     enabledBorder: const OutlineInputBorder(
-                      borderSide:
-                          const BorderSide(color: animagiee_CL, width: 0.0),
+                      borderSide: BorderSide(color: animagiee_CL, width: 0.0),
                     ),
                     // focusedBorder: ...
                     border: OutlineInputBorder(
@@ -484,7 +481,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                       width: 3.0.wp,
                       // 10,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.file_upload_outlined,
                       color: Colors.white,
                     )
@@ -506,10 +503,10 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
           height: 5.0.hp,
         ),
         Container(
-          margin: EdgeInsets.only(left: 10),
+          margin: const EdgeInsets.only(left: 10),
           child: Row(
             children: [
-              Icon(Icons.fact_check_outlined),
+              const Icon(Icons.fact_check_outlined),
               SizedBox(
                 width: 2.0.wp,
               ),
@@ -588,7 +585,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                             SizedBox(
                               width: 2.0.wp,
                             ),
-                            Text(":"),
+                            const Text(":"),
                             SizedBox(
                               width: 2.0.wp,
                             ),
@@ -626,7 +623,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                             SizedBox(
                               width: 2.0.wp,
                             ),
-                            Text(":"),
+                            const Text(":"),
                             SizedBox(
                               width: 2.0.wp,
                             ),
@@ -661,7 +658,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                             SizedBox(
                               width: 2.0.wp,
                             ),
-                            Text(":"),
+                            const Text(":"),
                             SizedBox(
                               width: 2.0.wp,
                             ),
@@ -683,7 +680,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                         Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
+                            SizedBox(
                               width: 31.0.wp,
                               child: Text(
                                 "Pet Name",
@@ -699,11 +696,11 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                             SizedBox(
                               width: 2.0.wp,
                             ),
-                            Text(":"),
+                            const Text(":"),
                             SizedBox(
                               width: 2.0.wp,
                             ),
-                            Container(
+                            SizedBox(
                               width: 42.0.wp,
                               child: Text(
                                 "Johnney",
@@ -721,7 +718,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                         Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
+                            SizedBox(
                               width: 31.0.wp,
                               child: Text(
                                 "Pet Type",
@@ -737,7 +734,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                             SizedBox(
                               width: 2.0.wp,
                             ),
-                            Text(":"),
+                            const Text(":"),
                             SizedBox(
                               width: 2.0.wp,
                             ),
@@ -775,7 +772,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
                             SizedBox(
                               width: 2.0.wp,
                             ),
-                            Text(":"),
+                            const Text(":"),
                             SizedBox(
                               width: 2.0.wp,
                             ),
@@ -901,7 +898,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
               setState(() {
                 stepindex = stepindex + 1;
                 if (stepindex > 3) {
-                  Get.to(Successfull_Payment_UI());
+                  Get.to(const Successfull_Payment_UI());
                 }
               });
             },
@@ -911,7 +908,7 @@ class _Customized_Stepper_UIState extends State<Customized_Stepper_UI> {
               width: 90.0.wp,
               // 310,
               decoration: BoxDecoration(
-                  color: Color(0xff272727),
+                  color: const Color(0xff272727),
                   borderRadius: BorderRadius.circular(12.0.sp)),
               alignment: Alignment.center,
               child: Text(

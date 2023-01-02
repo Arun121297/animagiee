@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class _Video_PlayerState extends State<Video_Player> {
   @override
   void initState() {
     super.initState();
+    log("oooooooooooo${widget.urls}");
     controller.videocontroller = VideoPlayerController.file(
       File(widget.urls),
     )..initialize();

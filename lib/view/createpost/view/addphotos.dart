@@ -1,23 +1,22 @@
-import 'dart:io';
-
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/post/controllers/post_controller.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
 
 import 'package:get/get.dart';
 import '../../../config/colorconfig.dart';
 
-class Add_Photos_UI extends StatefulWidget {
-  const Add_Photos_UI({Key? key}) : super(key: key);
+class AddPhotosUI extends StatefulWidget {
+  AddPhotosUI({Key? key, required this.thumbnail}) : super(key: key);
+  Function thumbnail;
 
   @override
-  State<Add_Photos_UI> createState() => _Add_Photos_UIState();
+  State<AddPhotosUI> createState() => _AddPhotosUIState();
 }
 
-class _Add_Photos_UIState extends State<Add_Photos_UI> {
-  Controller controller = Get.put(Controller());
+class _AddPhotosUIState extends State<AddPhotosUI> {
+  PostController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +24,17 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
         elevation: 3,
         child: GestureDetector(
           onTap: () {
-            setState(() {
-              filepicker();
-            });
+            controller.pickFileFromGallery(widget.thumbnail, FileType.image);
           },
           child: Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+            height: 6.0.hp,
+            //  45,
+            width: 45.0.wp,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(
+                const Icon(
                   Icons.camera_alt,
                   color: animagiee_CL,
                 ),
@@ -50,15 +50,12 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
                 ),
               ],
             ),
-            height: 6.0.hp,
-            //  45,
-            width: 45.0.wp,
             //  150,
           ),
         ));
   }
 
-  filepicker() async {
+  /*  filepicker() async {
     final ImagePicker imagePicker = ImagePicker();
     final result = await imagePicker.pickImage(source: ImageSource.gallery);
 
@@ -71,4 +68,5 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
       return null;
     }
   }
+ */
 }

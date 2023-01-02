@@ -10,8 +10,8 @@ import '../view/profilepage/view/myprofile.dart';
 Controller controller = Get.put(Controller());
 List wid = [
   const Homepage_Wid(),
-  Community_Page_UI(),
-  UserProfile_CreatePost_UI(),
+  const Community_Page_UI(),
+  const UserProfileCreatePostUI(),
   const Doctor(),
   const My_Profile_UI()
 ];

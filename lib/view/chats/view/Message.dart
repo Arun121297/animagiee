@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class Message extends StatefulWidget {
   var text;
   var date;
   var isSentByMe = false;
-  Message({super.key, this.date, required this.isSentByMe, this.text});
+  Message({this.date, required this.isSentByMe, this.text});
 
   @override
   State<Message> createState() => _MessageState();

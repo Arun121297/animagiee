@@ -31,7 +31,7 @@ class UserPostListService {
     } catch (e) {
       //
       //
-      print('yes$e');
+      log('yes$e');
       return null;
     }
   }

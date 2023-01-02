@@ -37,8 +37,8 @@ class _Doctor_Details_UIState extends State<Doctor_Details_UI> {
         children: [
           Text(Doctors_name[widget.fetchindex]),
           Text(
-            maxLines: 2,
             "Lorem Ipsum is simply dummy text of the printing and ...",
+            maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
