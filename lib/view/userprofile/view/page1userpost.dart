@@ -2,8 +2,6 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/createpost/view/videoplayer.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofile_getpost.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -45,12 +43,12 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
             elevation: 3,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     CircleAvatar(
@@ -58,7 +56,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           userPostProfilePostController.data[index].profileicon
                               .toString()),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Text(
@@ -87,7 +85,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     )
                     // IconButton(
@@ -112,7 +110,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
                 userPostProfilePostController.data[index].posttype == "image"
@@ -160,7 +158,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 12,
                       ),
                       Text(
@@ -190,11 +188,11 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                   ),
                 ),
                 Row(children: [
-                  Likes_UI(),
-                  Comment_UI(),
-                  Share_UI(),
+                  const Likes_UI(),
+                  const Comment_UI(),
+                  const Share_UI(),
                   Expanded(child: Container()),
-                  BookMark_UI(),
+                  BookMarkUI(),
                 ])
               ],
             ),
@@ -207,11 +205,11 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
   btmsheet() {
     return showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       builder: (context) {
-        return Container(
+        return SizedBox(
           height: 174,
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -227,7 +225,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.black,
                 endIndent: 30,
                 indent: 30,
@@ -243,7 +241,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.black,
                 endIndent: 30,
                 indent: 30,

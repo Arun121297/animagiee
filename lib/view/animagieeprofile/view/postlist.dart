@@ -31,19 +31,19 @@ class _PostList_ContentState extends State<PostList_Content> {
       elevation: 3,
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               CircleAvatar(
                 backgroundImage:
                     ExactAssetImage(controller.Home_Post[widget.fetchindex]),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(
@@ -71,7 +71,7 @@ class _PostList_ContentState extends State<PostList_Content> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               )
               // IconButton(
@@ -152,11 +152,11 @@ class _PostList_ContentState extends State<PostList_Content> {
             ),
           ),
           Row(children: [
-            Likes_UI(),
-            Comment_UI(),
-            Share_UI(),
+            const Likes_UI(),
+            const Comment_UI(),
+            const Share_UI(),
             Expanded(child: Container()),
-            BookMark_UI(),
+            BookMarkUI(),
           ])
         ],
       ),
@@ -166,11 +166,11 @@ class _PostList_ContentState extends State<PostList_Content> {
   bottomsheet() {
     return showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       builder: (context) {
-        return Container(
+        return SizedBox(
           height: 20.0.hp,
           //  174,
           width: MediaQuery.of(context).size.width,
@@ -187,7 +187,7 @@ class _PostList_ContentState extends State<PostList_Content> {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.black,
                 endIndent: 30,
                 indent: 30,
@@ -203,7 +203,7 @@ class _PostList_ContentState extends State<PostList_Content> {
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 color: Colors.black,
                 endIndent: 30,
                 indent: 30,

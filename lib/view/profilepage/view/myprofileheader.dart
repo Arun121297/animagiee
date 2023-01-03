@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/config/size_config.dart';
 import 'package:animagieeui/view/home.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:animagieeui/view/mywork/view/myworkpage1.dart';
@@ -8,12 +7,8 @@ import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:animagieeui/view/profilepage/view/settings/about.dart';
 import 'package:animagieeui/view/profilepage/view/settings/mycommunities.dart';
 import 'package:animagieeui/view/profilepage/view/settings/settings.dart';
-import 'package:animagieeui/view/signinpage/view/signin.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,8 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
-import '../../../main.dart';
-import 'MyFavourites/myfav.dart';
+import 'MyFavourites/views/myfav.dart';
 import 'appoinmentdetail/appoinmentdetails.dart';
 import 'settings/mypost.dart';
 
@@ -51,6 +45,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
   Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     var data = profileController.getprofiledata[0].data;
     // return
     // Obx(() {
@@ -64,7 +59,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
         child: Container(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Container(
+            SizedBox(
               // color: Colors.black,
               height: 21.0.hp,
               //  168,
@@ -711,9 +706,8 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
   // }
 
   logout() async {
-    SharedPreferences _sharedPreferences =
-        await SharedPreferences.getInstance();
-    _sharedPreferences.clear().then((value) {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.clear().then((value) {
       // Get.back();
       Get.deleteAll();
 

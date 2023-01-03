@@ -96,7 +96,7 @@ class PostService {
     return null;
   }
 
-  //get my friends
+  //get joined club
   Future<JoinedClubModel?> getJoinedClub() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var token = sharedPreferences.get(Constant.authToken);

@@ -24,4 +24,13 @@ class Urls {
   // My Frineds
   static const myFrineds = "${baseUrl}api/user/myfriends";
   static const joinedClub = "${baseUrl}api/club/joinedClublist";
+  /* Favourite */
+  // Favourite List
+  static const favouriteList = '${baseUrl}api/post/myfavourites';
+  static const addFavourite = '${baseUrl}api/post/saveandunsavepost';
+
+  // block unblock
+  static const blockUnblock = '${baseUrl}api/user/blockunblock';
+  // like unlike
+  static const likeUnlike = '${baseUrl}api/post/postlike';
 }

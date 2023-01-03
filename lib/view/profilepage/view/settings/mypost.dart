@@ -58,19 +58,19 @@ class _My_Post_UIState extends State<My_Post_UI> {
                   elevation: 3,
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           CircleAvatar(
                             backgroundImage:
                                 ExactAssetImage(controller.Home_Post[index]),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Text(
@@ -162,7 +162,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
                           //     ),
                           //   ),
                           // ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           )
                           // IconButton(
@@ -187,7 +187,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 12,
                       ),
                       Container(
@@ -218,7 +218,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 12,
                             ),
                             Text(
@@ -246,11 +246,11 @@ class _My_Post_UIState extends State<My_Post_UI> {
                         ),
                       ),
                       Row(children: [
-                        Likes_UI(),
-                        Comment_UI(),
-                        Share_UI(),
+                        const Likes_UI(),
+                        const Comment_UI(),
+                        const Share_UI(),
                         Expanded(child: Container()),
-                        BookMark_UI(),
+                        const BookMarkUI(),
                       ])
                     ],
                   ),

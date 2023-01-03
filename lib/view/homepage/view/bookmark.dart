@@ -1,14 +1,14 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 
-class BookMark_UI extends StatefulWidget {
-  const BookMark_UI({Key? key}) : super(key: key);
+class BookMarkUI extends StatefulWidget {
+  const BookMarkUI({Key? key}) : super(key: key);
 
   @override
-  State<BookMark_UI> createState() => _BookMark_UIState();
+  State<BookMarkUI> createState() => _BookMarkUIState();
 }
 
-class _BookMark_UIState extends State<BookMark_UI> {
+class _BookMarkUIState extends State<BookMarkUI> {
   final Icon like = Icon(
     Icons.bookmark,
     color: Colors.black,

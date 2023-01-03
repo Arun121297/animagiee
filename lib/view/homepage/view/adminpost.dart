@@ -283,7 +283,7 @@ class _Admin_PostState extends State<Admin_Post> {
                             ),
                             const Share_UI(),
                             Expanded(child: Container()),
-                            const BookMark_UI(),
+                            const BookMarkUI(),
                           ]),
                           SizedBox(height: 2.0.sp
                               //  10,
