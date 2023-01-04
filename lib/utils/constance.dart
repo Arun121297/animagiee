@@ -3,4 +3,7 @@ class Constants {
   static const login = 'mobile';
   static const userName = 'name';
   static const phoneno = 'phone_no';
+  static const joinedClublist = 'joinedClublist';
+
+
 }

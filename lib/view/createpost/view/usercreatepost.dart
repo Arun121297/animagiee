@@ -7,6 +7,7 @@ import 'package:animagieeui/controller/controller.dart';
 // import 'package:animagieeui/view/createpost/view/postmethod.dart';
 // import 'package:animagieeui/view/createpost/view/tagpeople.dart';
 import 'package:animagieeui/view/homepage/view/homepage.dart';
+import 'package:animagieeui/view/instancepage/controller/post_creation_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -42,13 +43,17 @@ class UserProfile_CreatePost_UI extends StatefulWidget {
 class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
   @override
   void initState() {
-    controller.posttype_bool = true.obs;
+    controller1.posttype_bool = true.obs;
+
+    // controller.posttype_bool = true.obs;
     // TODO: implement initState
     super.initState();
   }
 
-  Controller controller = Get.put(Controller());
+  PostCreatioController controller1 = Get.put(PostCreatioController());
+  // Controller controller = Get.put(Controller());
   bool posttype_bool = true;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +80,7 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                 searchfunctionclose: false,
                 chat: false,
                 logo: false,
-                podcast: false,
+                podcast: true,
                 fun: null,
               ),
               // Profile_AppBar_UI(
@@ -138,60 +143,60 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                         // SizedBox(
                         //   height: 24,
                         // ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Visibility(
-                            visible:
-                                controller.file.path.isEmpty ? false : true,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Obx(() {
-                                  if (controller.imagevideo.value.type ==
-                                      "image") {
-                                    return Container(
-                                      height: 20.0.hp,
-                                      //  134,
-                                      width: 93.0.wp,
-                                      // 339,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: FileImage(File(controller
-                                              .imagevideo.value.url
-                                              .toString())),
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0.sp),
-                                        border: Border.all(
-                                            width: 2, color: animagiee_CL),
-                                      ),
-                                    );
-                                  } else {
-                                    return Container(
-                                      height: 20.0.hp,
-                                      //  134,
-                                      width: 93.0.wp,
-                                      // 339,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0.sp),
-                                        border: Border.all(
-                                            width: 2, color: animagiee_CL),
-                                      ),
-                                      child: Video_Player(
-                                        urls: controller.imagevideo.value.url
-                                            .toString(),
-                                      ),
-                                    );
-                                  }
-                                })
-                              ],
-                            ),
-                          ),
-                        ),
+                        // Align(
+                        //   alignment: Alignment.center,
+                        //   child: Visibility(
+                        //     visible:
+                        //         controller.file.path.isEmpty ? false : true,
+                        //     child: Column(
+                        //       children: [
+                        //         SizedBox(
+                        //           height: 5,
+                        //         ),
+                        //         Obx(() {
+                        //           if (controller.imagevideo.value.type ==
+                        //               "image") {
+                        //             return Container(
+                        //               height: 20.0.hp,
+                        //               //  134,
+                        //               width: 93.0.wp,
+                        //               // 339,
+                        //               decoration: BoxDecoration(
+                        //                 image: DecorationImage(
+                        //                   fit: BoxFit.cover,
+                        //                   image: FileImage(File(controller
+                        //                       .imagevideo.value.url
+                        //                       .toString())),
+                        //                 ),
+                        //                 borderRadius:
+                        //                     BorderRadius.circular(8.0.sp),
+                        //                 border: Border.all(
+                        //                     width: 2, color: animagiee_CL),
+                        //               ),
+                        //             );
+                        //           } else {
+                        //             return Container(
+                        //               height: 20.0.hp,
+                        //               //  134,
+                        //               width: 93.0.wp,
+                        //               // 339,
+                        //               decoration: BoxDecoration(
+                        //                 borderRadius:
+                        //                     BorderRadius.circular(8.0.sp),
+                        //                 border: Border.all(
+                        //                     width: 2, color: animagiee_CL),
+                        //               ),
+                        //               child: Video_Player(
+                        //                 urls: controller.imagevideo.value.url
+                        //                     .toString(),
+                        //               ),
+                        //             );
+                        //           }
+                        //         })
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
                         SizedBox(
                           height: 1.0.hp,
                         ),
@@ -199,7 +204,9 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                           width: 97.0.wp,
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [Add_Photos_UI(), Add_Video_UI()]),
+                              children: [
+                                Add_Photos_UI(), Add_Video_UI()
+                                ]),
                         ),
 
                         Tag_People_UI(),
@@ -210,7 +217,9 @@ class _UserProfile_CreatePost_UIState extends State<UserProfile_CreatePost_UI> {
                           alignment: Alignment.center,
                           child: GestureDetector(
                             onTap: () {
-                              controller.selectedIndex.value = 0;
+
+
+                              // controller.selectedIndex.value = 0;
                             },
                             child: Container(
                               height: 6.0.hp,

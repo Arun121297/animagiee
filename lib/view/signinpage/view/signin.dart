@@ -172,16 +172,17 @@ class _SignInPageState extends State<SignInPage> {
                 },
                 child: const Text("flogout")),
             GestureDetector(
-              onTap: () {
-                signInWithGoogle();
+              onTap: ()
+                  //  {
+                  //   signInWithGoogle();
 
-                setState(() {});
+                  //   setState(() {});
+                  // },
+                  {
+                Get.to(
+                  () => Welcome_Page(),
+                );
               },
-              // {
-              // Get.to(
-              //   () => Welcome_Page(),
-              // );
-              // },
               child: Container(
                   decoration: BoxDecoration(
                     color: SigninButton_CL,

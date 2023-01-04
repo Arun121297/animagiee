@@ -1,14 +1,13 @@
 // To parse this JSON data, do
 //
-//     final updateInstanceModel = updateInstanceModelFromJson(jsonString);
+//     final  = updateInstanceModelFromJson(jsonString);
 
 import 'dart:convert';
 
 UpdateInstanceModel updateInstanceModelFromJson(String str) =>
     UpdateInstanceModel.fromJson(json.decode(str));
 
-String updateInstanceModelToJson(UpdateInstanceModel data) =>
-    json.encode(data.toJson());
+String ToJson(UpdateInstanceModel data) => json.encode(data.toJson());
 
 class UpdateInstanceModel {
   UpdateInstanceModel({

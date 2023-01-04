@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/instancepage/controller/post_creation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,7 +18,9 @@ class Add_Photos_UI extends StatefulWidget {
 }
 
 class _Add_Photos_UIState extends State<Add_Photos_UI> {
-  Controller controller = Get.put(Controller());
+  final controller1 = Get.find<PostCreatioController>();
+
+  // Controller controller = Get.put(Controller());
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +67,9 @@ class _Add_Photos_UIState extends State<Add_Photos_UI> {
 
     if (result != null) {
       setState(() {
-        controller.file = File(result.path);
-        controller.imagevideo(FilepickerType(type: "image", url: result.path));
+        controller1.file = File(result.path);
+        controller1
+            .imagevideo(FilepickerType1(type: "image", url: result.path));
       });
     } else {
       return null;

@@ -1,4 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/instancepage/controller/post_creation_controller.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -6,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
+
 
 enum BestTutorSite { Individual, Group }
 
@@ -17,7 +20,9 @@ class Post_Method_UI extends StatefulWidget {
 }
 
 class _Post_Method_UIState extends State<Post_Method_UI> {
-  Controller controller = Get.put(Controller());
+  // Controller controller = Get.put(Controller());
+
+  final controller1 = Get.find<PostCreatioController>();
 
   BestTutorSite site = BestTutorSite.Individual;
   @override
@@ -54,8 +59,7 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
                         (states) => Colors.black), //<-- SEE HERE
                     onChanged: (value) {
                       setState(() {
-                        // controller.post_absorbing_bool.value = true;
-                        controller.posttype_bool.value = true;
+                        controller1.posttype_bool.value = true;
                         site = BestTutorSite.Individual;
                         ;
                       });
@@ -100,7 +104,7 @@ class _Post_Method_UIState extends State<Post_Method_UI> {
                         (states) => Colors.black), //<-- SEE HERE
                     onChanged: (value) {
                       setState(() {
-                        controller.posttype_bool.value = false;
+                        controller1.posttype_bool.value = false;
                         site = BestTutorSite.Group;
                         ;
                       });

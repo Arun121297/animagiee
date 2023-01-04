@@ -16,10 +16,10 @@ List wid = [
   My_Profile_UI()
 ];
 var videoimage_files = [
-  {"type": "image", "url": controller.file.path},
+  // {"type": "image", "url": controller.file.path},
 ];
 var image_files = {
   "type": "image",
-  "url": controller.file.path,
+  // "url": controller.file.path,
 };
-var video_files = {"type": "video", "url": controller.file.path};
+// var video_files = {"type": "video", "url": controller.file.path};

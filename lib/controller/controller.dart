@@ -45,7 +45,7 @@ class Controller extends GetxController {
     "images/Reptiles_and_Amphibians.jpg",
   ];
   Rx<int> selectedIndex = 0.obs;
-  RxBool posttype_bool = true.obs;
+
   RxBool podcastposttype_bool = true.obs;
 
   ///club file picker locally
@@ -73,8 +73,8 @@ class Controller extends GetxController {
   RxBool appoinmentdetailshide = true.obs;
   RxBool podcastplayblutton = false.obs;
 
-  File file = File("");
-  Rx<FilepickerType> imagevideo = FilepickerType(type: "", url: "").obs;
+  // File file = File("");
+  // Rx<FilepickerType> imagevideo = FilepickerType(type: "", url: "").obs;
   VideoPlayerController? videocontroller;
 
   communityNext(title, fun) {
@@ -282,8 +282,8 @@ class Controller extends GetxController {
   }
 }
 
-class FilepickerType {
-  String? type;
-  String? url;
-  FilepickerType({this.type, this.url});
-}
+// class FilepickerType {
+//   String? type;
+//   String? url;
+//   FilepickerType({this.type, this.url});
+// }

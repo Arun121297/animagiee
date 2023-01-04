@@ -1,10 +1,13 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/instancepage/controller/post_creation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
+
 
 class Emogie_Description_UI extends StatefulWidget {
   const Emogie_Description_UI({Key? key}) : super(key: key);
@@ -14,15 +17,8 @@ class Emogie_Description_UI extends StatefulWidget {
 }
 
 class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
-  List emogi = [
-    "images/emogi_1.png",
-    "images/emoji_2.png",
-    "images/emoji_3.png",
-    "images/emoji_4.png",
-    "images/emoji_5.png",
-    "images/emoji_6.png",
-    "images/emoji_7.png",
-  ];
+  final controller1 = Get.find<PostCreatioController>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,12 +80,12 @@ class _Emogie_Description_UIState extends State<Emogie_Description_UI> {
                 },
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: emogi.length,
+                itemCount: controller1.emogi.length,
                 itemBuilder: (context, index) => Container(
                   margin: EdgeInsets.only(left: 10.0.sp, right: 10.0.sp),
                   // height: 20.0.hp,
                   width: 10.0.wp,
-                  child: Image.asset(emogi[index]),
+                  child: Image.asset(controller1.emogi[index]),
                 ),
               ),
             ),

@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../config/colorconfig.dart';
 
 class Tag_People_UI extends StatefulWidget {
-  const Tag_People_UI({Key? key}) : super(key: key);
+  const  Tag_People_UI({Key? key}) : super(key: key);
 
   @override
   State<Tag_People_UI> createState() => _Tag_People_UIState();
