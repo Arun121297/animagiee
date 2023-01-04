@@ -1,12 +1,9 @@
 import 'dart:io';
 
-import 'package:animagieeui/view/doctor/view/doctorprofiless/header.dart';
 import 'package:animagieeui/view/homeAppBar/view/appbar.dart';
 import 'package:animagieeui/view/profilepage/controller/editcontr/backgroundimagecontroller.dart';
 import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/controller.dart';
@@ -14,7 +11,6 @@ import '../../bottombarfile/view/bottomnavibar.dart';
 // import '../bottombarfile/view/bottomnavibar.dart';
 import '../controller/editcontr/editController.dart';
 import 'myprofileheader.dart';
-import 'profileappbar.dart';
 
 class My_Profile_UI extends StatefulWidget {
   const My_Profile_UI({Key? key}) : super(key: key);
@@ -31,13 +27,12 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
   Controller controller = Get.put(Controller());
   @override
   void initState() {
-    // TODO: implement initState
     fetchdata();
     super.initState();
   }
 
   fetchdata() async {
-    await profileController.profilecontrollerfunction().then((value) {
+    await profileController.getProfile().then((value) {
       profileController.getprofiledata[0].data!.about;
     });
     profileBGImageController.profilebackgroundimage = File('');
@@ -50,12 +45,12 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
       bottomNavigationBar: const Customized_Bottom_Bar(),
       body: Obx(() {
         // Obx(() {
-        if (profileController.profileloadingindecator.value) {
+        if (profileController.isProfileLoading.value) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (profileController.getprofiledata.isEmpty) {
-          return Center(
+          return const Center(
             child: Text("Profile"),
           );
         } else {
@@ -83,7 +78,7 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
                       fun: null,
                       title: "Profile",
                     ),
-                    MY_Profile_Header_UI()
+                    const MY_Profile_Header_UI()
                   ],
                 ),
               ),

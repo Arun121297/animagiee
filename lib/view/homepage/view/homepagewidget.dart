@@ -129,7 +129,7 @@ class _Homepage_WidState extends State<Homepage_Wid> {
                       ),
 
                       ////adminpost
-                      const Expanded(child: Admin_Post())
+                      const Expanded(child: AdminPost())
                     ],
                   ),
                 ),

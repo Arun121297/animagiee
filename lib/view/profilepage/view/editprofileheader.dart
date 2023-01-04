@@ -4,8 +4,6 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/profilepage/controller/editcontr/backgroundimagecontroller.dart';
 import 'package:animagieeui/view/profilepage/controller/editcontr/editController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -29,7 +27,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
       Get.put(ProfileBGImageController());
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // color: Colors.black,
       height: 22.0.hp,
       //  168,
@@ -64,8 +62,8 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
                         // color: Colors.transparent,
                         image: DecorationImage(
                             image: NetworkImage(profileController
-                                .getprofiledata[0].data!.profilebackimg
-                                .toString()),
+                                    .getprofiledata[0].data!.profilebackimg ??
+                                ""),
                             fit: BoxFit.cover),
                         borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(15),

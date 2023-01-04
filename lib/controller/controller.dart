@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 // import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
-import 'package:video_player/video_player.dart';
 
 import '../config/colorconfig.dart';
 
@@ -73,7 +72,7 @@ class Controller extends GetxController {
 
   File file = File("");
   Rx<FilepickerType> imagevideo = FilepickerType(type: "", url: "").obs;
-  VideoPlayerController? videocontroller;
+  // VideoPlayerController? videocontroller;
 
   // communityNext(title, fun) {
   //   return GestureDetector(
@@ -212,7 +211,7 @@ class Controller extends GetxController {
   chatscreenapp(title, fun, context) {
     return Material(
       elevation: 3,
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Row(children: [
           // Back_Button_UI(),
@@ -235,10 +234,10 @@ class Controller extends GetxController {
                 backgroundColor: animagiee_CL,
                 child: CircleAvatar(
                   radius: 12.0.sp,
-                  backgroundImage: ExactAssetImage("images/Dogs.jpg"),
+                  backgroundImage: const ExactAssetImage("images/Dogs.jpg"),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(

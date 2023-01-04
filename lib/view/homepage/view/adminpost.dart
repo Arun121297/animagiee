@@ -1,9 +1,8 @@
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/createpost/view/videoplayer.dart';
 import 'package:animagieeui/view/homepage/view/share.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -18,14 +17,14 @@ import 'bookmark.dart';
 import 'commend.dart';
 import 'likes.dart';
 
-class Admin_Post extends StatefulWidget {
-  const Admin_Post({Key? key}) : super(key: key);
+class AdminPost extends StatefulWidget {
+  const AdminPost({Key? key}) : super(key: key);
 
   @override
-  State<Admin_Post> createState() => _Admin_PostState();
+  State<AdminPost> createState() => _AdminPostState();
 }
 
-class _Admin_PostState extends State<Admin_Post> {
+class _AdminPostState extends State<AdminPost> {
   Controller controller = Get.put(Controller());
   UserPostListController userPostListController =
       Get.put(UserPostListController());
@@ -166,7 +165,21 @@ class _Admin_PostState extends State<Admin_Post> {
                             height: 1.0.hp,
                             //  12,
                           ),
-                          userPostListController.data[index].posttype == "image"
+                          VisibilityDetector(
+                            key: Key(index.toString()),
+                            child: GestureDetector(
+                                child: MediaWidget(
+                              mediaType: data[index].posttype,
+                              source: data[index].addImagesOrVideos,
+                            )),
+                            onVisibilityChanged: (visibilityInfo) {
+                              // onVisibilityChanged(
+                              //     VisibilityInfo.visibleFraction,
+                              //     response.postId);
+                            },
+                          ),
+
+                          /* userPostListController.data[index].posttype == "image"
                               ? Center(
                                   child: Container(
                                     height: 45.0.hp,
@@ -217,7 +230,7 @@ class _Admin_PostState extends State<Admin_Post> {
                                           .toString(),
                                     ),
                                   ),
-                                ),
+                                ), */
                           // Container(
                           //   height: 45.0.hp,
                           //   //  346,

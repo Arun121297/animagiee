@@ -138,12 +138,13 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           borderRadius: BorderRadius.circular(8.0.sp),
                           border: Border.all(width: 2, color: animagiee_CL),
                         ),
-                        child: Video_Player(
-                          urls: userPostProfilePostController
-                              .data[index].addImagesOrVideos
-                              .toString(),
+                        child: const SizedBox()
+                        //  Video_Player(
+                        //   urls: userPostProfilePostController
+                        //       .data[index].addImagesOrVideos
+                        //       .toString(),
+                        // ),
                         ),
-                      ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -192,7 +193,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                   const Comment_UI(),
                   const Share_UI(),
                   Expanded(child: Container()),
-                  BookMarkUI(),
+                  const BookMarkUI(),
                 ])
               ],
             ),

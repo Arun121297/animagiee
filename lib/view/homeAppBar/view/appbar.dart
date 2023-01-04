@@ -298,7 +298,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
                     visible: widget.edit,
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(const Edit_Profile_UI());
+                        Get.to(() => const Edit_Profile_UI());
                       },
                       child: Container(
                         height: 3.3.hp,

@@ -32,13 +32,14 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
   ProfileController profileController = Get.put(ProfileController());
   @override
   void initState() {
-    profileController.profilecontrollerfunction();
-    // controller.profilebackgroundimage =
-    //     File(controller.profileglobalbackgroundimage.path);
-    // controller.pFprofileimage = File(controller.pFglobalprofileimage.path);
-
-    // TODO: implement initState
+    // fetchData();
     super.initState();
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await profileController.getProfile();
+    });
   }
 
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());

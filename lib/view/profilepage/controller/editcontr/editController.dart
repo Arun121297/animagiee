@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:animagieeui/view/profilepage/model/editmodel.dart';
 import 'package:animagieeui/view/profilepage/service/editservice.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,11 +20,15 @@ class EditScreenController extends GetxController {
   TextEditingController mNumber = TextEditingController();
   TextEditingController address = TextEditingController();
   TextEditingController pincode = TextEditingController();
+  RxString profession = "".obs;
+  RxString gender = "".obs;
+  RxString state = "".obs;
+  RxString city = "".obs;
+
   // File pFprofileimage = File("");
   // TextEditingController about = TextEditingController();
   // TextEditingController about = TextEditingController();
-  RxBool profileUpdateLoad = true.obs;
-  RxBool editscreenloadingindicator = true.obs;
+  RxBool isProfileEditLoading = true.obs;
   File pFprofileimage = File("");
 
   // RxList<EditModel> geteditdata = <EditModel>[].obs;
@@ -34,12 +37,13 @@ class EditScreenController extends GetxController {
   Future editprofileservicesection(
     context,
   ) async {
+    isProfileEditLoading(true);
     log("rse");
     try {
-      if (profileUpdateLoad.value) {
+      if (isProfileEditLoading.value) {
         _loadingBar(context);
       }
-      var response;
+      EditModel? response;
       if (pFprofileimage == File('')) {
         response = await clint.editprofileservicesection(
             lname: lname.text,
@@ -50,7 +54,7 @@ class EditScreenController extends GetxController {
             fname: fname.text,
             email: email.text,
             yourself: about.text,
-            profile_picture: File(''));
+            profilePicture: File(''));
       } else {
         response = await clint.editprofileservicesection(
             lname: lname.text,
@@ -61,13 +65,13 @@ class EditScreenController extends GetxController {
             picode: pincode.text,
             fname: fname.text,
             yourself: about.text,
-            profile_picture: pFprofileimage.path);
+            profilePicture: pFprofileimage.path);
       }
 
       if (response != null) {
-        editscreenloadingindicator(false);
+        isProfileEditLoading(false);
       } else {
-        editscreenloadingindicator(false);
+        isProfileEditLoading(false);
       }
     } catch (e) {
       rethrow;

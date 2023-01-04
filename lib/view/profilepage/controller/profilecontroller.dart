@@ -5,22 +5,24 @@ import 'package:animagieeui/view/profilepage/service/profileservice.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
-  RxBool profileloadingindecator = true.obs;
+  // RxBool profileloadingindecator = true.obs;
   String abt = '';
   RxList<ProfileModel> getprofiledata = <ProfileModel>[].obs;
+  RxBool isProfileLoading = true.obs;
   var clint = ProfileService();
-  Future profilecontrollerfunction() async {
-    // profileloadingindecator(true);
-    var response = await clint.profileservicesection();
+  Future getProfile() async {
+    isProfileLoading(true);
     log("rse");
     try {
+      var response = await clint.profileservicesection();
+
       if (response != null) {
         getprofiledata.clear();
         getprofiledata.add(response);
         log("profile$getprofiledata");
-        profileloadingindecator(false);
+        isProfileLoading(false);
       } else {
-        profileloadingindecator(false);
+        isProfileLoading(false);
       }
     } catch (e) {
       rethrow;

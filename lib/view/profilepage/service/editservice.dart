@@ -6,14 +6,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../utils/Urls/urlsapi.dart';
 import '../../../utils/constance.dart';
-import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart' as dio;
-import 'package:http_parser/http_parser.dart';
 
 class EditScreenService {
   Future<EditModel?> editprofileservicesection(
       {yourself,
-      profile_picture,
+      profilePicture,
       fname,
       lname,
       dob,
@@ -25,17 +23,17 @@ class EditScreenService {
 
     var token = sharedPreferences.getString(Constants.authToken);
     String fileNames = '';
-    if (profile_picture != '') {
+    if (profilePicture != '') {
       log("Filename-->$fileNames");
-      fileNames = profile_picture.toString().split('/').last;
+      fileNames = profilePicture.toString().split('/').last;
       log("Filename-->$fileNames");
     }
     log("Fname-->$fname");
-    log("PF-->$profile_picture");
+    log("PF-->$profilePicture");
     log("ABT-->$yourself");
     try {
       dio.FormData formData;
-      if (profile_picture == '') {
+      if (profilePicture == '') {
         formData = dio.FormData.fromMap({
           "firstName": fname.toString(),
           "about": yourself.toString(),
@@ -57,14 +55,16 @@ class EditScreenService {
           "pinCode": picode.toString(),
           "firstName": fname.toString(),
           "about": yourself.toString(),
-          "profileicon": await dio.MultipartFile.fromFile(
-            profile_picture,
-            filename: fileNames,
-            contentType: MediaType(
-              "image",
-              "jpg",
-            ),
-          ),
+          "profileicon": profilePicture == ""
+              ? ""
+              : await dio.MultipartFile.fromFile(
+                  profilePicture,
+                  filename: fileNames,
+                  // contentType: MediaType(
+                  //   "image",
+                  //   "jpg",
+                  // ),
+                ),
         });
       }
 

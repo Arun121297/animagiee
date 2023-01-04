@@ -170,7 +170,7 @@ class _SignInPageState extends State<SignInPage> {
                   await GoogleSignIn().signOut();
                   await FacebookAuth.instance.logOut();
                 },
-                child: const Text("flogout")),
+                child: const Text("logout")),
             GestureDetector(
               onTap: () {
                 signInWithGoogle();
