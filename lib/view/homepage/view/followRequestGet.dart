@@ -42,7 +42,7 @@ class _FollowRequestGetState extends State<FollowRequestGet> {
         elevation: 2,
         backgroundColor: mywork_container_CL,
         leading: IconButton(
-            icon: Icon(Icons.keyboard_arrow_left_sharp),
+            icon: const Icon(Icons.keyboard_arrow_left_sharp),
             color: Colors.black,
             onPressed: () {
               Get.back();
@@ -81,7 +81,7 @@ class _FollowRequestGetState extends State<FollowRequestGet> {
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width * 1,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                           ),
                           child: Column(
@@ -120,43 +120,41 @@ class _FollowRequestGetState extends State<FollowRequestGet> {
                                       padding: const EdgeInsets.only(left: 4.0),
                                       child: Row(
                                         children: [
-                                          Text(
-                                            data.sendBy!.username.toString(),
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                                fontSize: 14.0,
-                                                color: availabletime_CL,
-                                                fontWeight: FontWeight.w400),
+                                          SizedBox(
+                                            width: 37.0.wp,
+                                            child: Text(
+                                              data.sendBy!.username.toString(),
+                                              overflow: TextOverflow.ellipsis,
+                                              style: const TextStyle(
+                                                  fontSize: 14.0,
+                                                  color: availabletime_CL,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsets.only(left: 85.0.sp),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                confirmFollowRequestController
-                                                    .confirmFollowRequestPost(
-                                                        id: data.id.toString());
-                                              },
-                                              child: Container(
-                                                height: 3.0.hp,
-                                                // 26,
-                                                width: 20.0.wp,
-                                                // 90,
-                                                alignment: Alignment.center,
-                                                decoration: BoxDecoration(
-                                                    color: animagiee_CL,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15.0.sp)),
-                                                child: Text(
-                                                  "Accept",
-                                                  style: GoogleFonts.poppins(
-                                                    textStyle: TextStyle(
-                                                      fontSize: 9.0.sp,
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
+                                          GestureDetector(
+                                            onTap: () {
+                                              confirmFollowRequestController
+                                                  .confirmFollowRequestPost(
+                                                      id: data.id.toString());
+                                            },
+                                            child: Container(
+                                              height: 3.0.hp,
+                                              // 26,
+                                              width: 20.0.wp,
+                                              // 90,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                  color: animagiee_CL,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.0.sp)),
+                                              child: Text(
+                                                "Accept",
+                                                style: GoogleFonts.poppins(
+                                                  textStyle: TextStyle(
+                                                    fontSize: 9.0.sp,
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
                                               ),

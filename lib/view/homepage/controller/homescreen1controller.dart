@@ -6,8 +6,7 @@ import '../Service/homescreen1service.dart';
 import '../model/HomeScreen1model.dart';
 
 class UserPostListController extends GetxController {
-  RxList data = <Datum>[].obs;
-
+  var data = <UserPostListModel>[].obs;
   RxBool isLoadingService = true.obs;
   // RxInt currentBanner1 = 0.obs;
   ottApiCall() async {
@@ -17,7 +16,7 @@ class UserPostListController extends GetxController {
       // isLoadingService(true);
       if (res != null) {
         data.clear();
-        data.value = res.data!;
+        data.add(res);
         isLoadingService(false);
       } else {
         isLoadingService(false);

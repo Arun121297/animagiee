@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:animagieeui/view/instancepage/controller/clubController.dart';
+import 'package:animagieeui/view/instancepage/model/club_icon.dart';
 import 'package:animagieeui/view/instancepage/service/clubicon_service.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,7 @@ class ClubIconController extends GetxController {
   Future clubIconApi({required id}) async {
     ClubController clubController = Get.find();
     try {
-      var response;
+      ClubCreation? response;
       response = await clint.clubIconService(
           file: profilebackgroundimage.path, id: id);
       if (response != null) {

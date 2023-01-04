@@ -76,9 +76,9 @@ class _AdminPostState extends State<AdminPost> {
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: userPostListController.data.length,
+              itemCount: userPostListController.data[0].data!.length,
               itemBuilder: (context, index) {
-                var data = userPostListController.data;
+                var data = userPostListController.data[0].data!;
                 return Column(
                   children: [
                     Card(
@@ -192,8 +192,8 @@ class _AdminPostState extends State<AdminPost> {
                             key: Key(index.toString()),
                             child: GestureDetector(
                                 child: MediaWidget(
-                              mediaType: data[index].posttype,
-                              source: data[index].addImagesOrVideos,
+                              mediaType: data[index].posttype!,
+                              source: data[index].addImagesOrVideos!,
                             )),
                             onVisibilityChanged: (visibilityInfo) {
                               // onVisibilityChanged(
