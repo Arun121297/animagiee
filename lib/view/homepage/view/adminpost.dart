@@ -7,6 +7,7 @@ import 'package:animagieeui/view/doctor/view/doctorprofiless/header.dart';
 import 'package:animagieeui/view/homepage/view/share.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
+import 'package:animagieeui/view/instancepage/controller/likeController.dart';
 
 import 'package:flutter/material.dart';
 
@@ -34,12 +35,29 @@ class _Admin_PostState extends State<Admin_Post> {
   Controller controller = Get.put(Controller());
   UserPostListController userPostListController =
       Get.put(UserPostListController());
+  LikeContoller likeContoller = Get.put(LikeContoller());
 
   @override
   void initState() {
     userPostListController.ottApiCall();
     log("sdatassss_____---->${userPostListController.data}");
     super.initState();
+  }
+
+  likePost({required String id, required int index}) {
+    likeContoller.like(id: id, index: index);
+    userPostListController.data[0].data![index].liked =
+        !userPostListController.data[0].data![index].liked!;
+    if (userPostListController.data[0].data![index].liked!) {
+      userPostListController.data[0].data![index].likecount =
+          userPostListController.data[0].data![index].likecount! + 1;
+      log("${userPostListController.data[0].data![index].likecount}true");
+    } else {
+      userPostListController.data[0].data![index].likecount =
+          userPostListController.data[0].data![index].likecount! - 1;
+      log("${userPostListController.data[0].data![index].likecount}false");
+    }
+    setState(() {});
   }
 
   @override
@@ -248,7 +266,12 @@ class _Admin_PostState extends State<Admin_Post> {
                             ),
                           ),
                           Row(children: [
-                            const Likes_UI(),
+                            Likes_UI(
+                              status: data[index].liked!,
+                              onTap: () => likePost(
+                                  id: data[index].postid.toString(),
+                                  index: index),
+                            ),
                             SizedBox(
                               width: 2.0.wp,
                             ),

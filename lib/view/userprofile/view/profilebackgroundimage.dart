@@ -19,36 +19,30 @@ class _Profile_BG_Image_UIState extends State<Profile_BG_Image_UI> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return userPostProfileController.data.isEmpty
-          ? Center(
-              child: CircularProgressIndicator(
-              color: Colors.grey,
-              strokeWidth: 2,
-            ))
-          : ListView.builder(
-              shrinkWrap: true,
+      return ListView.builder(
+          shrinkWrap: true,
 
-              //  scrollDirection: Axis.vertical,
-              itemCount: userPostProfileController.data.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  decoration: BoxDecoration(
-                      color: animagiee_CL,
-                      image: DecorationImage(
-                          image: NetworkImage(
-                            userPostProfileController.data[index].profilebackimg
-                                .toString(),
-                          ),
-                          fit: BoxFit.cover),
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(15.0.sp),
-                          bottomRight: Radius.circular(15.0.sp))),
-                  width: MediaQuery.of(context).size.width,
-                  height: 16.0.hp,
-                  // 108,
-                  // child: Image.asset("images/groupphoto.jpg", fit: BoxFit.cover),
-                );
-              });
+          //  scrollDirection: Axis.vertical,
+          itemCount: userPostProfileController.data.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              decoration: BoxDecoration(
+                  color: animagiee_CL,
+                  image: DecorationImage(
+                      image: NetworkImage(
+                        userPostProfileController.data[index].profilebackimg
+                            .toString(),
+                      ),
+                      fit: BoxFit.cover),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(15.0.sp),
+                      bottomRight: Radius.circular(15.0.sp))),
+              width: MediaQuery.of(context).size.width,
+              height: 16.0.hp,
+              // 108,
+              // child: Image.asset("images/groupphoto.jpg", fit: BoxFit.cover),
+            );
+          });
     });
   }
 }

@@ -45,7 +45,9 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
     clubController.pFprofileimage = File('');
     clubController.communityTypeisPrivate = false.obs;
     clubController.communityTypeisPrivat = ''.obs;
+    clubIconController.profilebackgroundimage = File('');
     super.initState();
+    setState(() {});
   }
 
   @override
@@ -398,9 +400,10 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
             ),
             SizedBox(height: 40),
             GestureDetector(
-              onTap: () {
-                clubController.clubApi();
-                clubIconController.clubIconApi();
+              onTap: () async {
+                await clubController
+                    .clubApi()
+                    .then((value) => clubIconController.clubIconApi(id: value));
               },
               child: Container(
                 height: 43,

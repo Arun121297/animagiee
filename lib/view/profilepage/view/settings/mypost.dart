@@ -246,7 +246,10 @@ class _My_Post_UIState extends State<My_Post_UI> {
                         ),
                       ),
                       Row(children: [
-                        Likes_UI(),
+                        Likes_UI(
+                          onTap: () {},
+                          status: null!,
+                        ),
                         Comment_UI(),
                         Share_UI(),
                         Expanded(child: Container()),

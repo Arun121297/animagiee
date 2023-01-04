@@ -4,12 +4,14 @@ import 'package:get/get.dart';
 
 class UserPostProfileController extends GetxController {
   final data = <Data1>[].obs;
+  RxList<UserProfileModel> removeFollowersData = <UserProfileModel>[].obs;
   RxBool userprofilescreenloadingindicator = true.obs;
   userProfile(String id) async {
     print("datab" + data.length.toString());
     final response = await UserPostProfile.userPostProfile(id);
     try {
       if (response != null) {
+        data.clear();
         data.value = response.data1!;
         userprofilescreenloadingindicator(false);
       } else {

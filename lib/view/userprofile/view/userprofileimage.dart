@@ -17,37 +17,31 @@ class _User_Profile_Image_UIState extends State<User_Profile_Image_UI> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => userPostProfileController.data.isEmpty
-          ? Center(
-              child: CircularProgressIndicator(
-              color: Colors.grey,
-              strokeWidth: 2,
-            ))
-          : ListView.builder(
-              shrinkWrap: true,
+      () => ListView.builder(
+          shrinkWrap: true,
 
-              //  scrollDirection: Axis.vertical,
-              itemCount: userPostProfileController.data.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: EdgeInsets.only(top: 35.0.sp, left: 20.0.sp),
-                  child: Align(
-                    heightFactor: 1.4,
-                    alignment: Alignment.centerLeft,
-                    child: CircleAvatar(
-                      radius: 42.0.sp,
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(userPostProfileController
-                            .data[index].profileicon
-                            .toString()),
-                        // backgroundColor: animagiee_CL,
-                        radius: 40.0.sp,
-                      ),
-                    ),
+          //  scrollDirection: Axis.vertical,
+          itemCount: userPostProfileController.data.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.only(top: 35.0.sp, left: 20.0.sp),
+              child: Align(
+                heightFactor: 1.4,
+                alignment: Alignment.centerLeft,
+                child: CircleAvatar(
+                  radius: 42.0.sp,
+                  backgroundColor: Colors.white,
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(userPostProfileController
+                        .data[index].profileicon
+                        .toString()),
+                    // backgroundColor: animagiee_CL,
+                    radius: 40.0.sp,
                   ),
-                );
-              }),
+                ),
+              ),
+            );
+          }),
     );
   }
 }

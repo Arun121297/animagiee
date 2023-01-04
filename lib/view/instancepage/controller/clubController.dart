@@ -12,7 +12,7 @@ class ClubController extends GetxController {
   File pFprofileimage = File("");
   RxList<ClubCreationModel> clubcreationdata = <ClubCreationModel>[].obs;
   RxBool clubcretedataloadingindicator = true.obs;
-  // final relatedData = <Data>[].obs;
+  final relatedData = <Data>[].obs;
   TextEditingController groupName = TextEditingController();
   TextEditingController clubDescription = TextEditingController();
   TextEditingController clubName = TextEditingController();
@@ -20,6 +20,7 @@ class ClubController extends GetxController {
   String id = '';
   RxString communityTypeisPrivat = ''.obs;
   var clint = ClubService();
+  List<ClubCreationModel> details = [];
   Future clubApi(
       //   {
       //   clubDescription,
@@ -31,8 +32,7 @@ class ClubController extends GetxController {
       // }
       ) async {
     try {
-      var response;
-      response = await clint.clubService(
+      var response = await clint.clubService(
         clubDescription: clubDescription.text,
         clubName: clubName.text,
         community: id,
@@ -41,10 +41,10 @@ class ClubController extends GetxController {
         groupName: groupName.text,
       );
       if (response != null) {
-        Get.to(MyClubs_UI());
         // clubcreationdata.clear();
         // clubcreationdata.add(response);
-        clubcretedataloadingindicator(false);
+        details.add(response);
+        return response.data!.id;
       } else {
         return null;
       }

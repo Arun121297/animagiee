@@ -1,26 +1,26 @@
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/config/size_config.dart';
-import 'package:animagieeui/view/instancepage/controller/otherUserFollowController.dart';
+import 'package:animagieeui/view/instancepage/controller/otherUserFollowingController.dart';
 import 'package:animagieeui/view/userprofile/view/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class OtherUserFollow extends StatefulWidget {
+class OtherUserFollowingView extends StatefulWidget {
   String id;
-  OtherUserFollow({required this.id});
+
+  OtherUserFollowingView({required this.id});
 
   @override
-  State<OtherUserFollow> createState() => _OtherUserFollowState();
+  State<OtherUserFollowingView> createState() => _OtherUserFollowingViewState();
 }
 
-class _OtherUserFollowState extends State<OtherUserFollow> {
-  OtherUserFollowContoller otherUserFollowContoller =
-      Get.put(OtherUserFollowContoller());
+class _OtherUserFollowingViewState extends State<OtherUserFollowingView> {
+  OtherUserFollowingContoller otherUserFollowingContoller =
+      Get.put(OtherUserFollowingContoller());
   @override
   void initState() {
-    otherUserFollowContoller.otherUserFollow(id: widget.id);
+    otherUserFollowingContoller.otherUserFollowing(id: widget.id);
     super.initState();
   }
 
@@ -36,7 +36,7 @@ class _OtherUserFollowState extends State<OtherUserFollow> {
             onPressed: () {
               Get.back();
             }),
-        title: Text("Followers",
+        title: Text("Following",
             style: GoogleFonts.poppins(
                 textStyle: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.017,
@@ -45,23 +45,23 @@ class _OtherUserFollowState extends State<OtherUserFollow> {
         centerTitle: true,
       ),
       body: Obx(() {
-        if (otherUserFollowContoller.isLoading.value == true) {
+        if (otherUserFollowingContoller.isLoading.value == true) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (otherUserFollowContoller
-            .otherFollowUserData[0].data![0].followerUser!.isEmpty) {
+        } else if (otherUserFollowingContoller
+            .otherFollowingUserData[0].data![0].followingUser!.isEmpty) {
           return const Center(child: Text("No result found"));
         } else {
           return ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.all(8),
-              itemCount: otherUserFollowContoller
-                  .otherFollowUserData[0].data![0].followerUser!.length,
+              itemCount: otherUserFollowingContoller
+                  .otherFollowingUserData[0].data![0].followingUser!.length,
               itemBuilder: (BuildContext context, int index) {
-                var data = otherUserFollowContoller
-                    .otherFollowUserData[0].data![0].followerUser![index];
+                var data = otherUserFollowingContoller
+                    .otherFollowingUserData[0].data![0].followingUser![index];
                 return Stack(children: [
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -69,7 +69,7 @@ class _OtherUserFollowState extends State<OtherUserFollow> {
                         border: Border(
                             bottom: BorderSide(color: mywork_container_CL))),
                     height: 70,
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         Get.to(User_Profile(id: data.userid!.id.toString()));
                       },

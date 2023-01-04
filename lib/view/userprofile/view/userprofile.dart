@@ -43,8 +43,8 @@ class _User_ProfileState extends State<User_Profile> {
   List<Widget> _randomChildren = [];
   UserPostProfileController userPostProfileController =
       Get.put(UserPostProfileController());
-  UserPostProfilePostController userPostProfilePostController =
-      Get.put(UserPostProfilePostController());
+  UserPostGetProfilePostController userPostProfilePostController =
+      Get.put(UserPostGetProfilePostController());
   // Children with random heights - You can build your widgets of unknown heights here
   // I'm just passing the context in case if any widgets built here needs  access to context based data like Theme or MediaQuery
   List<Widget> _randomHeightWidgets(BuildContext context) {
@@ -84,9 +84,14 @@ class _User_ProfileState extends State<User_Profile> {
         SizedBox(
           height: 3.8.hp, //  30,
           // color: Colors.green,
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [Followers_UI(), Following_UI(), Setting_UI()]),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            Followers_UI(
+              id: widget.id,
+            ),
+            Following_UI(id: widget.id),
+            const Setting_UI()
+          ]),
         ),
       ]);
     });
@@ -136,67 +141,78 @@ class _User_ProfileState extends State<User_Profile> {
         ),
         elevation: 3.0,
       ),
-      body: DefaultTabController(
-        length: 2,
-        child: NestedScrollView(
-          // allows you to build a list of elements that would be scrolled away till the body reached the top
-          headerSliverBuilder: (context, _) {
-            return [
-              SliverList(
-                delegate: SliverChildListDelegate(
-                  _randomHeightWidgets(context),
-                ),
-              ),
-            ];
-          },
-          // You tab view goes here
-          body: Column(
-            children: <Widget>[
-              TabBar(
-                indicator: const UnderlineTabIndicator(
-                    borderSide: BorderSide(width: 3.0, color: animagiee_CL),
-                    insets: EdgeInsets.only(left: 5.0, right: 5.0)),
-                indicatorColor: animagiee_CL,
-                // labelColor: animagiee_CL,
-                tabs: [
-                  Tab(
-                      child: Text(
-                    'Post',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 9.0.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
+      body: Obx(() {
+        if (userPostProfileController.userprofilescreenloadingindicator.value ==
+            true) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (userPostProfileController.data.isEmpty) {
+          return const Center(child: Text("No result found"));
+        } else {
+          return DefaultTabController(
+            length: 2,
+            child: NestedScrollView(
+              // allows you to build a list of elements that would be scrolled away till the body reached the top
+              headerSliverBuilder: (context, _) {
+                return [
+                  SliverList(
+                    delegate: SliverChildListDelegate(
+                      _randomHeightWidgets(context),
                     ),
-                  )),
-                  Tab(
-                      child: Text(
-                    'Communities',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 9.0.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  ),
+                ];
+              },
+              // You tab view goes here
+              body: Column(
+                children: <Widget>[
+                  TabBar(
+                    indicator: const UnderlineTabIndicator(
+                        borderSide: BorderSide(width: 3.0, color: animagiee_CL),
+                        insets: EdgeInsets.only(left: 5.0, right: 5.0)),
+                    indicatorColor: animagiee_CL,
+                    // labelColor: animagiee_CL,
+                    tabs: [
+                      Tab(
+                          child: Text(
+                        'Post',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.0.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      )),
+                      Tab(
+                          child: Text(
+                        'Communities',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.0.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ))
+                    ],
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        UserProfile_Page1_UI(id: widget.id),
+                        UserPage_Communitie_Page2(
+                          id: widget.id,
+                        )
+                      ],
                     ),
-                  ))
+                  ),
                 ],
               ),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    UserProfile_Page1_UI(id: widget.id),
-                    UserPage_Communitie_Page2(
-                      id: widget.id,
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+            ),
+          );
+        }
+      }),
     );
 
 // class _User_ProfileState extends State<User_Profile> {

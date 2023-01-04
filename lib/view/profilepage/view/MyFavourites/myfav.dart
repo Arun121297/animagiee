@@ -334,7 +334,10 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                         // Row(
                         //   mainAxisAlignment: MainAxisAlignment.spaceAround,
                         //   children: [
-                        Likes_UI(),
+                        Likes_UI(
+                          onTap: () {},
+                          status: null!,
+                        ),
                         SizedBox(
                           width: 5,
                         ),

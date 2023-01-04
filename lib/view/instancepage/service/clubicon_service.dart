@@ -42,9 +42,7 @@ class ClubIconService {
   //   }
   // }
 
-  Future<ClubCreation?> clubIconService({
-    file,
-  }) async {
+  Future<ClubCreation?> clubIconService({file, id}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // String baseUrl = (prefs.getString('url') ?? Urls.baseUrl);
     String? token = prefs.getString(Constants.authToken);
@@ -63,6 +61,7 @@ class ClubIconService {
               "image",
               "jpg",
             )),
+        "myclubid": id
       });
 
       var response = await dio.Dio().post(Urls.clubiconcreation,
