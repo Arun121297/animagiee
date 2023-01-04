@@ -152,11 +152,14 @@ class _PostList_ContentState extends State<PostList_Content> {
             ),
           ),
           Row(children: [
-            const Likes_UI(),
+            Likes_UI(
+              onTap: () {},
+              status: null!,
+            ),
             const Comment_UI(),
             const Share_UI(),
             Expanded(child: Container()),
-            BookMarkUI(),
+            const BookMarkUI(),
           ])
         ],
       ),

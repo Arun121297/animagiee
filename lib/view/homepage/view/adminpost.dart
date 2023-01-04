@@ -1,8 +1,13 @@
+import 'dart:developer';
+
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/homepage/view/share.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
+
+import 'package:animagieeui/view/instancepage/controller/likeController.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -11,6 +16,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
+
 import '../../userprofile/view/userprofile.dart';
 import '../controller/homescreen1controller.dart';
 import 'bookmark.dart';
@@ -28,12 +34,29 @@ class _AdminPostState extends State<AdminPost> {
   Controller controller = Get.put(Controller());
   UserPostListController userPostListController =
       Get.put(UserPostListController());
+  LikeContoller likeContoller = Get.put(LikeContoller());
 
   // @override
   // void initState() {
   //   log("sdatassss_____---->${userPostListController.data}");
   //   super.initState();
   // }
+
+  likePost({required String id, required int index}) {
+    likeContoller.like(id: id, index: index);
+    userPostListController.data[0].data![index].liked =
+        !userPostListController.data[0].data![index].liked!;
+    if (userPostListController.data[0].data![index].liked!) {
+      userPostListController.data[0].data![index].likecount =
+          userPostListController.data[0].data![index].likecount! + 1;
+      log("${userPostListController.data[0].data![index].likecount}true");
+    } else {
+      userPostListController.data[0].data![index].likecount =
+          userPostListController.data[0].data![index].likecount! - 1;
+      log("${userPostListController.data[0].data![index].likecount}false");
+    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -286,7 +309,12 @@ class _AdminPostState extends State<AdminPost> {
                             ),
                           ),
                           Row(children: [
-                            const Likes_UI(),
+                            Likes_UI(
+                              status: data[index].liked!,
+                              onTap: () => likePost(
+                                  id: data[index].postid.toString(),
+                                  index: index),
+                            ),
                             SizedBox(
                               width: 2.0.wp,
                             ),

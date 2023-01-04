@@ -1,6 +1,8 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
 import 'package:animagieeui/view/home.dart';
+import 'package:animagieeui/view/homepage/view/myFollowUser.dart';
+import 'package:animagieeui/view/homepage/view/myFollower.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:animagieeui/view/mywork/view/myworkpage1.dart';
 import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
@@ -177,13 +179,18 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        "Followers",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
+                      InkWell(
+                        onTap: () {
+                          Get.to(const MyFollower());
+                        },
+                        child: Text(
+                          "Followers",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 9.5.sp,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
@@ -217,13 +224,18 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        "Following",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
+                      InkWell(
+                        onTap: () {
+                          Get.to(const MyFollowUser());
+                        },
+                        child: Text(
+                          "Following",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 9.5.sp,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),

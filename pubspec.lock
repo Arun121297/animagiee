@@ -79,14 +79,14 @@ packages:
       name: cached_network_image_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "2.0.0"
   cached_network_image_web:
     dependency: transitive
     description:
       name: cached_network_image_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   carousel_slider:
     dependency: "direct main"
     description:
@@ -145,6 +145,8 @@ packages:
     version: "0.0.8"
   connectivity_plus:
     dependency: transitive
+  connectivity_plus:
+    dependency: "direct main"
     description:
       name: connectivity_plus
       url: "https://pub.dartlang.org"
@@ -1065,14 +1067,14 @@ packages:
       name: sqflite
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3+1"
+    version: "2.2.2"
   sqflite_common:
     dependency: transitive
     description:
       name: sqflite_common
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.0+2"
   stack_trace:
     dependency: transitive
     description:
@@ -1091,6 +1093,13 @@ packages:
     dependency: transitive
     description:
       name: stream_channel
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  stream_transform:
+    dependency: "direct main"
+    description:
+      name: stream_transform
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
@@ -1209,28 +1218,28 @@ packages:
   video_player_android:
     dependency: transitive
     description:
-      name: video_player_android
+      name: visibility_detector
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.10"
-  video_player_avfoundation:
+    version: "0.3.3"
+  wakelock:
     dependency: transitive
     description:
-      name: video_player_avfoundation
+      name: wakelock
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.8"
-  video_player_platform_interface:
+    version: "0.6.2"
+  wakelock_macos:
     dependency: transitive
     description:
-      name: video_player_platform_interface
+      name: wakelock_macos
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.1"
-  video_player_web:
+    version: "0.4.0"
+  wakelock_platform_interface:
     dependency: transitive
     description:
-      name: video_player_web
+      name: wakelock_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.13"

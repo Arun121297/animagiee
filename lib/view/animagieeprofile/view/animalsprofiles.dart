@@ -127,26 +127,6 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Container(
-                              height: 3.0.hp,
-                              // 26,
-                              width: 23.0.wp,
-                              // 90,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: animagiee_CL,
-                                  borderRadius: BorderRadius.circular(15.0.sp)),
-                              child: Text(
-                                "Message",
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                    fontSize: 9.0.sp,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
                             Padding(
                               padding: EdgeInsets.only(left: 5.0.sp),
                               child: GestureDetector(
@@ -165,7 +145,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                       borderRadius:
                                           BorderRadius.circular(15.0.sp)),
                                   child: Text(
-                                    "Add Members",
+                                    "Joined",
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         fontSize: 9.0.sp,

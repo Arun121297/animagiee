@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:animagieeui/chat/group_chat/allConstents/firestore_constants.dart';
-import 'package:animagieeui/view/communitypage/view/clubs/myclubs.dart';
 import 'package:animagieeui/view/instancepage/model/club.dart';
 import 'package:animagieeui/view/instancepage/service/club_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,7 +15,7 @@ class ClubController extends GetxController {
   File pFprofileimage = File("");
   RxList<ClubCreationModel> clubcreationdata = <ClubCreationModel>[].obs;
   RxBool clubcretedataloadingindicator = true.obs;
-  // final relatedData = <Data>[].obs;
+  final relatedData = <Data>[].obs;
   TextEditingController groupName = TextEditingController();
   TextEditingController clubDescription = TextEditingController();
   TextEditingController clubName = TextEditingController();
@@ -24,6 +23,7 @@ class ClubController extends GetxController {
   String id = '';
   RxString communityTypeisPrivat = ''.obs;
   var clint = ClubService();
+  List<ClubCreationModel> details = [];
   Future clubApi(
       //   {
       //   clubDescription,
@@ -35,8 +35,7 @@ class ClubController extends GetxController {
       // }
       ) async {
     try {
-      ClubCreationModel? response;
-      response = await clint.clubService(
+      var response = await clint.clubService(
         clubDescription: clubDescription.text,
         clubName: clubName.text,
         community: id,
@@ -45,12 +44,10 @@ class ClubController extends GetxController {
         groupName: groupName.text,
       );
       if (response != null) {
-        createUserInFirebase(response.data!.id, response);
-        Get.to(const MyClubs_UI());
-
         // clubcreationdata.clear();
         // clubcreationdata.add(response);
-        clubcretedataloadingindicator(false);
+        details.add(response);
+        return response.data!.id;
       } else {
         return null;
       }

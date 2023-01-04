@@ -33,4 +33,14 @@ class Urls {
   static const blockUnblock = '${baseUrl}api/user/blockunblock';
   // like unlike
   static const likeUnlike = '${baseUrl}api/post/postlike';
+  static const followrequest = '${baseUrl}api/follow/ani_followrequest';
+  static const followgetrequest = '${baseUrl}api/follow/listFriendrequest';
+  static const confirmfollowrequest = '${baseUrl}api/follow/acceptRequest';
+  static const deletefollowrequest = '${baseUrl}api/follow/ignoreRequest';
+  static const myfollower = '${baseUrl}api/follow/myFollowers';
+  static const myfolloweruser = '${baseUrl}api/follow/myFollowingusers';
+  static const otheruserfollow = '${baseUrl}api/follow/otherFollowers';
+  static const otheruserfollowing = '${baseUrl}api/follow/otherFollowingusers';
+  static const removefollowers = '${baseUrl}api/follow/unfollowfollowers';
+  static const likes = '${baseUrl}api/post/postlike';
 }

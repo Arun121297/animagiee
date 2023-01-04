@@ -57,6 +57,7 @@ class ClubService {
         // final responseData = json.decode(response.data);
 
         // return clubCreationModelFromJson(response.data);
+
         return ClubCreationModel.fromJson(response.data);
       } else {
         // Fluttertoast.showToast(

@@ -22,32 +22,26 @@ class _User_Profile_Discription_UIState
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => userPostProfileController.data.isEmpty
-          ? Center(
-              child: CircularProgressIndicator(
-              color: Colors.grey,
-              strokeWidth: 2,
-            ))
-          : ListView.builder(
-              shrinkWrap: true,
+      () => ListView.builder(
+          shrinkWrap: true,
 
-              //  scrollDirection: Axis.vertical,
-              itemCount: userPostProfileController.data.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: EdgeInsets.only(left: 15.0.sp),
-                  child: Text(
-                    userPostProfileController.data[index].about.toString(),
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 9.0.sp,
-                        color: dummycontent_Cl,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+          //  scrollDirection: Axis.vertical,
+          itemCount: userPostProfileController.data.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: EdgeInsets.only(left: 15.0.sp),
+              child: Text(
+                userPostProfileController.data[index].about.toString(),
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 9.0.sp,
+                    color: dummycontent_Cl,
+                    fontWeight: FontWeight.w400,
                   ),
-                );
-              }),
+                ),
+              ),
+            );
+          }),
     );
   }
 }

@@ -1,8 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -246,7 +244,10 @@ class _My_Post_UIState extends State<My_Post_UI> {
                         ),
                       ),
                       Row(children: [
-                        const Likes_UI(),
+                        Likes_UI(
+                          onTap: () {},
+                          status: null!,
+                        ),
                         const Comment_UI(),
                         const Share_UI(),
                         Expanded(child: Container()),

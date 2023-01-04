@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:animagieeui/utils/Urls/urlsapi.dart';
+import 'package:animagieeui/utils/constance.dart';
 import 'package:animagieeui/view/instancepage/model/home_search.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,6 +13,7 @@ class SearchHomeServices {
     String userName,
   ) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    var token = prefs.getString(Constants.authToken);
     String baseUrl = (prefs.getString('url') ?? Urls.baseUrl);
     final response = await client.post(Uri.parse(Urls.homesearch),
         body: json.encode({
@@ -19,6 +21,7 @@ class SearchHomeServices {
         }),
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
         });
 
     if (response.statusCode == 200) {

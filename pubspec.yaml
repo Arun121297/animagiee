@@ -46,6 +46,7 @@ dependencies:
   shared_preferences: ^2.0.15
   image_picker: ^0.8.5+3
   # video_player: ^2.4.7
+
   lottie: ^1.4.2
   flutter_bounce: ^1.1.0
   searchfield: ^0.7.2
@@ -89,6 +90,10 @@ dependencies:
 
   # bemeli_image_editor: ^1.0.5
   # extended_image: ^6.0.2+1
+  # better_player: ^0.0.83
+  connectivity_plus: ^3.0.2
+  stream_transform: ^2.1.0
+  # cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

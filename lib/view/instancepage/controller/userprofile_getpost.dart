@@ -2,7 +2,7 @@ import 'package:animagieeui/view/instancepage/model/user_postGetmodel.dart';
 import 'package:animagieeui/view/instancepage/service/user_postListGetservice.dart';
 import 'package:get/get.dart';
 
-class UserPostProfilePostController extends GetxController {
+class UserPostGetProfilePostController extends GetxController {
   final data = <Datum>[].obs;
   RxBool userprofilescreenloadingindicator = true.obs;
   userProfilePost(String id) async {
@@ -10,6 +10,7 @@ class UserPostProfilePostController extends GetxController {
     final response = await UserPostGetListService.userPostGetListService(id);
     try {
       if (response != null) {
+        data.clear();
         data.value = response.data!;
         userprofilescreenloadingindicator(false);
       } else {

@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 // import 'package:shared_preferences/shared_preferences.dart';
 
 import '../config/colorconfig.dart';
@@ -72,7 +74,7 @@ class Controller extends GetxController {
 
   File file = File("");
   Rx<FilepickerType> imagevideo = FilepickerType(type: "", url: "").obs;
-  // VideoPlayerController? videocontroller;
+  BetterPlayer? videocontroller;
 
   // communityNext(title, fun) {
   //   return GestureDetector(
