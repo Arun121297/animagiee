@@ -4,6 +4,7 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/signinpage/controller/signincontroller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -40,15 +41,38 @@ class _SignInPageState extends State<SignInPage> {
 
   var username6 = '';
   Controller controller = Get.put(Controller());
-  back() async {
-    null;
+
+//// TO Close the APP
+  Future<bool> showExitPopup() async {
+    return await showDialog(
+          //show confirm dialogue
+          //the return value will be from "Yes" or "No" options
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Exit App'),
+            content: Text('Do you want to exit an App?'),
+            actions: [
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                //return false when click on "NO"
+                child: Text('No'),
+              ),
+              ElevatedButton(
+                onPressed: () => SystemNavigator.pop(),
+                //return true when click on "Yes"
+                child: Text('Yes'),
+              ),
+            ],
+          ),
+        ) ??
+        false; //if showDialouge had returned null, then return false
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: WillPopScope(
-        onWillPop: () => back(),
+        onWillPop: () => showExitPopup(),
         child: Container(
           alignment: Alignment.center,
           child: Column(

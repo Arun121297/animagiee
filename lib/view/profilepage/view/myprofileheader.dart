@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
 import 'package:animagieeui/view/home.dart';
@@ -282,7 +284,8 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(const My_Post_UI());
+                      Get.to(My_Post_UI(id: data.id));
+                      // log(data.id.toString());
                     },
                     child: Card(
                       elevation: 3,

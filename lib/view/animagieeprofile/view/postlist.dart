@@ -10,6 +10,7 @@ import '../../homepage/view/bookmark.dart';
 import '../../homepage/view/commend.dart';
 import '../../homepage/view/likes.dart';
 import '../../homepage/view/share.dart';
+import '../../instancepage/controller/userprofile_getpost.dart';
 // import '../../homepage/bookmark.dart';
 // import '../../homepage/commend.dart';
 // import '../../homepage/likes.dart';
@@ -25,6 +26,8 @@ class PostList_Content extends StatefulWidget {
 
 class _PostList_ContentState extends State<PostList_Content> {
   Controller controller = Get.put(Controller());
+  UserPostGetProfilePostController userPostProfilePostController =
+      Get.put(UserPostGetProfilePostController());
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -154,7 +157,7 @@ class _PostList_ContentState extends State<PostList_Content> {
           Row(children: [
             Likes_UI(
               onTap: () {},
-              status: null!,
+              status: true,
             ),
             const Comment_UI(),
             const Share_UI(),
