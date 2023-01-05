@@ -75,7 +75,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
-                    itemCount: controller.Home_Post.length,
+                    itemCount: currentUserlistController.currentuserlist.length,
                     itemBuilder: (context, index) => Card(
                       elevation: 3,
                       child: Column(
