@@ -28,6 +28,7 @@ class _Member_List_ContentState extends State<Member_List_Content> {
             onTap: () {
               Get.to(User_Profile(
                 id: '',
+                postId: '',
               ));
             },
             child: const CircleAvatar(

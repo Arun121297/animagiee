@@ -242,6 +242,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       id != list[index].id
                                           ? Get.to(() => User_Profile(
                                                 id: list[index].id,
+                                                postId: '',
                                               ))
                                           : SizedBox();
                                     },

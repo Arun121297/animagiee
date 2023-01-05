@@ -3,7 +3,7 @@ import 'package:animagieeui/view/instancepage/service/user_postListGetservice.da
 import 'package:get/get.dart';
 
 class UserPostGetProfilePostController extends GetxController {
-  final data = <Datum>[].obs;
+  var data = <UserPostListGetModel>[].obs;
   RxBool userprofilescreenloadingindicator = true.obs;
   userProfilePost(String id) async {
     print("datab" + data.length.toString());
@@ -11,7 +11,7 @@ class UserPostGetProfilePostController extends GetxController {
     try {
       if (response != null) {
         data.clear();
-        data.value = response.data!;
+        data.add(response);
         userprofilescreenloadingindicator(false);
       } else {
         userprofilescreenloadingindicator(false);

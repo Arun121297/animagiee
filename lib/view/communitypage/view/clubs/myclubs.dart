@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:animagieeui/chat/group_chat/allConstents/firestore_constants.dart';
 import 'package:animagieeui/chat/group_chat/chat_page.dart';
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/utils/constance.dart';
+import 'package:animagieeui/view/animagieeprofile/view/animalsprofiles.dart';
 import 'package:animagieeui/view/communitypage/controller/createclubcontroller.dart';
 import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
@@ -300,7 +302,15 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                         onTap: () {
                                           ///ppass created club id
                                           log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
-                                          Get.to(MyClubCreation());
+                                          // Get.to(MyClubCreation());
+                                          Get.to(Animals_Profiles_UI(
+                                            id: createdClubController
+                                                .getcreateclubdata[0]
+                                                .data![index]
+                                                .clubid
+                                                .toString(),
+                                            userId: Constants.userId,
+                                          ));
                                         },
                                         child: Row(
                                           mainAxisAlignment:

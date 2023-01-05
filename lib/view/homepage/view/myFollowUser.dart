@@ -76,6 +76,7 @@ class _MyFollowUserState extends State<MyFollowUser> {
                       onTap: () {
                         Get.to(User_Profile(
                           id: data.userid!.id.toString(),
+                          postId: '',
                         ));
                       },
                       child: Row(

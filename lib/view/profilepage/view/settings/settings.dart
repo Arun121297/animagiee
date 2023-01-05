@@ -62,9 +62,17 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
               width: 90.0.wp,
               // 330,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  SizedBox(
+                    width: 10.0.wp,
+                  ),
+                  Icon(
+                    Icons.security,
+                    color: animagiee_CL,
+                  ),
+                  SizedBox(
+                    width: 7.0.wp,
+                  ),
                   Container(
                     // color: Colors.green,
                     child: Text(
@@ -78,10 +86,6 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
                       ),
                     ),
                   ),
-                  Icon(
-                    Icons.security,
-                    color: animagiee_CL,
-                  )
                 ],
               ),
               decoration: BoxDecoration(
@@ -104,9 +108,25 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
               width: 90.0.wp,
               // 330,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  SizedBox(
+                    width: 10.0.wp,
+                  ),
+                  SizedBox(
+                    height: 6.0.hp,
+                    //  17,
+                    width: 7.0.wp,
+                    //  21,
+                    child: Image.asset(
+                      "images/communitygroupsetting.png",
+                      // cacheHeight: 17,
+                      // cacheWidth: 21,
+                      color: animagiee_CL,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 7.0.wp,
+                  ),
                   Container(
                     // color: Colors.green,
                     child: Text(
@@ -120,18 +140,6 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 6.0.hp,
-                    //  17,
-                    width: 7.0.wp,
-                    //  21,
-                    child: Image.asset(
-                      "images/communitygroupsetting.png",
-                      // cacheHeight: 17,
-                      // cacheWidth: 21,
-                      color: animagiee_CL,
-                    ),
-                  )
                 ],
               ),
               decoration: BoxDecoration(
@@ -156,9 +164,23 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
               width: 90.0.wp,
               // 330,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  SizedBox(
+                    width: 10.0.wp,
+                  ),
+                  SizedBox(
+                    height: 4.0.hp,
+                    // 18,
+                    width: 5.0.wp,
+                    //  18,
+                    child: Image.asset(
+                      "images/about.png",
+                      // cacheHeight: 18,
+                      // cacheWidth: 18,
+                      color: animagiee_CL,
+                    ),
+                  ),
+
                   Container(
                     width: 30.0.wp,
                     // 95,
@@ -178,18 +200,6 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
                   // SizedBox(
                   //   width: 2,
                   // ),
-                  SizedBox(
-                    height: 4.0.hp,
-                    // 18,
-                    width: 5.0.wp,
-                    //  18,
-                    child: Image.asset(
-                      "images/about.png",
-                      // cacheHeight: 18,
-                      // cacheWidth: 18,
-                      color: animagiee_CL,
-                    ),
-                  )
                 ],
               ),
               decoration: BoxDecoration(
@@ -208,9 +218,17 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
             width: 90.0.wp,
             // 330,
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                SizedBox(
+                  width: 10.0.wp,
+                ),
+                Icon(
+                  Icons.help,
+                  color: animagiee_CL,
+                ),
+                SizedBox(
+                  width: 4.0.wp,
+                ),
                 Container(
                   width: 30.0.wp, //  95,
                   alignment: Alignment.center,
@@ -226,10 +244,6 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
                     ),
                   ),
                 ),
-                Icon(
-                  Icons.help,
-                  color: animagiee_CL,
-                )
               ],
             ),
             decoration: BoxDecoration(

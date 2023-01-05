@@ -90,8 +90,10 @@ class _OtherUserFollowState extends State<OtherUserFollow> {
                           dashboardController.selectedIndex(4);
                           Get.off(() => Home_Page());
                         } else {
-                          Get.to(
-                              () => User_Profile(id: data.userId!.toString()));
+                          Get.to(() => User_Profile(
+                                id: data.userId!.toString(),
+                                postId: "",
+                              ));
                         }
                       },
                       child: Row(

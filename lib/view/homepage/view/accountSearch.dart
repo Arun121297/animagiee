@@ -50,6 +50,7 @@ class _AccountSearchState extends State<AccountSearch> {
                     onTap: () {
                       Get.to(User_Profile(
                         id: data.id!,
+                        postId: '',
                       ));
                     },
                     child: Column(

@@ -27,8 +27,9 @@ import 'profilebackgroundimage.dart';
 import 'settings.dart';
 
 class User_Profile extends StatefulWidget {
+  String postId;
   String id;
-  User_Profile({required this.id});
+  User_Profile({required this.id, required this.postId});
 
   @override
   State<User_Profile> createState() => _User_ProfileState();
@@ -197,7 +198,9 @@ class _User_ProfileState extends State<User_Profile> {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        UserProfile_Page1_UI(id: widget.id),
+                        UserProfile_Page1_UI(
+                          id: widget.id,
+                        ),
                         UserPage_Communitie_Page2(
                           id: widget.id,
                         )

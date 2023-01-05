@@ -1,6 +1,5 @@
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/homepage/view/followRequestGet.dart';
 import 'package:animagieeui/view/homepage/view/suggestedlistcontent.dart';
 
 import 'package:flutter/material.dart';
@@ -60,24 +59,19 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
                         ),
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        Get.to(const FollowRequestGet());
-                      },
-                      child: Expanded(
-                          child: Container(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                "See All",
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                    fontSize: 8.0.sp,
-                                    color: TextContent2_CL,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                    Expanded(
+                        child: Container(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              "See All",
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 8.0.sp,
+                                  color: TextContent2_CL,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                              ))),
-                    )
+                              ),
+                            )))
                   ],
                 ),
               ),

@@ -110,21 +110,29 @@ class _AdminPostState extends State<AdminPost> {
                                       data[index].postowner!.id.toString()) {
                                     controller.selectedIndex(4);
                                   } else {
-                                    Get.to(User_Profile(
-                                      id: data[index].postowner!.id.toString(),
-                                    ));
+                                    Get.to(() => User_Profile(
+                                          postId: data[index].postid ?? "",
+                                          id: data[index]
+                                              .postowner!
+                                              .id
+                                              .toString(),
+                                        ));
                                   }
                                 },
-                                child: data[index].profileicon!.isEmpty
-                                    ? const CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        backgroundImage: AssetImage(
-                                            "images/profile_icon.png"),
-                                      )
-                                    : CircleAvatar(
-                                        backgroundImage: NetworkImage(
-                                            data[index].profileicon.toString()),
-                                      ),
+                                child:
+                                    data[index].postowner!.profileicon!.isEmpty
+                                        ? const CircleAvatar(
+                                            backgroundColor: Colors.white,
+                                            backgroundImage: AssetImage(
+                                                "images/profile_icon.png"),
+                                          )
+                                        : CircleAvatar(
+                                            backgroundImage: NetworkImage(
+                                                data[index]
+                                                    .postowner!
+                                                    .profileicon
+                                                    .toString()),
+                                          ),
                               ),
                               const SizedBox(
                                 width: 5,
@@ -135,9 +143,13 @@ class _AdminPostState extends State<AdminPost> {
                                       data[index].postowner!.id.toString()) {
                                     controller.selectedIndex(4);
                                   } else {
-                                    Get.to(User_Profile(
-                                      id: data[index].postowner!.id.toString(),
-                                    ));
+                                    Get.to(() => User_Profile(
+                                          postId: data[index].postid ?? "",
+                                          id: data[index]
+                                              .postowner!
+                                              .id
+                                              .toString(),
+                                        ));
                                   }
                                 },
                                 child: SizedBox(
@@ -298,16 +310,13 @@ class _AdminPostState extends State<AdminPost> {
                                 const SizedBox(
                                   width: 12,
                                 ),
-                                Visibility(
-                                  visible: false,
-                                  child: Text(
-                                    "12 Comments",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                        fontSize: 9.0.sp,
-                                        color: TextContent1_CL,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                Text(
+                                  "${data[index].cmdCount} Comments",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                      fontSize: 9.0.sp,
+                                      color: TextContent1_CL,
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
