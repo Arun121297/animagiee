@@ -17,8 +17,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 
-import '../../homeAppBar/view/notification.dart';
-import '../../homeAppBar/view/search.dart';
 import 'followers.dart';
 import 'following.dart';
 import 'messagebutton.dart';
@@ -85,7 +83,7 @@ class _User_ProfileState extends State<User_Profile> {
           // color: Colors.green,
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            Followers_UI(
+            FollowersUI(
               id: widget.id,
             ),
             Following_UI(id: widget.id),
@@ -109,8 +107,8 @@ class _User_ProfileState extends State<User_Profile> {
     return Scaffold(
       // Persistent AppBar that never scrolls
       appBar: AppBar(
-        actions: [
-          Search_UI(),
+        /*  actions: [
+          // Search_UI(),
           SizedBox(
             width: 3.0.wp,
           ),
@@ -118,7 +116,7 @@ class _User_ProfileState extends State<User_Profile> {
           SizedBox(
             width: 4.0.wp,
           )
-        ],
+        ], */
         leading: IconButton(
             icon:
                 Icon(Icons.arrow_back_ios, size: 12.0.sp, color: Colors.black),

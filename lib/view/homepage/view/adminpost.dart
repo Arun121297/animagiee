@@ -24,7 +24,8 @@ import '../controller/homescreen1controller.dart';
 import 'likes.dart';
 
 class AdminPost extends StatefulWidget {
-  const AdminPost({Key? key}) : super(key: key);
+  AdminPost({Key? key, required this.userId}) : super(key: key);
+  String? userId;
 
   @override
   State<AdminPost> createState() => _AdminPostState();
@@ -105,9 +106,14 @@ class _AdminPostState extends State<AdminPost> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Get.to(User_Profile(
-                                    id: data[index].postowner!.id.toString(),
-                                  ));
+                                  if (widget.userId.toString() ==
+                                      data[index].postowner!.id.toString()) {
+                                    controller.selectedIndex(4);
+                                  } else {
+                                    Get.to(User_Profile(
+                                      id: data[index].postowner!.id.toString(),
+                                    ));
+                                  }
                                 },
                                 child: data[index].profileicon!.isEmpty
                                     ? const CircleAvatar(
@@ -125,9 +131,14 @@ class _AdminPostState extends State<AdminPost> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Get.to(User_Profile(
-                                    id: data[index].postowner!.id.toString(),
-                                  ));
+                                  if (widget.userId.toString() ==
+                                      data[index].postowner!.id.toString()) {
+                                    controller.selectedIndex(4);
+                                  } else {
+                                    Get.to(User_Profile(
+                                      id: data[index].postowner!.id.toString(),
+                                    ));
+                                  }
                                 },
                                 child: SizedBox(
                                   width: 70.0.wp,
@@ -356,7 +367,7 @@ class _AdminPostState extends State<AdminPost> {
                     ),
                     Visibility(
                         visible: index == 1 ? true : false,
-                        child: Suggested_For_You_UI()),
+                        child: const Suggested_For_You_UI()),
                   ],
                 );
               }),

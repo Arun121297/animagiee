@@ -1,12 +1,7 @@
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/homepage/view/otherUserFollow.dart';
 import 'package:animagieeui/view/homepage/view/otherUserFollowing.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
-import 'package:animagieeui/view/instancepage/model/otherUserFollow.dart';
-import 'package:animagieeui/view/instancepage/model/otherUserFollowing.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -53,7 +48,7 @@ class _Following_UIState extends State<Following_UI> {
                 ),
               ),
             ),
-            VerticalDivider(
+            const VerticalDivider(
               color: animagiee_CL,
             ),
             Expanded(

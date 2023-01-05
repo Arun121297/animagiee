@@ -7,7 +7,7 @@ class FollowRequestContoller extends GetxController {
   RxBool followRequestloadingindicator = true.obs;
 
   followRequestPost({required String id}) async {
-    print("datab" + data.length.toString());
+    print("datab${data.length}");
     final response = await FollowRequestService.followRequestService(id);
     try {
       if (response != null) {

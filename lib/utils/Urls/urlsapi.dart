@@ -39,8 +39,11 @@ class Urls {
   static const deletefollowrequest = '${baseUrl}api/follow/ignoreRequest';
   static const myfollower = '${baseUrl}api/follow/myFollowers';
   static const myfolloweruser = '${baseUrl}api/follow/myFollowingusers';
-  static const otheruserfollow = '${baseUrl}api/follow/otherFollowers';
-  static const otheruserfollowing = '${baseUrl}api/follow/otherFollowingusers';
+  // user followers
+  static const otherUserFollowers = '${baseUrl}api/follow/othersfollowerSearch';
+  // user following
+  static const otherUserFollowing =
+      '${baseUrl}api/follow/othersfollowingSearch';
   static const removefollowers = '${baseUrl}api/follow/unfollowfollowers';
   static const likes = '${baseUrl}api/post/postlike';
 }

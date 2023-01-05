@@ -30,7 +30,7 @@ class _Member_List_ContentState extends State<Member_List_Content> {
                 id: '',
               ));
             },
-            child: CircleAvatar(
+            child: const CircleAvatar(
               backgroundImage: ExactAssetImage(
                   "images/pexels-chevanon-photography-1108099.jpg"),
             ),

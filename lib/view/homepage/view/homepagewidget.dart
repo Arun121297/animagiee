@@ -29,6 +29,7 @@ class _Homepage_WidState extends State<Homepage_Wid> {
   UserPostListController userPostListController =
       Get.put(UserPostListController());
   String? profileImage = "";
+  String? userId;
   @override
   void initState() {
     // userPostListController.isLoadingService(true);
@@ -39,7 +40,7 @@ class _Homepage_WidState extends State<Homepage_Wid> {
 
   fetchUserData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    var userId = sharedPreferences.getString(Constants.userId);
+    userId = sharedPreferences.getString(Constants.userId);
     profileImage = sharedPreferences.getString(Constants.profileImage);
     log(profileImage!);
     setState(() {});
@@ -131,7 +132,9 @@ class _Homepage_WidState extends State<Homepage_Wid> {
                 ),
 
                 ////adminpost
-                const AdminPost()
+                AdminPost(
+                  userId: userId,
+                )
               ],
             ),
           ),

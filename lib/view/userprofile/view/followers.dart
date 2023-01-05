@@ -8,15 +8,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/colorconfig.dart';
 
-class Followers_UI extends StatefulWidget {
+class FollowersUI extends StatefulWidget {
   String id;
-  Followers_UI({required this.id});
+  FollowersUI({required this.id});
 
   @override
-  State<Followers_UI> createState() => _Followers_UIState();
+  State<FollowersUI> createState() => _FollowersUIState();
 }
 
-class _Followers_UIState extends State<Followers_UI> {
+class _FollowersUIState extends State<FollowersUI> {
   UserPostProfileController userPostProfileController = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _Followers_UIState extends State<Followers_UI> {
             borderRadius: BorderRadius.circular(5)),
         child: GestureDetector(
           onTap: () {
-            Get.to(OtherUserFollow(id: widget.id));
+            Get.to(() => OtherUserFollow(id: widget.id));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -52,31 +52,18 @@ class _Followers_UIState extends State<Followers_UI> {
                   ),
                 ),
               ),
-              VerticalDivider(
+              const VerticalDivider(
                 color: animagiee_CL,
               ),
-              Expanded(
-                child: ListView.builder(
-                    shrinkWrap: true,
-
-                    //  scrollDirection: Axis.vertical,
-                    itemCount: userPostProfileController.data.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: EdgeInsets.only(left: 8.0.sp),
-                        child: Text(
-                          userPostProfileController.data[index].followerUser
-                              .toString(),
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 9.0.sp,
-                              color: dummycontent_Cl,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
+              Text(
+                userPostProfileController.data.first.followerUser.toString(),
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 9.0.sp,
+                    color: dummycontent_Cl,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               )
             ],
           ),
