@@ -1,11 +1,16 @@
+import 'dart:developer';
+
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/createpost/better_player.dart';
 import 'package:animagieeui/view/createpost/view/videoplayer.dart';
+import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
+import 'package:animagieeui/view/instancepage/controller/likeController.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofile_getpost.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/widgets/favourite_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
@@ -16,7 +21,10 @@ import '../../homepage/view/share.dart';
 
 class UserProfile_Page1_UI extends StatefulWidget {
   String id;
-  UserProfile_Page1_UI({required this.id});
+
+  UserProfile_Page1_UI({
+    required this.id,
+  });
 
   @override
   State<UserProfile_Page1_UI> createState() => _UserProfile_Page1_UIState();
@@ -26,10 +34,27 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
   Controller controller = Get.put(Controller());
   UserPostGetProfilePostController userPostProfilePostController =
       Get.put(UserPostGetProfilePostController());
+  LikeContoller likeContoller = Get.put(LikeContoller());
   @override
   void initState() {
     userPostProfilePostController.userProfilePost(widget.id);
     super.initState();
+  }
+
+  likePost({required String id, required int index}) {
+    likeContoller.like(id: id, index: index);
+    userPostProfilePostController.data[0].data![index].liked =
+        !userPostProfilePostController.data[0].data![index].liked!;
+    if (userPostProfilePostController.data[0].data![index].liked!) {
+      userPostProfilePostController.data[0].data![index].likeCount =
+          userPostProfilePostController.data[0].data![index].likeCount! + 1;
+      log("${userPostProfilePostController.data[0].data![index].likeCount}true");
+    } else {
+      userPostProfilePostController.data[0].data![index].likeCount =
+          userPostProfilePostController.data[0].data![index].likeCount! - 1;
+      log("${userPostProfilePostController.data[0].data![index].likeCount}false");
+    }
+    setState(() {});
   }
 
   @override
@@ -49,10 +74,12 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
           child: ListView.builder(
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
-            itemCount: userPostProfilePostController.data.length,
+            itemCount: userPostProfilePostController.data[0].data!.length,
             itemBuilder: (context, index) => Card(
               elevation: 3,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const SizedBox(
                     height: 10,
@@ -65,14 +92,15 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                       CircleAvatar(
                         backgroundImage: NetworkImage(
                             userPostProfilePostController
-                                .data[index].profileicon
+                                .data[0].data![index].profileicon
                                 .toString()),
                       ),
                       const SizedBox(
                         width: 5,
                       ),
                       Text(
-                        userPostProfilePostController.data[index].username
+                        userPostProfilePostController
+                            .data[0].data![index].username
                             .toString(),
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
@@ -82,7 +110,10 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           ),
                         ),
                       ),
-                      Expanded(child: Container()),
+                      SizedBox(
+                        width: 15.0.wp,
+                      ),
+                      Container(),
                       GestureDetector(
                         onTap: () => btmsheet(),
                         child: SizedBox(
@@ -109,10 +140,11 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.only(left: 10.0.sp, top: 5.0.sp),
                     child: Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-                      "Laoreet nunc morbi lectus donec.",
+                      userPostProfilePostController
+                          .data[0].data![index].description
+                          .toString(),
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.0.sp,
@@ -122,46 +154,31 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 12,
+                  SizedBox(
+                    height: 1.0.hp,
+                    //  12,
                   ),
-                  userPostProfilePostController.data[index].posttype == "image"
-                      ? Container(
-                          height: 45.0.hp,
-                          //  346,
-                          width: 95.0.wp,
-                          // 346,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0.sp),
-                            image: DecorationImage(
-                              image: NetworkImage(userPostProfilePostController
-                                  .data[index].addImagesOrVideos
-                                  .toString()),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        )
-                      : Container(
-                          height: 20.0.hp,
-                          //  134,
-                          width: 93.0.wp,
-                          // 339,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8.0.sp),
-                            border: Border.all(width: 2, color: animagiee_CL),
-                          ),
-                          child: BetterVideoPlayer(
-                            url: userPostProfilePostController
-                                .data[index].addImagesOrVideos
-                                .toString(),
-                          ),
-                        ),
+                  VisibilityDetector(
+                    key: Key(index.toString()),
+                    child: GestureDetector(
+                        child: MediaWidget(
+                      mediaType: userPostProfilePostController
+                          .data[0].data![index].posttype!,
+                      source: userPostProfilePostController
+                          .data[0].data![index].addImagesOrVideos!,
+                    )),
+                    onVisibilityChanged: (visibilityInfo) {
+                      // onVisibilityChanged(
+                      //     VisibilityInfo.visibleFraction,
+                      //     response.postId);
+                    },
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
                         Text(
-                          "12 Likes",
+                          "${userPostProfilePostController.data[0].data![index].likeCount} Likes",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 9.0.sp,
@@ -174,7 +191,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           width: 12,
                         ),
                         Text(
-                          "12 Comments",
+                          " ${userPostProfilePostController.data[0].data![index].cmdCount} Comments",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 9.0.sp,
@@ -183,11 +200,11 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                             ),
                           ),
                         ),
-                        Expanded(child: Container()),
+                        SizedBox(
+                          width: 47.0.wp,
+                        ),
                         Text(
-                          userPostProfilePostController
-                              .data[index].postViewPersons
-                              .toString(),
+                          "${userPostProfilePostController.data[0].data![index].postViewPersons.toString()} Views",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               fontSize: 9.0.sp,
@@ -201,12 +218,21 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                   ),
                   Row(children: [
                     Likes_UI(
-                      onTap: () {},
-                      status: userPostProfilePostController.data[index].liked!,
+                      onTap: () {
+                        likePost(
+                            id: userPostProfilePostController
+                                .data[0].data![index].postid
+                                .toString(),
+                            index: index);
+                      },
+                      status: userPostProfilePostController
+                          .data[0].data![index].liked!,
                     ),
                     const Comment_UI(),
                     const Share_UI(),
-                    Expanded(child: Container()),
+                    SizedBox(
+                      width: 50.0.wp,
+                    ),
                     FavouriteIcon(
                       onTap: () {},
                       status: true,

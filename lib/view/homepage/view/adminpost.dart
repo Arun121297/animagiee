@@ -99,6 +99,7 @@ class _AdminPostState extends State<AdminPost> {
                                 onTap: () {
                                   Get.to(User_Profile(
                                     id: data[index].postowner!.id.toString(),
+                                    postId: '',
                                   ));
                                 },
                                 child: CircleAvatar(
@@ -121,7 +122,10 @@ class _AdminPostState extends State<AdminPost> {
                                       // placeholder: ((context, url) =>
                                       //     CircularProgressIndicator()),
                                       // imageUrl:
-                                      data[index].profileicon.toString()),
+                                      data[index]
+                                          .postowner!
+                                          .profileicon
+                                          .toString()),
                                 ),
                               ),
                               const SizedBox(
@@ -131,6 +135,7 @@ class _AdminPostState extends State<AdminPost> {
                                 onTap: () {
                                   Get.to(User_Profile(
                                     id: data[index].postowner!.id.toString(),
+                                    postId: data[index].postid.toString(),
                                   ));
                                 },
                                 child: SizedBox(
@@ -285,7 +290,7 @@ class _AdminPostState extends State<AdminPost> {
                                   width: 12,
                                 ),
                                 Text(
-                                  "12 Comments",
+                                  "${data[index].cmdCount} Comments",
                                   style: GoogleFonts.poppins(
                                     textStyle: TextStyle(
                                       fontSize: 9.0.sp,

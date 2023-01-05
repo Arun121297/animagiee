@@ -237,6 +237,7 @@ class _Notification_Content_Design_UIState
                       onTap: () {
                         Get.to(User_Profile(
                           id: '',
+                          postId: '',
                         ));
                       },
                       child: SizedBox(

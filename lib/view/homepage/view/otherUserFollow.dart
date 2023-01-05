@@ -71,7 +71,10 @@ class _OtherUserFollowState extends State<OtherUserFollow> {
                     height: 70,
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(User_Profile(id: data.userid!.id.toString()));
+                        Get.to(User_Profile(
+                          id: data.userid!.id.toString(),
+                          postId: '',
+                        ));
                       },
                       child: Row(
                         children: [

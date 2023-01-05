@@ -71,7 +71,10 @@ class _OtherUserFollowingViewState extends State<OtherUserFollowingView> {
                     height: 70,
                     child: InkWell(
                       onTap: () {
-                        Get.to(User_Profile(id: data.userid!.id.toString()));
+                        Get.to(User_Profile(
+                          id: data.userid!.id.toString(),
+                          postId: '',
+                        ));
                       },
                       child: Row(
                         children: [

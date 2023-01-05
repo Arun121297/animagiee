@@ -1,6 +1,7 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
 import 'package:animagieeui/view/home.dart';
+import 'package:animagieeui/view/homepage/view/followRequestGet.dart';
 import 'package:animagieeui/view/homepage/view/myFollowUser.dart';
 import 'package:animagieeui/view/homepage/view/myFollower.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
@@ -415,16 +416,77 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           borderRadius: BorderRadius.circular(5),
                           border: Border.all(width: 1, color: Colors.grey)),
                       // 330,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10.0.wp),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.bookmark,
+                              color: animagiee_CL,
+                            ),
+                            SizedBox(
+                              width: 5.0.wp,
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              // color: Colors.green,
+                              width: 25.0.wp,
+                              //  95,
+                              child: Text(
+                                "My Favourites",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Settings_Text_CL,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 3.0.hp),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(FollowRequestGet());
+                    },
+                    child: Container(
+                      height: 6.0.hp,
+                      // 46,
+                      width: 90.0.wp,
+                      decoration: BoxDecoration(
+                          color: boxcolor_CL,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(width: 1, color: Colors.grey)),
+                      // 330,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
+                          SizedBox(
+                            width: 10.0.wp,
+                          ),
+                          SizedBox(
+                            height: 3.0.hp,
+                            //  18,
+                            width: 6.0.wp,
+                            //  18,
+                            child: Image.asset(
+                              "images/follow.png",
+                              // cacheHeight: 12,
+                              // width: 17,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 7.0.wp,
+                          ),
                           Container(
                             alignment: Alignment.center,
-                            // color: Colors.green,
-                            width: 25.0.wp,
+                            width: 27.0.wp,
                             //  95,
                             child: Text(
-                              "My Favourites",
+                              "Follow Requests",
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                   fontSize: 9.5.sp,
@@ -434,190 +496,189 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               ),
                             ),
                           ),
-                          const Icon(
-                            Icons.bookmark,
-                            color: animagiee_CL,
-                          )
+                          // VerticalDivider(
+                          //   color: Colors.transparent,
+                          // ),
                         ],
                       ),
                     ),
                   ),
-                  Visibility(
-                      visible: controller.profilechangebool.value == true &&
-                              controller.appoinmentdetailshide.value == false
-                          ? true
-                          : false,
-                      child: SizedBox(height: 3.0.hp)),
-                  Visibility(
-                    visible: controller.profilechangebool.value,
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.to(const My_Work_Design_UI());
-                        // Get.to(Scaffold(
-                        //   body:
-                        //   // About_Design_UI(),
-                        // ));
-                      },
-                      child: Container(
-                        height: 6.0.hp,
-                        // 46,
-                        width: 90.0.wp,
-                        decoration: BoxDecoration(
-                            color: boxcolor_CL,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(width: 1, color: Colors.grey)),
-                        // 330,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: 95,
-                              alignment: Alignment.center,
-                              // color: Colors.green,
-                              child: Text(
-                                "My Work",
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                    fontSize: 9.5.sp,
-                                    color: Settings_Text_CL,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // SizedBox(
-                            //   width: 2,
-                            // ),
-                            SizedBox(
-                              height: 3.0.hp,
-                              //  18,
-                              width: 6.0.wp,
-                              //  18,
-                              child: Image.asset(
-                                "images/profilecart.png",
-                                // cacheHeight: 18,
-                                // cacheWidth: 18,
-                                color: animagiee_CL,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 3.0.hp),
-                  Visibility(
-                    visible: controller.profilechangebool.value,
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.to(const Scaffold(
-                          body: About_Design_UI(),
-                        ));
-                      },
-                      child: Container(
-                        height: 6.0.hp,
-                        // 46,
-                        width: 90.0.wp,
-                        decoration: BoxDecoration(
-                            color: boxcolor_CL,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(width: 1, color: Colors.grey)),
-                        // 330,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: 95,
-                              // color: Colors.green,
-                              alignment: Alignment.center,
-                              child: Text(
-                                "About",
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                    fontSize: 9.5.sp,
-                                    color: Settings_Text_CL,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // SizedBox(
-                            //   width: 2,
-                            // ),
-                            SizedBox(
-                              height: 3.0.hp,
-                              // 18,
-                              width: 6.0.wp,
-                              // 18,
-                              child: Image.asset(
-                                "images/about.png",
-                                // cacheHeight: 18,
-                                // cacheWidth: 18,
-                                color: animagiee_CL,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Visibility(
-                    visible: controller.appoinmentdetailshide.value,
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.to(const AppoinmentDetails_UI());
-                      },
-                      child: Container(
-                        height: 6.0.hp,
-                        // 46,
-                        width: 90.0.wp,
-                        decoration: BoxDecoration(
-                            color: boxcolor_CL,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(width: 1, color: Colors.grey)),
-                        // 330,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            SizedBox(
-                              width: 39.0.wp,
-                              child: Text(
-                                "Appointment Details",
-                                style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                    fontSize: 9.5.sp,
-                                    color: Settings_Text_CL,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // Flexible(child: SizedBox()),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            SizedBox(
-                              height: 3.0.hp,
-                              //  18,
-                              width: 6.0.wp,
-                              //  18,
-                              child: Image.asset(
-                                "images/profilecart.png",
-                                // cacheHeight: 12,
-                                // width: 17,
-                              ),
-                            ),
-                            const VerticalDivider()
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Visibility(
+                  //     visible: controller.profilechangebool.value == true &&
+                  //             controller.appoinmentdetailshide.value == false
+                  //         ? true
+                  //         : false,
+                  //     child: SizedBox(height: 3.0.hp)),
+                  // Visibility(
+                  //   visible: controller.profilechangebool.value,
+                  //   child: GestureDetector(
+                  //     onTap: () {
+                  //       Get.to(const My_Work_Design_UI());
+                  //       // Get.to(Scaffold(
+                  //       //   body:
+                  //       //   // About_Design_UI(),
+                  //       // ));
+                  //     },
+                  //     child: Container(
+                  //       height: 6.0.hp,
+                  //       // 46,
+                  //       width: 90.0.wp,
+                  //       decoration: BoxDecoration(
+                  //           color: boxcolor_CL,
+                  //           borderRadius: BorderRadius.circular(5),
+                  //           border: Border.all(width: 1, color: Colors.grey)),
+                  //       // 330,
+                  //       child: Row(
+                  //         crossAxisAlignment: CrossAxisAlignment.center,
+                  //         mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //         children: [
+                  //           Container(
+                  //             width: 95,
+                  //             alignment: Alignment.center,
+                  //             // color: Colors.green,
+                  //             child: Text(
+                  //               "My Work",
+                  //               style: GoogleFonts.poppins(
+                  //                 textStyle: TextStyle(
+                  //                   fontSize: 9.5.sp,
+                  //                   color: Settings_Text_CL,
+                  //                   fontWeight: FontWeight.w500,
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //           ),
+                  //           // SizedBox(
+                  //           //   width: 2,
+                  //           // ),
+                  //           SizedBox(
+                  //             height: 3.0.hp,
+                  //             //  18,
+                  //             width: 6.0.wp,
+                  //             //  18,
+                  //             child: Image.asset(
+                  //               "images/profilecart.png",
+                  //               // cacheHeight: 18,
+                  //               // cacheWidth: 18,
+                  //               color: animagiee_CL,
+                  //             ),
+                  //           )
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // SizedBox(height: 3.0.hp),
+                  // Visibility(
+                  //   visible: controller.profilechangebool.value,
+                  //   child: GestureDetector(
+                  //     onTap: () {
+                  //       Get.to(const Scaffold(
+                  //         body: About_Design_UI(),
+                  //       ));
+                  //     },
+                  //     child: Container(
+                  //       height: 6.0.hp,
+                  //       // 46,
+                  //       width: 90.0.wp,
+                  //       decoration: BoxDecoration(
+                  //           color: boxcolor_CL,
+                  //           borderRadius: BorderRadius.circular(5),
+                  //           border: Border.all(width: 1, color: Colors.grey)),
+                  //       // 330,
+                  //       child: Row(
+                  //         crossAxisAlignment: CrossAxisAlignment.center,
+                  //         mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //         children: [
+                  //           Container(
+                  //             width: 95,
+                  //             // color: Colors.green,
+                  //             alignment: Alignment.center,
+                  //             child: Text(
+                  //               "About",
+                  //               style: GoogleFonts.poppins(
+                  //                 textStyle: TextStyle(
+                  //                   fontSize: 9.5.sp,
+                  //                   color: Settings_Text_CL,
+                  //                   fontWeight: FontWeight.w500,
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //           ),
+                  //           // SizedBox(
+                  //           //   width: 2,
+                  //           // ),
+                  //           SizedBox(
+                  //             height: 3.0.hp,
+                  //             // 18,
+                  //             width: 6.0.wp,
+                  //             // 18,
+                  //             child: Image.asset(
+                  //               "images/about.png",
+                  //               // cacheHeight: 18,
+                  //               // cacheWidth: 18,
+                  //               color: animagiee_CL,
+                  //             ),
+                  //           )
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // Visibility(
+                  //   visible: controller.appoinmentdetailshide.value,
+                  //   child: GestureDetector(
+                  //     onTap: () {
+                  //       Get.to(const AppoinmentDetails_UI());
+                  //     },
+                  //     child: Container(
+                  //       height: 6.0.hp,
+                  //       // 46,
+                  //       width: 90.0.wp,
+                  //       decoration: BoxDecoration(
+                  //           color: boxcolor_CL,
+                  //           borderRadius: BorderRadius.circular(5),
+                  //           border: Border.all(width: 1, color: Colors.grey)),
+                  //       // 330,
+                  //       child: Row(
+                  //         children: [
+                  //           SizedBox(
+                  //             width: 10.0.wp,
+                  //           ),
+                  //           SizedBox(
+                  //             height: 3.0.hp,
+                  //             //  18,
+                  //             width: 6.0.wp,
+                  //             //  18,
+                  //             child: Image.asset(
+                  //               "images/profilecart.png",
+                  //               // cacheHeight: 12,
+                  //               // width: 17,
+                  //             ),
+                  //           ),
+                  //           SizedBox(
+                  //             width: 8.0.wp,
+                  //           ),
+                  //           SizedBox(
+                  //             width: 39.0.wp,
+                  //             child: Text(
+                  //               "Appointment Details",
+                  //               style: GoogleFonts.poppins(
+                  //                 textStyle: TextStyle(
+                  //                   fontSize: 9.5.sp,
+                  //                   color: Settings_Text_CL,
+                  //                   fontWeight: FontWeight.w500,
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //           ),
+                  //           // Flexible(child: SizedBox()),
+
+                  //           const VerticalDivider()
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(height: 3.0.hp),
                   GestureDetector(
                     onTap: () {
@@ -632,33 +693,34 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           borderRadius: BorderRadius.circular(5),
                           border: Border.all(width: 1, color: Colors.grey)),
                       // 330,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 27.0.wp,
-                            //  95,
-                            child: Text(
-                              "Settings",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Settings_Text_CL,
-                                  fontWeight: FontWeight.w500,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10.0.wp),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.settings,
+                              color: animagiee_CL,
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              width: 27.0.wp,
+                              //  95,
+                              child: Text(
+                                "Settings",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Settings_Text_CL,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          // VerticalDivider(
-                          //   color: Colors.transparent,
-                          // ),
-                          const Icon(
-                            Icons.settings,
-                            color: animagiee_CL,
-                          )
-                        ],
+                            // VerticalDivider(
+                            //   color: Colors.transparent,
+                            // ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -674,33 +736,36 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           borderRadius: BorderRadius.circular(5),
                           border: Border.all(width: 1, color: Colors.grey)),
                       // 330,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            // color: Colors.orange,
-                            width: 28.0.wp,
-                            //  95,
-                            child: Text(
-                              "Logout",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Settings_Text_CL,
-                                  fontWeight: FontWeight.w500,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10.0.wp),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.logout,
+                              color: animagiee_CL,
+                            ),
+
+                            Container(
+                              alignment: Alignment.center,
+                              // color: Colors.orange,
+                              width: 28.0.wp,
+                              //  95,
+                              child: Text(
+                                "Logout",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.5.sp,
+                                    color: Settings_Text_CL,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          // SizedBox(
-                          //   width: 5,
-                          // ),
-                          const Icon(
-                            Icons.logout,
-                            color: animagiee_CL,
-                          )
-                        ],
+                            // SizedBox(
+                            //   width: 5,
+                            // ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

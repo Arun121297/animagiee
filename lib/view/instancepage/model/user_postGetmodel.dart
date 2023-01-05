@@ -33,38 +33,54 @@ class UserPostListGetModel {
 
 class Datum {
   Datum({
+    this.description,
+    this.postid,
     this.profileicon,
     this.username,
     this.addImagesOrVideos,
     this.posttype,
+    this.likeCount,
+    this.cmdCount,
     this.liked,
     this.saved,
     this.postViewPersons,
   });
 
+  String? description;
+  String? postid;
   String? profileicon;
   String? username;
   String? addImagesOrVideos;
   String? posttype;
+  int? likeCount;
+  int? cmdCount;
   bool? liked;
   bool? saved;
   int? postViewPersons;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+        description: json["description"],
+        postid: json["postid"],
         profileicon: json["profileicon"],
         username: json["username"],
         addImagesOrVideos: json["addImagesOrVideos"],
         posttype: json["posttype"],
+        likeCount: json["likeCount"],
+        cmdCount: json["cmdCount"],
         liked: json["liked"],
         saved: json["saved"],
         postViewPersons: json["postViewPersons"],
       );
 
   Map<String, dynamic> toJson() => {
+        "description": description,
+        "postid": postid,
         "profileicon": profileicon,
         "username": username,
         "addImagesOrVideos": addImagesOrVideos,
         "posttype": posttype,
+        "likeCount": likeCount,
+        "cmdCount": cmdCount,
         "liked": liked,
         "saved": saved,
         "postViewPersons": postViewPersons,

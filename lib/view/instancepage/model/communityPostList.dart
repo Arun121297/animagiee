@@ -1,17 +1,17 @@
 // To parse this JSON data, do
 //
-//     final userPostListModel = userPostListModelFromJson(jsonString);
+//     final communityPostList = communityPostListFromJson(jsonString);
 
 import 'dart:convert';
 
-UserPostListModel userPostListModelFromJson(String str) =>
-    UserPostListModel.fromJson(json.decode(str));
+CommunityPostList communityPostListFromJson(String str) =>
+    CommunityPostList.fromJson(json.decode(str));
 
-String userPostListModelToJson(UserPostListModel data) =>
+String communityPostListToJson(CommunityPostList data) =>
     json.encode(data.toJson());
 
-class UserPostListModel {
-  UserPostListModel({
+class CommunityPostList {
+  CommunityPostList({
     this.message,
     this.data,
   });
@@ -19,8 +19,8 @@ class UserPostListModel {
   String? message;
   List<Datum>? data;
 
-  factory UserPostListModel.fromJson(Map<String, dynamic> json) =>
-      UserPostListModel(
+  factory CommunityPostList.fromJson(Map<String, dynamic> json) =>
+      CommunityPostList(
         message: json["message"],
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
       );
@@ -40,7 +40,6 @@ class Datum {
     this.postowner,
     this.description,
     this.likecount,
-    this.cmdCount,
     this.postViewCount,
     this.liked,
     this.saved,
@@ -53,7 +52,6 @@ class Datum {
   Postowner? postowner;
   String? description;
   int? likecount;
-  int? cmdCount;
   int? postViewCount;
   bool? liked;
   bool? saved;
@@ -66,7 +64,6 @@ class Datum {
         postowner: Postowner.fromJson(json["postowner"]),
         description: json["description"],
         likecount: json["likecount"],
-        cmdCount: json["cmdCount"],
         postViewCount: json["postViewCount"],
         liked: json["liked"],
         saved: json["saved"],
@@ -80,7 +77,6 @@ class Datum {
         "postowner": postowner!.toJson(),
         "description": description,
         "likecount": likecount,
-        "cmdCount": cmdCount,
         "postViewCount": postViewCount,
         "liked": liked,
         "saved": saved,

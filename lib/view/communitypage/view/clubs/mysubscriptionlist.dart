@@ -31,7 +31,10 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
       child: GestureDetector(
         onTap: () {
           setState(() {
-            Get.to(Animals_Profiles_UI());
+            Get.to(Animals_Profiles_UI(
+              id: '',
+              userId: '',
+            ));
           });
         },
         child: Card(
