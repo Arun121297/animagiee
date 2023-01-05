@@ -26,6 +26,8 @@ import 'member.dart';
 //   State<Animals_Profiles_UI> createState() => _Animals_Profiles_UIState();
 // }
 class Animals_Profiles_UI extends StatefulWidget {
+  String id;
+  Animals_Profiles_UI({required this.id});
   @override
   _Animals_Profiles_UIState createState() => _Animals_Profiles_UIState();
 }
@@ -276,7 +278,12 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                 ),
                 Expanded(
                   child: TabBarView(
-                    children: [Pageview1_Post(), Pageview2_Member()],
+                    children: [
+                      Pageview1_Post(),
+                      Pageview2_Member(id: widget.id,
+                      
+                      )
+                    ],
                   ),
                 ),
               ],

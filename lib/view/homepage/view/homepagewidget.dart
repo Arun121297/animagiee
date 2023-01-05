@@ -94,47 +94,49 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: const Customized_Bottom_Bar(),
-      body: profileImage!.isEmpty
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : WillPopScope(
-              onWillPop: () {
-                return null!;
-              },
-              child: SafeArea(
-                child: SizedBox(
-                  // height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    children: [
-                      AppbarContainer(
-                        title: "",
-                        backarrow: false,
-                        firstscreen: false,
-                        navipage: null,
-                        notification: true,
-                        edit: false,
-                        notification_back_arrow: false,
-                        search: true,
-                        chat: true,
-                        logo: true,
-                        podcast: true,
-                        fun: null,
-                        searchfunction: true,
-                        searchfunctionclose: false,
-                        searchlist: "",
-                      ),
-                      CreatePost(
-                        profileImage: profileImage,
-                      ),
-
-                      ////adminpost
-                      const Expanded(child: AdminPost())
-                    ],
-                  ),
+      body:
+          //  profileImage!.isEmpty
+          //     ? const Center(
+          //         child: CircularProgressIndicator(),
+          //       )
+          // :
+          WillPopScope(
+        onWillPop: () {
+          return null!;
+        },
+        child: SafeArea(
+          child: SizedBox(
+            // height: MediaQuery.of(context).size.height,
+            child: Column(
+              children: [
+                AppbarContainer(
+                  title: "",
+                  backarrow: false,
+                  firstscreen: false,
+                  navipage: null,
+                  notification: true,
+                  edit: false,
+                  notification_back_arrow: false,
+                  search: true,
+                  chat: true,
+                  logo: true,
+                  podcast: true,
+                  fun: null,
+                  searchfunction: true,
+                  searchfunctionclose: false,
+                  searchlist: "",
                 ),
-              ),
+                CreatePost(
+                  profileImage: profileImage,
+                ),
+
+                ////adminpost
+                const Expanded(child: AdminPost())
+              ],
             ),
+          ),
+        ),
+      ),
     );
   }
 }

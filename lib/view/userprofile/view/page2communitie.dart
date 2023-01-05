@@ -53,7 +53,7 @@ class _UserPage_Communitie_Page2State extends State<UserPage_Communitie_Page2> {
                 name:
                     communitiPostListController.data[index].clubName.toString(),
                 icon:
-                    communitiPostListController.data[index].clubicon.toString(),
+                    communitiPostListController.data[index].clubicon.toString(), id: communitiPostListController.data[index].clubid.toString(),
               ));
     });
   }

@@ -12,7 +12,8 @@ import '../../animagieeprofile/view/animalsprofiles.dart';
 class Page2_Communitie_List extends StatefulWidget {
   String name;
   String icon;
-  Page2_Communitie_List({required this.name, required this.icon});
+  String id;
+  Page2_Communitie_List({required this.name, required this.icon,required this.id});
   @override
   State<Page2_Communitie_List> createState() => _Page2_Communitie_ListState();
 }
@@ -26,7 +27,7 @@ class _Page2_Communitie_ListState extends State<Page2_Communitie_List> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(Animals_Profiles_UI());
+        Get.to(Animals_Profiles_UI(id: widget.id,));
       },
       child: Card(
         child: Row(

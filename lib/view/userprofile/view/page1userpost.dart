@@ -16,7 +16,7 @@ import '../../homepage/view/share.dart';
 
 class UserProfile_Page1_UI extends StatefulWidget {
   String id;
-  UserProfile_Page1_UI({required this.id});
+    UserProfile_Page1_UI({required this.id});
 
   @override
   State<UserProfile_Page1_UI> createState() => _UserProfile_Page1_UIState();
