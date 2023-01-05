@@ -3,19 +3,15 @@ import 'dart:developer';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/userprofile/view/userprofile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../config/colorconfig.dart';
 import '../../config/constant.dart';
 import '../../view/homepage/view/bookmark.dart';
 import '../../view/homepage/view/commend.dart';
 import '../../view/homepage/view/likes.dart';
-import '../../view/homepage/view/share.dart';
 import '../../view/homepage/widgets/home_widget.dart';
 import '../../view/homepage/widgets/share_home.dart';
 import '../controller/singlepostcontroller.dart';
@@ -57,12 +53,12 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
   Widget build(BuildContext context) {
     return Scaffold(body: Obx(() {
       if (singlepostController.nullData.value) {
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
         );
       } else if (singlepostController.singlepostlist.isEmpty &&
           singlepostController.message.contains("deleted")) {
-        return Center(
+        return const Center(
           child: Text("No Post"),
         );
       } else {
@@ -80,7 +76,7 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                           onPressed: () {
                             Get.back();
                           },
-                          icon: Icon(Icons.arrow_back)),
+                          icon: const Icon(Icons.arrow_back)),
                       Container(
                           alignment: Alignment.center,
                           height: 7.0.hp,
@@ -95,7 +91,7 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                               ),
                             ),
                           )),
-                      Expanded(
+                      const Expanded(
                           child: SizedBox(
                               // width: 50,
                               ))
@@ -118,7 +114,9 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                           onTap: () {
                             log(response.postowner!.id.toString());
                             Get.to(User_Profile(
-                                id: response.postowner!.id.toString()));
+                              id: response.postowner!.id.toString(),
+                              postId: response.postid ?? "",
+                            ));
                           },
                           child: CircleAvatar(
                             backgroundImage:
@@ -132,7 +130,9 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                           onTap: () {
                             log(response.postowner!.id.toString());
                             Get.to(User_Profile(
-                                id: response.postowner!.id.toString()));
+                              id: response.postowner!.id.toString(),
+                              postId: response.postid ?? "",
+                            ));
                           },
                           child: Text(
                             response.username.toString(),
@@ -272,7 +272,7 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                       //   width: 15,
                       // ),
                       const Comment_UI(),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       ShareHome(

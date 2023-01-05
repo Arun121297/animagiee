@@ -49,9 +49,9 @@ class Datum {
   String? description;
   String? postid;
   String? profileicon;
-  Username? username;
+  String? username;
   String? addImagesOrVideos;
-  Posttype? posttype;
+  String? posttype;
   int? likeCount;
   int? cmdCount;
   bool? liked;
@@ -59,12 +59,12 @@ class Datum {
   int? postViewPersons;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        description: json["description"] == null ? null : json["description"],
+        description: json["description"],
         postid: json["postid"],
         profileicon: json["profileicon"],
-        username: usernameValues.map![json["username"]],
+        username: json["username"],
         addImagesOrVideos: json["addImagesOrVideos"],
-        posttype: posttypeValues.map![json["posttype"]],
+        posttype: json["posttype"],
         likeCount: json["likeCount"],
         cmdCount: json["cmdCount"],
         liked: json["liked"],
@@ -73,40 +73,16 @@ class Datum {
       );
 
   Map<String, dynamic> toJson() => {
-        "description": description == null ? null : description,
+        "description": description,
         "postid": postid,
         "profileicon": profileicon,
-        "username": usernameValues.reverse[username],
+        "username": username,
         "addImagesOrVideos": addImagesOrVideos,
-        "posttype": posttypeValues.reverse[posttype],
+        "posttype": posttype,
         "likeCount": likeCount,
         "cmdCount": cmdCount,
         "liked": liked,
         "saved": saved,
         "postViewPersons": postViewPersons,
       };
-}
-
-enum Posttype { IMAGE, VIDEO }
-
-final posttypeValues =
-    EnumValues({"image": Posttype.IMAGE, "video": Posttype.VIDEO});
-
-enum Username { ARUN_NK121297_GMAIL_COM }
-
-final usernameValues =
-    EnumValues({"arun.nk121297@gmail.com": Username.ARUN_NK121297_GMAIL_COM});
-
-class EnumValues<T> {
-  Map<String, T>? map;
-  Map<T, String>? reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map!.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap!;
-  }
 }

@@ -1,11 +1,10 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/createpost/better_player.dart';
-import 'package:animagieeui/view/createpost/view/videoplayer.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
 import 'package:animagieeui/view/instancepage/controller/likeController.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofile_getpost.dart';
+import 'package:animagieeui/view/profilepage/view/MyFavourites/controllers/favourite_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/widgets/favourite_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +13,6 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
-import '../../homepage/view/bookmark.dart';
 import '../../homepage/view/commend.dart';
 import '../../homepage/view/likes.dart';
 import '../../homepage/view/share.dart';
@@ -35,10 +33,17 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
   UserPostGetProfilePostController userPostProfilePostController =
       Get.put(UserPostGetProfilePostController());
   LikeContoller likeContoller = Get.put(LikeContoller());
+  FavouriteController favouriteController = Get.put(FavouriteController());
   @override
   void initState() {
-    userPostProfilePostController.userProfilePost(widget.id);
+    fetchData();
     super.initState();
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await userPostProfilePostController.userProfilePost(widget.id);
+    });
   }
 
   likePost({required String id, required int index}) {
@@ -57,6 +62,13 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
     setState(() {});
   }
 
+  addToFavourite({required id, required index}) async {
+    await favouriteController.addToFavourite(postId: id);
+    var data = userPostProfilePostController.data.first.data![index];
+    data.saved = !data.saved!;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -66,182 +78,186 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      } else if (userPostProfilePostController.data.isEmpty) {
+      } else if (userPostProfilePostController.data.isEmpty ||
+          userPostProfilePostController.data.first.data!.isEmpty) {
         return const Center(child: Text("No result found"));
       } else {
+        var data = userPostProfilePostController.data.first.data;
         return SizedBox(
           height: MediaQuery.of(context).size.height - 250,
           child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: userPostProfilePostController.data[0].data!.length,
-            itemBuilder: (context, index) => Card(
-              elevation: 3,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: data!.length,
+              itemBuilder: (context, index) {
+                var listData = data[index];
+                return Card(
+                  elevation: 3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const SizedBox(
-                        width: 5,
+                        height: 10,
                       ),
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            userPostProfilePostController
-                                .data[0].data![index].profileicon
-                                .toString()),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          CircleAvatar(
+                            backgroundImage:
+                                NetworkImage(listData.profileicon.toString()),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            listData.username.toString(),
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 10.5.sp,
+                                color: buttonColor1_CL,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 15.0.wp,
+                          ),
+                          Container(),
+                          GestureDetector(
+                            onTap: () => btmsheet(),
+                            child: SizedBox(
+                              height: 2.0.hp,
+                              // 16,
+                              width: 5.0.wp,
+                              // 16,
+                              child: Image.asset(
+                                "images/burger.png",
+                                // cacheHeight: 16,
+                                // cacheWidth: 16,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          )
+                          // IconButton(
+                          //   onPressed: () {
+
+                          //   },
+                          //   icon: Icon(Icons.menu),
+                          // )
+                        ],
                       ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        userPostProfilePostController
-                            .data[0].data![index].username
-                            .toString(),
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 10.5.sp,
-                            color: buttonColor1_CL,
-                            fontWeight: FontWeight.w500,
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.0.sp, top: 5.0.sp),
+                        child: Text(
+                          listData.description.toString(),
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 9.0.sp,
+                              color: dummycontent_Cl,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        width: 15.0.wp,
+                        height: 1.0.hp,
+                        //  12,
                       ),
-                      Container(),
-                      GestureDetector(
-                        onTap: () => btmsheet(),
-                        child: SizedBox(
-                          height: 2.0.hp,
-                          // 16,
-                          width: 5.0.wp,
-                          // 16,
-                          child: Image.asset(
-                            "images/burger.png",
-                            // cacheHeight: 16,
-                            // cacheWidth: 16,
-                          ),
+                      VisibilityDetector(
+                        key: Key(index.toString()),
+                        child: GestureDetector(
+                            child: MediaWidget(
+                          mediaType: listData.posttype!,
+                          source: listData.addImagesOrVideos!,
+                        )),
+                        onVisibilityChanged: (visibilityInfo) {
+                          // onVisibilityChanged(
+                          //     VisibilityInfo.visibleFraction,
+                          //     response.postId);
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Visibility(
+                              visible: listData.likeCount == 0 ? false : true,
+                              child: Text(
+                                "${listData.likeCount} Likes",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: TextContent1_CL,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            Visibility(
+                              visible: listData.cmdCount == 0 ? false : true,
+                              child: Text(
+                                " ${listData.cmdCount} Comments",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: TextContent1_CL,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 47.0.wp,
+                            ),
+                            Visibility(
+                              visible:
+                                  listData.postViewPersons == 0 ? false : true,
+                              child: Text(
+                                "${listData.postViewPersons.toString()} Views",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 9.0.sp,
+                                    color: TextContent1_CL,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 5,
-                      )
-                      // IconButton(
-                      //   onPressed: () {
-
-                      //   },
-                      //   icon: Icon(Icons.menu),
-                      // )
+                      Row(children: [
+                        Likes_UI(
+                          onTap: () {
+                            likePost(
+                                id: listData.postid.toString(), index: index);
+                          },
+                          status: listData.liked!,
+                        ),
+                        const Comment_UI(),
+                        const Share_UI(),
+                        SizedBox(
+                          width: 50.0.wp,
+                        ),
+                        FavouriteIcon(
+                          onTap: () {
+                            addToFavourite(id: listData.postid, index: index);
+                          },
+                          status: listData.saved,
+                        ),
+                      ])
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.0.sp, top: 5.0.sp),
-                    child: Text(
-                      userPostProfilePostController
-                          .data[0].data![index].description
-                          .toString(),
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 9.0.sp,
-                          color: dummycontent_Cl,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 1.0.hp,
-                    //  12,
-                  ),
-                  VisibilityDetector(
-                    key: Key(index.toString()),
-                    child: GestureDetector(
-                        child: MediaWidget(
-                      mediaType: userPostProfilePostController
-                          .data[0].data![index].posttype!,
-                      source: userPostProfilePostController
-                          .data[0].data![index].addImagesOrVideos!,
-                    )),
-                    onVisibilityChanged: (visibilityInfo) {
-                      // onVisibilityChanged(
-                      //     VisibilityInfo.visibleFraction,
-                      //     response.postId);
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "${userPostProfilePostController.data[0].data![index].likeCount} Likes",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 9.0.sp,
-                              color: TextContent1_CL,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        Text(
-                          " ${userPostProfilePostController.data[0].data![index].cmdCount} Comments",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 9.0.sp,
-                              color: TextContent1_CL,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 47.0.wp,
-                        ),
-                        Text(
-                          "${userPostProfilePostController.data[0].data![index].postViewPersons.toString()} Views",
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              fontSize: 9.0.sp,
-                              color: TextContent1_CL,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Row(children: [
-                    Likes_UI(
-                      onTap: () {
-                        likePost(
-                            id: userPostProfilePostController
-                                .data[0].data![index].postid
-                                .toString(),
-                            index: index);
-                      },
-                      status: userPostProfilePostController
-                          .data[0].data![index].liked!,
-                    ),
-                    const Comment_UI(),
-                    const Share_UI(),
-                    SizedBox(
-                      width: 50.0.wp,
-                    ),
-                    FavouriteIcon(
-                      onTap: () {},
-                      status: true,
-                    ),
-                  ])
-                ],
-              ),
-            ),
-          ),
+                );
+              }),
         );
       }
     });

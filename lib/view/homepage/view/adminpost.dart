@@ -293,6 +293,7 @@ class _AdminPostState extends State<AdminPost> {
                           Padding(
                             padding: EdgeInsets.all(8.0.sp),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Visibility(
                                   visible:
@@ -311,19 +312,23 @@ class _AdminPostState extends State<AdminPost> {
                                 const SizedBox(
                                   width: 12,
                                 ),
-                                Text(
-                                  "${data[index].cmdCount} Comments",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 9.0.sp,
-                                      color: TextContent1_CL,
-                                      fontWeight: FontWeight.w500,
+                                // TODO:after complete post comment, please remove comment
+                                Visibility(
+                                  visible: false,
+                                  child: Text(
+                                    "${data[index].cmdCount} Comments",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.0.sp,
+                                        color: TextContent1_CL,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 // Expanded(child: Container()),
                                 SizedBox(
-                                  width: 68.0.wp,
+                                  width: 45.0.wp,
                                 ),
                                 Visibility(
                                   visible: data[index].postViewCount == 0
@@ -350,7 +355,7 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid.toString(),
                                   index: index),
                             ),
-
+                            const Comment_UI(),
                             ShareHome(
                               desc: data[index].description.toString(),
                               id: data[index].postid!.toString(),
@@ -365,19 +370,9 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid, index: index),
                               status: data[index].saved,
                             ),
-                            SizedBox(
-                              width: 2.0.wp,
-                            ),
-                            const Comment_UI(),
-                            SizedBox(
-                              width: 1.8.wp,
-                            ),
 
                             // const Share_UI(),
                           ]),
-                          SizedBox(height: 2.0.sp
-                              //  10,
-                              ),
                         ],
                       ),
                     ),
@@ -395,8 +390,8 @@ class _AdminPostState extends State<AdminPost> {
   popup() {
     return showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
-          borderRadius: const BorderRadius.only(
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       builder: (context) {
         return SizedBox(
