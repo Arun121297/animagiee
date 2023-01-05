@@ -61,18 +61,18 @@ class Datum {
   bool? saved;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        postid: json["postid"],
+        postid: json["postid"] ?? "",
         indiviual: json["indiviual"],
         addImagesOrVideos: json["addImagesOrVideos"] ?? "",
         posttype: json["posttype"],
         postowner: Postowner.fromJson(json["postowner"]),
-        profileicon: json["profileicon"],
-        username: json["username"],
-        description: json["description"],
-        likecount: json["likecount"],
-        postViewCount: json["postViewCount"],
-        liked: json["liked"],
-        saved: json["saved"],
+        profileicon: json["profileicon"] ?? "",
+        username: json["username"] ?? "",
+        description: json["description"] ?? "",
+        likecount: json["likecount"] ?? 0,
+        postViewCount: json["postViewCount"] ?? 0,
+        liked: json["liked"] ?? false,
+        saved: json["saved"] ?? false,
       );
 
   Map<String, dynamic> toJson() => {

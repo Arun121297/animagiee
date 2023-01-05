@@ -27,15 +27,16 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
   Controller controller = Get.put(Controller());
   @override
   void initState() {
-    fetchdata();
+    fetchData();
     super.initState();
   }
 
-  fetchdata() async {
-    await profileController.getProfile().then((value) {
-      profileController.getprofiledata[0].data!.about;
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await profileController.getProfile();
     });
-    profileBGImageController.profilebackgroundimage = File('');
+
+    profileBGImageController.profilebackgroundimage(File(''));
     editScreenController.pFprofileimage = File('');
   }
 
@@ -44,14 +45,13 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
     return Scaffold(
       bottomNavigationBar: const Customized_Bottom_Bar(),
       body: Obx(() {
-        // Obx(() {
         if (profileController.isProfileLoading.value) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (profileController.getprofiledata.isEmpty) {
+        } else if (profileController.profileData.isEmpty) {
           return const Center(
-            child: Text("Profile"),
+            child: Text("Something went wrong..."),
           );
         } else {
           return WillPopScope(
@@ -59,28 +59,26 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
               return null!;
             },
             child: SafeArea(
-              child: Container(
-                child: Column(
-                  children: [
-                    AppbarContainer(
-                      edit: true,
-                      notification: false,
-                      navipage: 0,
-                      backarrow: false,
-                      chat: false,
-                      searchfunction: true,
-                      searchfunctionclose: false,
-                      firstscreen: true,
-                      notification_back_arrow: false,
-                      logo: false,
-                      podcast: false,
-                      search: false,
-                      fun: null,
-                      title: "Profile",
-                    ),
-                    const MY_Profile_Header_UI()
-                  ],
-                ),
+              child: Column(
+                children: [
+                  AppbarContainer(
+                    edit: true,
+                    notification: false,
+                    navipage: 0,
+                    backarrow: false,
+                    chat: false,
+                    searchfunction: true,
+                    searchfunctionclose: false,
+                    firstscreen: true,
+                    notification_back_arrow: false,
+                    logo: false,
+                    podcast: false,
+                    search: false,
+                    fun: null,
+                    title: "Profile",
+                  ),
+                  const MY_Profile_Header_UI()
+                ],
               ),
             ),
           );

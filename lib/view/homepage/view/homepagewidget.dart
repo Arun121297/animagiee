@@ -32,13 +32,12 @@ class _Homepage_WidState extends State<Homepage_Wid> {
   @override
   void initState() {
     // userPostListController.isLoadingService(true);
-    userPostListController.ottApiCall();
-    controller.podcastplayblutton = false.obs;
     fetchData();
+    fetchUserData();
     super.initState();
   }
 
-  fetchData() async {
+  fetchUserData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userId = sharedPreferences.getString(Constants.userId);
     profileImage = sharedPreferences.getString(Constants.profileImage);
@@ -47,6 +46,13 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     if (userId!.isNotEmpty) {
       createUserInFirebase(userId);
     }
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await userPostListController.getHome();
+      controller.podcastplayblutton(false);
+    });
   }
 
 //for Chat
@@ -94,47 +100,43 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: const Customized_Bottom_Bar(),
-      body: profileImage!.isEmpty
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : WillPopScope(
-              onWillPop: () {
-                return null!;
-              },
-              child: SafeArea(
-                child: SizedBox(
-                  // height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    children: [
-                      AppbarContainer(
-                        title: "",
-                        backarrow: false,
-                        firstscreen: false,
-                        navipage: null,
-                        notification: true,
-                        edit: false,
-                        notification_back_arrow: false,
-                        search: true,
-                        chat: true,
-                        logo: true,
-                        podcast: true,
-                        fun: null,
-                        searchfunction: true,
-                        searchfunctionclose: false,
-                        searchlist: "",
-                      ),
-                      CreatePost(
-                        profileImage: profileImage,
-                      ),
-
-                      ////adminpost
-                      const Expanded(child: AdminPost())
-                    ],
-                  ),
+      body: WillPopScope(
+        onWillPop: () {
+          return null!;
+        },
+        child: SafeArea(
+          child: SizedBox(
+            // height: MediaQuery.of(context).size.height,
+            child: Column(
+              children: [
+                AppbarContainer(
+                  title: "",
+                  backarrow: false,
+                  firstscreen: false,
+                  navipage: null,
+                  notification: true,
+                  edit: false,
+                  notification_back_arrow: false,
+                  search: true,
+                  chat: true,
+                  logo: true,
+                  podcast: true,
+                  fun: null,
+                  searchfunction: true,
+                  searchfunctionclose: false,
+                  searchlist: "",
                 ),
-              ),
+                CreatePost(
+                  profileImage: profileImage,
+                ),
+
+                ////adminpost
+                const AdminPost()
+              ],
             ),
+          ),
+        ),
+      ),
     );
   }
 }

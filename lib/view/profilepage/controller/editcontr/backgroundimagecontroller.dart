@@ -16,24 +16,24 @@ class ProfileBGImageController extends GetxController {
   // File profilebackgroundimage = File("");
   EditScreenController editScreenController = Get.put(EditScreenController());
   var clint = BGService();
-  File profilebackgroundimage = File("");
+  Rx<File> profilebackgroundimage = File("").obs;
   RxBool profileUpdateLoad = true.obs;
 
   Future profileBgController(context) async {
     log("rse");
     try {
-      var response;
+      if (profilebackgroundimage.value.path.isEmpty) {
+      } else {
+        ProfileBackGroundImageModel? response;
 
-      if (profilebackgroundimage == File('')) {
-        response = await clint.profilebGimageservice(bgimage: File(''));
-      } else {
         response = await clint.profilebGimageservice(
-            bgimage: profilebackgroundimage.path);
-      }
-      if (response != null) {
-        bgimageloadingindicator(false);
-      } else {
-        bgimageloadingindicator(false);
+            bgimage: profilebackgroundimage.value.path);
+
+        if (response != null) {
+          bgimageloadingindicator(false);
+        } else {
+          bgimageloadingindicator(false);
+        }
       }
     } catch (e) {
       rethrow;

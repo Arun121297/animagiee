@@ -36,9 +36,9 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: [
-              if (profileBGImageController.profilebackgroundimage.path ==
+              if (profileBGImageController.profilebackgroundimage.value.path ==
                   '') ...[
-                if (profileController.getprofiledata[0].data!.profilebackimg ==
+                if (profileController.profileData[0].data!.profilebackimg ==
                     '') ...[
                   Container(
                     // ignore: prefer_const_constructors
@@ -62,7 +62,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
                         // color: Colors.transparent,
                         image: DecorationImage(
                             image: NetworkImage(profileController
-                                    .getprofiledata[0].data!.profilebackimg ??
+                                    .profileData[0].data!.profilebackimg ??
                                 ""),
                             fit: BoxFit.cover),
                         borderRadius: const BorderRadius.only(
@@ -80,8 +80,8 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
                   decoration: BoxDecoration(
                       color: Colors.transparent,
                       image: DecorationImage(
-                          image: FileImage(
-                              profileBGImageController.profilebackgroundimage),
+                          image: FileImage(profileBGImageController
+                              .profilebackgroundimage.value),
                           fit: BoxFit.cover),
                       borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(15),
@@ -174,8 +174,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
             child: Row(
               children: [
                 if (editScreenController.pFprofileimage.path == '') ...[
-                  if (profileController.getprofiledata[0].data!.profileicon ==
-                      ''
+                  if (profileController.profileData[0].data!.profileicon == ''
                   // .getProfilemodel[0].data!.profilePicture ==
                   ) ...[
                     CircleAvatar(
@@ -192,7 +191,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
                       backgroundColor: Colors.white,
                       child: CircleAvatar(
                         backgroundImage: NetworkImage(profileController
-                            .getprofiledata[0].data!.profileicon
+                            .profileData[0].data!.profileicon
                             .toString()),
                         // backgroundColor: animagiee_CL,
                         radius: 40.0.sp,
@@ -262,7 +261,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
 
     if (result != null) {
       setState(() {
-        profileBGImageController.profilebackgroundimage = File(result.path);
+        profileBGImageController.profilebackgroundimage(File(result.path));
       });
     } else {
       return null;

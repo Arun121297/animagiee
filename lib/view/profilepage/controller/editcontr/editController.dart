@@ -1,11 +1,13 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:animagieeui/view/profilepage/model/editmodel.dart';
 import 'package:animagieeui/view/profilepage/service/editservice.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../view/loader/loader.dart';
 
@@ -38,6 +40,7 @@ class EditScreenController extends GetxController {
     context,
   ) async {
     isProfileEditLoading(true);
+    SharedPreferences pref = await SharedPreferences.getInstance();
     log("rse");
     try {
       if (isProfileEditLoading.value) {
@@ -69,8 +72,17 @@ class EditScreenController extends GetxController {
       }
 
       if (response != null) {
+        pref.setString(Constant.mobileNumber,
+            response.data!.mobNo == 0 ? "" : response.data!.mobNo.toString());
+        pref.setString(Constant.profileImage, response.data!.profileicon!);
+
+        pref.setString(Constant.userId, response.data!.id!);
+        pref.setString(Constant.userName, response.data!.username!);
+        Get.back();
         isProfileEditLoading(false);
       } else {
+        Get.back();
+
         isProfileEditLoading(false);
       }
     } catch (e) {

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,11 +20,10 @@ class ProfileService {
       },
     );
 
-    log("Datasss john${request.body}");
+    log("Datasss ${request.body}");
 
     if (request.statusCode == 200) {
-      var json = jsonDecode(request.body);
-      // log(json.toString());
+      // var json = jsonDecode(request.body);
 
       return profileModelFromJson(request.body);
     } else {

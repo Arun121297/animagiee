@@ -1,13 +1,10 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dio/dio.dart' as dio;
-import 'package:http_parser/http_parser.dart';
 import '../../../utils/Urls/urlsapi.dart';
 import '../../../utils/constance.dart';
 import '../model/backgroundimagemodel.dart';
-import 'package:http/http.dart' as http;
 
 class BGService {
   Future<ProfileBackGroundImageModel?> profilebGimageservice({bgimage}) async {
@@ -20,21 +17,32 @@ class BGService {
       fileNames = bgimage.toString().split('/').last;
     }
     try {
-      dio.FormData formData;
-      if (bgimage == '') {
-        formData = dio.FormData.fromMap({"profilebackimg": ''});
-      } else {
-        formData = dio.FormData.fromMap({
-          "profilebackimg": await dio.MultipartFile.fromFile(
-            bgimage,
-            filename: fileNames,
-            contentType: MediaType(
-              "image",
-              "jpg",
-            ),
-          ),
-        });
-      }
+      dio.FormData formData = dio.FormData.fromMap({
+        "profilebackimg": bgimage == ""
+            ? ""
+            : await dio.MultipartFile.fromFile(
+                bgimage,
+                // filename: fileNames,
+                // contentType: MediaType(
+                //   "image",
+                //   "jpg",
+                // ),
+              ),
+      });
+      // if (bgimage == '') {
+      //   formData = dio.FormData.fromMap({"profilebackimg": ''});
+      // } else {
+      //   formData = dio.FormData.fromMap({
+      //     "profilebackimg": await dio.MultipartFile.fromFile(
+      //       bgimage,
+      //       filename: fileNames,
+      //       contentType: MediaType(
+      //         "image",
+      //         "jpg",
+      //       ),
+      //     ),
+      //   });
+      // }
 
       dio.Response response = await dio.Dio().post(Urls.bgimage,
           data: formData,
@@ -48,10 +56,10 @@ class BGService {
       log("Datasss john${response.data}");
 
       if (response.statusCode == 200) {
-        var json = jsonDecode(response.data);
+        // var json = jsonDecode(response.data);
         // log(json.toString());
 
-        return profileBackGroundImageModelFromJson(json);
+        return ProfileBackGroundImageModel.fromJson(response.data);
       } else {
         log("error");
       }

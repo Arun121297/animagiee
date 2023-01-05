@@ -59,7 +59,8 @@ class _Suggested_List_ContentState extends State<Suggested_List_Content> {
           data[widget.fetchindex].profileicon == ''
               ? CircleAvatar(
                   radius: 40.0.sp,
-                  backgroundColor: animagiee_CL,
+                  backgroundColor: Colors.white,
+                  backgroundImage: const AssetImage("images/profile_icon.png"),
                   // backgroundImage:
                   //     NetworkImage("${data[widget.fetchindex].profileicon}"),
                   //  50,

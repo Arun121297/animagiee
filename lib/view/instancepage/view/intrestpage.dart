@@ -1,22 +1,14 @@
-import 'dart:developer';
-
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/utils/constance.dart';
 // import 'package:animagieeui/view/instancepage/view/communiti.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 // import 'communitypage/view/communiti.dart';
 import '../../communitypage/view/communiti.dart';
 import '../../homepage/view/homepage.dart';
-import '../../homepage/view/homepagewidget.dart';
 import '../controller/instancecontroller.dart';
 import '../controller/updateinstancecontroller.dart';
 
@@ -33,15 +25,19 @@ class _Welcome_PageState extends State<Welcome_Page> {
       Get.put(UpdataInstanceController());
   @override
   void initState() {
-    // updataInstanceController.updateinstancecontroller();
-    instanceContoroller.instancecontroller();
-    // TODO: implement initState
+    fetchData();
     super.initState();
   }
 
   clear() {
     controller.Fbemail.value = '';
     controller.email.value = '';
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await instanceContoroller.instancecontroller();
+    });
   }
 
   Controller controller = Get.put(Controller());
@@ -80,7 +76,8 @@ class _Welcome_PageState extends State<Welcome_Page> {
                               ),
                             )),
                         Expanded(child: Container()),
-                        GestureDetector(
+                        /*  SKIP OPTION */
+                        /*  GestureDetector(
                           onTap: () {
                             Get.to(Home_Page());
                           },
@@ -109,6 +106,7 @@ class _Welcome_PageState extends State<Welcome_Page> {
                             ),
                           ),
                         )
+                     */
                       ],
                     ),
                     Container(

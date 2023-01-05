@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:animagieeui/view/profilepage/model/editmodel.dart';
@@ -32,8 +31,27 @@ class EditScreenService {
     log("PF-->$profilePicture");
     log("ABT-->$yourself");
     try {
-      dio.FormData formData;
-      if (profilePicture == '') {
+      dio.FormData formData = dio.FormData.fromMap({
+        dob == "" ? "dd" : 'dob': dob.toString(),
+        "lastName": lname.toString(),
+        "email": email.toString(),
+        "mobNo": mnumber.toString(),
+        "address": address.toString(),
+        "pinCode": picode.toString(),
+        "firstName": fname.toString(),
+        "about": yourself.toString(),
+        "profileicon": profilePicture == ""
+            ? ""
+            : await dio.MultipartFile.fromFile(
+                profilePicture,
+                filename: fileNames,
+                // contentType: MediaType(
+                //   "image",
+                //   "jpg",
+                // ),
+              ),
+      });
+      /*  if (profilePicture == '') {
         formData = dio.FormData.fromMap({
           "firstName": fname.toString(),
           "about": yourself.toString(),
@@ -66,29 +84,29 @@ class EditScreenService {
                   // ),
                 ),
         });
-      }
+      } */
+      log(formData.toString());
+      dio.Response response =
+          await dio.Dio().postUri(Uri.parse(Urls.editprofile),
+              data: formData,
+              options: dio.Options(
+                headers: {
+                  'Authorization': 'Bearer $token',
+                },
+              ));
 
-      dio.Response response = await dio.Dio().post(Urls.editprofile,
-          data: formData,
-          options: dio.Options(
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer $token',
-            },
-          ));
-
-      log("Datasss john${response.data}");
+      log("Datasss ${response.data}");
 
       if (response.statusCode == 200) {
-        var json = jsonDecode(response.data);
+        // var json = jsonEncode(response.data);
         // log(json.toString());
 
-        return editModelFromJson(json);
+        return EditModel.fromJson(response.data);
       } else {
         log("error");
       }
     } catch (e) {
-      rethrow;
+      log(e.toString());
     }
     return null;
 

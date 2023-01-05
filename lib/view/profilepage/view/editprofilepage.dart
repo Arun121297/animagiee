@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/profilepage/controller/editcontr/editController.dart';
@@ -35,37 +35,36 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
   }
 
   fetchData() {
-    Future.delayed(Duration.zero, () async {
-      editScreenController.pFprofileimage = File("");
-      profileBGImageController.profilebackgroundimage = File('');
-      profileController.getProfile().then((value) async {
-        var data = profileController.getprofiledata[0].data;
-        editScreenController.about.text = data!.about ?? "";
-        editScreenController.fname.text = data.firstName ?? "";
-        editScreenController.lname.text = data.lastName ?? "";
-        editScreenController.dob.text = data.dob ?? "";
-        editScreenController.mNumber.text = data.mobNo ?? "";
-        editScreenController.email.text = data.email ?? "";
-        editScreenController.address.text = data.address ?? "";
-        editScreenController.pincode.text = data.pinCode ?? "";
-        editScreenController.gender(data.gender ?? "");
-        // editScreenController.state(data.as)
-        // editScreenController.pFprofileimage = File(data.profileicon.toString());
-        // profileBGImageController.profilebackgroundimage =
-        //     File(data.profilebackimg.toString());
-      });
-    });
+    if (profileController.profileData.isNotEmpty) {
+      var data = profileController.profileData.first.data;
+      editScreenController.about.text = data!.about ?? "";
+      editScreenController.fname.text = data.firstName ?? "";
+      editScreenController.lname.text = data.lastName ?? "";
+      editScreenController.dob.text = data.dob ?? "";
+      editScreenController.mNumber.text =
+          data.mobNo == 0 ? "" : data.mobNo.toString();
+      editScreenController.email.text = data.email ?? "";
+      editScreenController.address.text = data.address ?? "";
+      editScreenController.pincode.text =
+          data.pinCode == 0 ? "" : data.pinCode.toString();
+      editScreenController.gender(data.gender ?? "");
+      log(data.firstName!);
+      log("${editScreenController.about.text}nnnnnnnnnn");
+    }
   }
 
   updateProfile(context) {
     Future.delayed(Duration.zero, () async {
-      await editScreenController.editprofileservicesection(
+      await editScreenController
+          .editprofileservicesection(
         context,
-      );
+      )
+          .then((value) async {
+        await profileController.getProfile();
+        Get.back();
+      });
       //bgimage Api
       await profileBGImageController.profileBgController(context);
-
-      Get.back();
     });
   }
 

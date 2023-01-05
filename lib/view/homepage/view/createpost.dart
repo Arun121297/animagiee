@@ -36,7 +36,9 @@ class _CreatePostState extends State<CreatePost> {
                 ? CircleAvatar(
                     backgroundImage: NetworkImage(widget.profileImage ?? ""))
                 : const CircleAvatar(
-                    backgroundImage: ExactAssetImage("images/Fishes.jpg")),
+                    backgroundColor: Colors.white,
+                    backgroundImage:
+                        ExactAssetImage("images/profile_icon.png")),
             const VerticalDivider(color: Colors.transparent, width: 13),
             Container(
                 width: 60.0.wp,

@@ -7,6 +7,8 @@ import 'package:animagieeui/view/homepage/view/suggestion.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
 
 import 'package:animagieeui/view/instancepage/controller/likeController.dart';
+import 'package:animagieeui/view/profilepage/view/MyFavourites/controllers/favourite_controller.dart';
+import 'package:animagieeui/view/profilepage/view/MyFavourites/widgets/favourite_icon.dart';
 
 import 'package:flutter/material.dart';
 
@@ -19,8 +21,6 @@ import '../../../controller/controller.dart';
 
 import '../../userprofile/view/userprofile.dart';
 import '../controller/homescreen1controller.dart';
-import 'bookmark.dart';
-import 'commend.dart';
 import 'likes.dart';
 
 class AdminPost extends StatefulWidget {
@@ -35,6 +35,7 @@ class _AdminPostState extends State<AdminPost> {
   UserPostListController userPostListController =
       Get.put(UserPostListController());
   LikeContoller likeContoller = Get.put(LikeContoller());
+  FavouriteController favouriteController = Get.put(FavouriteController());
 
   // @override
   // void initState() {
@@ -42,8 +43,8 @@ class _AdminPostState extends State<AdminPost> {
   //   super.initState();
   // }
 
-  likePost({required String id, required int index}) {
-    likeContoller.like(id: id, index: index);
+  likePost({required String id, required int index}) async {
+    await likeContoller.like(id: id, index: index);
     userPostListController.data[0].data![index].liked =
         !userPostListController.data[0].data![index].liked!;
     if (userPostListController.data[0].data![index].liked!) {
@@ -55,6 +56,13 @@ class _AdminPostState extends State<AdminPost> {
           userPostListController.data[0].data![index].likecount! - 1;
       log("${userPostListController.data[0].data![index].likecount}false");
     }
+    setState(() {});
+  }
+
+  addToFavourite({required id, required index}) async {
+    await favouriteController.addToFavourite(postId: id);
+    userPostListController.data.first.data![index].saved =
+        !userPostListController.data.first.data![index].saved!;
     setState(() {});
   }
 
@@ -101,28 +109,16 @@ class _AdminPostState extends State<AdminPost> {
                                     id: data[index].postowner!.id.toString(),
                                   ));
                                 },
-                                child: CircleAvatar(
-                                  // decoration:
-                                  //     BoxDecoration(shape: BoxShape.circle),
-                                  // child: ClipRRect(
-                                  //   child: CachedNetworkImage(
-                                  //       fit: BoxFit.cover,
-                                  //       // alignment: Alignment.center,
-                                  //       placeholder: (context, url) => SizedBox(
-                                  //           height: 5,
-                                  //           width: 5,
-                                  //           child:
-                                  //               const CircularProgressIndicator()),
-                                  //       imageUrl:
-                                  //           data[index].profileicon.toString()),
-                                  // ),
-
-                                  backgroundImage: NetworkImage(
-                                      // placeholder: ((context, url) =>
-                                      //     CircularProgressIndicator()),
-                                      // imageUrl:
-                                      data[index].profileicon.toString()),
-                                ),
+                                child: data[index].profileicon!.isEmpty
+                                    ? const CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        backgroundImage: AssetImage(
+                                            "images/profile_icon.png"),
+                                      )
+                                    : CircleAvatar(
+                                        backgroundImage: NetworkImage(
+                                            data[index].profileicon.toString()),
+                                      ),
                               ),
                               const SizedBox(
                                 width: 5,
@@ -149,7 +145,10 @@ class _AdminPostState extends State<AdminPost> {
                                   ),
                                 ),
                               ),
-                              Expanded(child: Container()),
+                              SizedBox(
+                                width: 4.0.wp,
+                                //  12,
+                              ),
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -271,37 +270,52 @@ class _AdminPostState extends State<AdminPost> {
                             padding: EdgeInsets.all(8.0.sp),
                             child: Row(
                               children: [
-                                Text(
-                                  "${data[index].likecount} Likes",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 9.0.sp,
-                                      color: TextContent1_CL,
-                                      fontWeight: FontWeight.w500,
+                                Visibility(
+                                  visible:
+                                      data[index].likecount == 0 ? false : true,
+                                  child: Text(
+                                    "${data[index].likecount} Likes",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.0.sp,
+                                        color: TextContent1_CL,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 ),
                                 const SizedBox(
                                   width: 12,
                                 ),
-                                Text(
-                                  "12 Comments",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 9.0.sp,
-                                      color: TextContent1_CL,
-                                      fontWeight: FontWeight.w500,
+                                Visibility(
+                                  visible: false,
+                                  child: Text(
+                                    "12 Comments",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.0.sp,
+                                        color: TextContent1_CL,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Expanded(child: Container()),
-                                Text(
-                                  "${data[index].postViewCount} Views",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 9.0.sp,
-                                      color: TextContent1_CL,
-                                      fontWeight: FontWeight.w500,
+                                // Expanded(child: Container()),
+                                SizedBox(
+                                  width: 68.0.wp,
+                                ),
+                                Visibility(
+                                  visible: data[index].postViewCount == 0
+                                      ? false
+                                      : true,
+                                  child: Text(
+                                    "${data[index].postViewCount} Views",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.0.sp,
+                                        color: TextContent1_CL,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 )
@@ -315,16 +329,24 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid.toString(),
                                   index: index),
                             ),
-                            SizedBox(
-                              width: 2.0.wp,
-                            ),
-                            const Comment_UI(),
-                            SizedBox(
-                              width: 1.8.wp,
-                            ),
+                            // SizedBox(
+                            //   width: 2.0.wp,
+                            // ),
+                            // const Visibility(
+                            //   visible: false,
+                            //   child: Comment_UI()),
+                            // SizedBox(
+                            //   width: 1.8.wp,
+                            // ),
                             const Share_UI(),
-                            Expanded(child: Container()),
-                            const BookMarkUI(),
+                            SizedBox(
+                              width: 57.0.wp,
+                            ),
+                            FavouriteIcon(
+                              onTap: () => addToFavourite(
+                                  id: data[index].postid, index: index),
+                              status: data[index].saved,
+                            ),
                           ]),
                           SizedBox(height: 2.0.sp
                               //  10,

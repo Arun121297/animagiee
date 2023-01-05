@@ -128,7 +128,7 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
+                    // physics: const NeverScrollableScrollPhysics(),
                     itemCount: data!.length,
                     itemBuilder: (context, index) {
                       var listData = data[index];

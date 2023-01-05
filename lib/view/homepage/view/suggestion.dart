@@ -3,7 +3,6 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/homepage/view/followRequestGet.dart';
 import 'package:animagieeui/view/homepage/view/suggestedlistcontent.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../controller/suggestedfriendController.dart';
 
 class Suggested_For_You_UI extends StatefulWidget {
-  Suggested_For_You_UI({Key? key}) : super(key: key);
+  const Suggested_For_You_UI({Key? key}) : super(key: key);
 
   @override
   State<Suggested_For_You_UI> createState() => _Suggested_For_You_UIState();
@@ -32,11 +31,11 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
   Widget build(BuildContext context) {
     return Obx(() {
       if (sugestedFrindListController.isLoadingService.value) {
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
         );
       } else if (sugestedFrindListController.Suggesteddata.isEmpty) {
-        return Center(
+        return const Center(
           child: Text("No Suggested List"),
         );
       } else {
@@ -63,7 +62,7 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
                     ),
                     InkWell(
                       onTap: () {
-                        Get.to(FollowRequestGet());
+                        Get.to(const FollowRequestGet());
                       },
                       child: Expanded(
                           child: Container(

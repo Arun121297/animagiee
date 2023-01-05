@@ -9,10 +9,12 @@ class UserPostListController extends GetxController {
   var data = <UserPostListModel>[].obs;
   RxBool isLoadingService = true.obs;
   // RxInt currentBanner1 = 0.obs;
-  ottApiCall() async {
-    final res = await UserPostListService.userPostListService();
+  getHome() async {
+    isLoadingService(true);
 
     try {
+      data.clear();
+      final res = await UserPostListService.userPostListService();
       // isLoadingService(true);
       if (res != null) {
         data.clear();

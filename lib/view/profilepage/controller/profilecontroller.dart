@@ -7,7 +7,8 @@ import 'package:get/get.dart';
 class ProfileController extends GetxController {
   // RxBool profileloadingindecator = true.obs;
   String abt = '';
-  RxList<ProfileModel> getprofiledata = <ProfileModel>[].obs;
+  final RxList<ProfileModel> _getprofiledata = <ProfileModel>[].obs;
+  RxList<ProfileModel> get profileData => _getprofiledata;
   RxBool isProfileLoading = true.obs;
   var clint = ProfileService();
   Future getProfile() async {
@@ -17,11 +18,12 @@ class ProfileController extends GetxController {
       var response = await clint.profileservicesection();
 
       if (response != null) {
-        getprofiledata.clear();
-        getprofiledata.add(response);
-        log("profile$getprofiledata");
+        _getprofiledata.clear();
+        _getprofiledata.add(response);
+        log("oooooooooooooooo${_getprofiledata.first.data!.about!}");
         isProfileLoading(false);
       } else {
+        Get.back();
         isProfileLoading(false);
       }
     } catch (e) {
