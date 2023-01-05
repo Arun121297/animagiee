@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/utils/constance.dart';
 import 'package:animagieeui/view/communitypage/view/clubs/clubcreation/editdeletclub.dart';
@@ -13,13 +12,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
-
-import '../../communitypage/view/clubs/myclubs.dart';
 
 import 'post.dart';
 import 'member.dart';
@@ -81,7 +77,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 22.0.hp,
                     //  168,
                     child: Stack(children: [
@@ -219,7 +215,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                 ),
                               ),
                             )
-                          : SizedBox()
+                          : const SizedBox()
                     ]),
                   ),
                   Padding(
@@ -258,7 +254,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
           SizedBox(
             width: 3.0.wp,
           ),
-          Notification_UI(),
+          const Notification_UI(),
           SizedBox(
             width: 4.0.wp,
           )
@@ -293,8 +289,8 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (communityProfileContoller
-              .communityData[0].data1!.isEmpty) {
+          } else if (communityProfileContoller.communityData.isEmpty ||
+              communityProfileContoller.communityData.first.data1!.isEmpty) {
             return const Center(child: Text("No result found"));
           } else {
             return DefaultTabController(
@@ -348,7 +344,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                             id: widget.id,
                             userId: widget.userId,
                           ),
-                          Pageview2_Member()
+                          const Pageview2_Member()
                         ],
                       ),
                     ),
