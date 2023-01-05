@@ -1,5 +1,6 @@
 import 'package:animagieeui/chat/group_chat/chat_provider.dart';
 import 'package:animagieeui/chat/single_chat/chat_provider.dart';
+import 'package:animagieeui/view/homepage/widgets/dynamic_link_service_new.dart';
 import 'package:animagieeui/view/splashscreen/splashscreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -41,7 +42,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     FirebaseToken.createToken();
-
+    DynamicLinkServiceNew().retrieveDynamicLink(context);
     super.initState();
   }
 

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -96,14 +97,46 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     }
   }
 
+//// TO Close the APP
+  Future<bool> showExitPopup() async {
+    return await showDialog(
+          //show confirm dialogue
+          //the return value will be from "Yes" or "No" options
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Exit App'),
+            content: const Text('Do you want to exit an App?'),
+            actions: [
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                //return false when click on "NO"
+                child: const Text('No'),
+              ),
+              ElevatedButton(
+                onPressed: () => SystemNavigator.pop(),
+                //return true when click on "Yes"
+                child: const Text('Yes'),
+              ),
+            ],
+          ),
+        ) ??
+        false; //if showDialouge had returned null, then return false
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: const Customized_Bottom_Bar(),
-      body: WillPopScope(
+      body:
+          //  profileImage!.isEmpty
+          //     ? const Center(
+          //         child: CircularProgressIndicator(),
+          //       )
+          //     :
+          WillPopScope(
         onWillPop: () {
-          return null!;
+          return showExitPopup();
         },
         child: SafeArea(
           child: SizedBox(
@@ -143,20 +176,19 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     );
   }
 }
-  // AppbarContainer(
-  //                 title: "",
-  //                 backarrow: false,
-  //                 firstscreen: false,
-  //                 navipage: null,
-  //                 notification: true,
-  //                 edit: false,
-  //                 notification_back_arrow: false,
-  //                 search: true,
-  //                 chat: true,
-  //                 logo: true,
-  //                 podcast: true,
-  //                 fun: null,
-  //                 searchfunction: true,
-  //                 searchfunctionclose: false,
-  //               ),
-
+// AppbarContainer(
+//                 title: "",
+//                 backarrow: false,
+//                 firstscreen: false,
+//                 navipage: null,
+//                 notification: true,
+//                 edit: false,
+//                 notification_back_arrow: false,
+//                 search: true,
+//                 chat: true,
+//                 logo: true,
+//                 podcast: true,
+//                 fun: null,
+//                 searchfunction: true,
+//                 searchfunctionclose: false,
+//               ),

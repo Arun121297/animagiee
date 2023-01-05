@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/homepage/view/share.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
@@ -21,6 +20,8 @@ import '../../../controller/controller.dart';
 
 import '../../userprofile/view/userprofile.dart';
 import '../controller/homescreen1controller.dart';
+import '../widgets/share_home.dart';
+import 'commend.dart';
 import 'likes.dart';
 
 class AdminPost extends StatefulWidget {
@@ -349,16 +350,13 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid.toString(),
                                   index: index),
                             ),
-                            // SizedBox(
-                            //   width: 2.0.wp,
-                            // ),
-                            // const Visibility(
-                            //   visible: false,
-                            //   child: Comment_UI()),
-                            // SizedBox(
-                            //   width: 1.8.wp,
-                            // ),
-                            const Share_UI(),
+
+                            ShareHome(
+                              desc: data[index].description.toString(),
+                              id: data[index].postid!.toString(),
+                              image: data[index].addImagesOrVideos.toString(),
+                              title: data[index].postowner!.username.toString(),
+                            ),
                             SizedBox(
                               width: 57.0.wp,
                             ),
@@ -367,6 +365,15 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid, index: index),
                               status: data[index].saved,
                             ),
+                            SizedBox(
+                              width: 2.0.wp,
+                            ),
+                            const Comment_UI(),
+                            SizedBox(
+                              width: 1.8.wp,
+                            ),
+
+                            // const Share_UI(),
                           ]),
                           SizedBox(height: 2.0.sp
                               //  10,
@@ -388,8 +395,8 @@ class _AdminPostState extends State<AdminPost> {
   popup() {
     return showModalBottomSheet(
       context: context,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
+      shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       builder: (context) {
         return SizedBox(

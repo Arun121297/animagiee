@@ -5,9 +5,7 @@ import 'package:animagieeui/view/homepage/view/followRequestGet.dart';
 import 'package:animagieeui/view/homepage/view/myFollowUser.dart';
 import 'package:animagieeui/view/homepage/view/myFollower.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
-import 'package:animagieeui/view/mywork/view/myworkpage1.dart';
 import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
-import 'package:animagieeui/view/profilepage/view/settings/about.dart';
 import 'package:animagieeui/view/profilepage/view/settings/mycommunities.dart';
 import 'package:animagieeui/view/profilepage/view/settings/settings.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +19,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 import 'MyFavourites/views/myfav.dart';
-import 'appoinmentdetail/appoinmentdetails.dart';
 import 'settings/mypost.dart';
 
 class MY_Profile_Header_UI extends StatefulWidget {
@@ -269,7 +266,9 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(const My_Post_UI());
+                    Get.to(My_Post_UI(
+                      id: data.id,
+                    ));
                   },
                   child: Card(
                     elevation: 3,

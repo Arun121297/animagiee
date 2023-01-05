@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
-import 'package:animagieeui/view/instancepage/controller/communityController.dart';
 import 'package:animagieeui/view/instancepage/controller/communityPotsListController.dart';
 import 'package:animagieeui/view/instancepage/controller/likeController.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +77,7 @@ class _PostList_ContentState extends State<PostList_Content> {
                   ),
                   communityPostListContoller.communityPostListData[0]
                           .data![widget.index].postowner!.profileicon!.isEmpty
-                      ? CircleAvatar(
+                      ? const CircleAvatar(
                           backgroundColor: Colors.white,
                           backgroundImage:
                               ExactAssetImage("images/profile_icon.png"),
@@ -234,8 +233,8 @@ class _PostList_ContentState extends State<PostList_Content> {
   bottomsheet() {
     return showModalBottomSheet(
       context: context,
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
+      shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       builder: (context) {
         return SizedBox(
