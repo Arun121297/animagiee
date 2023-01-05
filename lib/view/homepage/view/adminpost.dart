@@ -19,6 +19,7 @@ import '../../../controller/controller.dart';
 
 import '../../userprofile/view/userprofile.dart';
 import '../controller/homescreen1controller.dart';
+import '../widgets/share_home.dart';
 import 'bookmark.dart';
 import 'commend.dart';
 import 'likes.dart';
@@ -100,6 +101,7 @@ class _AdminPostState extends State<AdminPost> {
                                   Get.to(User_Profile(
                                     id: data[index].postowner!.id.toString(),
                                   ));
+                                  print(data[index].postowner!.id.toString());
                                 },
                                 child: CircleAvatar(
                                   // decoration:
@@ -322,7 +324,13 @@ class _AdminPostState extends State<AdminPost> {
                             SizedBox(
                               width: 1.8.wp,
                             ),
-                            const Share_UI(),
+                            ShareHome(
+                              desc: data[index].description.toString(),
+                              id: data[index].postid!.toString(),
+                              image: data[index].addImagesOrVideos.toString(),
+                              title: data[index].postowner!.username.toString(),
+                            ),
+                            // const Share_UI(),
                             Expanded(child: Container()),
                             const BookMarkUI(),
                           ]),

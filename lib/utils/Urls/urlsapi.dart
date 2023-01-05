@@ -43,4 +43,5 @@ class Urls {
   static const otheruserfollowing = '${baseUrl}api/follow/otherFollowingusers';
   static const removefollowers = '${baseUrl}api/follow/unfollowfollowers';
   static const likes = '${baseUrl}api/post/postlike';
+  static const singlepost = '${baseUrl}api/post/singlepost';
 }

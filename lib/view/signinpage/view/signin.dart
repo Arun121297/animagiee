@@ -40,173 +40,109 @@ class _SignInPageState extends State<SignInPage> {
 
   var username6 = '';
   Controller controller = Get.put(Controller());
+  back() async {
+    null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        alignment: Alignment.center,
-        child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 40.0.hp,
-              //  280,
-              child: Image.asset("images/Good_doggy.gif"),
-            ),
-            SizedBox(
-              height: 10.0.hp,
-              //  60,
-            ),
-            Text(
-              "Hello !!!",
-              style: GoogleFonts.jost(
-                textStyle: TextStyle(
-                  fontSize: 26.5.sp,
-                  fontWeight: FontWeight.w600,
-                ),
+      child: WillPopScope(
+        onWillPop: () => back(),
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 40.0.hp,
+                //  280,
+                child: Image.asset("images/Good_doggy.gif"),
               ),
-            ),
-            const SizedBox(
-              height: 13,
-            ),
-            Text(
-              "Welcome to Animagie the best place to share the love ",
-              style: GoogleFonts.poppins(
-                color: WelcomeContent_Cl,
-                textStyle: TextStyle(
-                  fontSize: 9.5.sp,
-                  fontWeight: FontWeight.w400,
-                ),
+              SizedBox(
+                height: 10.0.hp,
+                //  60,
               ),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              "about your pets... ",
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  color: WelcomeContent_Cl,
-                  fontSize: 9.5.sp,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 9.0.hp,
-              //  75,
-            ),
-            // SizedBox(child: Text("Email--->${username3}/Fb--->${fbuserEmail}")),
-
-            ///login through FaceBook
-
-            GestureDetector(
-              onTap: () {
-                signInWithFacebook();
-
-                setState(() {});
-              }, // {
-
-              // Get.to(
-              //   () => Welcome_Page(),
-              // );
-              // },
-              child: Container(
-                height: 6.0.hp,
-                // 47,
-                width: 90.0.wp,
-                // 308,
-                decoration: BoxDecoration(
-                  color: SigninButton_CL,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 4.0.wp,
-                    ),
-                    const Icon(
-                      Icons.facebook,
-                      color: FB_CL,
-                      size: 40,
-                    ),
-                    // SizedBox(
-                    //   width: 9.0.wp,
-                    // ),
-                    const Expanded(child: SizedBox()),
-                    Text(
-                      "Continue with facebook",
-                      style: GoogleFonts.poppins(
-                        color: SigninBtn_Content_CL,
-                        textStyle: TextStyle(
-                          fontSize: 9.5.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 3.0.hp,
-                      // 28,
-                    ),
-                    const Expanded(child: SizedBox())
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 3.0.hp,
-              // 28,
-            ),
-
-            ///login through Google
-            ElevatedButton(
-                onPressed: () async {
-                  SharedPreferences sharedPreferences =
-                      await SharedPreferences.getInstance();
-                  sharedPreferences.clear();
-
-                  await Firebase.initializeApp();
-                  await GoogleSignIn().signOut();
-                  await FacebookAuth.instance.logOut();
-                },
-                child: const Text("logout")),
-            GestureDetector(
-              onTap: () {
-                signInWithGoogle();
-
-                setState(() {});
-
-                // {
-                //   Get.to(
-                //     () => Welcome_Page(),
-                //   );
-                // }
-              },
-              child: Container(
-                  decoration: BoxDecoration(
-                    color: SigninButton_CL,
-                    borderRadius: BorderRadius.circular(20),
+              Text(
+                "Hello !!!",
+                style: GoogleFonts.jost(
+                  textStyle: TextStyle(
+                    fontSize: 26.5.sp,
+                    fontWeight: FontWeight.w600,
                   ),
+                ),
+              ),
+              const SizedBox(
+                height: 13,
+              ),
+              Text(
+                "Welcome to Animagie the best place to share the love ",
+                style: GoogleFonts.poppins(
+                  color: WelcomeContent_Cl,
+                  textStyle: TextStyle(
+                    fontSize: 9.5.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                "about your pets... ",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    color: WelcomeContent_Cl,
+                    fontSize: 9.5.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 9.0.hp,
+                //  75,
+              ),
+              // SizedBox(child: Text("Email--->${username3}/Fb--->${fbuserEmail}")),
+
+              ///login through FaceBook
+
+              GestureDetector(
+                onTap: () {
+                  signInWithFacebook();
+
+                  setState(() {});
+                }, // {
+
+                // Get.to(
+                //   () => Welcome_Page(),
+                // );
+                // },
+                child: Container(
                   height: 6.0.hp,
                   // 47,
                   width: 90.0.wp,
                   // 308,
+                  decoration: BoxDecoration(
+                    color: SigninButton_CL,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        width: 3.3.wp,
+                        width: 4.0.wp,
                       ),
-                      CircleAvatar(
-                        backgroundColor: Colors.transparent,
-                        // backgroundImage: ExactAssetImage('images/Google_G_Logo.svg.webp'),
-                        child:
-                            Image.asset('images/GGogle.png', fit: BoxFit.cover),
+                      const Icon(
+                        Icons.facebook,
+                        color: FB_CL,
+                        size: 40,
                       ),
+                      // SizedBox(
+                      //   width: 9.0.wp,
+                      // ),
                       const Expanded(child: SizedBox()),
                       Text(
-                        "Continue with Google",
+                        "Continue with facebook",
                         style: GoogleFonts.poppins(
                           color: SigninBtn_Content_CL,
                           textStyle: TextStyle(
@@ -216,14 +152,85 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                       SizedBox(
-                        width: 4.0.hp,
+                        width: 3.0.hp,
                         // 28,
                       ),
-                      const Expanded(child: SizedBox()),
+                      const Expanded(child: SizedBox())
                     ],
-                  )),
-            ),
-          ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 3.0.hp,
+                // 28,
+              ),
+
+              ///login through Google
+              ElevatedButton(
+                  onPressed: () async {
+                    SharedPreferences sharedPreferences =
+                        await SharedPreferences.getInstance();
+                    sharedPreferences.clear();
+
+                    await Firebase.initializeApp();
+                    await GoogleSignIn().signOut();
+                    await FacebookAuth.instance.logOut();
+                  },
+                  child: const Text("logout")),
+              GestureDetector(
+                onTap: () {
+                  signInWithGoogle();
+
+                  setState(() {});
+
+                  // {
+                  //   Get.to(
+                  //     () => Welcome_Page(),
+                  //   );
+                  // }
+                },
+                child: Container(
+                    decoration: BoxDecoration(
+                      color: SigninButton_CL,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    height: 6.0.hp,
+                    // 47,
+                    width: 90.0.wp,
+                    // 308,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 3.3.wp,
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          // backgroundImage: ExactAssetImage('images/Google_G_Logo.svg.webp'),
+                          child: Image.asset('images/GGogle.png',
+                              fit: BoxFit.cover),
+                        ),
+                        const Expanded(child: SizedBox()),
+                        Text(
+                          "Continue with Google",
+                          style: GoogleFonts.poppins(
+                            color: SigninBtn_Content_CL,
+                            textStyle: TextStyle(
+                              fontSize: 9.5.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 4.0.hp,
+                          // 28,
+                        ),
+                        const Expanded(child: SizedBox()),
+                      ],
+                    )),
+              ),
+            ],
+          ),
         ),
       ),
     );
