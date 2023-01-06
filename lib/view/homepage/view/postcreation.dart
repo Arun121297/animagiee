@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
+import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/utils/constance.dart';
 import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/homepage/view/single_post_tag_people.dart';
@@ -27,6 +28,7 @@ class Post extends StatefulWidget {
 
 class _PostState extends State<Post> {
   PostController controller = Get.put(PostController());
+  Controller dashboardController = Get.put(Controller());
   String filePath = "";
 
   @override
@@ -213,8 +215,12 @@ class _PostState extends State<Post> {
                     Expanded(child: Container()),
                     GestureDetector(
                       onTap: () async {
-                        await controller.individualpost(context);
-                        // Get.to(Home_Page());
+                        await controller.individualpost(context).then((value) {
+                          if (value!) {
+                            dashboardController.selectedIndex(0);
+                            Get.off(() => Home_Page());
+                          }
+                        });
                       },
                       child: Container(
                         // margin: EdgeInsets.only(top: 30),

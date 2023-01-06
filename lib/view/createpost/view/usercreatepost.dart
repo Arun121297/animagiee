@@ -4,6 +4,7 @@ import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
 import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/post/controllers/post_controller.dart';
 import 'package:animagieeui/view/post/views/trimmer_view.dart';
 import 'package:file_picker/file_picker.dart';
@@ -477,7 +478,14 @@ class _UserProfileCreatePostUIState extends State<UserProfileCreatePostUI> {
                               alignment: Alignment.center,
                               child: GestureDetector(
                                 onTap: () async {
-                                  await postController.individualpost(context);
+                                  await postController
+                                      .individualpost(context)
+                                      .then((value) {
+                                    if (value!) {
+                                      controller.selectedIndex(0);
+                                      Get.off(() => Home_Page());
+                                    }
+                                  });
                                   // controller.selectedIndex.value = 0;
                                 },
                                 child: Container(

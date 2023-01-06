@@ -92,7 +92,6 @@ class _OtherUserFollowState extends State<OtherUserFollow> {
                         } else {
                           Get.to(() => User_Profile(
                                 id: data.userId!.toString(),
-                                postId: "",
                               ));
                         }
                       },

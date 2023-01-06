@@ -1,11 +1,8 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:animagieeui/utils/Urls/urlsapi.dart';
-import 'package:animagieeui/utils/constance.dart';
 import 'package:animagieeui/view/instancepage/model/communityPostList.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class CommunityPostListService {
   static var client = http.Client();

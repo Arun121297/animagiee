@@ -36,7 +36,7 @@ class _MyFollowerState extends State<MyFollower> {
         elevation: 2,
         backgroundColor: mywork_container_CL,
         leading: IconButton(
-            icon: Icon(Icons.keyboard_arrow_left_sharp),
+            icon: const Icon(Icons.keyboard_arrow_left_sharp),
             color: Colors.black,
             onPressed: () {
               Get.back();
@@ -78,7 +78,6 @@ class _MyFollowerState extends State<MyFollower> {
                       onTap: () {
                         Get.to(User_Profile(
                           id: data.userid!.id.toString(),
-                          postId: '',
                         ));
                       },
                       child: Row(
@@ -109,7 +108,7 @@ class _MyFollowerState extends State<MyFollower> {
                                   .toString()
                                   .replaceAll(RegExp('@gmail.com'), ''),
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 14.0,
                                   color: availabletime_CL,
                                   fontWeight: FontWeight.w400),

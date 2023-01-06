@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/instancepage/view/intrestpage.dart';
 import 'package:animagieeui/view/signinpage/model/signinreg.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
@@ -14,6 +16,7 @@ class SigninController extends GetxController {
   RxBool loadingindicator = true.obs;
   //datas list
   RxList<SigninRegister> getsigninmodel = <SigninRegister>[].obs;
+  Controller dashboardController = Get.put(Controller());
   var clint = SigninService();
   signinfunction(email, username) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -34,7 +37,12 @@ class SigninController extends GetxController {
         getsigninmodel.add(response);
         log("datassss->>>>>>>>>${getsigninmodel[0].data}");
         loadingindicator(false);
-        Get.to(() => const Welcome_Page());
+        if (response.message.toString() == "alreadyexists") {
+          dashboardController.selectedIndex(0);
+          Get.to(() => Home_Page());
+        } else {
+          Get.to(() => const Welcome_Page());
+        }
         // log(loadingindicator.toString());
       } else {
         // Fluttertoast.showToast(msg: response!.message!);

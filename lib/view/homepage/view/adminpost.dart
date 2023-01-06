@@ -112,7 +112,6 @@ class _AdminPostState extends State<AdminPost> {
                                     controller.selectedIndex(4);
                                   } else {
                                     Get.to(() => User_Profile(
-                                          postId: data[index].postid ?? "",
                                           id: data[index]
                                               .postowner!
                                               .id
@@ -145,7 +144,6 @@ class _AdminPostState extends State<AdminPost> {
                                     controller.selectedIndex(4);
                                   } else {
                                     Get.to(() => User_Profile(
-                                          postId: data[index].postid ?? "",
                                           id: data[index]
                                               .postowner!
                                               .id

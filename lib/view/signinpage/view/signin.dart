@@ -49,18 +49,18 @@ class _SignInPageState extends State<SignInPage> {
           //the return value will be from "Yes" or "No" options
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Exit App'),
-            content: Text('Do you want to exit an App?'),
+            title: const Text('Exit App'),
+            content: const Text('Do you want to exit an App?'),
             actions: [
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO"
-                child: Text('No'),
+                child: const Text('No'),
               ),
               ElevatedButton(
                 onPressed: () => SystemNavigator.pop(),
                 //return true when click on "Yes"
-                child: Text('Yes'),
+                child: const Text('Yes'),
               ),
             ],
           ),

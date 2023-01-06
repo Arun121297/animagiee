@@ -94,7 +94,6 @@ class _OtherUserFollowingViewState extends State<OtherUserFollowingView> {
                         } else {
                           Get.to(() => User_Profile(
                                 id: data.userId!.toString(),
-                                postId: "",
                               ));
                         }
                       },

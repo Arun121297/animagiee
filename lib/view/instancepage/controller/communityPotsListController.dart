@@ -7,12 +7,14 @@ class CommunityPostListContoller extends GetxController {
   RxBool isLoading = true.obs;
 
   communityPostList({required String id, required String userId}) async {
-    print("datab" + communityPostListData.length.toString());
-    final response = await CommunityPostListService.communityPostListService(
-      userId,
-      id,
-    );
+    isLoading(true);
+    print("datab${communityPostListData.length}");
+
     try {
+      final response = await CommunityPostListService.communityPostListService(
+        userId,
+        id,
+      );
       if (response != null) {
         communityPostListData.clear();
         communityPostListData.add(response);

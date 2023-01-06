@@ -27,9 +27,11 @@ import 'profilebackgroundimage.dart';
 import 'settings.dart';
 
 class User_Profile extends StatefulWidget {
-  String postId;
   String id;
-  User_Profile({required this.id, required this.postId});
+  User_Profile({
+    super.key,
+    required this.id,
+  });
 
   @override
   State<User_Profile> createState() => _User_ProfileState();

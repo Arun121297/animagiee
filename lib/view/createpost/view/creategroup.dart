@@ -52,7 +52,7 @@ class _CreatePostUIState extends State<CreatePostUI> {
                 onChanged: (String? newValue) {
                   controller.selectedClubId(newValue);
                 },
-                items: controller.joinedClubList.isEmpty &&
+                items: controller.joinedClubList.isEmpty ||
                         controller.joinedClubList.first.data!.isEmpty
                     ? [].map<DropdownMenuItem<String>>((value) {
                         return DropdownMenuItem<String>(

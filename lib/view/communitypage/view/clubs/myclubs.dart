@@ -1,15 +1,12 @@
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:animagieeui/chat/group_chat/allConstents/firestore_constants.dart';
-import 'package:animagieeui/chat/group_chat/chat_page.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/utils/constance.dart';
 import 'package:animagieeui/view/animagieeprofile/view/animalsprofiles.dart';
 import 'package:animagieeui/view/communitypage/controller/createclubcontroller.dart';
 import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:animagieeui/view/bottombarfile/view/bottomnavibar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +17,6 @@ import '../../../../controller/controller.dart';
 import '../../../homeAppBar/view/appbar.dart';
 import '../../../homepage/view/homepage.dart';
 import 'createnewclub.dart';
-import 'clubcreation/mycreatedclub.dart';
 import 'mysubscriptionlist.dart';
 
 class MyClubs_UI extends StatefulWidget {
@@ -159,7 +155,8 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: GestureDetector(
-                              onTap: () {
+                              //TODO: after complete group chat remove comment
+                              /*  onTap: () {
                                 // Fluttertoast.showToast(msg: "yes");
                                 FirebaseFirestore.instance
                                     .collection(FirestoreConstants.group)
@@ -228,7 +225,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        'unable to chat with this  shop!',
+                                                        'unable to chat with this club!',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -249,19 +246,15 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
 
                                 // Get.to(() => ChatListingScreen());
                               },
-
-                              /* onTap: () {
-                                // setState(() {
-                                //   // Get.to(Animals_Profiles_UI());
-                                // });
-
-                                // Get.to(() => GroupChatPage(
-                                //       peerId: listData.clubid!,
-                                //       peerAvatar: listData.clubicon!,
-                                //       peerNickname: listData.clubName!,
-                                //       currentUserId: listData.clubid!,
-                                //     ));
-                              }, */
+ */
+                              onTap: () {
+                                Get.to(Animals_Profiles_UI(
+                                  id: createdClubController
+                                      .getcreateclubdata[0].data![index].clubid
+                                      .toString(),
+                                  userId: Constants.userId,
+                                ));
+                              },
                               child: Card(
                                 child: SizedBox(
                                   height: 7.0.hp,
@@ -303,14 +296,14 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                           ///ppass created club id
                                           log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
                                           // Get.to(MyClubCreation());
-                                          Get.to(Animals_Profiles_UI(
-                                            id: createdClubController
-                                                .getcreateclubdata[0]
-                                                .data![index]
-                                                .clubid
-                                                .toString(),
-                                            userId: Constants.userId,
-                                          ));
+                                          Get.to(() => Animals_Profiles_UI(
+                                                id: createdClubController
+                                                    .getcreateclubdata[0]
+                                                    .data![index]
+                                                    .clubid
+                                                    .toString(),
+                                                userId: Constants.userId,
+                                              ));
                                         },
                                         child: Row(
                                           mainAxisAlignment:

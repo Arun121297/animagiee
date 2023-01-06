@@ -112,9 +112,8 @@ class PostService {
       if (response.statusCode == 200) {
         return joinedClubModelFromJson(response.body);
       } else {
-        var jsonData = jsonDecode(response.body);
-        Fluttertoast.showToast(msg: jsonData['message']);
-        Get.back();
+        // var jsonData = jsonDecode(response.body);
+        // Fluttertoast.showToast(msg: jsonData['message']);
       }
     } catch (e) {
       rethrow;

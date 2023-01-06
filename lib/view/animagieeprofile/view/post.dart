@@ -1,13 +1,12 @@
 // import 'package:animagieeui/view/animagieeprofile/view/postlist.dart';
-import 'dart:developer';
 
-import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/view/animagieeprofile/view/postlist.dart';
-import 'package:animagieeui/view/instancepage/controller/communityController.dart';
 import 'package:animagieeui/view/instancepage/controller/communityPotsListController.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../controller/controller.dart';
 
@@ -25,37 +24,52 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
 
   CommunityPostListContoller communityPostListContoller =
       Get.put(CommunityPostListContoller());
+  String myUserId = "";
 
   @override
   void initState() {
-    log(widget.userId);
-    log(widget.id);
-    communityPostListContoller.communityPostList(
-      userId: widget.userId,
-      id: widget.id,
-    );
+    fetchData();
+
     super.initState();
+  }
+
+  fetchProfile() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    myUserId = pref.getString(Constant.userId)!;
+    setState(() {});
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () {
+      communityPostListContoller.communityPostList(
+        userId: widget.userId,
+        id: widget.id,
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return Container(
-        child: ListView.builder(
+      if (communityPostListContoller.isLoading.value) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      } else if (communityPostListContoller.communityPostListData.isEmpty ||
+          communityPostListContoller
+              .communityPostListData.first.data!.isEmpty) {
+        return const Center(
+          child: Text("No data found"),
+        );
+      } else {
+        return ListView.builder(
             itemCount: communityPostListContoller.communityPostListData.length,
             shrinkWrap: true,
-            itemBuilder: (context, index) => communityPostListContoller
-                    .communityPostListData[0].data!.isEmpty
-                ? SizedBox(
-                    height: 50.0.hp,
-                    child: Center(
-                      child: Text("No Community Post"),
-                    ),
-                  )
-                : PostList_Content(
-                    index: index,
-                  )),
-      );
+            itemBuilder: (context, index) => PostList_Content(
+                  index: index,
+                  myUserId: myUserId,
+                ));
+      }
     });
 
     // SizedBox(

@@ -79,7 +79,7 @@ class _Notification_Content_Design_UIState
                         ),
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       color: Colors.grey,
                       thickness: 1,
                       endIndent: 20,
@@ -91,7 +91,7 @@ class _Notification_Content_Design_UIState
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
                           controller: scrollController,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: 20,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
@@ -130,7 +130,7 @@ class _Notification_Content_Design_UIState
                             backgroundColor: Colors.black,
                             child: Transform.rotate(
                               angle: 20.4,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.pets,
                                 color: animagiee_CL,
                               ),
@@ -181,6 +181,14 @@ class _Notification_Content_Design_UIState
                                     width: 30.0.wp,
                                     //  100,
                                     alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0.sp),
+                                        color: controller
+                                                    .profilechangebool.value ==
+                                                false
+                                            ? notificationContent1_CL
+                                            : animagiee_CL),
 
                                     child: Text(
                                       controller.profilechangebool.value ==
@@ -199,14 +207,6 @@ class _Notification_Content_Design_UIState
                                         ),
                                       ),
                                     ),
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0.sp),
-                                        color: controller
-                                                    .profilechangebool.value ==
-                                                false
-                                            ? notificationContent1_CL
-                                            : animagiee_CL),
                                   ),
                                 )
                               ],
@@ -225,7 +225,7 @@ class _Notification_Content_Design_UIState
                         ],
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       endIndent: 20,
                       indent: 20,
                       color: Colors.grey,
@@ -237,7 +237,6 @@ class _Notification_Content_Design_UIState
                       onTap: () {
                         Get.to(User_Profile(
                           id: '',
-                          postId: '',
                         ));
                       },
                       child: SizedBox(
@@ -249,7 +248,7 @@ class _Notification_Content_Design_UIState
                             SizedBox(
                               width: 0.0.wp,
                             ),
-                            CircleAvatar(
+                            const CircleAvatar(
                               backgroundImage:
                                   ExactAssetImage("images/myprofilebg.jpg"),
                             ),
@@ -307,6 +306,14 @@ class _Notification_Content_Design_UIState
                                         width: 27.0.wp,
                                         //  100,
                                         alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: Colors.black,
+                                              width: 1,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            color: animagiee_CL),
                                         child: Text(
                                           followrequest,
                                           // follow_request_accecpt == false
@@ -320,17 +327,9 @@ class _Notification_Content_Design_UIState
                                             ),
                                           ),
                                         ),
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.black,
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: animagiee_CL),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
                                     Visibility(
@@ -345,6 +344,14 @@ class _Notification_Content_Design_UIState
                                           width: 27.0.wp,
                                           //  100,
                                           alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.black,
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              color: animagiee_CL),
                                           child: Text(
                                             "Deny",
                                             style: GoogleFonts.poppins(
@@ -355,14 +362,6 @@ class _Notification_Content_Design_UIState
                                               ),
                                             ),
                                           ),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: Colors.black,
-                                                width: 1,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              color: animagiee_CL),
                                         ),
                                       ),
                                     )

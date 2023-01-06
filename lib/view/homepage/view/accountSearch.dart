@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AccountSearch extends StatefulWidget {
-  AccountSearch({Key? key}) : super(key: key);
+  const AccountSearch({Key? key}) : super(key: key);
 
   @override
   State<AccountSearch> createState() => _AccountSearchState();
@@ -25,7 +25,7 @@ class _AccountSearchState extends State<AccountSearch> {
         elevation: 2,
         backgroundColor: mywork_container_CL,
         leading: IconButton(
-            icon: Icon(Icons.keyboard_arrow_left_sharp),
+            icon: const Icon(Icons.keyboard_arrow_left_sharp),
             color: Colors.black,
             onPressed: () {
               Get.back();
@@ -41,7 +41,7 @@ class _AccountSearchState extends State<AccountSearch> {
       body: SizedBox(
         height: SizeConfig.screenHeight,
         child: searchHomeController.userList.isEmpty
-            ? Center(child: Text('No result found'))
+            ? const Center(child: Text('No result found'))
             : ListView.builder(
                 itemCount: searchHomeController.userList.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -50,14 +50,13 @@ class _AccountSearchState extends State<AccountSearch> {
                     onTap: () {
                       Get.to(User_Profile(
                         id: data.id!,
-                        postId: '',
                       ));
                     },
                     child: Column(
                       children: [
                         Container(
                           width: MediaQuery.of(context).size.width * 1,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                           ),
                           child: Column(
@@ -95,7 +94,7 @@ class _AccountSearchState extends State<AccountSearch> {
                                       padding: const EdgeInsets.only(left: 4.0),
                                       child: Column(
                                         children: [
-                                          Container(
+                                          SizedBox(
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -103,7 +102,7 @@ class _AccountSearchState extends State<AccountSearch> {
                                             child: Text(
                                               data.username ?? 'No name',
                                               overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontSize: 14.0,
                                                   color: availabletime_CL,
                                                   fontWeight: FontWeight.w400),

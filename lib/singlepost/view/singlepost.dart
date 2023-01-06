@@ -115,7 +115,6 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                             log(response.postowner!.id.toString());
                             Get.to(User_Profile(
                               id: response.postowner!.id.toString(),
-                              postId: response.postid ?? "",
                             ));
                           },
                           child: CircleAvatar(
@@ -131,7 +130,6 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                             log(response.postowner!.id.toString());
                             Get.to(User_Profile(
                               id: response.postowner!.id.toString(),
-                              postId: response.postid ?? "",
                             ));
                           },
                           child: Text(

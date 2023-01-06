@@ -1,4 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/instancepage/controller/memberlist_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,8 @@ import '../../userprofile/view/userprofile.dart';
 
 class Member_List_Content extends StatefulWidget {
   int index;
-  Member_List_Content({required this.index});
+  String? myUserId;
+  Member_List_Content({super.key, required this.index, required this.myUserId});
 
   @override
   State<Member_List_Content> createState() => _Member_List_ContentState();
@@ -19,86 +22,103 @@ class Member_List_Content extends StatefulWidget {
 
 class _Member_List_ContentState extends State<Member_List_Content> {
   MemberListController memberListController = Get.find();
+  Controller dashboardController = Get.put(Controller());
 
   bool follow_req = true;
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (memberListController.memberscreenloadingindicator.value == true) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      } else if (memberListController.memberData.isEmpty) {
-        return const Center(child: Text("No result found"));
-      } else {
-        return Card(
-          child: Row(children: [
-            Padding(
-              padding: EdgeInsets.all(8.0.sp),
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(User_Profile(
-                    postId: "",
-                    id: '',
-                  ));
-                },
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(memberListController
-                      .memberData[0].data![widget.index].profileicon
-                      .toString()),
-                  //  ExactAssetImage(
-                  // "images/pexels-chevanon-photography-1108099.jpg"),
+      var data = memberListController.memberData.first.data![widget.index];
+      return Card(
+        child: Row(children: [
+          Padding(
+            padding: EdgeInsets.all(8.0.sp),
+            child: GestureDetector(
+              onTap: () {
+                if (data.userid.toString() == widget.myUserId) {
+                  dashboardController.selectedIndex(4);
+                  Get.off(() => Home_Page());
+                } else {
+                  Get.to(() => User_Profile(
+                        id: data.userid!.toString(),
+                      ));
+                }
+              },
+              child: data.profileicon!.isEmpty
+                  ? const CircleAvatar(
+                      backgroundColor: Colors.white,
+                      backgroundImage:
+                          ExactAssetImage("images/profile_icon.png"),
+                    )
+                  : CircleAvatar(
+                      backgroundImage:
+                          NetworkImage(data.profileicon.toString()),
+                      //  ExactAssetImage(
+                      // "images/pexels-chevanon-photography-1108099.jpg"),
+                    ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              if (data.userid.toString() == widget.myUserId) {
+                dashboardController.selectedIndex(4);
+                Get.off(() => Home_Page());
+              } else {
+                Get.to(() => User_Profile(
+                      id: data.userid!.toString(),
+                    ));
+              }
+            },
+            child: SizedBox(
+              width: 50.0.wp,
+              child: Padding(
+                padding: EdgeInsets.all(2.0.sp),
+                child: Text(
+                  data.username.toString(),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(8.0.sp),
-              child: Text(memberListController
-                  .memberData[0].data![widget.index].username
-                  .toString()),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8.0.sp),
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    // follow_req == "Follow" ? "Request" : "Follow";
-                    if (follow_req == false) {
-                      follow_req = true;
-                    } else if (follow_req == true) {
-                      follow_req = false;
-                    }
-                  });
-                },
-                child: Container(
-                  height: 3.5.hp,
-                  //  26,
-                  width: 23.0.wp,
-                  // 90,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: animagiee_CL,
-                      borderRadius: BorderRadius.circular(5.0.sp)),
-                  child: Text(
-                    follow_req == false ? "Follow" : "Request",
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        fontSize: 10.0.sp,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+          ),
+          Expanded(
+            child: Container(),
+          ),
+          widget.myUserId.toString() == data.userid.toString()
+              ? const SizedBox()
+              : Padding(
+                  padding: EdgeInsets.all(8.0.sp),
+                  child: GestureDetector(
+                    onTap: () {
+                      memberListController.followUnfollow(
+                          userId: data.userid, index: widget.index);
+                    },
+                    child: Container(
+                      height: 3.5.hp,
+                      //  26,
+                      width: 23.0.wp,
+                      // 90,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: animagiee_CL,
+                          borderRadius: BorderRadius.circular(5.0.sp)),
+                      child: Obx(
+                        () => Text(
+                          memberListController.followStatus[widget.index],
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 10.0.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            )
-          ]),
-        );
-      }
+                )
+        ]),
+      );
     });
   }
 }

@@ -64,7 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
     // In init function
     streamController.stream
-        .debounce(Duration(milliseconds: 500))
+        .debounce(const Duration(milliseconds: 500))
         .listen((s) => {
               // your code
               searchUser(s)
@@ -114,7 +114,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           blurRadius: 5.0,
                           offset: Offset(0.0, 4)),
                     ]),
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_back,
                   color: buttonColor1_CL,
                 ),
@@ -142,7 +142,7 @@ class _SearchScreenState extends State<SearchScreen> {
           title: Container(
             height: MediaQuery.of(context).size.height * 0.045,
             // width: MediaQuery.of(context).size.width * 0.7,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
             ),
             child: TextField(
@@ -152,7 +152,7 @@ class _SearchScreenState extends State<SearchScreen> {
               controller: searchHomeController.searchTextController,
               onChanged: (value) {
                 setState(() {
-                  this.height = true;
+                  height = true;
                 });
                 value != ''
                     ? searchHomeController.textFocus(true)
@@ -165,18 +165,18 @@ class _SearchScreenState extends State<SearchScreen> {
                   fontWeight: FontWeight.w500),
               textAlignVertical: TextAlignVertical.center,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 2),
+                contentPadding: const EdgeInsets.symmetric(vertical: 2),
                 //border: InputBorder.none,
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 hintText: "Search for users",
                 hintStyle: TextStyle(
                     fontSize: MediaQuery.of(context).size.height * 0.016,
                     color: buttonColor1_CL,
                     fontWeight: FontWeight.w500),
-                enabledBorder: OutlineInputBorder(
+                enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white, width: 0),
                 ),
-                focusedBorder: OutlineInputBorder(
+                focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white, width: 0.0),
                   // )
                 ),
@@ -211,11 +211,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: [
                   (list.isNotEmpty)
                       ? Padding(
-                          padding: EdgeInsets.only(left: 5.00),
+                          padding: const EdgeInsets.only(left: 5.00),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.only(top: 10, bottom: 8),
                                 child: Text(
                                   "Users",
@@ -230,7 +230,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 physics: const NeverScrollableScrollPhysics(),
                                 scrollDirection: Axis.vertical,
                                 shrinkWrap: true,
-                                itemCount: this.height
+                                itemCount: height
                                     ? list.length > 3
                                         ? 3
                                         : list.length
@@ -242,9 +242,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                       id != list[index].id
                                           ? Get.to(() => User_Profile(
                                                 id: list[index].id,
-                                                postId: '',
                                               ))
-                                          : SizedBox();
+                                          : const SizedBox();
                                     },
                                     child: Column(
                                       children: [
@@ -253,7 +252,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   .size
                                                   .width *
                                               1,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Colors.white,
                                           ),
                                           child: Column(
@@ -302,7 +301,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                               left: 4.0),
                                                       child: Column(
                                                         children: [
-                                                          Container(
+                                                          SizedBox(
                                                             width: MediaQuery.of(
                                                                         context)
                                                                     .size
@@ -315,7 +314,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                               overflow:
                                                                   TextOverflow
                                                                       .ellipsis,
-                                                              style: TextStyle(
+                                                              style: const TextStyle(
                                                                   fontSize:
                                                                       14.0,
                                                                   color:
@@ -356,8 +355,8 @@ class _SearchScreenState extends State<SearchScreen> {
                             ],
                           ),
                         )
-                      : SizedBox(),
-                  this.height
+                      : const SizedBox(),
+                  height
                       ? list.length > 3
                           ? GestureDetector(
                               onTap: () {
@@ -372,14 +371,15 @@ class _SearchScreenState extends State<SearchScreen> {
                                 });
                               },
                               child: Container(
-                                  margin: EdgeInsets.symmetric(vertical: 06),
+                                  margin:
+                                      const EdgeInsets.symmetric(vertical: 06),
                                   height: SizeConfig.blockSizeVertical! * 10,
-                                  child: Text('See all results',
+                                  child: const Text('See all results',
                                       style:
                                           TextStyle(color: buttonColor1_CL))),
                             )
-                          : SizedBox()
-                      : SizedBox()
+                          : const SizedBox()
+                      : const SizedBox()
                 ],
               );
             }

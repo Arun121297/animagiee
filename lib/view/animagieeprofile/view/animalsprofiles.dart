@@ -44,9 +44,15 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
   String? userid;
   @override
   void initState() {
-    communityProfileContoller.communityProfile(id: widget.id);
+    fetchData();
     userId();
     super.initState();
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await communityProfileContoller.communityProfile(id: widget.id);
+    });
   }
 
   userId() async {
@@ -145,7 +151,9 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
-                                  "1,22 Members",
+                                  data.communitypersons == 1
+                                      ? "${data.communitypersons}  Member"
+                                      : "${data.communitypersons}  Members",
                                   style: GoogleFonts.poppins(
                                     textStyle: TextStyle(
                                       fontSize: 8.0.sp,

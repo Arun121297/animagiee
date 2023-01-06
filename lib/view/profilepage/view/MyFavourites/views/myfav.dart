@@ -148,7 +148,6 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                                   onTap: () {
                                     Get.to(User_Profile(
                                       id: listData.postowner!.id ?? "",
-                                      postId: '',
                                     ));
                                   },
                                   child: listData
@@ -171,7 +170,6 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                                   onTap: () {
                                     Get.to(User_Profile(
                                       id: listData.postowner!.id ?? "",
-                                      postId: '',
                                     ));
                                   },
                                   child: SizedBox(

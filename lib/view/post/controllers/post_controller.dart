@@ -36,7 +36,7 @@ class PostController extends GetxController {
   RxString postType = "".obs;
   String selectedUserList = "";
   RxString selectedClubId = "".obs;
-  individualpost(context) async {
+  Future<bool?> individualpost(context) async {
     if (imagevideo.value.url!.path.isEmpty) {
       Fluttertoast.showToast(msg: "Please select photo/video");
     } else {
@@ -75,14 +75,17 @@ class PostController extends GetxController {
           Get.back();
           Fluttertoast.showToast(msg: res.message ?? "");
           isLoadingService(false);
+          return true;
         } else {
           Get.back();
           isLoadingService(false);
+          return false;
         }
       } catch (e) {
         rethrow;
       }
     }
+    return null;
   }
 
   final RxList<MyFriendsModel> _myFriendsList = <MyFriendsModel>[].obs;
