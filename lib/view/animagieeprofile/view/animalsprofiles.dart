@@ -344,7 +344,9 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                             id: widget.id,
                             userId: widget.userId,
                           ),
-                          const Pageview2_Member()
+                          Pageview2_Member(
+                            id: widget.id,
+                          )
                         ],
                       ),
                     ),

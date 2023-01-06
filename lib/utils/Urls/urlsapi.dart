@@ -18,6 +18,8 @@ class Urls {
   static const userpostprofile = '${baseUrl}api/post/userPostProfile';
   static const userpostprofileget = '${baseUrl}api/post/postwithlike';
   static const communitiUserpost = '${baseUrl}api/club/joinedClublistother';
+  static const memberList = '${baseUrl}api/club/clubMembers';
+  // static const memberFollow = '${baseUrl}api/follow/ani_followrequest';
   static const SuggestedFriendList = '${baseUrl}api/user/suggestionfriendlist';
   static const homecreatepost = '${baseUrl}api/post/postcreation';
 
