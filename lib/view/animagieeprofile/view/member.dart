@@ -54,13 +54,16 @@ class _Pageview2_MemberState extends State<Pageview2_Member> {
           child: Text("No data found"),
         );
       } else {
+        var data = memberListController.memberData.first.data!;
         return ListView.builder(
-            itemCount: memberListController.memberData.length,
-            itemBuilder: (BuildContext context, int index) =>
-                Member_List_Content(
-                  index: index,
-                  myUserId: myUserId,
-                ));
+            itemCount: data.length,
+            itemBuilder: (BuildContext context, int index) {
+              // log(index.toString());
+              return Member_List_Content(
+                index: index,
+                myUserId: myUserId,
+              );
+            });
       }
     });
   }

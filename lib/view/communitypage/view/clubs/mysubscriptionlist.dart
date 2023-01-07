@@ -33,11 +33,9 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {
-          setState(() {
-            Get.to(Animals_Profiles_UI(
-              id: data.clubid ?? "",
-            ));
-          });
+          Get.to(() => Animals_Profiles_UI(
+                id: data.clubid ?? "",
+              ));
         },
         child: Card(
           child: SizedBox(

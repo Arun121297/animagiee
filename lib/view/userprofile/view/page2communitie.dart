@@ -1,7 +1,12 @@
+import 'dart:developer';
+
+import 'package:animagieeui/config/constant.dart';
+import 'package:animagieeui/view/club/controllers/club_controller.dart';
 import 'package:animagieeui/view/instancepage/controller/communiti_userList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'page2communitielist.dart';
 
@@ -31,10 +36,39 @@ class UserPage_Communitie_Page2 extends StatefulWidget {
 class _UserPage_Communitie_Page2State extends State<UserPage_Communitie_Page2> {
   CommunitiPostListController communitiPostListController =
       Get.put(CommunitiPostListController());
+  ClubController clubController = Get.put(ClubController());
+  String myUserId = "";
   @override
   void initState() {
-    communitiPostListController.communitiListPost(widget.id);
+    fetchData();
+    fetchProfile();
     super.initState();
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await communitiPostListController.communitiListPost(widget.id);
+    });
+  }
+
+  clubJoinRequest({required id, required index}) async {
+    await clubController.clubJoinRequest(clubId: id);
+    var data = communitiPostListController.data[index];
+    if (data.joinedStatus.toString() == "Join") {
+      data.joinedStatus = "Pending";
+    } else {}
+    setState(() {});
+  }
+
+  leaveFromClub({required id, required index}) {
+    clubController.leaveFromCLub(clubId: id, index: index);
+  }
+
+  fetchProfile() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    myUserId = pref.getString(Constant.userId)!;
+    log("ccccccc$myUserId");
+    setState(() {});
   }
 
   @override
@@ -44,14 +78,25 @@ class _UserPage_Communitie_Page2State extends State<UserPage_Communitie_Page2> {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           itemCount: communitiPostListController.data.length,
-          itemBuilder: (context, index) => Page2_Communitie_List(
-                name:
-                    communitiPostListController.data[index].clubName.toString(),
-                icon:
-                    communitiPostListController.data[index].clubicon.toString(),
-                id: communitiPostListController.data[index].clubid.toString(),
-                userId: widget.id,
-              ));
+          itemBuilder: (context, index) {
+            var listData = communitiPostListController.data[index];
+            return Page2_Communitie_List(
+              name: listData.clubName ?? "",
+              icon: listData.clubicon ?? "",
+              id: listData.clubid ?? "",
+              userId: widget.id,
+              status: listData.joinedStatus ?? "",
+              clubOwner: listData.clubOwner,
+              myUserId: myUserId,
+              onTap: () {
+                if (listData.joinedStatus == "Joined") {
+                  leaveFromClub(id: listData.clubid, index: index);
+                } else {
+                  clubJoinRequest(id: listData.clubid, index: index);
+                }
+              },
+            );
+          });
     });
   }
 }

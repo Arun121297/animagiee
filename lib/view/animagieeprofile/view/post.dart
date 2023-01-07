@@ -62,8 +62,9 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
           child: Text("No data found"),
         );
       } else {
+        var data = communityPostListContoller.communityPostListData.first.data!;
         return ListView.builder(
-            itemCount: communityPostListContoller.communityPostListData.length,
+            itemCount: data.length,
             shrinkWrap: true,
             itemBuilder: (context, index) => PostList_Content(
                   index: index,

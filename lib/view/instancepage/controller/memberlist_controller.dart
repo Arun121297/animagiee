@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animagieeui/view/instancepage/controller/followRequestController.dart';
 import 'package:animagieeui/view/instancepage/model/member.dart';
 
@@ -5,7 +7,8 @@ import 'package:animagieeui/view/instancepage/service/member_service.dart';
 import 'package:get/get.dart';
 
 class MemberListController extends GetxController {
-  RxList<Member> memberData = <Member>[].obs;
+  RxList<ClubMembersModel> memberData = <ClubMembersModel>[].obs;
+
   RxBool memberscreenloadingindicator = true.obs;
   RxList<String> followStatus = List<String>.empty(growable: true).obs;
 
@@ -13,20 +16,20 @@ class MemberListController extends GetxController {
     memberscreenloadingindicator(true);
     try {
       final response = await MemberService.memberService(id);
-
+      followStatus.clear();
+      memberData.clear();
       if (response != null) {
-        followStatus.clear();
-        memberData.clear();
         memberData.add(response);
         for (var i = 0; i < response.data!.length; i++) {
-          if (response.data![i].requestid2!.isEmpty) {
+          if (response.data![i]!.requestid2!.isEmpty) {
             followStatus.insert(i, 'Follow');
-          } else if (response.data![i].requestid2![0].status == false) {
+          } else if (response.data![i]!.requestid2![0]!.status == false) {
             followStatus.insert(i, 'Requested');
           } else {
             followStatus.insert(i, 'Unfollow');
           }
         }
+        log(followStatus.length.toString());
         memberscreenloadingindicator(false);
       } else {
         memberscreenloadingindicator(false);

@@ -349,8 +349,8 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               width: 2,
                             ),
                             Text(
-                              // TODO:need to change community count after complete backend
-                              data.interestedCommunities!.length.toString(),
+                              profileController.profileData[0].communityCount
+                                  .toString(),
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                   fontSize: 9.5.sp,

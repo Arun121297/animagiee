@@ -12,11 +12,20 @@ class Page2_Communitie_List extends StatefulWidget {
   String icon;
   String id;
   String userId;
+  VoidCallback onTap;
+  String status;
+  String? clubOwner;
+  String? myUserId;
   Page2_Communitie_List(
-      {required this.name,
+      {super.key,
+      required this.name,
       required this.icon,
       required this.id,
-      required this.userId});
+      required this.userId,
+      required this.onTap,
+      required this.status,
+      required this.myUserId,
+      required this.clubOwner});
   @override
   State<Page2_Communitie_List> createState() => _Page2_Communitie_ListState();
 }
@@ -30,9 +39,9 @@ class _Page2_Communitie_ListState extends State<Page2_Communitie_List> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(Animals_Profiles_UI(
-          id: widget.id,
-        ));
+        Get.to(() => Animals_Profiles_UI(
+              id: widget.id,
+            ));
       },
       child: Card(
         child: Row(
@@ -45,35 +54,29 @@ class _Page2_Communitie_ListState extends State<Page2_Communitie_List> {
             ),
             Text(widget.name),
             Expanded(child: Container()),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  if (visible == false) {
-                    visible = true;
-                  } else {
-                    visible = false;
-                  }
-                });
-              },
-              child: Container(
-                height: 26,
-                width: 90,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: animagiee_CL),
-                child: Text(
-                  visible == false ? "Join" : "Joined",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 9.0.sp,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
+            widget.myUserId.toString() == widget.clubOwner.toString()
+                ? const SizedBox()
+                : GestureDetector(
+                    onTap: widget.onTap,
+                    child: Container(
+                      height: 26,
+                      width: 90,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: animagiee_CL),
+                      child: Text(
+                        widget.status == "Joined" ? "Leave" : widget.status,
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.0.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ),
             const SizedBox(
               width: 12,
             )

@@ -66,7 +66,7 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
                             alignment: Alignment.centerRight,
                             child: GestureDetector(
                               onTap: () {
-                                Get.to(SuggestionSeeAll());
+                                Get.to(const SuggestionSeeAll());
                               },
                               child: Text(
                                 "See All",
@@ -93,7 +93,7 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
                     );
                   },
                   scrollDirection: Axis.horizontal,
-                  itemCount: this.height
+                  itemCount: height
                       ? sugestedFrindListController
                                   .Suggesteddata[0].data!.length >
                               10

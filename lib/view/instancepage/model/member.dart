@@ -1,31 +1,38 @@
+// To parse this JSON data, do
+//
+//     final clubMembersModel = clubMembersModelFromJson(jsonString);
+
 import 'dart:convert';
 
-Member memberFromJson(String str) => Member.fromJson(json.decode(str));
+ClubMembersModel? clubMembersModelFromJson(String str) =>
+    ClubMembersModel.fromJson(json.decode(str));
 
-String memberToJson(Member data) => json.encode(data.toJson());
+String clubMembersModelToJson(ClubMembersModel? data) =>
+    json.encode(data!.toJson());
 
-class Member {
-  Member({
+class ClubMembersModel {
+  ClubMembersModel({
     this.message,
     this.data,
   });
 
   String? message;
-  List<Member2>? data;
+  List<Datum?>? data;
 
-  factory Member.fromJson(Map<String, dynamic> json) => Member(
+  factory ClubMembersModel.fromJson(Map<String, dynamic> json) =>
+      ClubMembersModel(
         message: json["message"],
-        data: List<Member2>.from(json["data"].map((x) => Member2.fromJson(x))),
+        data: List<Datum?>.from(json["data"]!.map((x) => Datum.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "message": message,
-        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+        "data": List<dynamic>.from(data!.map((x) => x!.toJson())),
       };
 }
 
-class Member2 {
-  Member2({
+class Datum {
+  Datum({
     this.userid,
     this.profileicon,
     this.username,
@@ -35,20 +42,21 @@ class Member2 {
   String? userid;
   String? profileicon;
   String? username;
-  List<Requestid2>? requestid2;
+  List<Requestid2?>? requestid2;
 
-  factory Member2.fromJson(Map<String, dynamic> json) => Member2(
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         userid: json["userid"],
         profileicon: json["profileicon"],
         username: json["username"],
-        requestid2: List<Requestid2>.from(json["requestid2"].map((x) => x)),
+        requestid2: List<Requestid2?>.from(
+            json["requestid2"]!.map((x) => Requestid2.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "userid": userid,
         "profileicon": profileicon,
         "username": username,
-        "requestid2": List<Requestid2>.from(requestid2!.map((x) => x)),
+        "requestid2": List<dynamic>.from(requestid2!.map((x) => x!.toJson())),
       };
 }
 

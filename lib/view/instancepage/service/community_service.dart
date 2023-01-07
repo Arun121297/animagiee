@@ -16,6 +16,7 @@ class CommunityProfileService {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // String baseUrl = (prefs.getString('url') ?? Urls.baseUrl);
     String? token = prefs.getString(Constants.authToken);
+    log(id);
     final response = await client.post(Uri.parse(Urls.communityprofile),
         body: json.encode({"clubid": id}),
         headers: {

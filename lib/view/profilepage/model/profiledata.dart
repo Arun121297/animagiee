@@ -10,26 +10,24 @@ ProfileModel profileModelFromJson(String str) =>
 String profileModelToJson(ProfileModel data) => json.encode(data.toJson());
 
 class ProfileModel {
-  ProfileModel({
-    this.message,
-    this.data,
-    this.postCount,
-  });
+  ProfileModel({this.message, this.data, this.postCount, this.communityCount});
 
   String? message;
   Data? data;
   int? postCount;
+  int? communityCount;
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
-        message: json["message"],
-        data: Data.fromJson(json["data"]),
-        postCount: json["postCount"],
-      );
+      message: json["message"],
+      data: Data.fromJson(json["data"]),
+      postCount: json["postCount"],
+      communityCount: json["CommunityCount"]);
 
   Map<String, dynamic> toJson() => {
         "message": message,
         "data": data!.toJson(),
         "postCount": postCount,
+        "CommunityCount": communityCount
       };
 }
 

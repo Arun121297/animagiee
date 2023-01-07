@@ -101,8 +101,14 @@ class _User_ProfileState extends State<User_Profile> {
 
   @override
   void initState() {
-    userPostProfileController.userProfile(widget.id);
+    fetchData();
     super.initState();
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await userPostProfileController.userProfile(widget.id);
+    });
   }
 
   @override

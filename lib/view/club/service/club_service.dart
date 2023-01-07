@@ -16,6 +16,7 @@ class MyClubService {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var token = sharedPreferences.get(Constant.authToken);
     var body = {"clubid": clubId};
+    log(body.toString());
     try {
       var response = await http.post(
         Uri.parse(Urls.clubJoinRequest),

@@ -36,7 +36,7 @@ class _Member_List_ContentState extends State<Member_List_Content> {
             padding: EdgeInsets.all(8.0.sp),
             child: GestureDetector(
               onTap: () {
-                if (data.userid.toString() == widget.myUserId) {
+                if (data!.userid.toString() == widget.myUserId) {
                   dashboardController.selectedIndex(4);
                   Get.off(() => Home_Page());
                 } else {
@@ -45,7 +45,7 @@ class _Member_List_ContentState extends State<Member_List_Content> {
                       ));
                 }
               },
-              child: data.profileicon!.isEmpty
+              child: data!.profileicon!.isEmpty
                   ? const CircleAvatar(
                       backgroundColor: Colors.white,
                       backgroundImage:
