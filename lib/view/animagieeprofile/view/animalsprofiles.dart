@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:animagieeui/config/extension.dart';
@@ -17,6 +18,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 
+import '../../instancepage/controller/clubController.dart';
+import '../../instancepage/controller/clubIconController.dart';
 import 'post.dart';
 import 'member.dart';
 
@@ -42,18 +45,34 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
   CommunityProfileContoller communityProfileContoller =
       Get.put(CommunityProfileContoller());
   String? userid;
+  // ClubIconController clubIconController = Get.put(ClubIconController());
+  // ClubController clubController = Get.put(ClubController());
   @override
   void initState() {
-    communityProfileContoller.communityProfile(id: widget.id);
-    userId();
+    fetchdata();
     super.initState();
   }
 
-  userId() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  fetchdata() {
+    Future.delayed(Duration.zero, () async {
+      await communityProfileContoller.communityProfile(id: widget.id);
+      // print(
+      //     "clubbgiconanimalrofile-->${communityProfileContoller.communityData[0].data1![0].clubbgicon}");
+      SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    userid = prefs.getString(Constants.userId);
+      userid = prefs.getString(Constants.userId);
+      print('userid$userid');
+      print('userid->${widget.id}');
+    });
   }
+
+  // userId() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  //   userid = prefs.getString(Constants.userId);
+  //   print('userid$userid');
+  //   print('userid->${widget.id}');
+  // }
 
   // Children with random heights - You can build your widgets of unknown heights here
   // I'm just passing the context in case if any widgets built here needs  access to context based data like Theme or MediaQuery
@@ -85,8 +104,8 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image:
-                                    NetworkImage(data.clubbgicon.toString())),
+                                image: FileImage(
+                                    File(data.clubbgicon.toString()))),
                             borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(15.0.sp),
                                 bottomRight: Radius.circular(15.0.sp))),
@@ -114,7 +133,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                             backgroundColor: Colors.white,
                             child: CircleAvatar(
                               backgroundImage:
-                                  NetworkImage(data.clubicon.toString()),
+                                  FileImage(File(data.clubicon.toString())),
                               radius: 40.0.sp,
                             ),
                           ),
@@ -204,7 +223,19 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                   onTap: () {
                                     setState(() {
                                       ///edit and delet my club
-                                      Get.to(const EditandDeleteMyClub());
+                                      Get.to(EditandDeleteMyClub(
+                                        id: widget.id,
+                                        clubname: data.clubName,
+                                        desc: data.clubDescription,
+                                        groupname: data.groupName,
+                                        communitie: data.community,
+                                        isprivate: data.communityTypeisPrivate!,
+                                        bgicon: data.clubbgicon,
+                                        icon: data.clubicon,
+                                        isprivatestring:
+                                            data.communityTypeisPrivatestring,
+                                      ));
+                                      print(data.communityTypeisPrivate!);
                                     });
                                   },
                                   child: SizedBox(

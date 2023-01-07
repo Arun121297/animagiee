@@ -51,4 +51,8 @@ class Urls {
   static const removefollowers = '${baseUrl}api/follow/unfollowfollowers';
   static const likes = '${baseUrl}api/post/postlike';
   static const singlepost = '${baseUrl}api/post/singlepost';
+
+  ///clubedit
+  static const editbgclub = '${baseUrl}api/club/editClubBackGroundProfile';
+  static const editclub = '${baseUrl}api/club/editclubprofile';
 }

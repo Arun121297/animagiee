@@ -272,23 +272,21 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                         width: 6.0.wp,
                                         //  16,
                                       ),
-                                      CircleAvatar(
-                                        backgroundImage: NetworkImage(
-                                            createdClubController
-                                                .getcreateclubdata[0]
-                                                .data![index]
-                                                .clubicon
-                                                .toString()),
-                                      ),
+                                      listData.clubicon!.contains("http")
+                                          ? CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                  listData.clubicon.toString()),
+                                            )
+                                          : CircleAvatar(
+                                              backgroundImage: FileImage(File(
+                                                  listData.clubicon
+                                                      .toString())),
+                                            ),
                                       SizedBox(width: 4.0.wp
                                           //  13,
                                           ),
                                       Text(
-                                        createdClubController
-                                            .getcreateclubdata[0]
-                                            .data![index]
-                                            .clubName
-                                            .toString(),
+                                        listData.clubName.toString(),
                                         style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
                                             fontSize: 11.0.sp,
@@ -302,13 +300,10 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                         onTap: () {
                                           ///ppass created club id
                                           log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
+                                          log("id-->${Constants.userId}");
                                           // Get.to(MyClubCreation());
                                           Get.to(Animals_Profiles_UI(
-                                            id: createdClubController
-                                                .getcreateclubdata[0]
-                                                .data![index]
-                                                .clubid
-                                                .toString(),
+                                            id: listData.clubid.toString(),
                                             userId: Constants.userId,
                                           ));
                                         },

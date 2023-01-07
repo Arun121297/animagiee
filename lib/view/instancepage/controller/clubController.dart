@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:animagieeui/chat/group_chat/allConstents/firestore_constants.dart';
@@ -47,6 +48,15 @@ class ClubController extends GetxController {
         // clubcreationdata.clear();
         // clubcreationdata.add(response);
         details.add(response);
+        // log("edit${details[0].data!.accepted}");
+        // log("edit${details[0].data!.clubDescription}");
+        // log("edit${details[0].data!.clubName}");
+        // log("edit${details[0].data!.clubicon}");
+        // log("edit${details[0].data!.clubicon}");
+        // log("edit${details[0].data!.community}");
+        // // log("edit${details[0].data!.interestedclu}");
+        // // log("edit${details[0].data!.communitypersons}");
+        // log("edit${details[0].data!.communityTypeisPrivate}");
         return response.data!.id;
       } else {
         return null;
