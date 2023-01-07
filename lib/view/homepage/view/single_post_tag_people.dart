@@ -126,7 +126,35 @@ class _SinglePostTagPeopleState extends State<SinglePostTagPeople> {
                           ),
                         );
                       }),
-                )
+                ),
+                controller.tagPeople.isNotEmpty
+                    ? Padding(
+                        padding: EdgeInsets.only(bottom: 5.0.hp),
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Container(
+                            height: 35,
+                            width: 120,
+                            decoration: BoxDecoration(
+                                color: buttonColor1_CL,
+                                borderRadius: BorderRadius.circular(15)),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Submit",
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 15,
+                                  color: skip_CL,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    : SizedBox()
               ],
             );
           }

@@ -6,7 +6,7 @@ import '../Service/homescreen1service.dart';
 import '../model/HomeScreen1model.dart';
 
 class UserPostListController extends GetxController {
-  var data = <UserPostListModel>[].obs;
+  RxList<UserPostListModel> data = <UserPostListModel>[].obs;
   RxBool isLoadingService = true.obs;
   // RxInt currentBanner1 = 0.obs;
   getHome() async {

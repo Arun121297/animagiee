@@ -69,7 +69,7 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
                     chat: false,
                     searchfunction: true,
                     searchfunctionclose: false,
-                    firstscreen: true,
+                    firstscreen: false,
                     notification_back_arrow: false,
                     logo: false,
                     podcast: false,

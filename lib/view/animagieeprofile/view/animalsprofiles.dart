@@ -336,11 +336,11 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
       // Persistent AppBar that never scrolls
       appBar: AppBar(
         actions: [
-          Search_UI(),
+          // Search_UI(),
           SizedBox(
             width: 3.0.wp,
           ),
-          const Notification_UI(),
+          // const Notification_UI(),
           SizedBox(
             width: 4.0.wp,
           )
@@ -355,12 +355,12 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
         toolbarHeight: 7.0.hp,
         centerTitle: true,
         title: Text(
-          "Community",
+          "Communities",
           style: GoogleFonts.poppins(
             textStyle: TextStyle(
-              fontSize: 10.5.sp,
+              fontSize: 12.5.sp,
               color: Colors.black,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

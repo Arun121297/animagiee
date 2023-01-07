@@ -161,6 +161,7 @@ class _Homepage_WidState extends State<Homepage_Wid> {
                   searchlist: "",
                 ),
                 CreatePost(
+                  userId: userId,
                   profileImage: profileImage,
                 ),
 

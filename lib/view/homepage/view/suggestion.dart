@@ -1,6 +1,7 @@
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/homepage/view/suggestedlistcontent.dart';
+import 'package:animagieeui/view/homepage/view/suggestion_seeAll.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,6 +27,7 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
 
   SugestedFrindListController sugestedFrindListController =
       Get.put(SugestedFrindListController());
+  bool height = true;
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -62,13 +64,18 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
                     Expanded(
                         child: Container(
                             alignment: Alignment.centerRight,
-                            child: Text(
-                              "See All",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 8.0.sp,
-                                  color: TextContent2_CL,
-                                  fontWeight: FontWeight.w600,
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.to(SuggestionSeeAll());
+                              },
+                              child: Text(
+                                "See All",
+                                style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    fontSize: 8.0.sp,
+                                    color: TextContent2_CL,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             )))
@@ -86,8 +93,15 @@ class _Suggested_For_You_UIState extends State<Suggested_For_You_UI> {
                     );
                   },
                   scrollDirection: Axis.horizontal,
-                  itemCount:
-                      sugestedFrindListController.Suggesteddata[0].data!.length,
+                  itemCount: this.height
+                      ? sugestedFrindListController
+                                  .Suggesteddata[0].data!.length >
+                              10
+                          ? 10
+                          : sugestedFrindListController
+                              .Suggesteddata[0].data!.length
+                      : sugestedFrindListController
+                          .Suggesteddata[0].data!.length,
                   shrinkWrap: true,
                   padding: EdgeInsets.all(8.0.sp),
                   itemBuilder: (context, index) {

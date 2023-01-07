@@ -44,7 +44,7 @@ class _Notification_Content_Design_UIState
                 logo: false,
                 notification: false,
                 notification_back_arrow: true,
-                search: true,
+                search: false,
                 backarrow: false,
                 podcast: false,
                 edit: false,
@@ -118,226 +118,195 @@ class _Notification_Content_Design_UIState
                           }),
                     ),
                     ////Visible Doctor profile
-                    SizedBox(
-                      height: 15.0.hp,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SizedBox(
-                            width: 0.0.wp,
-                          ),
-                          CircleAvatar(
-                            backgroundColor: Colors.black,
-                            child: Transform.rotate(
-                              angle: 20.4,
-                              child: const Icon(
-                                Icons.pets,
-                                color: animagiee_CL,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 0.0.wp,
-                          ),
-                          SizedBox(
-                            width: 60.0.wp,
-                            //  240,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(
-                                  "Documents approval status",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 9.5.sp,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  "Your Documents have been approved successfull and has been verified.You can activate your Doctor module by clicking\non the activate button given below..",
-                                  maxLines: 3,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 6.5.sp,
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      controller.profilechangebool(true);
-                                      controller.appoinmentdetailshide(false);
-                                    });
-                                  },
-                                  child: Container(
-                                    height: 5.0.hp,
-                                    // 31,
-                                    width: 30.0.wp,
-                                    //  100,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0.sp),
-                                        color: controller
-                                                    .profilechangebool.value ==
-                                                false
-                                            ? notificationContent1_CL
-                                            : animagiee_CL),
-
-                                    child: Text(
-                                      controller.profilechangebool.value ==
-                                              false
-                                          ? "Activate"
-                                          : "DeActivate",
-                                      style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                          fontSize: 9.5.sp,
-                                          color: controller.profilechangebool
-                                                      .value ==
-                                                  false
-                                              ? animagiee_CL
-                                              : notificationContent1_CL,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10.0.wp,
-                          )
-                          // IconButton(
-                          //     onPressed: () {},
-                          //     icon: Icon(
-                          //       Icons.more_horiz,
-                          //       color: Colors.grey,
-                          //     )),
-                          // SizedBox(width: 2,)
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      endIndent: 20,
-                      indent: 20,
-                      color: Colors.grey,
-                      thickness: 1,
-                    ),
-
-                    ////Friend Request
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(User_Profile(
-                          id: '',
-                        ));
-                      },
+                    Visibility(
+                      visible: false,
                       child: SizedBox(
-                        height: 12.0.hp,
-                        //  80,
+                        height: 15.0.hp,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
                               width: 0.0.wp,
                             ),
-                            const CircleAvatar(
-                              backgroundImage:
-                                  ExactAssetImage("images/myprofilebg.jpg"),
+                            CircleAvatar(
+                              backgroundColor: Colors.black,
+                              child: Transform.rotate(
+                                angle: 20.4,
+                                child: const Icon(
+                                  Icons.pets,
+                                  color: animagiee_CL,
+                                ),
+                              ),
                             ),
                             SizedBox(
                               width: 0.0.wp,
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(
-                                  "Nina ann",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 9.5.sp,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
+                            SizedBox(
+                              width: 60.0.wp,
+                              //  240,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Documents approval status",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.5.sp,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  "Nina ann Requested to follow you",
-                                  maxLines: 1,
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 6.5.sp,
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w400,
+                                  Text(
+                                    "Your Documents have been approved successfull and has been verified.You can activate your Doctor module by clicking\non the activate button given below..",
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 6.5.sp,
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          // follow_request_accecpt = false;
-                                          follow_request_accecpt += 1;
-                                          if (follow_request_accecpt == 1) {
-                                            followrequest = "Accecpted";
-                                          } else if (follow_request_accecpt ==
-                                              2) {
-                                            followrequest = "Follow";
-                                          } else if (follow_request_accecpt ==
-                                              3) {
-                                            followrequest = "Following";
-                                          }
-                                        });
-                                      },
-                                      child: Container(
-                                        height: 4.0.hp,
-                                        // 31,
-                                        width: 27.0.wp,
-                                        //  100,
-                                        alignment: Alignment.center,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.black,
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: animagiee_CL),
-                                        child: Text(
-                                          followrequest,
-                                          // follow_request_accecpt == false
-                                          //     ? "Accecpted"
-                                          //     : "Accept",
-                                          style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
-                                              fontSize: 9.5.sp,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        controller.profilechangebool(true);
+                                        controller.appoinmentdetailshide(false);
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 5.0.hp,
+                                      // 31,
+                                      width: 30.0.wp,
+                                      //  100,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5.0.sp),
+                                          color: controller.profilechangebool
+                                                      .value ==
+                                                  false
+                                              ? notificationContent1_CL
+                                              : animagiee_CL),
+
+                                      child: Text(
+                                        controller.profilechangebool.value ==
+                                                false
+                                            ? "Activate"
+                                            : "DeActivate",
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            fontSize: 9.5.sp,
+                                            color: controller.profilechangebool
+                                                        .value ==
+                                                    false
+                                                ? animagiee_CL
+                                                : notificationContent1_CL,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 5,
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.0.wp,
+                            )
+                            // IconButton(
+                            //     onPressed: () {},
+                            //     icon: Icon(
+                            //       Icons.more_horiz,
+                            //       color: Colors.grey,
+                            //     )),
+                            // SizedBox(width: 2,)
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Divider(
+                    //   endIndent: 20,
+                    //   indent: 20,
+                    //   color: Colors.grey,
+                    //   thickness: 1,
+                    // ),
+
+                    ////Friend Request
+                    Visibility(
+                      visible: false,
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.to(User_Profile(
+                            id: '',
+                          ));
+                        },
+                        child: SizedBox(
+                          height: 12.0.hp,
+                          //  80,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SizedBox(
+                                width: 0.0.wp,
+                              ),
+                              const CircleAvatar(
+                                backgroundImage:
+                                    ExactAssetImage("images/myprofilebg.jpg"),
+                              ),
+                              SizedBox(
+                                width: 0.0.wp,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    "Nina ann",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 9.5.sp,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
-                                    Visibility(
-                                      visible: follow_request_accecpt >= 1
-                                          ? false
-                                          : true,
-                                      child: GestureDetector(
-                                        onTap: () {},
+                                  ),
+                                  Text(
+                                    "Nina ann Requested to follow you",
+                                    maxLines: 1,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 6.5.sp,
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            // follow_request_accecpt = false;
+                                            follow_request_accecpt += 1;
+                                            if (follow_request_accecpt == 1) {
+                                              followrequest = "Accecpted";
+                                            } else if (follow_request_accecpt ==
+                                                2) {
+                                              followrequest = "Follow";
+                                            } else if (follow_request_accecpt ==
+                                                3) {
+                                              followrequest = "Following";
+                                            }
+                                          });
+                                        },
                                         child: Container(
                                           height: 4.0.hp,
                                           // 31,
@@ -353,7 +322,10 @@ class _Notification_Content_Design_UIState
                                                   BorderRadius.circular(5),
                                               color: animagiee_CL),
                                           child: Text(
-                                            "Deny",
+                                            followrequest,
+                                            // follow_request_accecpt == false
+                                            //     ? "Accecpted"
+                                            //     : "Accept",
                                             style: GoogleFonts.poppins(
                                               textStyle: TextStyle(
                                                 fontSize: 9.5.sp,
@@ -364,27 +336,64 @@ class _Notification_Content_Design_UIState
                                           ),
                                         ),
                                       ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                            Visibility(
-                                visible:
-                                    follow_request_accecpt >= 1 ? true : false,
-                                child: SizedBox(
-                                  width: 30.0.wp,
-                                )),
-                            // Visibility(
-                            //   visible: follow_request_accecpt,
-                            //   child: IconButton(
-                            //       onPressed: () {},
-                            //       icon: Icon(
-                            //         Icons.more_horiz,
-                            //         color: Colors.grey,
-                            //       )),
-                            // )
-                          ],
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      Visibility(
+                                        visible: follow_request_accecpt >= 1
+                                            ? false
+                                            : true,
+                                        child: GestureDetector(
+                                          onTap: () {},
+                                          child: Container(
+                                            height: 4.0.hp,
+                                            // 31,
+                                            width: 27.0.wp,
+                                            //  100,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  color: Colors.black,
+                                                  width: 1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                color: animagiee_CL),
+                                            child: Text(
+                                              "Deny",
+                                              style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                  fontSize: 9.5.sp,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Visibility(
+                                  visible: follow_request_accecpt >= 1
+                                      ? true
+                                      : false,
+                                  child: SizedBox(
+                                    width: 30.0.wp,
+                                  )),
+                              // Visibility(
+                              //   visible: follow_request_accecpt,
+                              //   child: IconButton(
+                              //       onPressed: () {},
+                              //       icon: Icon(
+                              //         Icons.more_horiz,
+                              //         color: Colors.grey,
+                              //       )),
+                              // )
+                            ],
+                          ),
                         ),
                       ),
                     ),

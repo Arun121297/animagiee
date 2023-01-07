@@ -93,6 +93,8 @@ dependencies:
   # better_player: ^0.0.83
   connectivity_plus: ^3.0.2
   stream_transform: ^2.1.0
+  readmore: ^2.2.0
+  pull_to_refresh: ^2.0.0
   # fluttertoast: 8.1.1
   # cached_network_image: ^3.2.3
 

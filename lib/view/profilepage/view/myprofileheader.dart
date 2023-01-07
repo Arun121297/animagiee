@@ -33,6 +33,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
 
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   Controller controller = Get.put(Controller());
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -239,20 +240,6 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                   ),
                 ),
               ),
-              Container(
-                alignment: Alignment.center,
-                height: 4.0.hp,
-                // 30,
-                width: 31,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    width: 1,
-                    color: animagiee_CL,
-                  ),
-                ),
-                child: const Icon(Icons.settings),
-              )
             ],
           ),
           SizedBox(

@@ -41,7 +41,7 @@ class _Notification_content_ListState extends State<Notification_content_List> {
                     "Recommended for you",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        fontSize: 9.5.sp,
+                        fontSize: 10.0.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
                       ),
@@ -55,7 +55,7 @@ class _Notification_content_ListState extends State<Notification_content_List> {
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: 7.5.sp,
+                          fontSize: 8.5.sp,
                           color: Colors.grey,
                           fontWeight: FontWeight.w400,
                         ),
@@ -98,7 +98,7 @@ class _Notification_content_ListState extends State<Notification_content_List> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5)),
                 child: Container(
-                  height: 8.0.hp,
+                  height: 10.0.hp,
                   //  58,
                   width: 13.0.wp,
                   // 113,
@@ -120,7 +120,7 @@ class _Notification_content_ListState extends State<Notification_content_List> {
                           "  Delete",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              fontSize: 8.0.sp,
+                              fontSize: 9.0.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.w400,
                             ),
@@ -137,7 +137,7 @@ class _Notification_content_ListState extends State<Notification_content_List> {
                         "  Mute Notifcations",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 8.0.sp,
+                            fontSize: 9.0.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.w400,
                           ),

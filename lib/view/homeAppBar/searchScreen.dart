@@ -4,7 +4,6 @@ import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
-import 'package:animagieeui/view/homeAppBar/view/networkProfile.dart';
 import 'package:animagieeui/view/homepage/view/accountSearch.dart';
 import 'package:animagieeui/view/instancepage/controller/home_searchController.dart';
 import 'package:animagieeui/view/userprofile/view/userprofile.dart';
@@ -239,9 +238,12 @@ class _SearchScreenState extends State<SearchScreen> {
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {
-                                      id != list[index].id
+                                      id.toString() !=
+                                                  list[index].id.toString() ||
+                                              id.toString() ==
+                                                  list[index].id.toString()
                                           ? Get.to(() => User_Profile(
-                                                id: list[index].id,
+                                                id: list[index].id!,
                                               ))
                                           : const SizedBox();
                                     },
@@ -364,7 +366,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                 // setState(() {
                                 //   this.height = false;
                                 // });
-                                Get.to(() => AccountSearch())!.then((value) {
+                                Get.to(() => const AccountSearch())!
+                                    .then((value) {
                                   if (value) {
                                     FocusScope.of(context).focusedChild;
                                   }

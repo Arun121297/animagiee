@@ -3,11 +3,12 @@ import 'package:animagieeui/view/instancepage/service/user_postListGetservice.da
 import 'package:get/get.dart';
 
 class UserPostGetProfilePostController extends GetxController {
-  var data = <UserPostListGetModel>[].obs;
+  RxList<UserPostListGetModel> data = <UserPostListGetModel>[].obs;
   RxBool userprofilescreenloadingindicator = true.obs;
   userProfilePost(String id) async {
     print("datab" + data.length.toString());
     final response = await UserPostGetListService.userPostGetListService(id);
+
     try {
       if (response != null) {
         data.clear();
