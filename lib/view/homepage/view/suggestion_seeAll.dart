@@ -56,11 +56,9 @@ class _SuggestionSeeAllState extends State<SuggestionSeeAll> {
             sugestedFrindListController.Suggesteddata.first.data!.isEmpty) {
           return const Center(child: Text("No result found"));
         } else {
-          return GridView.builder(
+          return ListView.builder(
             itemCount:
                 sugestedFrindListController.Suggesteddata.first.data!.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 3.0, mainAxisSpacing: 3.0),
             itemBuilder: (BuildContext context, int index) {
               var data =
                   sugestedFrindListController.Suggesteddata.first.data![index];
@@ -71,14 +69,15 @@ class _SuggestionSeeAllState extends State<SuggestionSeeAll> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(5.0.sp),
-                      border: Border.all(color: Colors.grey, width: 2)),
-                  height: 3.0.hp,
+                      border: Border.all(color: Colors.grey, width: 1)),
+                  height: 7.0.hp,
                   // 135,
                   width: 3.0.wp,
                   alignment: Alignment.center,
-                  child: Column(
+                  child: Row(
                     children: [
                       SizedBox(
+                        width: 5.0.sp,
                         height: 1.0.hp,
                         //  10,
                       ),
@@ -91,7 +90,7 @@ class _SuggestionSeeAllState extends State<SuggestionSeeAll> {
                         child: Container(
                           child: data.profileicon == ''
                               ? CircleAvatar(
-                                  radius: 40.0.sp,
+                                  radius: 20.0.sp,
                                   backgroundColor: Colors.white,
                                   backgroundImage: const AssetImage(
                                       "images/profile_icon.png"),
@@ -100,26 +99,33 @@ class _SuggestionSeeAllState extends State<SuggestionSeeAll> {
                                   //  50,
                                 )
                               : CircleAvatar(
-                                  radius: 40.0.sp,
+                                  radius: 20.0.sp,
                                   backgroundImage:
                                       NetworkImage("${data.profileicon}"),
                                   //  50,
                                 ),
                         ),
                       ),
-                      Text(
-                        data.username
-                            .toString()
-                            .replaceAll(RegExp('@gmail.com'), ''),
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 7.0.sp,
-                            color: animagiee_CL,
-                            fontWeight: FontWeight.w600,
+                      SizedBox(
+                        width: 5.0.sp,
+                      ),
+                      SizedBox(
+                        width: 42.0.wp,
+                        child: Text(
+                          data.username
+                              .toString()
+                              .replaceAll(RegExp('@gmail.com'), ''),
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 7.0.sp,
+                              color: buttonColor1_CL,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
                       SizedBox(
+                        width: 10.0.sp,
                         height: 1.0.hp,
                       ),
                       Obx(

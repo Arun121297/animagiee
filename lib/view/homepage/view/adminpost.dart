@@ -13,7 +13,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:readmore/readmore.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../config/colorconfig.dart';
@@ -83,7 +82,7 @@ class _AdminPostState extends State<AdminPost> {
             child: const Text("No User Post"));
       } else {
         return SizedBox(
-          height: MediaQuery.of(context).size.height - 212,
+          height: MediaQuery.of(context).size.height - 216,
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
@@ -172,8 +171,8 @@ class _AdminPostState extends State<AdminPost> {
                                 width: 4.0.wp,
                                 //  12,
                               ),
-                              widget.userId == data[index].postowner!.id
-                                  ? const SizedBox()
+                              data[index].postowner!.id == widget.userId
+                                  ? SizedBox()
                                   : GestureDetector(
                                       onTap: () {
                                         setState(() {
@@ -197,11 +196,7 @@ class _AdminPostState extends State<AdminPost> {
                           ),
                           Padding(
                             padding: EdgeInsets.all(8.0.sp),
-                            child: ReadMoreText(
-                              trimLines: 2,
-                              trimMode: TrimMode.Line,
-                              trimCollapsedText: 'Read more',
-                              trimExpandedText: '...Read less',
+                            child: Text(
                               data[index].description.toString(),
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
@@ -210,20 +205,6 @@ class _AdminPostState extends State<AdminPost> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              moreStyle: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                      fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.012,
-                                      color: bg_color27,
-                                      fontWeight: FontWeight.w600)),
-                              lessStyle: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
-                                      fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.012,
-                                      color: bg_color27,
-                                      fontWeight: FontWeight.w600)),
                             ),
                           ),
                           SizedBox(
