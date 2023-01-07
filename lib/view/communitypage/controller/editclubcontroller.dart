@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:animagieeui/view/instancepage/controller/communityController.dart';
 import 'package:get/get.dart';
 
+import '../../profilepage/view/loader/loader.dart';
 import '../Service/clubcreateservice.dart';
 import '../Service/editclubbgservice.dart';
 import '../Service/editclubservice.dart';
@@ -12,6 +14,7 @@ import '../model/editclubmodel.dart';
 class EditClubController extends GetxController {
   File selectediconimage = File('');
   RxBool editclubbgloadingindicator = true.obs;
+
   // RxList<EditClubModel> geteditclubbg = <EditClubModel>[].obs;
   var clint = EditClubService();
   Future editclubcontroller(
@@ -45,7 +48,8 @@ class EditClubController extends GetxController {
       if (response != null) {
         // geteditclubbg.clear();
         // geteditclubbg.add(response);
-
+        update();
+        Get.back();
         editclubbgloadingindicator(false);
       } else {
         editclubbgloadingindicator(false);

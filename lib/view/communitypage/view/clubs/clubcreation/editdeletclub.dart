@@ -11,6 +11,7 @@ import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/clubIconController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:animagieeui/view/instancepage/model/instancemodel.dart';
+import 'package:animagieeui/view/profilepage/view/loader/loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -123,23 +124,46 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                 child: Stack(
                   children: [
                     editClubbgController.selectedbgimage.value.path.isEmpty
-                        ? Container(
-                            decoration: BoxDecoration(
-                                // color: animagiee_CL,
-                                image: DecorationImage(
-                                    image: FileImage(File(
-                                      clubIconController
-                                          .profilebackgroundimage.value.path,
-                                    )),
-                                    fit: BoxFit.cover),
-                                borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(15),
-                                    bottomRight: Radius.circular(15))),
-                            width: MediaQuery.of(context).size.width,
-                            height: 14.0.hp,
+                        ? clubIconController.profilebackgroundimage.value.path
+                                .contains('https')
+                            ? Container(
+                                decoration: BoxDecoration(
+                                    // color: animagiee_CL,
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                          clubIconController
+                                              .profilebackgroundimage
+                                              .value
+                                              .path,
+                                        ),
+                                        fit: BoxFit.cover),
+                                    borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                        bottomRight: Radius.circular(15))),
+                                width: MediaQuery.of(context).size.width,
+                                height: 14.0.hp,
 
-                            //  108,
-                          )
+                                //  108,
+                              )
+                            : Container(
+                                decoration: BoxDecoration(
+                                    // color: animagiee_CL,
+                                    image: DecorationImage(
+                                        image: FileImage(File(
+                                          clubIconController
+                                              .profilebackgroundimage
+                                              .value
+                                              .path,
+                                        )),
+                                        fit: BoxFit.cover),
+                                    borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                        bottomRight: Radius.circular(15))),
+                                width: MediaQuery.of(context).size.width,
+                                height: 14.0.hp,
+
+                                //  108,
+                              )
                         : Container(
                             decoration: BoxDecoration(
                                 // color: animagiee_CL,
@@ -174,11 +198,19 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                             backgroundColor: Colors.white,
                             child: editClubController
                                     .selectediconimage.path.isEmpty
-                                ? CircleAvatar(
-                                    radius: 45.0.sp,
-                                    backgroundImage: FileImage(File(
-                                        clubController.pFprofileimage.path)),
-                                  )
+                                ? clubController.pFprofileimage.path
+                                        .contains('https')
+                                    ? CircleAvatar(
+                                        radius: 45.0.sp,
+                                        backgroundImage: NetworkImage(
+                                            clubController.pFprofileimage.path),
+                                      )
+                                    : CircleAvatar(
+                                        radius: 45.0.sp,
+                                        backgroundImage: FileImage(File(
+                                            clubController
+                                                .pFprofileimage.path)),
+                                      )
                                 : CircleAvatar(
                                     radius: 45.0.sp,
                                     backgroundImage: FileImage(File(
@@ -443,6 +475,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
               GestureDetector(
                 onTap: () {
                   setState(() {
+                    // loader();
                     editClubController.editclubcontroller(
                       ClubDescription: clubController.clubDescription.text,
                       Community: clubController.id,
@@ -474,7 +507,6 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                       clubIconController.profilebackgroundimage.value.path,
                     );
                   });
-                  Get.back();
                 },
                 child: Container(
                   height: 43,
@@ -561,4 +593,12 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
       return null;
     }
   }
+
+  // loader() {
+  //   Future.delayed(Duration.zero, () async {
+  //     await editClubController.editclubbgloadingindicator.value
+  //         ? const Loader()
+  //         : Get.back();
+  //   });
+  // }
 }

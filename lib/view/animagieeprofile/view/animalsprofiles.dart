@@ -40,7 +40,7 @@ class Animals_Profiles_UI extends StatefulWidget {
 class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
   double get randHeight => Random().nextInt(100).toDouble();
   Controller controller = Get.put(Controller());
-  List<Widget> _randomChildren = [];
+  RxList<Widget> _randomChildren = <Widget>[].obs;
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   CommunityProfileContoller communityProfileContoller =
       Get.put(CommunityProfileContoller());
@@ -56,28 +56,17 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
   fetchdata() {
     Future.delayed(Duration.zero, () async {
       await communityProfileContoller.communityProfile(id: widget.id);
-      // print(
-      //     "clubbgiconanimalrofile-->${communityProfileContoller.communityData[0].data1![0].clubbgicon}");
       SharedPreferences prefs = await SharedPreferences.getInstance();
-
       userid = prefs.getString(Constants.userId);
       print('userid$userid');
-      print('userid->${widget.id}');
+      // print('userid->${widget.id}');
     });
   }
 
-  // userId() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-
-  //   userid = prefs.getString(Constants.userId);
-  //   print('userid$userid');
-  //   print('userid->${widget.id}');
-  // }
-
   // Children with random heights - You can build your widgets of unknown heights here
   // I'm just passing the context in case if any widgets built here needs  access to context based data like Theme or MediaQuery
-  List<Widget> _randomHeightWidgets(BuildContext context) {
-    _randomChildren = List.generate(1, (index) {
+  RxList<Widget> _randomHeightWidgets(BuildContext context) {
+    _randomChildren.value = List.generate(1, (index) {
       final height = randHeight.clamp(
         50.0,
         MediaQuery.of(context)
@@ -85,186 +74,230 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
             .width, // simply using MediaQuery to demonstrate usage of context
       );
       return Obx(() {
-        return ListView.builder(
-            shrinkWrap: true,
-
-            //  scrollDirection: Axis.vertical,
-            itemCount: communityProfileContoller.communityData.length,
-            itemBuilder: (BuildContext context, int index) {
-              var data =
-                  communityProfileContoller.communityData[0].data1![index];
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 22.0.hp,
-                    //  168,
-                    child: Stack(children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: FileImage(
-                                    File(data.clubbgicon.toString()))),
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15.0.sp),
-                                bottomRight: Radius.circular(15.0.sp))),
-                        width: MediaQuery.of(context).size.width,
-                        height: 13.0.hp,
-                        // 108,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.black38,
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15.0.sp),
-                                bottomRight: Radius.circular(15.0.sp))),
-                        width: MediaQuery.of(context).size.width,
-                        height: 13.0.hp,
-                        // 108,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 40.0.sp, left: 20.0.sp),
-                        child: Align(
-                          heightFactor: 1.4,
-                          alignment: Alignment.centerLeft,
-                          child: CircleAvatar(
-                            radius: 42.0.sp,
-                            backgroundColor: Colors.white,
-                            child: CircleAvatar(
-                              backgroundImage:
-                                  FileImage(File(data.clubicon.toString())),
-                              radius: 40.0.sp,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(50.0.sp),
-                        child: Container(
-                            margin: EdgeInsets.only(left: 58.0.sp),
-                            child: Text(
-                              data.clubName.toString(),
-                              style: GoogleFonts.jost(
-                                textStyle: TextStyle(
-                                  fontSize: 19.5.sp,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                ),
+        if (communityProfileContoller.isLoading.value) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (communityProfileContoller.communityData.isEmpty ||
+            communityProfileContoller.communityData.first.data1!.isEmpty) {
+          return const Center(child: Text("No result found"));
+        } else {
+          return ListView.builder(
+              shrinkWrap: true,
+              //  scrollDirection: Axis.vertical,
+              itemCount: communityProfileContoller.communityData.length,
+              itemBuilder: (BuildContext context, int index) {
+                var data =
+                    communityProfileContoller.communityData[0].data1![index];
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 22.0.hp,
+                      //  168,
+                      child: Stack(children: [
+                        data.clubbgicon!.contains('http')
+                            ? Container(
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: NetworkImage(
+                                            data.clubbgicon.toString())),
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(15.0.sp),
+                                        bottomRight: Radius.circular(15.0.sp))),
+                                width: MediaQuery.of(context).size.width,
+                                height: 13.0.hp,
+                                // 108,
+                              )
+                            : Container(
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: FileImage(
+                                            File(data.clubbgicon.toString()))),
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(15.0.sp),
+                                        bottomRight: Radius.circular(15.0.sp))),
+                                width: MediaQuery.of(context).size.width,
+                                height: 13.0.hp,
+                                // 108,
                               ),
-                            )),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 100.0.sp, right: 10.0.sp),
-                        child: Align(
-                          alignment: Alignment.bottomRight,
-                          child: SizedBox(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text(
-                                  "1,22 Members",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                      fontSize: 8.0.sp,
-                                      color: dummycontent_Cl,
-                                      fontWeight: FontWeight.w400,
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.black38,
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(15.0.sp),
+                                  bottomRight: Radius.circular(15.0.sp))),
+                          width: MediaQuery.of(context).size.width,
+                          height: 13.0.hp,
+                          // 108,
+                        ),
+                        data.clubicon!.contains('https')
+                            ? Padding(
+                                padding: EdgeInsets.only(
+                                    top: 40.0.sp, left: 20.0.sp),
+                                child: Align(
+                                  heightFactor: 1.4,
+                                  alignment: Alignment.centerLeft,
+                                  child: CircleAvatar(
+                                    radius: 42.0.sp,
+                                    backgroundColor: Colors.white,
+                                    child: CircleAvatar(
+                                      backgroundImage: NetworkImage(
+                                          data.clubicon.toString()),
+                                      radius: 40.0.sp,
                                     ),
                                   ),
                                 ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 5.0.sp),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          print(instanceContoroller
-                                              .communitylist.length);
-                                        },
-                                        child: Container(
-                                          height: 3.0.hp,
-                                          // 26,
-                                          width: 23.0.wp,
-                                          // 90,
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                              color: animagiee_CL,
-                                              borderRadius:
-                                                  BorderRadius.circular(
-                                                      15.0.sp)),
-                                          child: Text(
-                                            "Joined",
-                                            style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
-                                                fontSize: 9.0.sp,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w500,
+                              )
+                            : Padding(
+                                padding: EdgeInsets.only(
+                                    top: 40.0.sp, left: 20.0.sp),
+                                child: Align(
+                                  heightFactor: 1.4,
+                                  alignment: Alignment.centerLeft,
+                                  child: CircleAvatar(
+                                    radius: 42.0.sp,
+                                    backgroundColor: Colors.white,
+                                    child: CircleAvatar(
+                                      backgroundImage: FileImage(
+                                          File(data.clubicon.toString())),
+                                      radius: 40.0.sp,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                        Padding(
+                          padding: EdgeInsets.all(50.0.sp),
+                          child: Container(
+                              margin: EdgeInsets.only(left: 58.0.sp),
+                              child: Text(
+                                data.clubName.toString(),
+                                style: GoogleFonts.jost(
+                                  textStyle: TextStyle(
+                                    fontSize: 19.5.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              )),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.only(top: 100.0.sp, right: 10.0.sp),
+                          child: Align(
+                            alignment: Alignment.bottomRight,
+                            child: SizedBox(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    "1,22 Members",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        fontSize: 8.0.sp,
+                                        color: dummycontent_Cl,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 5.0.sp),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            print(instanceContoroller
+                                                .communitylist.length);
+                                          },
+                                          child: Container(
+                                            height: 3.0.hp,
+                                            // 26,
+                                            width: 23.0.wp,
+                                            // 90,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                color: animagiee_CL,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        15.0.sp)),
+                                            child: Text(
+                                              "Joined",
+                                              style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                  fontSize: 9.0.sp,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      data.clubOwner == userid
-                          ? Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      ///edit and delet my club
-                                      Get.to(EditandDeleteMyClub(
-                                        id: widget.id,
-                                        clubname: data.clubName,
-                                        desc: data.clubDescription,
-                                        groupname: data.groupName,
-                                        communitie: data.community,
-                                        isprivate: data.communityTypeisPrivate!,
-                                        bgicon: data.clubbgicon,
-                                        icon: data.clubicon,
-                                        isprivatestring:
-                                            data.communityTypeisPrivatestring,
-                                      ));
-                                      print(data.communityTypeisPrivate!);
-                                    });
-                                  },
-                                  child: SizedBox(
-                                    height: 6.0.hp,
-                                    width: 9.0.wp,
-                                    child: Image.asset("images/edit.png"),
+                        data.clubOwner == userid
+                            ? Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        ///edit and delet my club
+                                        Get.to(EditandDeleteMyClub(
+                                          id: widget.id,
+                                          clubname: data.clubName,
+                                          desc: data.clubDescription,
+                                          groupname: data.groupName,
+                                          communitie: data.community,
+                                          isprivate:
+                                              data.communityTypeisPrivate!,
+                                          bgicon: data.clubbgicon,
+                                          icon: data.clubicon,
+                                          isprivatestring:
+                                              data.communityTypeisPrivatestring,
+                                        ));
+                                        print(data.communityTypeisPrivate!);
+                                      });
+                                    },
+                                    child: SizedBox(
+                                      height: 6.0.hp,
+                                      width: 9.0.wp,
+                                      child: Image.asset("images/edit.png"),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            )
-                          : const SizedBox()
-                    ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10.0.sp),
-                    child: Text(
-                      data.clubDescription.toString(),
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 10.0.sp,
-                          color: dummycontent_Cl,
-                          fontWeight: FontWeight.w400,
+                              )
+                            : const SizedBox()
+                      ]),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(10.0.sp),
+                      child: Text(
+                        data.clubDescription.toString(),
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 10.0.sp,
+                            color: dummycontent_Cl,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              );
-            });
+                  ],
+                );
+              });
+        }
       });
     });
 
@@ -278,45 +311,43 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Persistent AppBar that never scrolls
-      appBar: AppBar(
-        actions: [
-          Search_UI(),
-          SizedBox(
-            width: 3.0.wp,
-          ),
-          const Notification_UI(),
-          SizedBox(
-            width: 4.0.wp,
-          )
-        ],
-        leading: IconButton(
-            icon:
-                Icon(Icons.arrow_back_ios, size: 12.0.sp, color: Colors.black),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
-        backgroundColor: Colors.white,
-        toolbarHeight: 7.0.hp,
-        centerTitle: true,
-        title: Text(
-          "Community",
-          style: GoogleFonts.poppins(
-            textStyle: TextStyle(
-              fontSize: 10.5.sp,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
+        // Persistent AppBar that never scrolls
+        appBar: AppBar(
+          actions: [
+            Search_UI(),
+            SizedBox(
+              width: 3.0.wp,
+            ),
+            const Notification_UI(),
+            SizedBox(
+              width: 4.0.wp,
+            )
+          ],
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios,
+                  size: 12.0.sp, color: Colors.black),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
+          backgroundColor: Colors.white,
+          toolbarHeight: 7.0.hp,
+          centerTitle: true,
+          title: Text(
+            "Community",
+            style: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                fontSize: 10.5.sp,
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
+          elevation: 3,
         ),
-        elevation: 3,
-      ),
-      body: WillPopScope(
-        onWillPop: () {
+        body: WillPopScope(onWillPop: () {
           return back();
-        },
-        child: Obx(() {
-          if (communityProfileContoller.isLoading.value == true) {
+        }, child: Obx(() {
+          if (communityProfileContoller.isLoading.value) {
             return const Center(
               child: CircularProgressIndicator(),
             );
@@ -386,8 +417,6 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
               ),
             );
           }
-        }),
-      ),
-    );
+        })));
   }
 }

@@ -7,12 +7,13 @@ class CommunityProfileContoller extends GetxController {
   RxBool isLoading = true.obs;
 
   communityProfile({required String id}) async {
-    print("datab" + communityData.length.toString());
+    // print("datab" + communityData.length.toString());
     final response = await CommunityProfileService.communityProfileService(id);
     try {
       if (response != null) {
         communityData.clear();
         communityData.add(response);
+        update();
         isLoading(false);
       } else {
         isLoading(false);
