@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/profilepage/controller/editcontr/editController.dart';
 
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 import '../../../config/colorconfig.dart';
 
@@ -49,6 +52,30 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
   String statedropdownvalue = 'TamilNadu';
   String citydropdownvalue = 'Nagercovil';
   bool workwithus = true;
+  DateTime selectedDate = DateTime.now();
+
+  selectDate(
+    BuildContext context,
+  ) async {
+    log("dddd");
+
+    final selected = await showDatePicker(
+      context: context,
+      initialDate: editScreenController.dob.text.isNotEmpty
+          ? DateFormat("yyyy-MM-dd").parse(editScreenController.dob.text)
+          : DateTime(2015),
+      firstDate: DateTime(1960),
+      lastDate: DateTime.now(),
+    );
+    if (selected != null && selected != selectedDate) {
+      editScreenController.dob.text = DateFormat('yyyy-MM-dd').format(selected);
+    } else {
+      return "";
+    }
+
+    //////
+  }
+
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -550,6 +577,10 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         padding: EdgeInsets.only(
                             left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
                         child: TextField(
+                            readOnly: true,
+                            onTap: () {
+                              selectDate(context);
+                            },
                             controller: editScreenController.dob,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -560,7 +591,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
-                              hintText: "DD/MM/YYYY",
+                              hintText: "MM/DD/YYYY",
                               // hintText: "First Name"
                             )),
                       ),

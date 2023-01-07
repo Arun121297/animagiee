@@ -72,11 +72,11 @@ class Data {
   String? firstName;
   String? lastName;
   String? gender;
-  dynamic? dob;
+  DateTime? dob;
   String? email;
-  dynamic? mobNo;
+  dynamic mobNo;
   String? address;
-  dynamic? pinCode;
+  dynamic pinCode;
   List<String>? interestedCommunities;
   List<dynamic>? followingUser;
   List<dynamic>? followerUser;
@@ -98,7 +98,7 @@ class Data {
         firstName: json["firstName"],
         lastName: json["lastName"],
         gender: json["gender"],
-        dob: json["dob"],
+        dob: json["dob"] == null ? null : DateTime.parse(json["dob"]),
         email: json["email"],
         mobNo: json["mobNo"],
         address: json["address"],

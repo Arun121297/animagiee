@@ -1,6 +1,5 @@
 // import 'package:animagieeui/view/instancepage/service/instanceservice.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/instancemodel.dart';
 import '../service/instanceservices.dart';

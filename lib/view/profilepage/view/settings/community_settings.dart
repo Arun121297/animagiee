@@ -30,7 +30,6 @@ class _Community_Settings_UIState extends State<Community_Settings_UI> {
       Get.put(UpdataInstanceController());
   @override
   void initState() {
-    // TODO: implement initState
     instanceContoroller.instancecontroller();
     super.initState();
   }
@@ -44,11 +43,11 @@ class _Community_Settings_UIState extends State<Community_Settings_UI> {
     return Scaffold(
       body: Obx(() {
         if (instanceContoroller.instancescreenloadingindicator.value) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (instanceContoroller.getinstancedata.isEmpty) {
-          return Center(
+          return const Center(
             child: Text("No Communities"),
           );
         } else {
@@ -73,7 +72,7 @@ class _Community_Settings_UIState extends State<Community_Settings_UI> {
                     searchfunction: true,
                     searchfunctionclose: false,
                     podcast: false,
-                    fun: Settings_Page_1_UI(),
+                    fun: const Settings_Page_1_UI(),
                   ),
 
                   // controller.clubapp(
@@ -81,7 +80,7 @@ class _Community_Settings_UIState extends State<Community_Settings_UI> {
                   SizedBox(
                     height: 9.0.hp,
                   ),
-                  Community_UI(),
+                  const Community_UI(),
                   SizedBox(
                     height: 10.0.hp,
                   ),
@@ -89,7 +88,7 @@ class _Community_Settings_UIState extends State<Community_Settings_UI> {
                     onTap: () {
                       updataInstanceController.updateinstancecontroller(
                           instanceContoroller.communitylist);
-                      Get.to(Settings_Page_1_UI());
+                      Get.to(const Settings_Page_1_UI());
                       // Get.to(fun);
                     },
                     child: Container(

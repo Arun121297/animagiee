@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:animagieeui/view/instancepage/controller/clubController.dart';
+import 'package:animagieeui/view/club/controllers/club_controller.dart';
 import 'package:animagieeui/view/instancepage/model/club_icon.dart';
 import 'package:animagieeui/view/instancepage/service/clubicon_service.dart';
 import 'package:get/get.dart';

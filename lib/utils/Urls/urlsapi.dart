@@ -27,6 +27,7 @@ class Urls {
   static const createPost = "${baseUrl}api/post/postcreation";
   // My Frineds
   static const myFrineds = "${baseUrl}api/user/myfriends";
+  // joined club
   static const joinedClub = "${baseUrl}api/club/joinedClublist";
   /* Favourite */
   // Favourite List
@@ -51,4 +52,14 @@ class Urls {
   static const removefollowers = '${baseUrl}api/follow/unfollowfollowers';
   static const likes = '${baseUrl}api/post/postlike';
   static const singlepost = '${baseUrl}api/post/singlepost';
+
+  // club join request
+  static const clubJoinRequest = '${baseUrl}api/club/clubjoinrequest';
+  // club Join request list
+  static const clubJoinRequestList = '${baseUrl}api/club/clubjoinrequestlist';
+  // club accept request
+  static const clubAcceptRequest = '${baseUrl}api/club/clubacceptrequest';
+  // club reject request
+
+  static const clubRejectRequest = '${baseUrl}api/club/clubrejectrequest';
 }

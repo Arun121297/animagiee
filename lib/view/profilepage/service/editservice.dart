@@ -34,7 +34,7 @@ class EditScreenService {
       dio.FormData formData = dio.FormData.fromMap({
         dob == "" ? "dd" : 'dob': dob.toString(),
         "lastName": lname.toString(),
-        "email": email.toString(),
+        "emailorphone": email.toString(),
         "mobNo": mnumber.toString(),
         "address": address.toString(),
         "pinCode": picode.toString(),

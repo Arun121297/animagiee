@@ -1,16 +1,17 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/utils/constance.dart';
 import 'package:animagieeui/view/animagieeprofile/view/animalsprofiles.dart';
+import 'package:animagieeui/view/club/controllers/club_controller.dart';
 import 'package:animagieeui/view/communitypage/controller/createclubcontroller.dart';
-import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 // import 'package:animagieeui/view/bottombarfile/view/bottomnavibar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../config/colorconfig.dart';
 import '../../../../controller/controller.dart';
@@ -31,17 +32,24 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
   CreatedClubController createdClubController =
       Get.put(CreatedClubController());
   ClubController clubController = Get.put(ClubController());
+  String myUserId = "";
+
   @override
   void initState() {
     controller.clubprofileimage = File("");
     controller.clubbackgroundimage = File("");
     createdClubController.clubcreatedcontroller();
-    // TODO: implement initState
+    fetchProfile();
     super.initState();
   }
 
   back() async {
     await Get.to(Home_Page());
+  }
+
+  fetchProfile() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    myUserId = pref.getString(Constant.userId)!;
   }
 
   Controller controller = Get.put(Controller());
@@ -252,7 +260,6 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                   id: createdClubController
                                       .getcreateclubdata[0].data![index].clubid
                                       .toString(),
-                                  userId: Constants.userId,
                                 ));
                               },
                               child: Card(
@@ -302,7 +309,6 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                                     .data![index]
                                                     .clubid
                                                     .toString(),
-                                                userId: Constants.userId,
                                               ));
                                         },
                                         child: Row(
@@ -390,6 +396,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                           itemCount: instanceContoroller.communitylist.length,
                           itemBuilder: (context, index) => My_Sub_List_Content(
                                 fetchindex: index,
+                                myUserId: myUserId,
                               )),
                     )
             ],

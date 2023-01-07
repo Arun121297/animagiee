@@ -33,6 +33,18 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
       Get.put(UpdataInstanceController());
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   @override
+  void initState() {
+    fetchData();
+    super.initState();
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await instanceContoroller.instancecontroller();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,

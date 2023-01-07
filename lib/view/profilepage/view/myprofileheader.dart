@@ -149,25 +149,25 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                height: 4.0.hp,
-                // 30,
-                width: 33.0.wp,
-                // 124,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 1,
-                      color: animagiee_CL,
-                    ),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Get.to(const MyFollower());
-                      },
-                      child: Text(
+              InkWell(
+                onTap: () {
+                  Get.to(const MyFollower());
+                },
+                child: Container(
+                  height: 4.0.hp,
+                  // 30,
+                  width: 33.0.wp,
+                  // 124,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1,
+                        color: animagiee_CL,
+                      ),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
                         "Followers",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
@@ -177,42 +177,42 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           ),
                         ),
                       ),
-                    ),
-                    const VerticalDivider(
-                      color: animagiee_CL,
-                    ),
-                    Text(
-                      data.followerUser!.length.toString(),
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 9.5.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      const VerticalDivider(
+                        color: animagiee_CL,
                       ),
-                    )
-                  ],
+                      Text(
+                        data.followerUser!.length.toString(),
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.5.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                height: 4.0.hp,
-                // 30,
-                width: 33.0.wp,
-                // 124,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 1,
-                      color: animagiee_CL,
-                    ),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Get.to(const MyFollowUser());
-                      },
-                      child: Text(
+              InkWell(
+                onTap: () {
+                  Get.to(const MyFollowUser());
+                },
+                child: Container(
+                  height: 4.0.hp,
+                  // 30,
+                  width: 33.0.wp,
+                  // 124,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1,
+                        color: animagiee_CL,
+                      ),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
                         "Following",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
@@ -222,21 +222,21 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                           ),
                         ),
                       ),
-                    ),
-                    const VerticalDivider(
-                      color: animagiee_CL,
-                    ),
-                    Text(
-                      data.followingUser!.length.toString(),
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 9.5.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      const VerticalDivider(
+                        color: animagiee_CL,
                       ),
-                    )
-                  ],
+                      Text(
+                        data.followingUser!.length.toString(),
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 9.5.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               Container(
@@ -266,9 +266,9 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(My_Post_UI(
-                      id: data.id,
-                    ));
+                    Get.to(() => My_Post_UI(
+                          id: data.id,
+                        ));
                   },
                   child: Card(
                     elevation: 3,
@@ -325,7 +325,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Get.to(const My_Communities_UI());
+                    Get.to(() => const My_Communities_UI());
                   },
                   child: Card(
                     elevation: 3,
@@ -362,7 +362,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               width: 2,
                             ),
                             Text(
-                              // "23",
+                              // TODO:need to change community count after complete backend
                               data.interestedCommunities!.length.toString(),
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(

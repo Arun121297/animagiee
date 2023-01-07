@@ -1,9 +1,6 @@
 // singlePostProfile
 import 'dart:developer';
-import 'dart:io';
 
-import 'package:animagieeui/view/instancepage/controller/clubController.dart';
-import 'package:animagieeui/view/instancepage/service/clubicon_service.dart';
 import 'package:get/get.dart';
 
 import '../model/singlepostmodel.dart';

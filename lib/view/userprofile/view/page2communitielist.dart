@@ -32,7 +32,6 @@ class _Page2_Communitie_ListState extends State<Page2_Communitie_List> {
       onTap: () {
         Get.to(Animals_Profiles_UI(
           id: widget.id,
-          userId: widget.userId,
         ));
       },
       child: Card(

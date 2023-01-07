@@ -3,13 +3,10 @@ import 'dart:io';
 
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/club/controllers/club_controller.dart';
 
-import 'package:animagieeui/view/communitypage/view/clubs/completedclub.dart';
-import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/clubIconController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
-import 'package:animagieeui/view/instancepage/model/instancemodel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -87,7 +84,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                               clubIconController.profilebackgroundimage,
                             ),
                             fit: BoxFit.cover),
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(15),
                             bottomRight: Radius.circular(15))),
                     width: MediaQuery.of(context).size.width,
@@ -96,7 +93,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                     //  108,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.black38,
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(15),
@@ -195,7 +192,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               width: 70.0.wp,
               //  258,
               child: TextField(
@@ -213,11 +210,11 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
-              margin: EdgeInsets.only(left: 10),
+              margin: const EdgeInsets.only(left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -242,7 +239,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                           height: 5.0.hp,
                           child: TextField(
                               controller: clubController.clubName,
-                              decoration: new InputDecoration(
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                               )))),
                   Padding(
@@ -266,7 +263,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                           height: 5.0.hp,
                           child: TextField(
                               controller: clubController.clubDescription,
-                              decoration: new InputDecoration(
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                               )))),
                   Padding(
@@ -287,7 +284,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                   Card(
                     elevation: 3,
                     child: Container(
-                      margin: EdgeInsets.only(left: 10),
+                      margin: const EdgeInsets.only(left: 10),
                       width: 87.5.wp,
                       // 320,
                       height: 5.0.hp,
@@ -338,7 +335,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 2,
                         ),
                         SizedBox(
@@ -356,7 +353,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                   Card(
                     elevation: 3,
                     child: Container(
-                      margin: EdgeInsets.only(left: 10),
+                      margin: const EdgeInsets.only(left: 10),
                       width: 87.0.wp,
                       height: 5.0.hp,
                       child: DropdownButton<String>(
@@ -397,10 +394,10 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                 ],
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             GestureDetector(
               onTap: () {
-                Get.to(EditandDeleteMyClub());
+                Get.to(const EditandDeleteMyClub());
                 // clubController.clubApi();
                 // clubIconController.clubIconApi();
               },
@@ -423,7 +420,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                 ),
               ),
             ),
-            Divider(),
+            const Divider(),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -439,7 +436,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                       ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.delete,
                     color: Colors.red,
                   )
@@ -463,7 +460,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
     if (result != null) {
       setState(() {
         clubController.pFprofileimage = File(result.path);
-        log("${clubController.pFprofileimage.path}");
+        log(clubController.pFprofileimage.path);
         // controller.file = File(result.path);
         // controller.imagevideo(FilepickerType(type: "image", url: result.path));
       });

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 import '../../../config/colorconfig.dart';
 
@@ -40,13 +41,20 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
       editScreenController.about.text = data!.about ?? "";
       editScreenController.fname.text = data.firstName ?? "";
       editScreenController.lname.text = data.lastName ?? "";
-      editScreenController.dob.text = data.dob ?? "";
-      editScreenController.mNumber.text =
-          data.mobNo == 0 ? "" : data.mobNo.toString();
+      editScreenController.dob.text =
+          data.dob == null ? "" : DateFormat("yyyy-MM-dd").format(data.dob!);
+      editScreenController.mNumber.text = data.mobNo == null
+          ? ""
+          : data.mobNo == 0
+              ? ""
+              : data.mobNo.toString();
       editScreenController.email.text = data.email ?? "";
       editScreenController.address.text = data.address ?? "";
-      editScreenController.pincode.text =
-          data.pinCode == 0 ? "" : data.pinCode.toString();
+      editScreenController.pincode.text = data.pinCode == null
+          ? ""
+          : data.pinCode == 0
+              ? ""
+              : data.pinCode.toString();
       editScreenController.gender(data.gender ?? "");
       log(data.firstName!);
       log("${editScreenController.about.text}nnnnnnnnnn");

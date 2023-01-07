@@ -5,19 +5,14 @@ import 'package:animagieeui/view/communitypage/view/clubs/myclubs.dart';
 // import 'package:animagieeui/view/animagieeprofile/view/post.dart';
 import 'package:animagieeui/view/homeAppBar/view/notification.dart';
 import 'package:animagieeui/view/homeAppBar/view/search.dart';
-import 'package:animagieeui/view/instancepage/controller/clubController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart';
 
 import '../../../../../config/colorconfig.dart';
 import '../../../../../controller/controller.dart';
-import '../../../../animagieeprofile/view/member.dart';
-import '../../../../animagieeprofile/view/post.dart';
-import '../../../../instancepage/controller/clubIconController.dart';
 import 'addmember.dart';
 import 'editdeletclub.dart';
 
@@ -50,13 +45,13 @@ class _MyClubCreationState extends State<MyClubCreation> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             height: 22.0.hp,
             //  168,
             child: Stack(children: [
               Container(
                 decoration: BoxDecoration(
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         image: AssetImage("images/Dogs.jpg"),
                         fit: BoxFit.cover),
                     color: animagiee_CL,
@@ -86,7 +81,7 @@ class _MyClubCreationState extends State<MyClubCreation> {
                     radius: 42.0.sp,
                     backgroundColor: Colors.white,
                     child: CircleAvatar(
-                      backgroundImage: ExactAssetImage("images/Dogs.jpg"),
+                      backgroundImage: const ExactAssetImage("images/Dogs.jpg"),
                       radius: 40.0.sp,
                     ),
                   ),
@@ -128,7 +123,7 @@ class _MyClubCreationState extends State<MyClubCreation> {
                         GestureDetector(
                           onTap: () {
                             // print(instanceContoroller.communitylist.length);
-                            Get.to(MyClubAddMember());
+                            Get.to(const MyClubAddMember());
                             setState(() {});
                           },
                           child: Container(
@@ -165,7 +160,7 @@ class _MyClubCreationState extends State<MyClubCreation> {
                     onTap: () {
                       setState(() {
                         ///edit and delet my club
-                        Get.to(EditandDeleteMyClub());
+                        Get.to(const EditandDeleteMyClub());
                       });
                     },
                     child: SizedBox(
@@ -199,7 +194,7 @@ class _MyClubCreationState extends State<MyClubCreation> {
   }
 
   back() async {
-    await Get.to(MyClubs_UI());
+    await Get.to(const MyClubs_UI());
   }
 
   // ClubController clubController = Get.put(ClubController());
@@ -241,7 +236,7 @@ class _MyClubCreationState extends State<MyClubCreation> {
           SizedBox(
             width: 3.0.wp,
           ),
-          Notification_UI(),
+          const Notification_UI(),
           SizedBox(
             width: 4.0.wp,
           )
@@ -250,7 +245,7 @@ class _MyClubCreationState extends State<MyClubCreation> {
             icon:
                 Icon(Icons.arrow_back_ios, size: 12.0.sp, color: Colors.black),
             onPressed: () {
-              Get.to(MyClubs_UI());
+              Get.to(const MyClubs_UI());
             }),
         backgroundColor: Colors.white,
         toolbarHeight: 7.0.hp,
