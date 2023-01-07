@@ -173,7 +173,7 @@ class _AdminPostState extends State<AdminPost> {
                                 //  12,
                               ),
                               widget.userId == data[index].postowner!.id
-                                  ? SizedBox()
+                                  ? const SizedBox()
                                   : GestureDetector(
                                       onTap: () {
                                         setState(() {

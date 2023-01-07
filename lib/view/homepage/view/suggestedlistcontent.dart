@@ -60,7 +60,8 @@ class _Suggested_List_ContentState extends State<Suggested_List_Content> {
           GestureDetector(
             onTap: () {
               Get.to(User_Profile(
-                  id: data[widget.fetchindex].id.toString(), postId: ''));
+                id: data[widget.fetchindex].id.toString(),
+              ));
             },
             child: Container(
               child: data[widget.fetchindex].profileicon == ''

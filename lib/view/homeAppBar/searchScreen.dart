@@ -4,7 +4,9 @@ import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
+import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/view/homepage/view/accountSearch.dart';
+import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/instancepage/controller/home_searchController.dart';
 import 'package:animagieeui/view/userprofile/view/userprofile.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -25,6 +27,7 @@ class _SearchScreenState extends State<SearchScreen> {
   SearchHomeController searchHomeController = Get.put(SearchHomeController());
   StreamController<String> streamController = StreamController();
   StreamSubscription<ConnectivityResult>? _connectivitySubscription;
+  Controller dashBoardController = Get.put(Controller());
   bool height = true;
   String id = '';
   List<dynamic> list = [];
@@ -238,14 +241,14 @@ class _SearchScreenState extends State<SearchScreen> {
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {
-                                      id.toString() !=
-                                                  list[index].id.toString() ||
-                                              id.toString() ==
-                                                  list[index].id.toString()
-                                          ? Get.to(() => User_Profile(
-                                                id: list[index].id!,
-                                              ))
-                                          : const SizedBox();
+                                      if (list[index].id.toString() ==
+                                          id.toString()) {
+                                        dashBoardController.selectedIndex(4);
+                                        Get.off(() => Home_Page());
+                                      } else {
+                                        Get.to(() =>
+                                            User_Profile(id: list[index].id));
+                                      }
                                     },
                                     child: Column(
                                       children: [

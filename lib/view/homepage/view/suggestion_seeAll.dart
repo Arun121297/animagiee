@@ -1,7 +1,6 @@
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/homepage/controller/suggestedfriendController.dart';
-import 'package:animagieeui/view/homepage/view/suggestedlistcontent.dart';
 import 'package:animagieeui/view/instancepage/controller/followRequestController.dart';
 import 'package:animagieeui/view/userprofile/view/userprofile.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +34,7 @@ class _SuggestionSeeAllState extends State<SuggestionSeeAll> {
         elevation: 2,
         backgroundColor: mywork_container_CL,
         leading: IconButton(
-            icon: Icon(Icons.keyboard_arrow_left_sharp),
+            icon: const Icon(Icons.keyboard_arrow_left_sharp),
             color: Colors.black,
             onPressed: () {
               Get.back();
@@ -60,7 +59,7 @@ class _SuggestionSeeAllState extends State<SuggestionSeeAll> {
           return GridView.builder(
             itemCount:
                 sugestedFrindListController.Suggesteddata.first.data!.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, crossAxisSpacing: 3.0, mainAxisSpacing: 3.0),
             itemBuilder: (BuildContext context, int index) {
               var data =
@@ -85,8 +84,9 @@ class _SuggestionSeeAllState extends State<SuggestionSeeAll> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.to(
-                              User_Profile(id: data.id.toString(), postId: ''));
+                          Get.to(() => User_Profile(
+                                id: data.id.toString(),
+                              ));
                         },
                         child: Container(
                           child: data.profileicon == ''

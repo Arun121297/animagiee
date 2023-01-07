@@ -1,12 +1,15 @@
 import 'package:animagieeui/config/colorconfig.dart';
+import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
-import 'package:animagieeui/view/homeAppBar/view/networkProfile.dart';
+import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/instancepage/controller/home_searchController.dart';
 import 'package:animagieeui/view/userprofile/view/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AccountSearch extends StatefulWidget {
   const AccountSearch({Key? key}) : super(key: key);
@@ -17,6 +20,21 @@ class AccountSearch extends StatefulWidget {
 
 class _AccountSearchState extends State<AccountSearch> {
   SearchHomeController searchHomeController = Get.find<SearchHomeController>();
+  Controller dashBoardController = Get.find();
+  String id = '';
+
+  void fetchData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      id = (prefs.getString(Constant.userId).toString());
+    });
+  }
+
+  @override
+  void initState() {
+    fetchData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +66,12 @@ class _AccountSearchState extends State<AccountSearch> {
                   var data = searchHomeController.userList[index];
                   return GestureDetector(
                     onTap: () {
-                      Get.to(User_Profile(
-                        id: data.id!,
-                      ));
+                      if (data.id.toString() == id.toString()) {
+                        dashBoardController.selectedIndex(4);
+                        Get.off(() => Home_Page());
+                      } else {
+                        Get.to(() => User_Profile(id: data.id ?? ""));
+                      }
                     },
                     child: Column(
                       children: [
