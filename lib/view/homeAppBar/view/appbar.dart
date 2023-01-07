@@ -145,7 +145,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
                   Visibility(
                     visible: widget.logo == false ? true : false,
                     child: SizedBox(
-                      width: 7.0.wp,
+                      width: 12.0.wp,
                     ),
                   ),
 
@@ -172,7 +172,7 @@ class _AppbarContainerState extends State<AppbarContainer> {
                         widget.title,
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 10.5.sp,
+                            fontSize: 12.5.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),

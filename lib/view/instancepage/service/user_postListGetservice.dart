@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:animagieeui/utils/Urls/urlsapi.dart';
 import 'package:animagieeui/utils/constance.dart';
@@ -23,7 +24,7 @@ class UserPostGetListService {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer $token',
           });
-      print(res.body);
+      log(res.body);
       if (res.statusCode == 200) {
         return userPostListGetModelFromJson(res.body);
       } else {

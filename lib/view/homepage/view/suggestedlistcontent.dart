@@ -1,5 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/instancepage/controller/followRequestController.dart';
+import 'package:animagieeui/view/userprofile/view/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -56,21 +57,30 @@ class _Suggested_List_ContentState extends State<Suggested_List_Content> {
             height: 1.0.hp,
             //  10,
           ),
-          data[widget.fetchindex].profileicon == ''
-              ? CircleAvatar(
-                  radius: 40.0.sp,
-                  backgroundColor: Colors.white,
-                  backgroundImage: const AssetImage("images/profile_icon.png"),
-                  // backgroundImage:
-                  //     NetworkImage("${data[widget.fetchindex].profileicon}"),
-                  //  50,
-                )
-              : CircleAvatar(
-                  radius: 40.0.sp,
-                  backgroundImage:
-                      NetworkImage("${data[widget.fetchindex].profileicon}"),
-                  //  50,
-                ),
+          GestureDetector(
+            onTap: () {
+              Get.to(User_Profile(
+                  id: data[widget.fetchindex].id.toString(), postId: ''));
+            },
+            child: Container(
+              child: data[widget.fetchindex].profileicon == ''
+                  ? CircleAvatar(
+                      radius: 40.0.sp,
+                      backgroundColor: Colors.white,
+                      backgroundImage:
+                          const AssetImage("images/profile_icon.png"),
+                      // backgroundImage:
+                      //     NetworkImage("${data[widget.fetchindex].profileicon}"),
+                      //  50,
+                    )
+                  : CircleAvatar(
+                      radius: 40.0.sp,
+                      backgroundImage: NetworkImage(
+                          "${data[widget.fetchindex].profileicon}"),
+                      //  50,
+                    ),
+            ),
+          ),
           Text(
             uname.toString(),
             style: GoogleFonts.poppins(

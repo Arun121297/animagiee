@@ -112,18 +112,21 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           const SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            listData.username.toString(),
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                fontSize: 10.5.sp,
-                                color: buttonColor1_CL,
-                                fontWeight: FontWeight.w500,
+                          SizedBox(
+                            width: 60.0.wp,
+                            child: Text(
+                              listData.username.toString(),
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 10.5.sp,
+                                  color: buttonColor1_CL,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ),
                           SizedBox(
-                            width: 15.0.wp,
+                            width: 10.0.wp,
                           ),
                           Container(),
                           GestureDetector(

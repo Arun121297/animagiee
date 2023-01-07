@@ -239,11 +239,12 @@ class _SearchScreenState extends State<SearchScreen> {
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () {
-                                      id != list[index].id
-                                          ? Get.to(() => User_Profile(
-                                                id: list[index].id,
-                                                postId: '',
-                                              ))
+                                      id != list[index].id ||
+                                              id == list[index].id
+                                          ? Get.to(User_Profile(
+                                              id: list[index].id!,
+                                              postId: '',
+                                            ))
                                           : SizedBox();
                                     },
                                     child: Column(

@@ -98,12 +98,12 @@ class _PostState extends State<Post> {
                 backarrow: true,
                 firstscreen: false,
                 navipage: null,
-                notification: true,
+                notification: false,
                 searchfunction: true,
                 searchfunctionclose: false,
                 edit: false,
                 notification_back_arrow: false,
-                search: true,
+                search: false,
                 chat: false,
                 logo: false,
                 podcast: false,
@@ -130,13 +130,15 @@ class _PostState extends State<Post> {
                             radius: 30.0.sp,
                           ),
                     const SizedBox(
-                      width: 15,
+                      width: 5,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
+                          width: 50.0.wp,
                           child: RichText(
+                            softWrap: false,
                             textAlign: TextAlign.left,
                             text: TextSpan(
                               text: controller.userName.value,
@@ -210,7 +212,9 @@ class _PostState extends State<Post> {
                         // ),
                       ],
                     ),
-                    Expanded(child: Container()),
+                    SizedBox(
+                      width: 2.0.wp,
+                    ),
                     GestureDetector(
                       onTap: () async {
                         await controller.individualpost(context);

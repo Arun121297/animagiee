@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:readmore/readmore.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../config/colorconfig.dart';
@@ -173,22 +174,24 @@ class _AdminPostState extends State<AdminPost> {
                                 width: 4.0.wp,
                                 //  12,
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    popup();
-                                  });
-                                },
-                                child: SizedBox(
-                                  height: 2.0.hp,
-                                  // 16,
-                                  width: 5.0.wp,
-                                  // 16,
-                                  child: Image.asset(
-                                    "images/burger.png",
-                                  ),
-                                ),
-                              ),
+                              widget.userId == data[index].postowner!.id
+                                  ? SizedBox()
+                                  : GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          popup();
+                                        });
+                                      },
+                                      child: SizedBox(
+                                        height: 2.0.hp,
+                                        // 16,
+                                        width: 5.0.wp,
+                                        // 16,
+                                        child: Image.asset(
+                                          "images/burger.png",
+                                        ),
+                                      ),
+                                    ),
                               const SizedBox(
                                 width: 8,
                               )
@@ -196,7 +199,11 @@ class _AdminPostState extends State<AdminPost> {
                           ),
                           Padding(
                             padding: EdgeInsets.all(8.0.sp),
-                            child: Text(
+                            child: ReadMoreText(
+                              trimLines: 2,
+                              trimMode: TrimMode.Line,
+                              trimCollapsedText: 'Read more',
+                              trimExpandedText: '...Read less',
                               data[index].description.toString(),
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
@@ -205,6 +212,20 @@ class _AdminPostState extends State<AdminPost> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
+                              moreStyle: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.012,
+                                      color: bg_color27,
+                                      fontWeight: FontWeight.w600)),
+                              lessStyle: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.012,
+                                      color: bg_color27,
+                                      fontWeight: FontWeight.w600)),
                             ),
                           ),
                           SizedBox(

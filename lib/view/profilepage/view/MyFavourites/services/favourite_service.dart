@@ -50,7 +50,7 @@ class FavouriteService {
       var jsonData = jsonDecode(response.body);
       if (response.statusCode == 200) {
         // return myFavouritesModelFromJson(response.body);
-        // Fluttertoast.showToast(msg: jsonData['message']);
+        Fluttertoast.showToast(msg: jsonData['message']);
         return jsonData;
       } else {
         Fluttertoast.showToast(msg: jsonData['message']);
