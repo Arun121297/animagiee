@@ -41,9 +41,9 @@ class _Settings_Page_1_UIState extends State<Settings_Page_1_UI> {
             podcast: false,
             searchfunction: true,
             searchfunctionclose: false,
-            notification: true,
+            notification: false,
             notification_back_arrow: false,
-            search: true,
+            search: false,
             fun: Home_Page(),
           ),
 
