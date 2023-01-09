@@ -42,6 +42,8 @@ class MyClubController extends GetxController {
       //   groupName,
       // }
       ) async {
+    clubcretedataloadingindicator(true);
+
     try {
       var response = await clint.clubService(
         clubDescription: clubDescription.text,
@@ -54,12 +56,14 @@ class MyClubController extends GetxController {
       if (response != null) {
         // clubcreationdata.clear();
         // clubcreationdata.add(response);
+        clubcretedataloadingindicator(false);
         details.add(response);
         return response.data!.id;
       } else {
         return null;
       }
     } catch (e) {
+      clubcretedataloadingindicator(false);
       print("e$e");
       rethrow;
     }
