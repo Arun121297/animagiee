@@ -125,56 +125,58 @@ class _Homepage_WidState extends State<Homepage_Wid> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      bottomNavigationBar: const Customized_Bottom_Bar(),
-      body:
-          //  profileImage!.isEmpty
-          //     ? const Center(
-          //         child: CircularProgressIndicator(),
-          //       )
-          //     :
-          WillPopScope(
-        onWillPop: () {
-          return showExitPopup();
-        },
-        child: SafeArea(
-          child: SizedBox(
-            // height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: [
-                AppbarContainer(
-                  title: "",
-                  backarrow: false,
-                  firstscreen: false,
-                  navipage: null,
-                  notification: true,
-                  edit: false,
-                  notification_back_arrow: false,
-                  search: true,
-                  chat: true,
-                  logo: true,
-                  podcast: true,
-                  fun: null,
-                  searchfunction: true,
-                  searchfunctionclose: false,
-                  searchlist: "",
-                ),
-                CreatePost(
-                  userId: userId,
-                  profileImage: profileImage,
-                ),
+    return
+        // Scaffold(
+        //   resizeToAvoidBottomInset: false,
+        //   // bottomNavigationBar: const Customized_Bottom_Bar(),
+        //   body:
+        //  profileImage!.isEmpty
+        //     ? const Center(
+        //         child: CircularProgressIndicator(),
+        //       )
+        //     :
+        WillPopScope(
+      onWillPop: () {
+        return showExitPopup();
+      },
+      child: SafeArea(
+        child: SizedBox(
+          // height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: [
+              AppbarContainer(
+                title: "",
+                backarrow: false,
+                firstscreen: false,
+                navipage: null,
+                notification: true,
+                edit: false,
+                notification_back_arrow: false,
+                search: true,
+                chat: true,
+                logo: true,
+                podcast: true,
+                fun: null,
+                searchfunction: true,
+                searchfunctionclose: false,
+                searchlist: "",
+              ),
+              CreatePost(
+                userId: userId,
+                profileImage: profileImage,
+              ),
 
-                ////adminpost
-                AdminPost(
-                  userId: userId,
-                )
-              ],
-            ),
+              ////adminpost
+              AdminPost(
+                userId: userId,
+              )
+            ],
           ),
         ),
       ),
     );
+    //   ),
+    // );
   }
 }
 // AppbarContainer(
