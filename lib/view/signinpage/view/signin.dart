@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/signinpage/controller/signincontroller.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -10,7 +9,6 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
@@ -190,7 +188,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
 
               ///login through Google
-              ElevatedButton(
+              /*   ElevatedButton(
                   onPressed: () async {
                     SharedPreferences sharedPreferences =
                         await SharedPreferences.getInstance();
@@ -201,6 +199,8 @@ class _SignInPageState extends State<SignInPage> {
                     await FacebookAuth.instance.logOut();
                   },
                   child: const Text("logout")),
+            
+             */
               GestureDetector(
                 onTap: () {
                   signInWithGoogle();
