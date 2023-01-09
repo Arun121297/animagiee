@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/constant.dart';
-import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 import 'package:animagieeui/view/instancepage/controller/communiti_userList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class UserPage_Communitie_Page2 extends StatefulWidget {
 class _UserPage_Communitie_Page2State extends State<UserPage_Communitie_Page2> {
   CommunitiPostListController communitiPostListController =
       Get.put(CommunitiPostListController());
-  ClubController clubController = Get.put(ClubController());
+  MyClubController clubController = Get.put(MyClubController());
   String myUserId = "";
   @override
   void initState() {

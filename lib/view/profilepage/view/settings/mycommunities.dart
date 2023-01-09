@@ -1,5 +1,5 @@
 import 'package:animagieeui/config/constant.dart';
-import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class My_Communities_UI extends StatefulWidget {
 class _My_Communities_UIState extends State<My_Communities_UI> {
   Controller controller = Get.put(Controller());
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
-  ClubController clubController = Get.put(ClubController());
+  MyClubController clubController = Get.put(MyClubController());
   String myUserId = "";
   @override
   void initState() {

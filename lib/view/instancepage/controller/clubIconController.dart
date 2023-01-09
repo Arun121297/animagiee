@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 import 'package:animagieeui/view/instancepage/model/club_icon.dart';
 import 'package:animagieeui/view/instancepage/service/clubicon_service.dart';
 import 'package:get/get.dart';
@@ -11,7 +11,7 @@ class ClubIconController extends GetxController {
   var clint = ClubIconService();
 
   Future clubIconApi({required id}) async {
-    ClubController clubController = Get.find();
+    MyClubController clubController = Get.find();
     try {
       ClubCreation? response;
       response = await clint.clubIconService(

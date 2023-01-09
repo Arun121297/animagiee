@@ -1,7 +1,7 @@
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
-import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 import 'package:animagieeui/view/userprofile/view/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +23,7 @@ class _ClubJoinRequestListState extends State<ClubJoinRequestList> {
   // DeleteFollowRequestController deleteFollowRequestController =
   //     Get.put(DeleteFollowRequestController());
 
-  ClubController clubController = Get.put(ClubController());
+  MyClubController clubController = Get.put(MyClubController());
 
   @override
   void initState() {

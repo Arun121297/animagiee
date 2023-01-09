@@ -2,7 +2,7 @@ import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/view/animagieeprofile/view/animalsprofiles.dart';
-import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 // import 'package:animagieeui/view/communitypage/controller/mysubscriptioncontroller.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ class MySubScript extends StatefulWidget {
 class _MySubScriptState extends State<MySubScript> {
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   Controller controller = Get.put(Controller());
-  ClubController clubController = Get.find();
+  MyClubController clubController = Get.find();
   // MySubscriptionController mySubscriptionController =
   //     Get.put(MySubscriptionController());
   bool visibility = false;

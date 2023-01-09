@@ -14,7 +14,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../../config/colorconfig.dart';
 import '../../../../../controller/controller.dart';
 import 'addmember.dart';
-import 'editdeletclub.dart';
 
 // class Animals_Profiles_UI extends StatefulWidget {
 //   const Animals_Profiles_UI({Key? key}) : super(key: key);
@@ -158,10 +157,10 @@ class _MyClubCreationState extends State<MyClubCreation> {
                   alignment: Alignment.topRight,
                   child: GestureDetector(
                     onTap: () {
-                      setState(() {
-                        ///edit and delet my club
-                        Get.to(const EditandDeleteMyClub());
-                      });
+                      // setState(() {
+                      //   ///edit and delet my club
+                      //   Get.to(()= EditandDeleteMyClub());
+                      // });
                     },
                     child: SizedBox(
                       height: 6.0.hp,

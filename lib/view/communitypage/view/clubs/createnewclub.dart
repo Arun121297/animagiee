@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 
 import 'package:animagieeui/view/instancepage/controller/clubIconController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
@@ -28,7 +28,7 @@ class Create_New_Club_UI extends StatefulWidget {
 class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
   Controller controller = Get.put(Controller());
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
-  ClubController clubController = Get.put(ClubController());
+  MyClubController clubController = Get.put(MyClubController());
   ClubIconController clubIconController = Get.put(ClubIconController());
   String communitydropdownValue = '';
   String communityTypedropdownValue = '';

@@ -63,7 +63,7 @@ class Data1 {
         clubOwner: json["clubOwner"],
         communitypersons: json["communitypersons"],
         clubicon: json["clubicon"],
-        clubbgicon: json["clubbgicon"],
+        clubbgicon: json["clubbgicon"] ?? "",
         clubName: json["ClubName"],
         clubDescription: json["ClubDescription"],
         communityTypeisPrivate: json["CommunityTypeisPrivate"],

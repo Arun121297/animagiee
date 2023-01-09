@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:animagieeui/utils/Urls/urlsapi.dart';
@@ -17,13 +16,12 @@ class CommunityProfileService {
     // String baseUrl = (prefs.getString('url') ?? Urls.baseUrl);
     String? token = prefs.getString(Constants.authToken);
     log(id);
-    final response = await client.post(Uri.parse(Urls.communityprofile),
-        body: json.encode({"clubid": id}),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        });
-    log(response.body);
+    var body = {"clubid": id};
+    final response = await client
+        .post(Uri.parse(Urls.communityprofile), body: body, headers: {
+      'Authorization': 'Bearer $token',
+    });
+    log("ggggggggg${response.body}");
     if (response.statusCode == 200) {
       // print(responseData);
       return communityProfileModelFromJson(response.body);

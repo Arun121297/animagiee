@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
-import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 import 'package:animagieeui/view/homeAppBar/view/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +17,7 @@ class AddClubMembersScreen extends StatefulWidget {
 
 class _AddClubMembersScreenState extends State<AddClubMembersScreen> {
   // PostController controller = Get.find();
-  ClubController controller = Get.put(ClubController());
+  MyClubController controller = Get.put(MyClubController());
   @override
   void initState() {
     fetcData();

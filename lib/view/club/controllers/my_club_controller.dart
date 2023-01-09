@@ -15,7 +15,7 @@ import 'package:animagieeui/chat/group_chat/allConstents/firestore_constants.dar
 import 'package:animagieeui/view/instancepage/service/club_service.dart';
 import 'package:flutter/cupertino.dart';
 
-class ClubController extends GetxController {
+class MyClubController extends GetxController {
   MyClubService service = MyClubService();
 
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
