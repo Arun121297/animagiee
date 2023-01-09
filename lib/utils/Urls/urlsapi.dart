@@ -62,4 +62,7 @@ class Urls {
   // club reject request
 
   static const clubRejectRequest = '${baseUrl}api/club/clubrejectrequest';
+
+  // view post
+  static const viewPost = '${baseUrl}api/post/viewpost';
 }

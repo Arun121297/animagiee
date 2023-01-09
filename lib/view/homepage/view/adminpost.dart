@@ -6,6 +6,7 @@ import 'package:animagieeui/view/homepage/view/suggestion.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
 
 import 'package:animagieeui/view/instancepage/controller/likeController.dart';
+import 'package:animagieeui/view/post/controllers/post_view_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/controllers/favourite_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/widgets/favourite_icon.dart';
 
@@ -38,6 +39,7 @@ class _AdminPostState extends State<AdminPost> {
       Get.put(UserPostListController());
   LikeContoller likeContoller = Get.put(LikeContoller());
   FavouriteController favouriteController = Get.put(FavouriteController());
+  PostViewConroller postViewConroller = Get.put(PostViewConroller());
 
   // @override
   // void initState() {
@@ -66,6 +68,10 @@ class _AdminPostState extends State<AdminPost> {
     userPostListController.data.first.data![index].saved =
         !userPostListController.data.first.data![index].saved!;
     setState(() {});
+  }
+
+  postView({id, index}) async {
+    await postViewConroller.postView(postId: id);
   }
 
   @override
@@ -172,7 +178,7 @@ class _AdminPostState extends State<AdminPost> {
                                 //  12,
                               ),
                               data[index].postowner!.id == widget.userId
-                                  ? SizedBox()
+                                  ? const SizedBox()
                                   : GestureDetector(
                                       onTap: () {
                                         setState(() {
@@ -219,9 +225,7 @@ class _AdminPostState extends State<AdminPost> {
                               source: data[index].addImagesOrVideos!,
                             )),
                             onVisibilityChanged: (visibilityInfo) {
-                              // onVisibilityChanged(
-                              //     VisibilityInfo.visibleFraction,
-                              //     response.postId);
+                              // postView(id: data[index].postid, index: index);
                             },
                           ),
 
@@ -312,9 +316,9 @@ class _AdminPostState extends State<AdminPost> {
                                 const SizedBox(
                                   width: 12,
                                 ),
-                                // TODO:after complete post comment, please remove comment
                                 Visibility(
-                                  visible: false,
+                                  visible:
+                                      data[index].cmdCount == 0 ? false : true,
                                   child: Text(
                                     "${data[index].cmdCount} Comments",
                                     style: GoogleFonts.poppins(
