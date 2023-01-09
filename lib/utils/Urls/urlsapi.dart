@@ -65,4 +65,8 @@ class Urls {
 
   // view post
   static const viewPost = '${baseUrl}api/post/viewpost';
+
+  ///clubedit
+  static const editbgclub = '${baseUrl}api/club/editClubBackGroundProfile';
+  static const editclub = '${baseUrl}api/club/editclubprofile';
 }

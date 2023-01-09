@@ -12,6 +12,7 @@ class CommunityProfileContoller extends GetxController {
       if (response != null) {
         communityData.clear();
         communityData.add(response);
+        update();
         isLoading(false);
       } else {
         isLoading(false);

@@ -40,6 +40,10 @@ class Data1 {
     this.clubbgicon,
     this.clubName,
     this.clubDescription,
+    this.community,
+    this.communityTypeisPrivatestring,
+    this.communityTypeisPrivate,
+    this.groupName,
   });
 
   String? clubid;
@@ -49,6 +53,10 @@ class Data1 {
   String? clubbgicon;
   String? clubName;
   String? clubDescription;
+  bool? communityTypeisPrivate;
+  String? communityTypeisPrivatestring;
+  String? groupName;
+  String? community;
 
   factory Data1.fromJson(Map<String, dynamic> json) => Data1(
         clubid: json["clubid"],
@@ -58,6 +66,10 @@ class Data1 {
         clubbgicon: json["clubbgicon"],
         clubName: json["ClubName"],
         clubDescription: json["ClubDescription"],
+        communityTypeisPrivate: json["CommunityTypeisPrivate"],
+        groupName: json["groupName"],
+        communityTypeisPrivatestring: json["CommunityTypeisPrivatestring"],
+        community: json["Community"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -68,5 +80,9 @@ class Data1 {
         "clubbgicon": clubbgicon,
         "ClubName": clubName,
         "ClubDescription": clubDescription,
+        "CommunityTypeisPrivate": communityTypeisPrivate,
+        "groupName": groupName,
+        "CommunityTypeisPrivatestring": communityTypeisPrivatestring,
+        "Community": community,
       };
 }

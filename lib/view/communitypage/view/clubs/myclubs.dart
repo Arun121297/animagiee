@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/animagieeprofile/view/animalsprofiles.dart';
-import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 import 'package:animagieeui/view/communitypage/controller/createclubcontroller.dart';
 import 'package:animagieeui/view/communitypage/view/clubs/clubcreation/mysubscriptList.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
@@ -19,7 +19,6 @@ import '../../../../controller/controller.dart';
 import '../../../homeAppBar/view/appbar.dart';
 import '../../../homepage/view/homepage.dart';
 import 'createnewclub.dart';
-import 'mysubscriptionlist.dart';
 
 class MyClubs_UI extends StatefulWidget {
   const MyClubs_UI({Key? key}) : super(key: key);
@@ -32,7 +31,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
   InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   CreatedClubController createdClubController =
       Get.put(CreatedClubController());
-  ClubController clubController = Get.put(ClubController());
+  MyClubController clubController = Get.put(MyClubController());
   String myUserId = "";
 
   @override
@@ -281,23 +280,21 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                         width: 6.0.wp,
                                         //  16,
                                       ),
-                                      CircleAvatar(
-                                        backgroundImage: NetworkImage(
-                                            createdClubController
-                                                .getcreateclubdata[0]
-                                                .data![index]
-                                                .clubicon
-                                                .toString()),
-                                      ),
+                                      listData.clubicon!.contains("http")
+                                          ? CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                  listData.clubicon.toString()),
+                                            )
+                                          : CircleAvatar(
+                                              backgroundImage: FileImage(File(
+                                                  listData.clubicon
+                                                      .toString())),
+                                            ),
                                       SizedBox(width: 4.0.wp
                                           //  13,
                                           ),
                                       Text(
-                                        createdClubController
-                                            .getcreateclubdata[0]
-                                            .data![index]
-                                            .clubName
-                                            .toString(),
+                                        listData.clubName.toString(),
                                         style: GoogleFonts.poppins(
                                           textStyle: TextStyle(
                                             fontSize: 11.0.sp,
@@ -311,14 +308,11 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                         onTap: () {
                                           ///ppass created club id
                                           log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
+                                          // log("id-->${Constants.userId}");
                                           // Get.to(MyClubCreation());
-                                          Get.to(() => Animals_Profiles_UI(
-                                                id: createdClubController
-                                                    .getcreateclubdata[0]
-                                                    .data![index]
-                                                    .clubid
-                                                    .toString(),
-                                              ));
+                                          Get.to(Animals_Profiles_UI(
+                                            id: listData.clubid.toString(),
+                                          ));
                                         },
                                         child: Row(
                                           mainAxisAlignment:

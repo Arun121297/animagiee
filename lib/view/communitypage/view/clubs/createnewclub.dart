@@ -42,7 +42,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
     clubController.pFprofileimage = File('');
     clubController.communityTypeisPrivate = false.obs;
     clubController.communityTypeisPrivat = ''.obs;
-    clubIconController.profilebackgroundimage = File('');
+    clubIconController.profilebackgroundimage(File(''));
     super.initState();
     setState(() {});
   }
@@ -79,12 +79,12 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                   Container(
                     decoration: BoxDecoration(
                         color: clubIconController
-                                .profilebackgroundimage.path.isEmpty
+                                .profilebackgroundimage.value.path.isEmpty
                             ? animagiee_CL
                             : Colors.transparent,
                         image: DecorationImage(
                             image: FileImage(
-                              clubIconController.profilebackgroundimage,
+                              clubIconController.profilebackgroundimage.value,
                             ),
                             fit: BoxFit.cover),
                         borderRadius: const BorderRadius.only(
@@ -451,7 +451,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
 
     if (result != null) {
       setState(() {
-        clubIconController.profilebackgroundimage = File(result.path);
+        clubIconController.profilebackgroundimage(File(result.path));
         log("${clubIconController.profilebackgroundimage}");
         // controller.file = File(result.path);
         // controller.imagevideo(FilepickerType(type: "image", url: result.path));
