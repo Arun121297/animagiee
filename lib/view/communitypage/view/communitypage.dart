@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/communitypage/view/communiti.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
@@ -138,7 +140,7 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
     //     .map((item) => item)
     //     .toList()
     //     .join(",");
-    // log("List-->${instanceContoroller.communitylist}");
+    log("List-->${instanceContoroller.communitylist}");
     // log("id-->$id");
     updataInstanceController
         .updateinstancecontroller(instanceContoroller.communitylist);

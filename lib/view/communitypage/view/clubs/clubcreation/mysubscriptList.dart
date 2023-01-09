@@ -1,42 +1,41 @@
+import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/controller/controller.dart';
+import 'package:animagieeui/view/animagieeprofile/view/animalsprofiles.dart';
 import 'package:animagieeui/view/club/controllers/club_controller.dart';
+import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 // import 'package:animagieeui/view/communitypage/controller/mysubscriptioncontroller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../config/colorconfig.dart';
-import '../../../../controller/controller.dart';
-import '../../../animagieeprofile/view/animalsprofiles.dart';
-
-class My_Sub_List_Content extends StatefulWidget {
+class MySubScript extends StatefulWidget {
   var fetchindex;
-  String? myUserId;
-  My_Sub_List_Content({Key? key, this.fetchindex, required this.myUserId})
-      : super(key: key);
+  MySubScript({Key? key, this.fetchindex}) : super(key: key);
 
   @override
-  State<My_Sub_List_Content> createState() => _My_Sub_List_ContentState();
+  State<MySubScript> createState() => _MySubScriptState();
 }
 
-class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
+class _MySubScriptState extends State<MySubScript> {
+  InstanceContoroller instanceContoroller = Get.put(InstanceContoroller());
   Controller controller = Get.put(Controller());
   ClubController clubController = Get.find();
   // MySubscriptionController mySubscriptionController =
   //     Get.put(MySubscriptionController());
   bool visibility = false;
-
   @override
   Widget build(BuildContext context) {
-    var data = clubController.joinedClubList.first.data![widget.fetchindex];
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {
-          Get.to(() => Animals_Profiles_UI(
-                id: data.clubid ?? "",
-              ));
+          setState(() {
+            Get.to(Animals_Profiles_UI(
+              id: '',
+            ));
+          });
         },
         child: Card(
           child: SizedBox(
@@ -49,15 +48,25 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
                   //  16,
                 ),
                 CircleAvatar(
-                  backgroundImage: NetworkImage(data.clubicon ?? ""),
+                  backgroundImage: NetworkImage(instanceContoroller
+                      .communitylistimage[widget.fetchindex]),
                 ),
                 SizedBox(width: 4.0.wp
                     //  13,
                     ),
-                Text(data.clubName ?? ""),
+                Text(instanceContoroller.communitiesname[widget.fetchindex]),
                 Expanded(child: Container()),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    print(instanceContoroller.communitylist.length);
+                    setState(() {
+                      if (visibility == false) {
+                        visibility = true;
+                      } else {
+                        visibility = false;
+                      }
+                    });
+                  },
                   child: Container(
                     height: 3.5.hp,
                     //  26,
@@ -68,9 +77,7 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
                         color: animagiee_CL,
                         borderRadius: BorderRadius.circular(5.0.sp)),
                     child: Text(
-                      data.clubOwner.toString() == widget.myUserId.toString()
-                          ? "Delete"
-                          : "Leave",
+                      visibility == true ? "Joined" : "Request",
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           fontSize: 9.0.sp,

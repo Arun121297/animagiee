@@ -6,6 +6,7 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/animagieeprofile/view/animalsprofiles.dart';
 import 'package:animagieeui/view/club/controllers/club_controller.dart';
 import 'package:animagieeui/view/communitypage/controller/createclubcontroller.dart';
+import 'package:animagieeui/view/communitypage/view/clubs/clubcreation/mysubscriptList.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 // import 'package:animagieeui/view/bottombarfile/view/bottomnavibar.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
     controller.clubbackgroundimage = File("");
     createdClubController.clubcreatedcontroller();
     fetchProfile();
+    fetchData();
     super.initState();
   }
 
@@ -50,6 +52,12 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
   fetchProfile() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     myUserId = pref.getString(Constant.userId)!;
+  }
+
+  fetchData() {
+    Future.delayed(Duration.zero, () async {
+      await clubController.getJoinedClub();
+    });
   }
 
   Controller controller = Get.put(Controller());
@@ -142,7 +150,8 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
 ////
               ///Created Club
               Obx(() {
-                if (createdClubController.clubcreatedloadingindicator.value) {
+                if (createdClubController.clubcreatedloadingindicator.value ||
+                    clubController.isJoinedClubLoading.value) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
@@ -394,10 +403,14 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                       child: ListView.builder(
                           shrinkWrap: true,
                           itemCount: instanceContoroller.communitylist.length,
-                          itemBuilder: (context, index) => My_Sub_List_Content(
+                          itemBuilder: (context, index) => MySubScript(
                                 fetchindex: index,
-                                myUserId: myUserId,
-                              )),
+                              )
+                          // My_Sub_List_Content(
+                          //   fetchindex: index,
+                          //   myUserId: myUserId,
+                          // )
+                          ),
                     )
             ],
           ),
