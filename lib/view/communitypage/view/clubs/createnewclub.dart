@@ -8,6 +8,7 @@ import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 import 'package:animagieeui/view/instancepage/controller/clubIconController.dart';
 import 'package:animagieeui/view/instancepage/controller/instancecontroller.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -398,9 +399,27 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
             const SizedBox(height: 40),
             GestureDetector(
               onTap: () async {
-                await clubController
-                    .clubApi()
-                    .then((value) => clubIconController.clubIconApi(id: value));
+                if (clubIconController
+                    .profilebackgroundimage.value.path.isEmpty) {
+                  Fluttertoast.showToast(
+                      msg: "Please Select profilebackgroundimage");
+                }
+                if (clubController.pFprofileimage.path.isEmpty) {
+                  Fluttertoast.showToast(msg: "Please select profileimagee");
+                } else if (clubController.groupName.text.isEmpty) {
+                  Fluttertoast.showToast(msg: "Please enter groupName");
+                } else if (clubController.clubName.text.isEmpty) {
+                  Fluttertoast.showToast(msg: "Please enter clubName");
+                } else if (clubController.clubDescription.text.isEmpty) {
+                  Fluttertoast.showToast(msg: "Please enter clubDescription");
+                } else if (clubController.id.isEmpty) {
+                  Fluttertoast.showToast(msg: "Please Select Community");
+                } else if (clubController.communityTypeisPrivat.isEmpty) {
+                  Fluttertoast.showToast(msg: "Please Select community Type");
+                } else {
+                  await clubController.clubApi().then(
+                      (value) => clubIconController.clubIconApi(id: value));
+                }
               },
               child: Container(
                 height: 43,
