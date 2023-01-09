@@ -83,7 +83,7 @@ class _AdminPostState extends State<AdminPost> {
             child: const Text("No User Post"));
       } else {
         return SizedBox(
-          height: MediaQuery.of(context).size.height - 212,
+          height: MediaQuery.of(context).size.height - 216,
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
