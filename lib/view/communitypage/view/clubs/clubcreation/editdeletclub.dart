@@ -467,7 +467,9 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                 onTap: () {
                   setState(() {
                     // loader();
-                    editClubController.editclubcontroller(
+                    // updateProfile(context);
+                    editClubController
+                        .editclubcontroller(
                       ClubDescription: clubController.clubDescription.text,
                       Community: clubController.id,
                       clubicon:
@@ -479,7 +481,14 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                           clubController.communityTypeisPrivate.toString(),
                       groupName: clubController.groupName.text,
                       clubname: clubController.clubName.text,
-                    );
+                    )
+                        .then((value) async {
+                      ///animalprofile api
+                      await communityProfileContoller.communityProfile(
+                          id: widget.id);
+                      Get.back();
+                    });
+                    //bgimage Api
                     editClubbgController.editclubbgcontroller(
                       clubicon: editClubbgController
                               .selectedbgimage.value.path.isEmpty
@@ -493,10 +502,10 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                       groupName: clubController.groupName.text,
                       clubname: clubController.clubName.text,
                     );
-                    log(clubController.pFprofileimage.toString());
-                    log(
-                      clubIconController.profilebackgroundimage.value.path,
-                    );
+                    // log(clubController.pFprofileimage.toString());
+                    // log(
+                    //   clubIconController.profilebackgroundimage.value.path,
+                    // );
                   });
                 },
                 child: Container(
@@ -585,11 +594,40 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
     }
   }
 
-  // loader() {
-  //   Future.delayed(Duration.zero, () async {
-  //     await editClubController.editclubbgloadingindicator.value
-  //         ? const Loader()
-  //         : Get.back();
-  //   });
-  // }
+  updateProfile(context) {
+    Future.delayed(Duration.zero, () async {
+      //clubeditapi
+      await editClubController
+          .editclubcontroller(
+        ClubDescription: clubController.clubDescription.text,
+        Community: clubController.id,
+        clubicon: editClubController.selectediconimage.path.isEmpty
+            ? clubController.pFprofileimage.path
+            : editClubController.selectediconimage.path,
+        clubid: widget.id,
+        CommunityTypeisPrivate:
+            clubController.communityTypeisPrivate.toString(),
+        groupName: clubController.groupName.text,
+        clubname: clubController.clubName.text,
+      )
+          .then((value) async {
+        ///animalprofile api
+        await communityProfileContoller.communityProfile(id: widget.id);
+        Get.back();
+      });
+      //bgimage Api
+      await editClubbgController.editclubbgcontroller(
+        clubicon: editClubbgController.selectedbgimage.value.path.isEmpty
+            ? clubIconController.profilebackgroundimage.value.path
+            : editClubbgController.selectedbgimage.value.path,
+        clubid: widget.id,
+        ClubDescription: clubController.clubDescription.text,
+        Community: clubController.id,
+        CommunityTypeisPrivate:
+            clubController.communityTypeisPrivate.toString(),
+        groupName: clubController.groupName.text,
+        clubname: clubController.clubName.text,
+      );
+    });
+  }
 }

@@ -43,7 +43,7 @@ class EditClubbgController extends GetxController {
       if (response != null) {
         geteditclubbg.clear();
         geteditclubbg.add(response);
-
+        Get.back();
         editclubbgloadingindicator(false);
       } else {
         editclubbgloadingindicator(false);
