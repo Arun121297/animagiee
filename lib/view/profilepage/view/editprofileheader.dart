@@ -142,9 +142,7 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
           child: Row(
             children: [
               Container(
-                  padding: EdgeInsets.only(
-                    left: 30.0.sp,
-                  ),
+                  padding: EdgeInsets.only(left: 30.0.sp, top: 2.0.hp),
                   margin: EdgeInsets.only(left: 30.0.sp),
                   child: Text(
                     "MY Profile",
@@ -156,13 +154,13 @@ class _Edit_Profile_Header_UIState extends State<Edit_Profile_Header_UI> {
                       ),
                     ),
                   )),
-              SizedBox(
-                width: 3.0.wp,
-              ),
-              SizedBox(
-                  height: 6.0.hp,
-                  width: 9.0.wp,
-                  child: Image.asset("images/edit.png")),
+              // SizedBox(
+              //   width: 3.0.wp,
+              // ),
+              // SizedBox(
+              //     height: 6.0.hp,
+              //     width: 9.0.wp,
+              //     child: Image.asset("images/edit.png")),
             ],
           ),
         ),

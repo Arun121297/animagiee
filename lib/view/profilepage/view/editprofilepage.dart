@@ -68,11 +68,13 @@ class _Edit_Profile_UIState extends State<Edit_Profile_UI> {
         context,
       )
           .then((value) async {
-        await profileController.getProfile();
-        Get.back();
+        if (value != null && value) {
+          await profileBGImageController.profileBgController(context);
+          await profileController.getProfile();
+          Get.back();
+        }
       });
       //bgimage Api
-      await profileBGImageController.profileBgController(context);
     });
   }
 

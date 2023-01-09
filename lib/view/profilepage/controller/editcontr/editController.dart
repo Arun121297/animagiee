@@ -6,6 +6,7 @@ import 'package:animagieeui/view/profilepage/controller/profilecontroller.dart';
 import 'package:animagieeui/view/profilepage/model/editmodel.dart';
 import 'package:animagieeui/view/profilepage/service/editservice.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,58 +37,81 @@ class EditScreenController extends GetxController {
   // RxList<EditModel> geteditdata = <EditModel>[].obs;
   var clint = EditScreenService();
   ProfileController profileController = Get.put(ProfileController());
-  Future editprofileservicesection(
+  Future<bool?> editprofileservicesection(
     context,
   ) async {
-    isProfileEditLoading(true);
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    log("rse");
-    try {
-      if (isProfileEditLoading.value) {
-        _loadingBar(context);
-      }
-      EditModel? response;
-      if (pFprofileimage == File('')) {
-        response = await clint.editprofileservicesection(
-            lname: lname.text,
-            address: address.text,
-            dob: dob.text,
-            mnumber: mNumber.text,
-            picode: pincode.text,
-            fname: fname.text,
-            email: email.text,
-            yourself: about.text,
-            profilePicture: File(''));
-      } else {
-        response = await clint.editprofileservicesection(
-            lname: lname.text,
-            address: address.text,
-            email: email.text,
-            dob: dob.text,
-            mnumber: mNumber.text,
-            picode: pincode.text,
-            fname: fname.text,
-            yourself: about.text,
-            profilePicture: pFprofileimage.path);
-      }
+    if (gender.isEmpty) {
+      Fluttertoast.showToast(msg: "Please select gender");
+    } else if (dob.text.isEmpty) {
+      Fluttertoast.showToast(msg: "Please select DOB");
+    } else if (email.text.isEmpty) {
+      Fluttertoast.showToast(msg: "Please enter email");
+    } else if (mNumber.text.isEmpty) {
+      Fluttertoast.showToast(msg: "Please enter mobile number");
+    } else if (mNumber.text.length != 10) {
+      Fluttertoast.showToast(msg: "Please enter valid mobile number");
+    } else if (state.isEmpty) {
+      Fluttertoast.showToast(msg: "Please select state");
+    } else if (city.isEmpty) {
+      Fluttertoast.showToast(msg: "Please select city");
+    } else if (pincode.text.isEmpty) {
+      Fluttertoast.showToast(msg: "Please enter pincode");
+    } else if (pincode.text.length != 6) {
+      Fluttertoast.showToast(msg: "Please enter valid pincode");
+    } else {
+      isProfileEditLoading(true);
+      SharedPreferences pref = await SharedPreferences.getInstance();
+      log("rse");
+      try {
+        if (isProfileEditLoading.value) {
+          _loadingBar(context);
+        }
+        EditModel? response;
+        if (pFprofileimage == File('')) {
+          response = await clint.editprofileservicesection(
+              lname: lname.text,
+              address: address.text,
+              dob: dob.text,
+              mnumber: mNumber.text,
+              picode: pincode.text,
+              fname: fname.text,
+              email: email.text,
+              yourself: about.text,
+              profilePicture: File(''));
+        } else {
+          response = await clint.editprofileservicesection(
+              lname: lname.text,
+              address: address.text,
+              email: email.text,
+              dob: dob.text,
+              mnumber: mNumber.text,
+              picode: pincode.text,
+              fname: fname.text,
+              yourself: about.text,
+              profilePicture: pFprofileimage.path);
+        }
 
-      if (response != null) {
-        pref.setString(Constant.mobileNumber,
-            response.data!.mobNo == 0 ? "" : response.data!.mobNo.toString());
-        pref.setString(Constant.profileImage, response.data!.profileicon!);
+        if (response != null) {
+          pref.setString(Constant.mobileNumber,
+              response.data!.mobNo == 0 ? "" : response.data!.mobNo.toString());
+          pref.setString(Constant.profileImage, response.data!.profileicon!);
 
-        pref.setString(Constant.userId, response.data!.id!);
-        pref.setString(Constant.userName, response.data!.username!);
-        Get.back();
-        isProfileEditLoading(false);
-      } else {
-        Get.back();
+          pref.setString(Constant.userId, response.data!.id!);
+          pref.setString(Constant.userName, response.data!.username!);
+          Get.back();
+          isProfileEditLoading(false);
+          return true;
+        } else {
+          Get.back();
 
-        isProfileEditLoading(false);
+          isProfileEditLoading(false);
+          return false;
+        }
+      } catch (e) {
+        rethrow;
       }
-    } catch (e) {
-      rethrow;
     }
+    return null;
   }
 
   void _loadingBar(BuildContext ctx) {

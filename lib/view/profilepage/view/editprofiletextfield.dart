@@ -81,25 +81,28 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
     return Obx(
       () => Column(
         children: [
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            Text(
-              "Tell about yourself",
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 10.0.sp,
-                  color: dummycontent_Cl,
-                  fontWeight: FontWeight.w500,
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Container(
+              margin: EdgeInsets.only(left: 18.0.sp),
+              child: Text(
+                "Tell about yourself",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: dummycontent_Cl,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
-            SizedBox(
-              width: 13.0.wp,
-              //  30,
-            ),
-            SizedBox(
-                height: 6.0.hp,
-                width: 9.0.wp,
-                child: Image.asset("images/edit.png")),
+            // SizedBox(
+            //   width: 13.0.wp,
+            //   //  30,
+            // ),
+            // SizedBox(
+            //     height: 6.0.hp,
+            //     width: 9.0.wp,
+            //     child: Image.asset("images/edit.png")),
           ]),
           Card(
             shape:
@@ -633,18 +636,19 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 padding: EdgeInsets.only(
                     left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
                 child: TextField(
+                    controller: editScreenController.email,
                     decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintStyle: GoogleFonts.jost(
-                    textStyle: TextStyle(
-                      fontSize: 9.5.sp,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  hintText: "Email",
-                  // hintText: "First Name"
-                )),
+                      border: InputBorder.none,
+                      hintStyle: GoogleFonts.jost(
+                        textStyle: TextStyle(
+                          fontSize: 9.5.sp,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      hintText: "Email",
+                      // hintText: "First Name"
+                    )),
               ),
             ),
           ),
@@ -682,6 +686,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 child: TextField(
                     controller: editScreenController.mNumber,
                     keyboardType: TextInputType.number,
+                    // maxLength: 10,
+                    // maxLengthEnforcement: MaxLengthEnforcement.enforced,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintStyle: GoogleFonts.jost(
