@@ -106,7 +106,7 @@ class _Message_Button_UIState extends State<Message_Button_UI> {
                                                 ),
                                               ),
                                               Text(
-                                                'unable to chat with this  shop!',
+                                                'unable to chat with this  person!',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontSize:

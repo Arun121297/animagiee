@@ -1,6 +1,6 @@
+import 'package:animagieeui/chat/single_chat/chat_listing_screen.dart';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/utils/constance.dart';
-import 'package:animagieeui/view/chats/view/chatscreen1.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -33,11 +33,11 @@ class _Chat_Icon_UIState extends State<Chat_Icon_UI> {
       onTap: () {
         // Get.to(const Chat_UI());
         if (userId != null && userId!.isNotEmpty) {
-          Get.to(() => Chat_UI(
-                userId: userId,
-              ));
+          // Get.to(() => Chat_UI(
+          //       userId: userId,
+          //     ));
 
-          // Get.to(() => ChatListingScreen(userId!));
+          Get.to(() => ChatListingScreen(userId!));
         }
       },
       child: SizedBox(

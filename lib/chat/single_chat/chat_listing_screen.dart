@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animagieeui/chat/single_chat/chat_listing_searchScreen.dart';
 import 'package:animagieeui/chat/single_chat/chat_provider.dart';
 import 'package:animagieeui/config/colorconfig.dart';
 import 'package:animagieeui/config/extension.dart';
@@ -111,7 +112,7 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
             child: Column(
           children: [
             //Top Bar
-            /* Stack(
+            Stack(
               alignment: Alignment.center,
               children: [
                 Text(
@@ -230,9 +231,9 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
                 //     ))
               ],
             ),
- */
+
             //Search Bar
-            /*  InkWell(
+            InkWell(
               onTap: () {
                 Get.to(
                   ChatListingSearchScreen(widget.currentUserId),
@@ -266,7 +267,7 @@ class _ChatListingScreenState extends State<ChatListingScreen> {
                     )),
               ),
             ),
- */
+
             //Messages Text
             /*  Container(
               margin: EdgeInsets.only(
