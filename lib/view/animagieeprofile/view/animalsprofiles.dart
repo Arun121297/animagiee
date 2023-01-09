@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/utils/constance.dart';
+import 'package:animagieeui/view/club/views/club_join_request_list.dart';
 import 'package:animagieeui/view/communitypage/view/clubs/clubcreation/editdeletclub.dart';
 // import 'package:animagieeui/view/animagieeprofile/view/post.dart';
 import 'package:animagieeui/view/homeAppBar/view/notification.dart';
@@ -18,6 +19,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 
+import '../../club/views/add_club_members_screen.dart';
 import 'post.dart';
 import 'member.dart';
 
@@ -201,7 +203,9 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   Text(
-                                    "1,22 Members",
+                                    data.communitypersons == 1
+                                        ? "${data.communitypersons}  Member"
+                                        : "${data.communitypersons}  Members",
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         fontSize: 8.0.sp,
@@ -213,37 +217,111 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 5.0.sp),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            print(instanceContoroller
-                                                .communitylist.length);
-                                          },
-                                          child: Container(
-                                            height: 3.0.hp,
-                                            // 26,
-                                            width: 23.0.wp,
-                                            // 90,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                color: animagiee_CL,
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        15.0.sp)),
-                                            child: Text(
-                                              "Joined",
-                                              style: GoogleFonts.poppins(
-                                                textStyle: TextStyle(
-                                                  fontSize: 9.0.sp,
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w500,
+                                      userid.toString() !=
+                                              data.clubOwner.toString()
+                                          ? const SizedBox()
+                                          : Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 5.0.sp),
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  Get.to(
+                                                      () => ClubJoinRequestList(
+                                                            clubId: data.clubid,
+                                                          ));
+                                                },
+                                                child: Container(
+                                                  height: 3.0.hp,
+                                                  // 26,
+                                                  width: 23.0.wp,
+                                                  // 90,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      color: animagiee_CL,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0.sp)),
+                                                  child: Text(
+                                                    "Join Persons",
+                                                    style: GoogleFonts.poppins(
+                                                      textStyle: TextStyle(
+                                                        fontSize: 8.0.sp,
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                      ),
+                                      userid.toString() ==
+                                              data.clubOwner.toString()
+                                          ? Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 5.0.sp),
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  Get.to(() =>
+                                                      const AddClubMembersScreen());
+                                                },
+                                                child: Container(
+                                                  height: 3.0.hp,
+                                                  // 26,
+                                                  width: 23.0.wp,
+                                                  // 90,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      color: animagiee_CL,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0.sp)),
+                                                  child: Text(
+                                                    "Add Members",
+                                                    style: GoogleFonts.poppins(
+                                                      textStyle: TextStyle(
+                                                        fontSize: 8.0.sp,
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 5.0.sp),
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  //  TODO: please add join request function
+                                                },
+                                                child: Container(
+                                                  height: 3.0.hp,
+                                                  // 26,
+                                                  width: 23.0.wp,
+                                                  // 90,
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      color: animagiee_CL,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0.sp)),
+                                                  child: Text(
+                                                    "Joined",
+                                                    style: GoogleFonts.poppins(
+                                                      textStyle: TextStyle(
+                                                        fontSize: 8.0.sp,
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
                                     ],
                                   ),
                                 ],
