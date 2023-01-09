@@ -61,7 +61,6 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
 
   userId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
     userid = prefs.getString(Constants.userId);
   }
 
