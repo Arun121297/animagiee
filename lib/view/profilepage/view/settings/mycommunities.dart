@@ -96,8 +96,7 @@ class _My_Communities_UIState extends State<My_Communities_UI> {
                 ),
 
                 // controller.clubapp("My Communities", Home_Page(), context),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height - 290,
+                Expanded(
                   child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: data!.length,
