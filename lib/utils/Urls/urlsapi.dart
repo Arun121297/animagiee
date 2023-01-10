@@ -69,4 +69,5 @@ class Urls {
   ///clubedit
   static const editbgclub = '${baseUrl}api/club/editClubBackGroundProfile';
   static const editclub = '${baseUrl}api/club/editclubprofile';
+  static const deletpost = '${baseUrl}api/post/deletepost';
 }

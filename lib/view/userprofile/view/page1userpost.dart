@@ -14,6 +14,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 import '../../homepage/view/commend.dart';
+import '../../homepage/view/commentscreen.dart';
 import '../../homepage/view/likes.dart';
 import '../../homepage/view/share.dart';
 
@@ -245,7 +246,9 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           },
                           status: listData.liked!,
                         ),
-                        const Comment_UI(),
+                        Comment_UI(
+                            // ontap: Get.to(CommentScreenDesign())
+                            ),
                         const Share_UI(),
                         SizedBox(
                           width: 50.0.wp,

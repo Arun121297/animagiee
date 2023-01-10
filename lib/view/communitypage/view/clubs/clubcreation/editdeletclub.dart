@@ -551,6 +551,43 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
     });
   }
 
+  updateProfile(context) {
+    Future.delayed(Duration.zero, () async {
+      await editClubController
+          .editclubcontroller(
+        ClubDescription: clubController.clubDescription.text,
+        Community: clubController.id,
+        clubicon: editClubController.selectediconimage.path.isEmpty
+            ? clubController.pFprofileimage.path
+            : editClubController.selectediconimage.path,
+        clubid: widget.id,
+        CommunityTypeisPrivate:
+            clubController.communityTypeisPrivate.toString(),
+        groupName: clubController.groupName.text,
+        clubname: clubController.clubName.text,
+      )
+          .then((value) async {
+        if (value != null && value) {
+          await editClubbgController.editclubbgcontroller(
+            clubicon: editClubbgController.selectedbgimage.value.path.isEmpty
+                ? clubIconController.profilebackgroundimage.value.path
+                : editClubbgController.selectedbgimage.value.path,
+            clubid: widget.id,
+            ClubDescription: clubController.clubDescription.text,
+            Community: clubController.id,
+            CommunityTypeisPrivate:
+                clubController.communityTypeisPrivate.toString(),
+            groupName: clubController.groupName.text,
+            clubname: clubController.clubName.text,
+          );
+          await communityProfileContoller.communityProfile(id: widget.id);
+          Get.back();
+        }
+      });
+      //bgimage Api
+    });
+  }
+
   filepicker() async {
     final ImagePicker imagePicker = ImagePicker();
 

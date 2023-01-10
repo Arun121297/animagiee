@@ -43,7 +43,7 @@ class _Homepage_WidState extends State<Homepage_Wid> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     userId = sharedPreferences.getString(Constants.userId);
     profileImage = sharedPreferences.getString(Constants.profileImage);
-    log(profileImage!);
+    // log(profileImage!);
     setState(() {});
     if (userId!.isNotEmpty) {
       createUserInFirebase(userId);

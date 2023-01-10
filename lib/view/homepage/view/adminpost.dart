@@ -21,8 +21,10 @@ import '../../../controller/controller.dart';
 
 import '../../userprofile/view/userprofile.dart';
 import '../controller/homescreen1controller.dart';
+import '../controller/mypostdelet.dart';
 import '../widgets/share_home.dart';
 import 'commend.dart';
+import 'commentscreen.dart';
 import 'likes.dart';
 
 class AdminPost extends StatefulWidget {
@@ -40,7 +42,8 @@ class _AdminPostState extends State<AdminPost> {
   LikeContoller likeContoller = Get.put(LikeContoller());
   FavouriteController favouriteController = Get.put(FavouriteController());
   PostViewConroller postViewConroller = Get.put(PostViewConroller());
-
+  MypostDeletController mypostDeletController =
+      Get.put(MypostDeletController());
   // @override
   // void initState() {
   //   log("sdatassss_____---->${userPostListController.data}");
@@ -85,7 +88,10 @@ class _AdminPostState extends State<AdminPost> {
         return Container(
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.height - 212,
-            child: const Text("No User Post"));
+            child: const Text(
+              "No User Post",
+              style: TextStyle(color: Colors.black),
+            ));
       } else {
         return SizedBox(
           height: MediaQuery.of(context).size.height - 216,
@@ -178,7 +184,22 @@ class _AdminPostState extends State<AdminPost> {
                                 //  12,
                               ),
                               data[index].postowner!.id == widget.userId
-                                  ? const SizedBox()
+                                  ? GestureDetector(
+                                      onTap: () {
+                                        userpostpopup(
+                                            context, data[index].postid);
+                                        setState(() {});
+                                      },
+                                      child: SizedBox(
+                                        height: 2.0.hp,
+                                        // 16,
+                                        width: 5.0.wp,
+                                        // 16,x
+                                        child: Image.asset(
+                                          "images/burger.png",
+                                        ),
+                                      ),
+                                    )
                                   : GestureDetector(
                                       onTap: () {
                                         setState(() {
@@ -359,7 +380,9 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid.toString(),
                                   index: index),
                             ),
-                            const Comment_UI(),
+                            Comment_UI(
+                                // ontap: Get.to(CommentScreenDesign())
+                                ),
                             ShareHome(
                               desc: data[index].description.toString(),
                               id: data[index].postid!.toString(),
@@ -452,5 +475,164 @@ class _AdminPostState extends State<AdminPost> {
         );
       },
     );
+  }
+
+  userpostpopup(context, postid) {
+    return showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      builder: (context) {
+        return SizedBox(
+          height: 20.0.hp,
+          //  174,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.pop(context);
+              //     upcomming(
+              //       'Edit Options Comming Soon',
+              //     );
+              //     setState(() {});
+              //   },
+              //   child: SizedBox(
+              //     child: Text(
+              //       "Edit",
+              //       style: GoogleFonts.poppins(
+              //         textStyle: TextStyle(
+              //           fontSize: 10.0.sp,
+              //           color: club_Text_1,
+              //           fontWeight: FontWeight.w500,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // const Divider(
+              //   color: Colors.black,
+              //   endIndent: 30,
+              //   indent: 30,
+              //   // height: 5,
+              // ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+
+                  mypostDeletController.mydeletpost(postid);
+                  // upcomming(
+                  //   'Delete Options Comming Soon',
+                  // );
+                  setState(() {});
+                },
+                child: SizedBox(
+                  child: Text(
+                    "Delete",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 10.0.sp,
+                        color: Colors.red,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              // const Divider(
+              //   color: Colors.black,
+              //   endIndent: 30,
+              //   indent: 30,
+              //   // height: 5,
+              // ),
+              // Text(
+              //   "Block",
+              //   style: GoogleFonts.poppins(
+              //     textStyle: TextStyle(
+              //       fontSize: 10.0.sp,
+              //       color: club_Text_1,
+              //       fontWeight: FontWeight.w500,
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  upcomming(title) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) =>
+            StatefulBuilder(builder: (context, setState) {
+              return Dialog(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height / 6,
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.width * 0.04,
+                        ),
+                        height: MediaQuery.of(context).size.height / 20,
+                        width: double.infinity,
+                        color: animagiee_CL,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  right:
+                                      MediaQuery.of(context).size.width * 0.03),
+                              child: const Icon(
+                                Icons.close,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }));
+
+    // showDialog(
+    //     context: context,
+    //     builder: (_) {
+    //       return AlertDialog(
+    //         title: Text('Post Edit Options Comming Zoon'),
+    //         content: Text('Post Edit Options Comming Zoon'),
+    //         actions: [
+    //           TextButton(
+    //             onPressed: () => Navigator.pop(context),
+    //             child: Text('Cancel'),
+    //           ),
+    //           TextButton(
+    //             onPressed: () {
+    //               // Send them to your email maybe?
+
+    //               Navigator.pop(context);
+    //             },
+    //             child: Text('Send'),
+    //           ),
+    //         ],
+    //       );
+    //     });
   }
 }

@@ -122,8 +122,8 @@ class _PostState extends State<Post> {
                   children: [
                     controller.profileImage.isEmpty
                         ? CircleAvatar(
-                            backgroundImage: const ExactAssetImage(
-                                "images/Exotic_Birds.jpg"),
+                            backgroundImage:
+                                AssetImage("images/emptyimage.jfif"),
                             radius: 30.0.sp,
                           )
                         : CircleAvatar(
