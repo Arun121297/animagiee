@@ -35,8 +35,7 @@ class _SinglePostTagPeopleState extends State<SinglePostTagPeople> {
     return SafeArea(
       child: Scaffold(
         body: Obx(() {
-          if (controller.isMyFriendsLoading.value ||
-              controller.tagPeopleList.isEmpty) {
+          if (controller.isMyFriendsLoading.value) {
             return const Center(
               child: CircularProgressIndicator(
                 color: animagiee_CL,

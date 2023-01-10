@@ -36,21 +36,24 @@ class Datum {
     this.clubicon,
     this.clubid,
     this.clubName,
+    this.clubOwner,
   });
 
   String? clubicon;
   String? clubid;
   String? clubName;
+  String? clubOwner;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        clubicon: json["clubicon"],
-        clubid: json["clubid"],
-        clubName: json["clubName"],
-      );
+      clubicon: json["clubicon"],
+      clubid: json["clubid"],
+      clubName: json["clubName"],
+      clubOwner: json["ClubOwner"]);
 
   Map<String, dynamic> toJson() => {
         "clubicon": clubicon,
         "clubid": clubid,
         "clubName": clubName,
+        "ClubOwner": clubName
       };
 }

@@ -82,10 +82,10 @@ class _AdminPostState extends State<AdminPost> {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      } else if (userPostListController.data.isEmpty) {
+      } else if (userPostListController.data.first.data!.isEmpty) {
         return Container(
             alignment: Alignment.center,
-            height: MediaQuery.of(context).size.height - 212,
+            height: MediaQuery.of(context).size.height - 216,
             child: const Text("No User Post"));
       } else {
         return SizedBox(
@@ -422,7 +422,7 @@ class _AdminPostState extends State<AdminPost> {
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       builder: (context) {
         return SizedBox(
-          height: 20.0.hp,
+          height: 15.0.hp,
           //  174,
           width: MediaQuery.of(context).size.width,
           child: Column(

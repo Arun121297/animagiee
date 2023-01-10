@@ -83,29 +83,39 @@ class _UserPage_Communitie_Page2State extends State<UserPage_Communitie_Page2> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      return ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: communitiPostListController.data.length,
-          itemBuilder: (context, index) {
-            var listData = communitiPostListController.data[index];
-            return Page2_Communitie_List(
-              name: listData.clubName ?? "",
-              icon: listData.clubicon ?? "",
-              id: listData.clubid ?? "",
-              userId: widget.id,
-              status: listData.joinedStatus ?? "",
-              clubOwner: listData.clubOwner,
-              myUserId: myUserId,
-              onTap: () {
-                if (listData.joinedStatus == "Joined") {
-                  leaveFromClub(id: listData.clubid, index: index);
-                } else {
-                  clubJoinRequest(id: listData.clubid, index: index);
-                }
-              },
-            );
-          });
+      if (communitiPostListController.userprofilescreenloadingindicator.value) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      } else if (communitiPostListController.data.isEmpty) {
+        return const Center(
+          child: Text("No Communities found"),
+        );
+      } else {
+        return ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: communitiPostListController.data.length,
+            itemBuilder: (context, index) {
+              var listData = communitiPostListController.data[index];
+              return Page2_Communitie_List(
+                name: listData.clubName ?? "",
+                icon: listData.clubicon ?? "",
+                id: listData.clubid ?? "",
+                userId: widget.id,
+                status: listData.joinedStatus ?? "",
+                clubOwner: listData.clubOwner,
+                myUserId: myUserId,
+                onTap: () {
+                  if (listData.joinedStatus == "Joined") {
+                    leaveFromClub(id: listData.clubid, index: index);
+                  } else {
+                    clubJoinRequest(id: listData.clubid, index: index);
+                  }
+                },
+              );
+            });
+      }
     });
   }
 }
