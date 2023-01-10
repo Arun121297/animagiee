@@ -13,10 +13,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'config/check_login.dart';
 import 'config/firebase_token.dart';
+import 'firebase_options.dart';
+
+Future<void> initializeDefault() async {
+  FirebaseApp app = await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  print('Initialized default app ${app.options}');
+}
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await initializeDefault();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   token = await CheckLogin().checkLogin();
   Provider.debugCheckInvalidValueType = null;
