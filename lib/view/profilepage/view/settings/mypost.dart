@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/homepage/view/homepage.dart';
 import 'package:animagieeui/view/instancepage/controller/likeController.dart';
+import 'package:animagieeui/view/post/controllers/post_view_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/controllers/favourite_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/widgets/favourite_icon.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,6 @@ import '../../../../controller/controller.dart';
 import '../../../homeAppBar/view/appbar.dart';
 import '../../../homepage/view/commend.dart';
 import '../../../homepage/view/likes.dart';
-import '../../../homepage/view/share.dart';
 import '../../../homepage/widgets/home_widget.dart';
 import '../../../homepage/widgets/share_home.dart';
 import '../../controller/currentuserpostlistcontroller.dart';
@@ -34,6 +34,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
       Get.put(CurrentUserlistController());
   LikeContoller likeContoller = Get.put(LikeContoller());
   FavouriteController favouriteController = Get.put(FavouriteController());
+  PostViewConroller postViewConroller = Get.put(PostViewConroller());
   @override
   void initState() {
     fetchData();
@@ -71,6 +72,10 @@ class _My_Post_UIState extends State<My_Post_UI> {
     currentUserlistController.currentuserlist.first.data![index].saved =
         !currentUserlistController.currentuserlist.first.data![index].saved!;
     setState(() {});
+  }
+
+  postView({id, index}) async {
+    await postViewConroller.postView(postId: id);
   }
 
   @override
@@ -260,16 +265,19 @@ class _My_Post_UIState extends State<My_Post_UI> {
                               VisibilityDetector(
                                 key: Key(index.toString()),
                                 onVisibilityChanged: (visibilityInfo) {
-                                  // onVisibilityChanged(
-                                  //     VisibilityInfo.visibleFraction,
-                                  //     response.postId);
+                                  postView(
+                                    id: listData.postid,
+                                  );
                                 },
                                 child: GestureDetector(
-                                    child: MediaWidget(
-                                  mediaType: listData.posttype.toString(),
-                                  source: listData.addImagesOrVideos.toString(),
-                                )),
+                                  child: MediaWidget(
+                                    mediaType: listData.posttype.toString(),
+                                    source:
+                                        listData.addImagesOrVideos.toString(),
+                                  ),
+                                ),
                               ),
+
                               // Container(
                               //   height: 45.0.hp,
                               //   //  346,

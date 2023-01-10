@@ -4,6 +4,7 @@ import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
 import 'package:animagieeui/view/instancepage/controller/likeController.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofile_getpost.dart';
+import 'package:animagieeui/view/post/controllers/post_view_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/controllers/favourite_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/widgets/favourite_icon.dart';
 import 'package:flutter/material.dart';
@@ -34,10 +35,15 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
       Get.put(UserPostGetProfilePostController());
   LikeContoller likeContoller = Get.put(LikeContoller());
   FavouriteController favouriteController = Get.put(FavouriteController());
+  PostViewConroller postViewConroller = Get.put(PostViewConroller());
   @override
   void initState() {
     fetchData();
     super.initState();
+  }
+
+  postView({required id}) async {
+    await postViewConroller.postView(postId: id);
   }
 
   fetchData() {
@@ -179,9 +185,9 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           source: listData.addImagesOrVideos!,
                         )),
                         onVisibilityChanged: (visibilityInfo) {
-                          // onVisibilityChanged(
-                          //     VisibilityInfo.visibleFraction,
-                          //     response.postId);
+                          postView(
+                            id: data[index].postid,
+                          );
                         },
                       ),
                       Padding(

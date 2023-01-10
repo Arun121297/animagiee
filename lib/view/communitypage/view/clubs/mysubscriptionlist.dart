@@ -26,6 +26,23 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
   // MySubscriptionController mySubscriptionController =
   //     Get.put(MySubscriptionController());
   bool visibility = false;
+  leaveFromClub({required id, required index}) async {
+    clubController.leaveFromCLub(clubId: id).then((value) {
+      if (value) {
+        clubController.joinedClubList.first.data!.removeAt(index);
+        clubController.joinedClubList.refresh();
+      }
+    });
+  }
+
+  deleteClub({required id, required index}) async {
+    clubController.deleteClub(clubId: id).then((value) {
+      if (value) {
+        clubController.joinedClubList.first.data!.removeAt(index);
+        clubController.joinedClubList.refresh();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +62,13 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
             ),
             title: Text(data.clubName ?? ""),
             trailing: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                if (data.clubOwner.toString() == widget.myUserId.toString()) {
+                  deleteClub(id: data.clubid, index: widget.fetchindex);
+                } else {
+                  leaveFromClub(id: data.clubid, index: widget.fetchindex);
+                }
+              },
               child: Container(
                 height: 3.5.hp,
                 //  26,

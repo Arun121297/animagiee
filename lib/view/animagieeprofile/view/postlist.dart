@@ -5,6 +5,7 @@ import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
 import 'package:animagieeui/view/instancepage/controller/communityPotsListController.dart';
 import 'package:animagieeui/view/instancepage/controller/likeController.dart';
+import 'package:animagieeui/view/post/controllers/post_view_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/controllers/favourite_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/widgets/favourite_icon.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ class _PostList_ContentState extends State<PostList_Content> {
   CommunityPostListContoller communityPostListContoller = Get.find();
   LikeContoller likeContoller = Get.put(LikeContoller());
   FavouriteController favouriteController = Get.put(FavouriteController());
+  PostViewConroller postViewConroller = Get.put(PostViewConroller());
   likePost({required String id, required int index}) {
     likeContoller.like(id: id, index: index);
     communityPostListContoller.communityPostListData[0].data![index].liked =
@@ -66,6 +68,10 @@ class _PostList_ContentState extends State<PostList_Content> {
         communityPostListContoller.communityPostListData.first.data![index];
     data.saved = !data.saved!;
     setState(() {});
+  }
+
+  postView({required id}) async {
+    await postViewConroller.postView(postId: id);
   }
 
   @override
@@ -163,9 +169,9 @@ class _PostList_ContentState extends State<PostList_Content> {
                     source: data.addImagesOrVideos!,
                   )),
                   onVisibilityChanged: (visibilityInfo) {
-                    // onVisibilityChanged(
-                    //     VisibilityInfo.visibleFraction,
-                    //     response.postId);
+                    postView(
+                      id: data.postid,
+                    );
                   },
                 ),
                 Padding(

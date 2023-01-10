@@ -69,4 +69,13 @@ class Urls {
   ///clubedit
   static const editbgclub = '${baseUrl}api/club/editClubBackGroundProfile';
   static const editclub = '${baseUrl}api/club/editclubprofile';
+  // leave from club
+  static const leaveFromClub = '${baseUrl}api/club/leftmyself';
+  // delete club
+  static const deleteClub = '${baseUrl}api/club/deleteclub';
+
+  // comment list
+  static const commentList = '${baseUrl}api/cmd/postcommandlist';
+  // add comment
+  static const addComment = '${baseUrl}api/cmd/createpostcommand';
 }

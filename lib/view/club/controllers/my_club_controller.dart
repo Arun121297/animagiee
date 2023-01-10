@@ -136,20 +136,28 @@ class MyClubController extends GetxController {
   }
 
 // delete club
-  Future deleteClub({required clubId, required index}) async {
+  Future<bool> deleteClub({required clubId}) async {
     try {
       var data = await service.deleteClub(clubId: clubId);
-      if (data != null) {}
+      if (data != null) {
+        return true;
+      } else {
+        return false;
+      }
     } catch (e) {
       rethrow;
     }
   }
 
   // leave from club
-  Future leaveFromCLub({required clubId, required index}) async {
+  Future<bool> leaveFromCLub({required clubId}) async {
     try {
       var data = await service.leaveFromClub(clubId: clubId);
-      if (data != null) {}
+      if (data != null) {
+        return true;
+      } else {
+        return false;
+      }
     } catch (e) {
       rethrow;
     }

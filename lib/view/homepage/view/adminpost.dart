@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/comment/views/commentscreen.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
@@ -70,7 +71,7 @@ class _AdminPostState extends State<AdminPost> {
     setState(() {});
   }
 
-  postView({id, index}) async {
+  postView({required id}) async {
     await postViewConroller.postView(postId: id);
   }
 
@@ -240,7 +241,9 @@ class _AdminPostState extends State<AdminPost> {
                               source: data[index].addImagesOrVideos!,
                             )),
                             onVisibilityChanged: (visibilityInfo) {
-                              // postView(id: data[index].postid, index: index);
+                              postView(
+                                id: data[index].postid,
+                              );
                             },
                           ),
 
@@ -374,7 +377,12 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid.toString(),
                                   index: index),
                             ),
-                            const Comment_UI(),
+                            InkWell(
+                                onTap: () {
+                                  Get.to(() => CommentScreen(
+                                      postId: data[index].postid));
+                                },
+                                child: const Comment_UI()),
                             ShareHome(
                               desc: data[index].description.toString(),
                               id: data[index].postid!.toString(),
