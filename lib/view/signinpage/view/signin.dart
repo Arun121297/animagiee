@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/signinpage/controller/signincontroller.dart';
@@ -122,13 +123,77 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
-                  height: 9.0.hp,
-                  //  75,
-                ),
+                if (Platform.isIOS)
+                  SizedBox(
+                    height: 9.0.hp,
+                    //  75,
+                  ),
                 // SizedBox(child: Text("Email--->${username3}/Fb--->${fbuserEmail}")),
 
                 ///login through FaceBook
+                ///
+                if (Platform.isIOS)
+                  GestureDetector(
+                    onTap: () async {
+                      final credential =
+                          await SignInWithApple.getAppleIDCredential(
+                        scopes: [
+                          AppleIDAuthorizationScopes.email,
+                          AppleIDAuthorizationScopes.fullName,
+                        ],
+                      );
+                    }, // {
+
+                    // Get.to(
+                    //   () => Welcome_Page(),
+                    // );
+                    // },
+                    child: Container(
+                      height: 6.0.hp,
+                      // 47,
+                      width: 90.0.wp,
+                      // 308,
+                      decoration: BoxDecoration(
+                        color: SigninButton_CL,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 4.0.wp,
+                          ),
+                          const Icon(
+                            Icons.apple,
+                            color: Colors.black,
+                            size: 40,
+                          ),
+                          // SizedBox(
+                          //   width: 9.0.wp,
+                          // ),
+                          const Expanded(child: SizedBox()),
+                          Text(
+                            "Continue with apple",
+                            style: GoogleFonts.poppins(
+                              color: SigninBtn_Content_CL,
+                              textStyle: TextStyle(
+                                fontSize: 9.5.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 3.0.hp,
+                            // 28,
+                          ),
+                          const Expanded(child: SizedBox())
+                        ],
+                      ),
+                    ),
+                  ),
+                SizedBox(
+                  height: 3.0.hp,
+                ),
 
                 GestureDetector(
                   onTap: () {
@@ -255,22 +320,23 @@ class _SignInPageState extends State<SignInPage> {
                         ],
                       )),
                 ),
-                SizedBox(height: 15),
-                ElevatedButton(
-                    onPressed: () async {
-                      final credential =
-                          await SignInWithApple.getAppleIDCredential(
-                        scopes: [
-                          AppleIDAuthorizationScopes.email,
-                          AppleIDAuthorizationScopes.fullName,
-                        ],
-                      );
-                      print("credential-->${credential.authorizationCode}");
-                    },
-                    child: Text("apple")),
-                SizedBox(
-                  height: 15,
-                )
+                SizedBox(height: 3.0.hp),
+
+                // ElevatedButton(
+                //     onPressed: () async {
+                //       final credential =
+                //           await SignInWithApple.getAppleIDCredential(
+                //         scopes: [
+                //           AppleIDAuthorizationScopes.email,
+                //           AppleIDAuthorizationScopes.fullName,
+                //         ],
+                //       );
+
+                //     },
+                //     child: Text("apple")),
+                // SizedBox(
+                //   height: 15,
+                // )
               ],
             ),
           ),
