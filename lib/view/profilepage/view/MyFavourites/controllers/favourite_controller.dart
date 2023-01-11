@@ -64,10 +64,14 @@ class FavouriteController extends GetxController {
   }
   /*BLOCK UNBLOCK */
 
-  Future blockUnblock({required userId}) async {
+  Future<bool> blockUnblock({required userId}) async {
     try {
       var data = await service.blockUser(userId: userId);
-      if (data != null) {}
+      if (data != null) {
+        return true;
+      } else {
+        return false;
+      }
     } catch (e) {
       rethrow;
     }

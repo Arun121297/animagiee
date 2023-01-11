@@ -74,4 +74,13 @@ class Urls {
   static const createcomment = '${baseUrl}api/cmd/createpostcommand';
   static const postcomment = '${baseUrl}api/cmd/postcommandlist';
   static const deletecomment = '${baseUrl}api/cmd/postcommandlist';
+  // leave from club
+  static const leaveFromClub = '${baseUrl}api/club/leftmyself';
+  // delete club
+  static const deleteClub = '${baseUrl}api/club/deleteclub';
+
+  // comment list
+  static const commentList = '${baseUrl}api/cmd/postcommandlist';
+  // add comment
+  static const addComment = '${baseUrl}api/cmd/createpostcommand';
 }

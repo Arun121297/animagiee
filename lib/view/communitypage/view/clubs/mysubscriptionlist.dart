@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/utils/helper/popup_helper.dart';
 import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 // import 'package:animagieeui/view/communitypage/controller/mysubscriptioncontroller.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,25 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
   // MySubscriptionController mySubscriptionController =
   //     Get.put(MySubscriptionController());
   bool visibility = false;
+  leaveFromClub({required id, required index}) async {
+    clubController.leaveFromCLub(clubId: id).then((value) {
+      if (value) {
+        clubController.joinedClubList.first.data!.removeAt(index);
+        clubController.joinedClubList.refresh();
+        Get.back();
+      }
+    });
+  }
+
+  deleteClub({required id, required index}) async {
+    clubController.deleteClub(clubId: id).then((value) {
+      if (value) {
+        clubController.joinedClubList.first.data!.removeAt(index);
+        clubController.joinedClubList.refresh();
+        Get.back();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +65,30 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
             ),
             title: Text(data.clubName ?? ""),
             trailing: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                if (data.clubOwner.toString() == widget.myUserId.toString()) {
+                  // deleteClub(id: data.clubid, index: widget.fetchindex);
+                  helperPopup(
+                      context: context,
+                      title: "Are you sure do you want delete? ",
+                      noOnTap: () {
+                        Get.back();
+                      },
+                      yesOnTap: () =>
+                          deleteClub(id: data.clubid, index: widget.fetchindex),
+                      yesButtonTitle: "Leave");
+                } else {
+                  helperPopup(
+                      context: context,
+                      title: "Are you sure do you want leave? ",
+                      noOnTap: () {
+                        Get.back();
+                      },
+                      yesOnTap: () => leaveFromClub(
+                          id: data.clubid, index: widget.fetchindex),
+                      yesButtonTitle: "Leave");
+                }
+              },
               child: Container(
                 height: 3.5.hp,
                 //  26,

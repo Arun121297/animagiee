@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/comment/views/commentscreen.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
@@ -73,8 +74,20 @@ class _AdminPostState extends State<AdminPost> {
     setState(() {});
   }
 
-  postView({id, index}) async {
+  postView({required id}) async {
     await postViewConroller.postView(postId: id);
+  }
+
+  blockUnblock({required userId, required index}) async {
+    await favouriteController.blockUnblock(userId: userId).then((value) {
+      var data = userPostListController.data.first.data![index];
+
+      if (value) {
+        data.blocked = !data.blocked!;
+      }
+      userPostListController.data.refresh();
+      Get.back();
+    });
   }
 
   @override
@@ -84,7 +97,8 @@ class _AdminPostState extends State<AdminPost> {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      } else if (userPostListController.data.first.data!.isEmpty) {
+      } else if (userPostListController.data.isEmpty ||
+          userPostListController.data.first.data!.isEmpty) {
         return Container(
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.height - 212,
@@ -203,7 +217,13 @@ class _AdminPostState extends State<AdminPost> {
                                   : GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          popup();
+                                          popup(
+                                              // TODO:please add follow status
+                                              followStatus: true,
+                                              blocked: data[index].blocked,
+                                              postId: data[index].postid,
+                                              userId: data[index].postowner!.id,
+                                              index: index);
                                         });
                                       },
                                       child: SizedBox(
@@ -246,7 +266,9 @@ class _AdminPostState extends State<AdminPost> {
                               source: data[index].addImagesOrVideos!,
                             )),
                             onVisibilityChanged: (visibilityInfo) {
-                              // postView(id: data[index].postid, index: index);
+                              postView(
+                                id: data[index].postid,
+                              );
                             },
                           ),
 
@@ -353,7 +375,7 @@ class _AdminPostState extends State<AdminPost> {
                                 ),
                                 // Expanded(child: Container()),
                                 SizedBox(
-                                  width: 45.0.wp,
+                                  width: 75.0.wp,
                                 ),
                                 Visibility(
                                   visible: data[index].postViewCount == 0
@@ -502,7 +524,12 @@ class _AdminPostState extends State<AdminPost> {
     );
   }
 
-  popup() {
+  popup(
+      {required followStatus,
+      required blocked,
+      required userId,
+      required postId,
+      required index}) {
     return showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -517,7 +544,7 @@ class _AdminPostState extends State<AdminPost> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Unfollow",
+                followStatus ? "Unfollow" : "Follow",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
                     fontSize: 10.0.sp,
@@ -548,13 +575,18 @@ class _AdminPostState extends State<AdminPost> {
                 indent: 30,
                 // height: 5,
               ),
-              Text(
-                "Block",
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 10.0.sp,
-                    color: club_Text_1,
-                    fontWeight: FontWeight.w500,
+              InkWell(
+                onTap: () {
+                  blockUnblock(userId: userId, index: index);
+                },
+                child: Text(
+                  blocked ? "Unblock" : "Block",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 10.0.sp,
+                      color: club_Text_1,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),

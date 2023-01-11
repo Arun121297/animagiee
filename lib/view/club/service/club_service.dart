@@ -103,11 +103,10 @@ class MyClubService {
   Future deleteClub({required clubId}) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var token = sharedPreferences.get(Constant.authToken);
-    var body = {"clubId": clubId};
+    var body = {"clubid": clubId};
     try {
       var response = await http.post(
-        // TODO:please change url
-        Uri.parse(Urls.clubRejectRequest),
+        Uri.parse(Urls.deleteClub),
         body: body,
         headers: {
           'Authorization': 'Bearer $token',
@@ -133,11 +132,10 @@ class MyClubService {
   Future leaveFromClub({required clubId}) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var token = sharedPreferences.get(Constant.authToken);
-    var body = {"clubId": clubId};
+    var body = {"clubid": clubId};
     try {
       var response = await http.post(
-        // TODO:please change url
-        Uri.parse(Urls.clubRejectRequest),
+        Uri.parse(Urls.leaveFromClub),
         body: body,
         headers: {
           'Authorization': 'Bearer $token',

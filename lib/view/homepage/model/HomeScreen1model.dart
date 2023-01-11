@@ -44,6 +44,7 @@ class Datum {
     this.postViewCount,
     this.liked,
     this.saved,
+    this.blocked,
   });
 
   String? postid;
@@ -57,6 +58,7 @@ class Datum {
   int? postViewCount;
   bool? liked;
   bool? saved;
+  bool? blocked;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         postid: json["postid"] ?? "",
@@ -70,6 +72,7 @@ class Datum {
         postViewCount: json["postViewCount"] ?? 0,
         liked: json["liked"],
         saved: json["saved"],
+        blocked: json["Blocked"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -84,6 +87,7 @@ class Datum {
         "postViewCount": postViewCount,
         "liked": liked,
         "saved": saved,
+        "Blocked": blocked,
       };
 }
 

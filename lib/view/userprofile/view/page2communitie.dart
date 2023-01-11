@@ -61,7 +61,16 @@ class _UserPage_Communitie_Page2State extends State<UserPage_Communitie_Page2> {
   }
 
   leaveFromClub({required id, required index}) {
-    clubController.leaveFromCLub(clubId: id, index: index);
+    clubController
+        .leaveFromCLub(
+      clubId: id,
+    )
+        .then((value) {
+      if (value) {
+        communitiPostListController.data[index].joinedStatus = "Join";
+        communitiPostListController.data.refresh();
+      }
+    });
   }
 
   fetchProfile() async {

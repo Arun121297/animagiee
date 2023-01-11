@@ -5,6 +5,7 @@ import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
 import 'package:animagieeui/view/instancepage/controller/communityPotsListController.dart';
 import 'package:animagieeui/view/instancepage/controller/likeController.dart';
+import 'package:animagieeui/view/post/controllers/post_view_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/controllers/favourite_controller.dart';
 import 'package:animagieeui/view/profilepage/view/MyFavourites/widgets/favourite_icon.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,7 @@ class _PostList_ContentState extends State<PostList_Content> {
   CommunityPostListContoller communityPostListContoller = Get.find();
   LikeContoller likeContoller = Get.put(LikeContoller());
   FavouriteController favouriteController = Get.put(FavouriteController());
+  PostViewConroller postViewConroller = Get.put(PostViewConroller());
   likePost({required String id, required int index}) {
     likeContoller.like(id: id, index: index);
     communityPostListContoller.communityPostListData[0].data![index].liked =
@@ -67,6 +69,23 @@ class _PostList_ContentState extends State<PostList_Content> {
         communityPostListContoller.communityPostListData.first.data![index];
     data.saved = !data.saved!;
     setState(() {});
+  }
+
+  postView({required id}) async {
+    await postViewConroller.postView(postId: id);
+  }
+
+  blockUnblock({required userId, required index}) async {
+    await favouriteController.blockUnblock(userId: userId).then((value) {
+      var data =
+          communityPostListContoller.communityPostListData.first.data![index];
+
+      if (value) {
+        data.blocked = !data.blocked!;
+      }
+      communityPostListContoller.communityPostListData.refresh();
+      Get.back();
+    });
   }
 
   @override
@@ -138,8 +157,14 @@ class _PostList_ContentState extends State<PostList_Content> {
                               ),
                             ),
                           )
+                        // TODO:add follow status
                         : GestureDetector(
-                            onTap: () => bottomsheet(),
+                            onTap: () => bottomsheet(
+                                followStatus: true,
+                                blocked: data.blocked,
+                                userId: data.postowner!.id,
+                                postId: data.postid,
+                                index: widget.index),
                             child: SizedBox(
                               height: 2.0.hp,
                               // 16,
@@ -186,9 +211,9 @@ class _PostList_ContentState extends State<PostList_Content> {
                     source: data.addImagesOrVideos!,
                   )),
                   onVisibilityChanged: (visibilityInfo) {
-                    // onVisibilityChanged(
-                    //     VisibilityInfo.visibleFraction,
-                    //     response.postId);
+                    postView(
+                      id: data.postid,
+                    );
                   },
                 ),
                 Padding(
@@ -331,7 +356,12 @@ class _PostList_ContentState extends State<PostList_Content> {
     );
   }
 
-  bottomsheet() {
+  bottomsheet(
+      {required followStatus,
+      required blocked,
+      required userId,
+      required postId,
+      required index}) {
     return showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -346,7 +376,7 @@ class _PostList_ContentState extends State<PostList_Content> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Unfollow",
+                followStatus ? "Unfollow" : "Follow",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
                     fontSize: 10.0.sp,
@@ -377,13 +407,18 @@ class _PostList_ContentState extends State<PostList_Content> {
                 indent: 30,
                 // height: 5,
               ),
-              Text(
-                "Block",
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 10.0.sp,
-                    color: club_Text_1,
-                    fontWeight: FontWeight.w500,
+              InkWell(
+                onTap: () {
+                  blockUnblock(userId: userId, index: index);
+                },
+                child: Text(
+                  blocked ? "Unblock" : "Block",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 10.0.sp,
+                      color: club_Text_1,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
