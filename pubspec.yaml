@@ -95,7 +95,8 @@ dependencies:
   stream_transform: ^2.1.0
   readmore: ^2.2.0
   pull_to_refresh: ^2.0.0
-  comment_box: ^0.0.18
+  sign_in_with_apple: ^4.3.0
+  icons_launcher: ^2.0.6
   # fluttertoast: 8.1.1
   # cached_network_image: ^3.2.3
 
@@ -150,3 +151,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+icons_launcher:
+  image_path: 'images/animagie_logo.png'
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
