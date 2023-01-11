@@ -30,7 +30,7 @@ Future<void> main() async {
   Provider.debugCheckInvalidValueType = null;
 
   runApp(MyApp(
-    prefs: prefs,
+    prefs: prefs, 
   ));
 }
 
