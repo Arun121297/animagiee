@@ -14,6 +14,7 @@ import '../../../../config/colorconfig.dart';
 import '../../../../controller/controller.dart';
 import '../../../homeAppBar/view/appbar.dart';
 import '../../../homepage/view/commend.dart';
+import '../../../homepage/view/commentscreen.dart';
 import '../../../homepage/view/likes.dart';
 import '../../../homepage/view/share.dart';
 import '../../../homepage/widgets/home_widget.dart';
@@ -131,10 +132,11 @@ class _My_Post_UIState extends State<My_Post_UI> {
                                     width: 5,
                                   ),
                                   listData.profileicon!.isEmpty
-                                      ? const CircleAvatar(
-                                          backgroundColor: Colors.white,
+                                      ? CircleAvatar(
+                                          // child:
+                                          backgroundColor: Colors.black,
                                           backgroundImage: AssetImage(
-                                              "images/profile_icon.png"),
+                                              "images/emptyimage.jfif"),
                                         )
                                       : CircleAvatar(
                                           backgroundImage: NetworkImage(
@@ -345,7 +347,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
                                   },
                                   status: listData.liked!,
                                 ),
-                                const Comment_UI(),
+                                Comment_UI(),
                                 // const Share_UI(),
                                 ShareHome(
                                   desc: listData.description.toString(),

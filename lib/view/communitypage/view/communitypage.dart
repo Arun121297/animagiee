@@ -46,93 +46,100 @@ class _Community_Page_UIState extends State<Community_Page_UI> {
     });
   }
 
+  deviceback() {
+    controller.selectedIndex.value = 0;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      bottomNavigationBar: const Customized_Bottom_Bar(),
-      body: Obx(() {
-        if (instanceContoroller.instancescreenloadingindicator.value) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (instanceContoroller.getinstancedata.isEmpty) {
-          return const Center(
-            child: Text("no Communities"),
-          );
-        } else {
-          return WillPopScope(
-            onWillPop: () {
-              return null!;
-            },
-            child: SafeArea(
-              child: Center(
-                child: Column(
-                  children: [
-                    // Communitiefrontscreen(),
-                    AppbarContainer(
-                      title: "Communities",
-                      backarrow: false,
-                      firstscreen: false,
-                      navipage: 0,
-                      notification_back_arrow: false,
-                      notification: false,
-                      edit: false,
-                      search: false,
-                      chat: false,
-                      logo: false,
-                      podcast: false,
-                      fun: null,
-                      searchfunction: true,
-                      searchfunctionclose: false,
-                    ),
-                    // Profile_AppBar_UI(
-                    //     edit: false,
-                    //     notification: true,
-                    //     navipage: 0,
-                    //     title: "Communities"),
-                    // controller.clubapp(
-                    //     "Communities",
-                    //     // null,
-                    //     navigate(),
-                    //     // Home_Page(),
-                    //     context),
-                    SizedBox(height: 3.0.hp),
-                    const Community_UI(),
-                    // Communitieslist(),
-                    SizedBox(height: 14.0.hp),
-                    GestureDetector(
-                      onTap: () {
-                        commuities();
-                        // Get.to(fun);
-                      },
-                      child: Container(
-                        height: 43,
-                        width: 310,
-                        decoration: BoxDecoration(
-                            color: buttonColor1_CL,
-                            borderRadius: BorderRadius.circular(15)),
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Next',
-                          style: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
-                              fontSize: 18,
-                              color: SigninButton_CL,
-                              fontWeight: FontWeight.w600,
-                            ),
+    return
+        // Scaffold(
+        //   resizeToAvoidBottomInset: false,
+        //   bottomNavigationBar: const Customized_Bottom_Bar(),
+        //   body:
+        Obx(() {
+      if (instanceContoroller.instancescreenloadingindicator.value) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      } else if (instanceContoroller.getinstancedata.isEmpty) {
+        return const Center(
+          child: Text("no Communities"),
+        );
+      } else {
+        return WillPopScope(
+          onWillPop: () {
+            return deviceback();
+          },
+          child: SafeArea(
+            child: Center(
+              child: Column(
+                children: [
+                  // Communitiefrontscreen(),
+                  AppbarContainer(
+                    title: "Communities",
+                    backarrow: false,
+                    firstscreen: false,
+                    navipage: 0,
+                    notification_back_arrow: false,
+                    notification: false,
+                    edit: false,
+                    search: false,
+                    chat: false,
+                    logo: false,
+                    podcast: false,
+                    fun: null,
+                    searchfunction: true,
+                    searchfunctionclose: false,
+                  ),
+                  // Profile_AppBar_UI(
+                  //     edit: false,
+                  //     notification: true,
+                  //     navipage: 0,
+                  //     title: "Communities"),
+                  // controller.clubapp(
+                  //     "Communities",
+                  //     // null,
+                  //     navigate(),
+                  //     // Home_Page(),
+                  //     context),
+                  SizedBox(height: 3.0.hp),
+                  const Community_UI(),
+                  // Communitieslist(),
+                  SizedBox(height: 14.0.hp),
+                  GestureDetector(
+                    onTap: () {
+                      commuities();
+                      // Get.to(fun);
+                    },
+                    child: Container(
+                      height: 43,
+                      width: 310,
+                      decoration: BoxDecoration(
+                          color: buttonColor1_CL,
+                          borderRadius: BorderRadius.circular(15)),
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Next',
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            fontSize: 18,
+                            color: SigninButton_CL,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             ),
-          );
-        }
-      }),
-    );
+          ),
+        );
+      }
+    });
+    // );
   }
 
   commuities() {

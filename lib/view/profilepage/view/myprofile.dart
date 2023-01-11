@@ -40,50 +40,57 @@ class _My_Profile_UIState extends State<My_Profile_UI> {
     editScreenController.pFprofileimage = File('');
   }
 
+  deviceback() {
+    controller.selectedIndex.value = 0;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const Customized_Bottom_Bar(),
-      body: Obx(() {
-        if (profileController.isProfileLoading.value) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (profileController.profileData.isEmpty) {
-          return const Center(
-            child: Text("Something went wrong..."),
-          );
-        } else {
-          return WillPopScope(
-            onWillPop: () {
-              return null!;
-            },
-            child: SafeArea(
-              child: Column(
-                children: [
-                  AppbarContainer(
-                    edit: true,
-                    notification: false,
-                    navipage: 0,
-                    backarrow: false,
-                    chat: false,
-                    searchfunction: true,
-                    searchfunctionclose: false,
-                    firstscreen: false,
-                    notification_back_arrow: false,
-                    logo: false,
-                    podcast: false,
-                    search: false,
-                    fun: null,
-                    title: "Profile",
-                  ),
-                  const MY_Profile_Header_UI()
-                ],
-              ),
+    return
+        // Scaffold(
+        //   bottomNavigationBar: const Customized_Bottom_Bar(),
+        //   body:
+        Obx(() {
+      if (profileController.isProfileLoading.value) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      } else if (profileController.profileData.isEmpty) {
+        return const Center(
+          child: Text("Something went wrong..."),
+        );
+      } else {
+        return WillPopScope(
+          onWillPop: () {
+            return deviceback();
+          },
+          child: SafeArea(
+            child: Column(
+              children: [
+                AppbarContainer(
+                  edit: true,
+                  notification: false,
+                  navipage: 0,
+                  backarrow: false,
+                  chat: false,
+                  searchfunction: true,
+                  searchfunctionclose: false,
+                  firstscreen: false,
+                  notification_back_arrow: false,
+                  logo: false,
+                  podcast: false,
+                  search: false,
+                  fun: null,
+                  title: "Profile",
+                ),
+                const MY_Profile_Header_UI()
+              ],
             ),
-          );
-        }
-      }),
-    );
+          ),
+        );
+      }
+    });
+    // );
   }
 }

@@ -8,7 +8,7 @@ import '../view/homepage/view/homepagewidget.dart';
 import '../view/profilepage/view/myprofile.dart';
 
 Controller controller = Get.put(Controller());
-List wid = [
+List pages = [
   const Homepage_Wid(),
   const Community_Page_UI(),
   const UserProfileCreatePostUI(),

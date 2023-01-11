@@ -11,6 +11,7 @@ import '../../config/colorconfig.dart';
 import '../../config/constant.dart';
 import '../../view/homepage/view/bookmark.dart';
 import '../../view/homepage/view/commend.dart';
+import '../../view/homepage/view/commentscreen.dart';
 import '../../view/homepage/view/likes.dart';
 import '../../view/homepage/widgets/home_widget.dart';
 import '../../view/homepage/widgets/share_home.dart';
@@ -284,8 +285,20 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                         status: response.liked!,
                       ),
                       // ignore: dead_code
-
-                      const Comment_UI(),
+                      // SizedBox(
+                      //   width: 10,
+                      // ),
+                      // Icon(
+                      //   Icons.favorite,
+                      //   color: Colors.black,
+                      //   size: 20.0.sp,
+                      // ),
+                      // SizedBox(
+                      //   width: 15,
+                      // ),
+                      Comment_UI(
+                          // ontap: Get.to(CommentScreenDesign())
+                          ),
                       const SizedBox(
                         width: 15,
                       ),

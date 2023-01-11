@@ -46,8 +46,10 @@ class EditClubbgController extends GetxController {
         Get.back();
         editclubbgloadingindicator(false);
       } else {
+        Get.back();
         editclubbgloadingindicator(false);
       }
+      Get.back();
     } catch (e) {
       rethrow;
     }
