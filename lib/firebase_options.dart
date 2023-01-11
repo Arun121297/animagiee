@@ -45,12 +45,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyB0_fnInAMNI_QxDtNLjJhv8UNoJcunczg',
-    appId: '1:482543933000:web:169f8a18d1676e30c2aa7d',
+    appId: '1:482543933000:web:4aa25ba0cb9ac19fc2aa7d',
     messagingSenderId: '482543933000',
     projectId: 'animagie-8f2fe',
     authDomain: 'animagie-8f2fe.firebaseapp.com',
     storageBucket: 'animagie-8f2fe.appspot.com',
-    measurementId: 'G-YPZRK2Y3R7',
+    measurementId: 'G-CVLJ6DT4FH',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -67,6 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '482543933000',
     projectId: 'animagie-8f2fe',
     storageBucket: 'animagie-8f2fe.appspot.com',
+    androidClientId: '482543933000-gnkhbalguqeo3q9kbojljmaoqqitb7km.apps.googleusercontent.com',
     iosClientId: '482543933000-ouuedbfdni4rdju184njjo2omfucta77.apps.googleusercontent.com',
     iosBundleId: 'com.animagie.application',
   );
@@ -77,6 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '482543933000',
     projectId: 'animagie-8f2fe',
     storageBucket: 'animagie-8f2fe.appspot.com',
+    androidClientId: '482543933000-gnkhbalguqeo3q9kbojljmaoqqitb7km.apps.googleusercontent.com',
     iosClientId: '482543933000-uc3r9h94jqsdi80de1s7967330k0f8lg.apps.googleusercontent.com',
     iosBundleId: 'com.example.animagieeui',
   );
