@@ -75,6 +75,18 @@ class _AdminPostState extends State<AdminPost> {
     await postViewConroller.postView(postId: id);
   }
 
+  blockUnblock({required userId, required index}) async {
+    await favouriteController.blockUnblock(userId: userId).then((value) {
+      var data = userPostListController.data.first.data![index];
+
+      if (value) {
+        data.blocked = !data.blocked!;
+      }
+      userPostListController.data.refresh();
+      Get.back();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -199,7 +211,13 @@ class _AdminPostState extends State<AdminPost> {
                                   : GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          popup();
+                                          popup(
+                                              // TODO:please add follow status
+                                              followStatus: true,
+                                              blocked: data[index].blocked,
+                                              postId: data[index].postid,
+                                              userId: data[index].postowner!.id,
+                                              index: index);
                                         });
                                       },
                                       child: SizedBox(
@@ -478,7 +496,12 @@ class _AdminPostState extends State<AdminPost> {
     );
   }
 
-  popup() {
+  popup(
+      {required followStatus,
+      required blocked,
+      required userId,
+      required postId,
+      required index}) {
     return showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -493,7 +516,7 @@ class _AdminPostState extends State<AdminPost> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Unfollow",
+                followStatus ? "Unfollow" : "Follow",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
                     fontSize: 10.0.sp,
@@ -524,13 +547,18 @@ class _AdminPostState extends State<AdminPost> {
                 indent: 30,
                 // height: 5,
               ),
-              Text(
-                "Block",
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 10.0.sp,
-                    color: club_Text_1,
-                    fontWeight: FontWeight.w500,
+              InkWell(
+                onTap: () {
+                  blockUnblock(userId: userId, index: index);
+                },
+                child: Text(
+                  blocked ? "Unblock" : "Block",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 10.0.sp,
+                      color: club_Text_1,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
