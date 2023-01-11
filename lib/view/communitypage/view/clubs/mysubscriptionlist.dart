@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/utils/helper/popup_helper.dart';
 import 'package:animagieeui/view/club/controllers/my_club_controller.dart';
 // import 'package:animagieeui/view/communitypage/controller/mysubscriptioncontroller.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
       if (value) {
         clubController.joinedClubList.first.data!.removeAt(index);
         clubController.joinedClubList.refresh();
+        Get.back();
       }
     });
   }
@@ -40,6 +42,7 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
       if (value) {
         clubController.joinedClubList.first.data!.removeAt(index);
         clubController.joinedClubList.refresh();
+        Get.back();
       }
     });
   }
@@ -64,9 +67,26 @@ class _My_Sub_List_ContentState extends State<My_Sub_List_Content> {
             trailing: GestureDetector(
               onTap: () {
                 if (data.clubOwner.toString() == widget.myUserId.toString()) {
-                  deleteClub(id: data.clubid, index: widget.fetchindex);
+                  // deleteClub(id: data.clubid, index: widget.fetchindex);
+                  helperPopup(
+                      context: context,
+                      title: "Are you sure do you want delete? ",
+                      noOnTap: () {
+                        Get.back();
+                      },
+                      yesOnTap: () =>
+                          deleteClub(id: data.clubid, index: widget.fetchindex),
+                      yesButtonTitle: "Leave");
                 } else {
-                  leaveFromClub(id: data.clubid, index: widget.fetchindex);
+                  helperPopup(
+                      context: context,
+                      title: "Are you sure do you want leave? ",
+                      noOnTap: () {
+                        Get.back();
+                      },
+                      yesOnTap: () => leaveFromClub(
+                          id: data.clubid, index: widget.fetchindex),
+                      yesButtonTitle: "Leave");
                 }
               },
               child: Container(

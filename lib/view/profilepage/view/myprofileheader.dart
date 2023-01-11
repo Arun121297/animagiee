@@ -1,5 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
+import 'package:animagieeui/utils/helper/popup_helper.dart';
 import 'package:animagieeui/view/home.dart';
 import 'package:animagieeui/view/homepage/view/followRequestGet.dart';
 import 'package:animagieeui/view/homepage/view/myFollowUser.dart';
@@ -699,7 +700,18 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                 ),
                 SizedBox(height: 3.0.hp),
                 GestureDetector(
-                  onTap: () => logout(),
+                  onTap: () {
+                    helperPopup(
+                        context: context,
+                        title: "Are you sure o you want logout?",
+                        noOnTap: () {
+                          Get.back();
+                        },
+                        yesOnTap: () {
+                          logout();
+                        },
+                        yesButtonTitle: "Logout");
+                  },
                   child: Container(
                     height: 6.0.hp,
                     // 46,
@@ -767,6 +779,6 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
     await Firebase.initializeApp();
     await GoogleSignIn().signOut();
     await FacebookAuth.instance.logOut();
-    Get.to(SecondScreen());
+    Get.offAll(() => SecondScreen());
   }
 }

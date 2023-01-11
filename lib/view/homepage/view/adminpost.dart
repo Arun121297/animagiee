@@ -82,7 +82,8 @@ class _AdminPostState extends State<AdminPost> {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      } else if (userPostListController.data.first.data!.isEmpty) {
+      } else if (userPostListController.data.isEmpty ||
+          userPostListController.data.first.data!.isEmpty) {
         return Container(
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.height - 216,
@@ -350,7 +351,7 @@ class _AdminPostState extends State<AdminPost> {
                                 ),
                                 // Expanded(child: Container()),
                                 SizedBox(
-                                  width: 45.0.wp,
+                                  width: 75.0.wp,
                                 ),
                                 Visibility(
                                   visible: data[index].postViewCount == 0
