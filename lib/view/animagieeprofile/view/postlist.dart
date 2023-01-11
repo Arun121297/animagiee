@@ -101,35 +101,57 @@ class _PostList_ContentState extends State<PostList_Content> {
                             backgroundImage:
                                 NetworkImage(data.postowner!.profileicon ?? ""),
                           ),
-
-                    const SizedBox(
-                      width: 5,
+                    SizedBox(
+                      width: 2.0.wp,
                     ),
-                    Text(
-                      data.postowner!.username ?? "",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 10.5.sp,
-                          color: buttonColor1_CL,
-                          fontWeight: FontWeight.w500,
+                    SizedBox(
+                      width: 70.0.wp,
+                      child: Text(
+                        data.postowner!.username ?? "",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 10.5.sp,
+                            color: buttonColor1_CL,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),
-                    Expanded(child: Container()),
-                    GestureDetector(
-                      onTap: () => bottomsheet(),
-                      child: SizedBox(
-                        height: 2.0.hp,
-                        // 16,
-                        width: 5.0.wp,
-                        // 16,,
-                        child: Image.asset(
-                          "images/burger.png",
-                          // cacheHeight: 16,
-                          // cacheWidth: 16,
-                        ),
-                      ),
+                    SizedBox(
+                      width: 4.0.wp,
+                      //  12,
                     ),
+                    data.postowner!.id == widget.myUserId
+                        ? GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                popupUser();
+                              });
+                            },
+                            child: SizedBox(
+                              height: 2.0.hp,
+                              // 16,
+                              width: 5.0.wp,
+                              // 16,
+                              child: Image.asset(
+                                "images/burger.png",
+                              ),
+                            ),
+                          )
+                        : GestureDetector(
+                            onTap: () => bottomsheet(),
+                            child: SizedBox(
+                              height: 2.0.hp,
+                              // 16,
+                              width: 5.0.wp,
+                              // 16,,
+                              child: Image.asset(
+                                "images/burger.png",
+                                // cacheHeight: 16,
+                                // cacheWidth: 16,
+                              ),
+                            ),
+                          ),
                     const SizedBox(
                       width: 5,
                     )
@@ -243,6 +265,69 @@ class _PostList_ContentState extends State<PostList_Content> {
         ],
       );
     });
+  }
+
+  popupUser() {
+    return showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      builder: (context) {
+        return SizedBox(
+          height: 10.0.hp,
+          //  174,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Delete",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              // const Divider(
+              //   color: Colors.black,
+              //   endIndent: 30,
+              //   indent: 30,
+              //   // height: 5,
+              // ),
+              // Text(
+              //   "Edit",
+              //   style: GoogleFonts.poppins(
+              //     textStyle: TextStyle(
+              //       fontSize: 10.0.sp,
+              //       color: club_Text_1,
+              //       fontWeight: FontWeight.w500,
+              //     ),
+              //   ),
+              // ),
+              // const Divider(
+              //   color: Colors.black,
+              //   endIndent: 30,
+              //   indent: 30,
+              //   // height: 5,
+              // ),
+              // Text(
+              //   "Block",
+              //   style: GoogleFonts.poppins(
+              //     textStyle: TextStyle(
+              //       fontSize: 10.0.sp,
+              //       color: club_Text_1,
+              //       fontWeight: FontWeight.w500,
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   bottomsheet() {

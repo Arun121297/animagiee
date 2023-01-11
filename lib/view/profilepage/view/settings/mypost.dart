@@ -18,6 +18,7 @@ import '../../../homepage/view/commentscreen.dart';
 import '../../../homepage/view/likes.dart';
 import '../../../homepage/view/share.dart';
 import '../../../homepage/widgets/home_widget.dart';
+import '../../../homepage/widgets/share_home.dart';
 import '../../controller/currentuserpostlistcontroller.dart';
 
 class My_Post_UI extends StatefulWidget {
@@ -221,27 +222,25 @@ class _My_Post_UIState extends State<My_Post_UI> {
                                   //       );
                                   //     });
                                   //   },
-                                  //   child: SizedBox(
-                                  //     height: 2.0.hp,
-                                  //     // 16,
-                                  //     width: 5.0.wp,
-                                  //     // 16,
-                                  //     child: Image.asset(
-                                  //       "images/burger.png",
-                                  //       // cacheHeight: 16,
-                                  //       // cacheWidth: 16,
-                                  //     ),
-                                  //   ),
-                                  // ),
+                                  // child:
+                                  GestureDetector(
+                                    onTap: () => popupUser(),
+                                    child: SizedBox(
+                                      height: 2.0.hp,
+                                      // 16,
+                                      width: 5.0.wp,
+                                      // 16,
+                                      child: Image.asset(
+                                        "images/burger.png",
+                                        // cacheHeight: 16,
+                                        // cacheWidth: 16,
+                                      ),
+                                    ),
+                                  ),
+
                                   const SizedBox(
                                     width: 5,
                                   )
-                                  // IconButton(
-                                  //   onPressed: () {
-
-                                  //   },
-                                  //   icon: Icon(Icons.menu),
-                                  // )
                                 ],
                               ),
                               Padding(
@@ -348,10 +347,14 @@ class _My_Post_UIState extends State<My_Post_UI> {
                                   },
                                   status: listData.liked!,
                                 ),
-                                Comment_UI(
-                                    // ontap: Get.to(CommentScreenDesign())
-                                    ),
-                                const Share_UI(),
+                                Comment_UI(),
+                                // const Share_UI(),
+                                ShareHome(
+                                  desc: listData.description.toString(),
+                                  id: listData.postid!.toString(),
+                                  image: listData.addImagesOrVideos.toString(),
+                                  title: listData.username.toString(),
+                                ),
                                 Expanded(child: Container()),
                                 FavouriteIcon(
                                     onTap: () {
@@ -371,5 +374,68 @@ class _My_Post_UIState extends State<My_Post_UI> {
         );
       }
     }));
+  }
+
+  popupUser() {
+    return showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      builder: (context) {
+        return SizedBox(
+          height: 20.0.hp,
+          //  174,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Delete",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const Divider(
+                color: Colors.black,
+                endIndent: 30,
+                indent: 30,
+                // height: 5,
+              ),
+              Text(
+                "Edit",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              // const Divider(
+              //   color: Colors.black,
+              //   endIndent: 30,
+              //   indent: 30,
+              //   // height: 5,
+              // ),
+              // Text(
+              //   "Block",
+              //   style: GoogleFonts.poppins(
+              //     textStyle: TextStyle(
+              //       fontSize: 10.0.sp,
+              //       color: club_Text_1,
+              //       fontWeight: FontWeight.w500,
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

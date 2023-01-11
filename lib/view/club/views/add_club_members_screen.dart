@@ -47,8 +47,7 @@ class _AddClubMembersScreenState extends State<AddClubMembersScreen> {
                   Icons.add,
                   color: Colors.white,
                 )),
-        body: controller.isMyFriendsLoading.value ||
-                controller.tagPeopleList.isEmpty
+        body: controller.isMyFriendsLoading.value
             ? const Center(
                 child: CircularProgressIndicator(
                   color: animagiee_CL,

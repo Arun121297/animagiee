@@ -84,7 +84,7 @@ class _AdminPostState extends State<AdminPost> {
         return const Center(
           child: CircularProgressIndicator(),
         );
-      } else if (userPostListController.data.isEmpty) {
+      } else if (userPostListController.data.first.data!.isEmpty) {
         return Container(
             alignment: Alignment.center,
             height: MediaQuery.of(context).size.height - 212,
@@ -194,7 +194,7 @@ class _AdminPostState extends State<AdminPost> {
                                         height: 2.0.hp,
                                         // 16,
                                         width: 5.0.wp,
-                                        // 16,x
+                                        // 16,
                                         child: Image.asset(
                                           "images/burger.png",
                                         ),
@@ -412,6 +412,69 @@ class _AdminPostState extends State<AdminPost> {
         );
       }
     });
+  }
+
+  popupUser() {
+    return showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      builder: (context) {
+        return SizedBox(
+          height: 15.0.hp,
+          //  174,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Delete",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const Divider(
+                color: Colors.black,
+                endIndent: 30,
+                indent: 30,
+                // height: 5,
+              ),
+              Text(
+                "Edit",
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 10.0.sp,
+                    color: club_Text_1,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              // const Divider(
+              //   color: Colors.black,
+              //   endIndent: 30,
+              //   indent: 30,
+              //   // height: 5,
+              // ),
+              // Text(
+              //   "Block",
+              //   style: GoogleFonts.poppins(
+              //     textStyle: TextStyle(
+              //       fontSize: 10.0.sp,
+              //       color: club_Text_1,
+              //       fontWeight: FontWeight.w500,
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   popup() {

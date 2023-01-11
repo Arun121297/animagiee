@@ -23,7 +23,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   }
 
   initialScreen() {
-    // log(widget.token!);
+    // log(widget.token ?? '');
     dashboardCOntroller.selectedIndex(0);
     Timer(
       const Duration(seconds: 3),

@@ -1,4 +1,4 @@
-package com.example.animagieeui
+package com.animagie.application
 
 import io.flutter.embedding.android.FlutterActivity
 

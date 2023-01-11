@@ -1,5 +1,7 @@
 // import 'package:animagieeui/view/animagieeprofile/view/postlist.dart';
 
+import 'dart:developer';
+
 import 'package:animagieeui/config/constant.dart';
 import 'package:animagieeui/view/animagieeprofile/view/postlist.dart';
 import 'package:animagieeui/view/instancepage/controller/communityPotsListController.dart';
@@ -24,19 +26,20 @@ class _Pageview1_PostState extends State<Pageview1_Post> {
 
   CommunityPostListContoller communityPostListContoller =
       Get.put(CommunityPostListContoller());
-  String myUserId = "";
+  String? myUserId;
 
   @override
   void initState() {
     fetchData();
-
+    fetchProfile();
     super.initState();
   }
 
   fetchProfile() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    myUserId = pref.getString(Constant.userId)!;
+    myUserId = pref.getString(Constant.userId);
     setState(() {});
+    log("log ---->${myUserId}");
   }
 
   fetchData() {

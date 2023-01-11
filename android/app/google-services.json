@@ -1,51 +1,49 @@
 {
   "project_info": {
-    "project_number": "844165986744",
-    "firebase_url": "https://fir-animagiee-default-rtdb.firebaseio.com",
-    "project_id": "fir-animagiee",
-    "storage_bucket": "fir-animagiee.appspot.com"
+    "project_number": "482543933000",
+    "project_id": "animagie-8f2fe",
+    "storage_bucket": "animagie-8f2fe.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:844165986744:android:a3115feb7312f531aff74d",
+        "mobilesdk_app_id": "1:482543933000:android:7a9192254f0cf244c2aa7d",
         "android_client_info": {
-          "package_name": "com.example.animagieeui"
+          "package_name": "com.animagie.application"
         }
       },
       "oauth_client": [
         {
-          "client_id": "844165986744-dgj0dm7hvjb1jo1ngdjdianuaeombrjp.apps.googleusercontent.com",
+          "client_id": "482543933000-gnkhbalguqeo3q9kbojljmaoqqitb7km.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.animagieeui",
+            "package_name": "com.animagie.application",
             "certificate_hash": "c91ef4f968394fe0889551d6e6561daa4a117c44"
           }
         },
         {
-          "client_id": "844165986744-fr8g1mn3psbo9flc5ea4stfugse7m4tt.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.animagieeui",
-            "certificate_hash": "1e7f807738763ae5d19cc480e7053b23b127e5e6"
-          }
-        },
-        {
-          "client_id": "844165986744-nh4ege9efb3a3f9t973u1s7vuuoobf51.apps.googleusercontent.com",
+          "client_id": "482543933000-4j5d15hs4j1l1amnkbrc1ijbba6nt0tc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD3vVGHpqDCpcdgViDq6vcvtGtWJtbAQDc"
+          "current_key": "AIzaSyCCDj_W54-r3sXvqx86a01I1OrGTMIvc1Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "844165986744-nh4ege9efb3a3f9t973u1s7vuuoobf51.apps.googleusercontent.com",
+              "client_id": "482543933000-4j5d15hs4j1l1amnkbrc1ijbba6nt0tc.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "482543933000-ouuedbfdni4rdju184njjo2omfucta77.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.animagie.application"
+              }
             }
           ]
         }

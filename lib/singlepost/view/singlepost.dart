@@ -15,6 +15,7 @@ import '../../view/homepage/view/commentscreen.dart';
 import '../../view/homepage/view/likes.dart';
 import '../../view/homepage/widgets/home_widget.dart';
 import '../../view/homepage/widgets/share_home.dart';
+import '../../view/instancepage/controller/likeController.dart';
 import '../controller/singlepostcontroller.dart';
 
 class SinglePostDesign extends StatefulWidget {
@@ -27,11 +28,13 @@ class SinglePostDesign extends StatefulWidget {
 
 class _SinglePostDesignState extends State<SinglePostDesign> {
   SinglepostController singlepostController = Get.put(SinglepostController());
-  @override
-  void didPopNext() {
-    singlepostController.singlepostcontroller(widget.post);
-    // Covering route was popped off the navigator.
-  }
+  LikeContoller likeContoller = Get.put(LikeContoller());
+
+  // @override
+  // void didPopNext() {
+  //   singlepostController.singlepostcontroller(widget.post);
+  //   // Covering route was popped off the navigator.
+  // }
 
   @override
   void initState() {
@@ -48,6 +51,23 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
     singlepostController
         .myProfile(prefs.getString(Constant.userName).toString());
     singlepostController.singlepostcontroller(widget.post);
+  }
+
+  likePost({
+    required String id,
+  }) async {
+    await likeContoller.like(
+      id: id,
+    );
+    singlepostController.like = !singlepostController.like;
+    if (singlepostController.like) {
+      singlepostController.likeCount = singlepostController.likeCount + 1;
+      log("likes${singlepostController.likeCount}true");
+    } else {
+      singlepostController.likeCount = singlepostController.likeCount - 1;
+      log("${singlepostController.likeCount}false");
+    }
+    setState(() {});
   }
 
   @override
@@ -255,8 +275,14 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                     ),
                     Row(children: [
                       Likes_UI(
-                        onTap: () {},
-                        status: true,
+                        onTap: () {
+                          setState(() {
+                            likePost(
+                              id: response.postid ?? "",
+                            );
+                          });
+                        },
+                        status: response.liked!,
                       ),
                       // ignore: dead_code
                       // SizedBox(

@@ -93,7 +93,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                   Get.to(const Create_New_Club_UI());
                 },
                 child: SizedBox(
-                  height: 10.0.hp,
+                  height: 8.0.hp,
                   // 87,
                   // color: Colors.orange,
                   child: Row(
@@ -160,7 +160,7 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                   );
                 } else {
                   return SizedBox(
-                    height: 25.0.hp,
+                    height: 34.0.hp,
                     child: ListView.builder(
                         shrinkWrap: true,
                         itemCount: createdClubController
@@ -168,11 +168,13 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                         itemBuilder: (context, index) {
                           var listData = createdClubController
                               .getcreateclubdata[0].data![index];
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: GestureDetector(
-                              //TODO: after complete group chat remove comment
-                              /*  onTap: () {
+                          return myUserId == listData.clubOwner
+                              ? Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 8, right: 8),
+                                  child: GestureDetector(
+                                    //TODO: after complete group chat remove comment
+                                    /*  onTap: () {
                                 // Fluttertoast.showToast(msg: "yes");
                                 FirebaseFirestore.instance
                                     .collection(FirestoreConstants.group)
@@ -263,103 +265,113 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                                 // Get.to(() => ChatListingScreen());
                               },
  */
-                              onTap: () {
-                                Get.to(Animals_Profiles_UI(
-                                  id: createdClubController
-                                      .getcreateclubdata[0].data![index].clubid
-                                      .toString(),
-                                ));
-                              },
-                              child: Card(
-                                child: SizedBox(
-                                  height: 7.0.hp,
-                                  // 56,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 6.0.wp,
-                                        //  16,
-                                      ),
-                                      listData.clubicon!.contains("http")
-                                          ? CircleAvatar(
-                                              backgroundImage: NetworkImage(
-                                                  listData.clubicon.toString()),
-                                            )
-                                          : CircleAvatar(
-                                              backgroundImage: FileImage(File(
-                                                  listData.clubicon
-                                                      .toString())),
-                                            ),
-                                      SizedBox(width: 4.0.wp
-                                          //  13,
-                                          ),
-                                      Text(
-                                        listData.clubName.toString(),
-                                        style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                            fontSize: 11.0.sp,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(child: Container()),
-                                      GestureDetector(
-                                        onTap: () {
-                                          ///ppass created club id
-                                          log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
-                                          // log("id-->${Constants.userId}");
-                                          // Get.to(MyClubCreation());
-                                          Get.to(Animals_Profiles_UI(
-                                            id: listData.clubid.toString(),
-                                          ));
-                                        },
+
+                                    onTap: () {
+                                      Get.to(Animals_Profiles_UI(
+                                        id: createdClubController
+                                            .getcreateclubdata[0]
+                                            .data![index]
+                                            .clubid
+                                            .toString(),
+                                      ));
+                                    },
+                                    child: Card(
+                                      child: SizedBox(
+                                        height: 7.0.hp,
+                                        // 56,
                                         child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
                                           children: [
-                                            // Expanded(child: SizedBox()),
-                                            Container(
-                                              height: 3.5.hp,
-                                              //  26,
-                                              width: 9.0.wp,
-                                              // 90,
-                                              alignment: Alignment.center,
-                                              // decoration: BoxDecoration(
-                                              //     color: animagiee_CL,
-                                              //     borderRadius:
-                                              //         BorderRadius.circular(
-                                              //             5.0.sp)),
-                                              child: Text(
-                                                "visit",
-                                                style: GoogleFonts.poppins(
-                                                  textStyle: TextStyle(
-                                                    fontSize: 9.5.sp,
-                                                    color: animagiee_CL,
-                                                    fontWeight: FontWeight.w500,
+                                            SizedBox(
+                                              width: 6.0.wp,
+                                              //  16,
+                                            ),
+                                            listData.clubicon!.contains("http")
+                                                ? CircleAvatar(
+                                                    backgroundImage:
+                                                        NetworkImage(listData
+                                                            .clubicon
+                                                            .toString()),
+                                                  )
+                                                : CircleAvatar(
+                                                    backgroundImage: FileImage(
+                                                        File(listData.clubicon
+                                                            .toString())),
                                                   ),
+                                            SizedBox(width: 4.0.wp
+                                                //  13,
+                                                ),
+                                            Text(
+                                              listData.clubName.toString(),
+                                              style: GoogleFonts.poppins(
+                                                textStyle: TextStyle(
+                                                  fontSize: 11.0.sp,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
                                               ),
                                             ),
-                                            const Icon(
-                                              Icons.arrow_forward_ios_rounded,
-                                              size: 10,
+                                            Expanded(child: Container()),
+                                            GestureDetector(
+                                              onTap: () {
+                                                ///ppass created club id
+                                                log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
+                                                // log("id-->${Constants.userId}");
+                                                // Get.to(MyClubCreation());
+                                                Get.to(Animals_Profiles_UI(
+                                                  id: listData.clubid
+                                                      .toString(),
+                                                ));
+                                              },
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  // Expanded(child: SizedBox()),
+                                                  Container(
+                                                    height: 3.5.hp,
+                                                    //  26,
+                                                    width: 9.0.wp,
+                                                    // 90,
+                                                    alignment: Alignment.center,
+                                                    // decoration: BoxDecoration(
+                                                    //     color: animagiee_CL,
+                                                    //     borderRadius:
+                                                    //         BorderRadius.circular(
+                                                    //             5.0.sp)),
+                                                    child: Text(
+                                                      "visit",
+                                                      style:
+                                                          GoogleFonts.poppins(
+                                                        textStyle: TextStyle(
+                                                          fontSize: 9.5.sp,
+                                                          color: animagiee_CL,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const Icon(
+                                                    Icons
+                                                        .arrow_forward_ios_rounded,
+                                                    size: 10,
+                                                  ),
+                                                  // Expanded(child: SizedBox()),
+                                                ],
+                                              ),
                                             ),
-                                            // Expanded(child: SizedBox()),
+                                            SizedBox(width: 3.0.wp
+                                                // 12,
+                                                )
                                           ],
                                         ),
                                       ),
-                                      SizedBox(width: 3.0.wp
-                                          // 12,
-                                          )
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
-                          );
+                                )
+                              : SizedBox();
                         }),
                   );
                 }
@@ -390,21 +402,22 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                         child: const Text("No Datas"),
                       ),
                     )
-                  : Container(
-                      color: Colors.transparent,
-                      height: 40.0.hp,
-                      // MediaQuery.of(context).size.height / 2.1,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: instanceContoroller.communitylist.length,
-                          itemBuilder: (context, index) => MySubScript(
-                                fetchindex: index,
-                              )
-                          // My_Sub_List_Content(
-                          //   fetchindex: index,
-                          //   myUserId: myUserId,
-                          // )
-                          ),
+                  : SizedBox(
+                      height: 35.00.hp,
+                      child: Container(
+                        color: Colors.transparent,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: instanceContoroller.communitylist.length,
+                            itemBuilder: (context, index) => MySubScript(
+                                  fetchindex: index,
+                                )
+                            // My_Sub_List_Content(
+                            //   fetchindex: index,
+                            //   myUserId: myUserId,
+                            // )
+                            ),
+                      ),
                     )
             ],
           ),
