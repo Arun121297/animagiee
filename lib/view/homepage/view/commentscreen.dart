@@ -23,6 +23,7 @@ class _CommentScreenDesignState extends State<CommentScreenDesign> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomNavigationBar: TextFormField(),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Navigator.canPop(context)
