@@ -19,7 +19,6 @@ Future<void> initializeDefault() async {
   FirebaseApp app = await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  print('Initialized default app ${app.options}');
 }
 
 Future<void> main() async {
@@ -30,7 +29,7 @@ Future<void> main() async {
   Provider.debugCheckInvalidValueType = null;
 
   runApp(MyApp(
-    prefs: prefs, 
+    prefs: prefs,
   ));
 }
 
