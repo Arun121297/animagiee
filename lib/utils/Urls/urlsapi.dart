@@ -70,4 +70,8 @@ class Urls {
   static const editbgclub = '${baseUrl}api/club/editClubBackGroundProfile';
   static const editclub = '${baseUrl}api/club/editclubprofile';
   static const deletpost = '${baseUrl}api/post/deletepost';
+  //
+  static const createcomment = '${baseUrl}api/cmd/createpostcommand';
+  static const postcomment = '${baseUrl}api/cmd/postcommandlist';
+  static const deletecomment = '${baseUrl}api/cmd/postcommandlist';
 }

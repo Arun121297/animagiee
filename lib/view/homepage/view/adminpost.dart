@@ -98,9 +98,9 @@ class _AdminPostState extends State<AdminPost> {
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
-              itemCount: userPostListController.data[0].data!.length,
+              itemCount: userPostListController.data.first.data!.length,
               itemBuilder: (context, index) {
-                var data = userPostListController.data[0].data!;
+                var data = userPostListController.data.first.data!;
                 return Column(
                   children: [
                     Card(
@@ -380,9 +380,34 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid.toString(),
                                   index: index),
                             ),
-                            Comment_UI(
-                                // ontap: Get.to(CommentScreenDesign())
-                                ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  callback(
+                                      userimage: data[index]
+                                          .postowner!
+                                          .profileicon
+                                          .toString(),
+                                      username: data[index].postowner!.username,
+                                      postid: data[index].postid.toString());
+                                });
+
+                                // Get.to(CommentScreenDesign(postid: widget.ontap));
+                              },
+                              child: Container(
+                                height: 3.5.hp,
+                                width: 6.0.wp,
+                                child: SizedBox(
+                                    height: 2.0.hp,
+                                    width: 5.0.wp,
+                                    child: Image.asset("images/comment.png")),
+                              ),
+                            ),
+
+                            // Comment_UI(
+                            //     ontap: callback(
+                            //   data[index].postid,
+                            // )),
                             ShareHome(
                               desc: data[index].description.toString(),
                               id: data[index].postid!.toString(),
@@ -538,6 +563,18 @@ class _AdminPostState extends State<AdminPost> {
         );
       },
     );
+  }
+
+  callback({userimage, postid, username}) {
+    Get.to(TestMe(
+      // userimage: userimage,
+      // username: username,
+      postid: postid,
+    )
+        //   CommentScreenDesign(
+        //   postid: data,
+        // )
+        );
   }
 
   userpostpopup(context, postid) {

@@ -418,6 +418,7 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                               width: 5,
                             ),
                             Comment_UI(
+                                // ontap: callback(''),
                                 // ontap: Get.to(CommentScreenDesign())
                                 ),
                             const Share_UI(),
@@ -448,5 +449,9 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
         })
       ],
     ));
+  }
+
+  callback(variable) {
+    return variable;
   }
 }

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CommentList extends StatefulWidget {
-  const CommentList({super.key});
+  var datas;
+  CommentList({super.key, this.datas});
 
   @override
   State<CommentList> createState() => _CommentListState();
@@ -30,7 +31,7 @@ class _CommentListState extends State<CommentList> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "ProfileName",
+                      widget.datas,
                       style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontSize: 10.0.sp,

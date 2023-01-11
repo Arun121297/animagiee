@@ -247,6 +247,7 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                           status: listData.liked!,
                         ),
                         Comment_UI(
+                            // ontap: callback(''),
                             // ontap: Get.to(CommentScreenDesign())
                             ),
                         const Share_UI(),
@@ -329,5 +330,9 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
         );
       },
     );
+  }
+
+  callback(variable) {
+    return variable;
   }
 }

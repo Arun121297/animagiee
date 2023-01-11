@@ -347,7 +347,7 @@ class _My_Post_UIState extends State<My_Post_UI> {
                                   },
                                   status: listData.liked!,
                                 ),
-                                Comment_UI(),
+                                Comment_UI(ontap: callback('')),
                                 // const Share_UI(),
                                 ShareHome(
                                   desc: listData.description.toString(),
@@ -374,6 +374,10 @@ class _My_Post_UIState extends State<My_Post_UI> {
         );
       }
     }));
+  }
+
+  callback(variable) {
+    return variable;
   }
 
   popupUser() {

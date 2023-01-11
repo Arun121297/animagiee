@@ -250,6 +250,7 @@ class _PostList_ContentState extends State<PostList_Content> {
                     status: data.liked!,
                   ),
                   Comment_UI(
+                      // ontap: callback(''),
                       // ontap: Get.to(CommentScreenDesign())
                       ),
                   const Share_UI(),
@@ -391,5 +392,9 @@ class _PostList_ContentState extends State<PostList_Content> {
         );
       },
     );
+  }
+
+  callback(variable) {
+    return variable;
   }
 }

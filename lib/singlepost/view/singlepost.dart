@@ -297,6 +297,7 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                       //   width: 15,
                       // ),
                       Comment_UI(
+                          // ontap: callback(''),
                           // ontap: Get.to(CommentScreenDesign())
                           ),
                       const SizedBox(
@@ -381,5 +382,9 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
         );
       },
     );
+  }
+
+  callback(String variable) {
+    return variable;
   }
 }
