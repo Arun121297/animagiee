@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCCDj_W54-r3sXvqx86a01I1OrGTMIvc1Q',
-    appId: '1:482543933000:android:2b5d47b8fdd615c9c2aa7d',
+    appId: '1:482543933000:android:7a9192254f0cf244c2aa7d',
     messagingSenderId: '482543933000',
     projectId: 'animagie-8f2fe',
     storageBucket: 'animagie-8f2fe.appspot.com',

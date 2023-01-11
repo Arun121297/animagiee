@@ -7,6 +7,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:482543933000:android:7a9192254f0cf244c2aa7d",
+        "android_client_info": {
+          "package_name": "com.animagie.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482543933000-4j5d15hs4j1l1amnkbrc1ijbba6nt0tc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCDj_W54-r3sXvqx86a01I1OrGTMIvc1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482543933000-4j5d15hs4j1l1amnkbrc1ijbba6nt0tc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "482543933000-ouuedbfdni4rdju184njjo2omfucta77.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.animagie.application"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:482543933000:android:2b5d47b8fdd615c9c2aa7d",
         "android_client_info": {
           "package_name": "com.example.animagieeui"
