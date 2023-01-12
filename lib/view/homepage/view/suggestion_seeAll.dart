@@ -117,7 +117,7 @@ class _SuggestionSeeAllState extends State<SuggestionSeeAll> {
                               .replaceAll(RegExp('@gmail.com'), ''),
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              fontSize: 7.0.sp,
+                              fontSize: 9.0.sp,
                               color: buttonColor1_CL,
                               fontWeight: FontWeight.w600,
                             ),

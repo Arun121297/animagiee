@@ -23,8 +23,10 @@ class ClubIconController extends GetxController {
         // clubcreationdata.add(response);
 
         Get.off(() => MyClubs_UI());
+        Fluttertoast.showToast(msg: "Add New Club");
         clubcretedataloadingindicator(false);
         // Get.back();
+
       } else {
         clubcretedataloadingindicator(false);
         return null;

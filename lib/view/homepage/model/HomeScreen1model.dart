@@ -38,6 +38,7 @@ class Datum {
     this.addImagesOrVideos,
     this.posttype,
     this.postowner,
+    this.username,
     this.description,
     this.likecount,
     this.cmdCount,
@@ -45,6 +46,7 @@ class Datum {
     this.liked,
     this.saved,
     this.blocked,
+    this.clubownerId,
   });
 
   String? postid;
@@ -54,17 +56,21 @@ class Datum {
   Postowner? postowner;
   String? description;
   int? likecount;
+  String? username;
   int? cmdCount;
   int? postViewCount;
   bool? liked;
   bool? saved;
   bool? blocked;
+  String? clubownerId;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         postid: json["postid"] ?? "",
         indiviual: json["indiviual"],
         addImagesOrVideos: json["addImagesOrVideos"] ?? "",
         posttype: json["posttype"] ?? "",
+        username: json["username"] ?? "",
+        clubownerId: json["clubownerId"] ?? "",
         postowner: Postowner.fromJson(json["postowner"]),
         description: json["description"] ?? "",
         likecount: json["likecount"] ?? 0,
@@ -84,6 +90,8 @@ class Datum {
         "description": description,
         "likecount": likecount,
         "cmdCount": cmdCount,
+        "username": username,
+        "clubownerId": clubownerId,
         "postViewCount": postViewCount,
         "liked": liked,
         "saved": saved,

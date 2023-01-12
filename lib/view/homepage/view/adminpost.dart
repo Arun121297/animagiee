@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/comment/views/commentscreen.dart';
+import 'package:animagieeui/utils/constance.dart';
 
 import 'package:animagieeui/view/homepage/view/suggestion.dart';
 import 'package:animagieeui/view/homepage/widgets/home_widget.dart';
@@ -15,6 +16,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../config/colorconfig.dart';
@@ -50,6 +52,23 @@ class _AdminPostState extends State<AdminPost> {
   //   log("sdatassss_____---->${userPostListController.data}");
   //   super.initState();
   // }
+  String? userid;
+  // ClubIconController clubIconController = Get.put(ClubIconController());
+  // ClubController clubController = Get.put(ClubController());
+  @override
+  void initState() {
+    fetchdata();
+    super.initState();
+  }
+
+  fetchdata() {
+    Future.delayed(Duration.zero, () async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      userid = prefs.getString(Constants.userId);
+      print('userid$userid');
+      // print('userid->${widget.id}');
+    });
+  }
 
   likePost({required String id, required int index}) async {
     await likeContoller.like(id: id, index: index);
@@ -163,38 +182,62 @@ class _AdminPostState extends State<AdminPost> {
                               const SizedBox(
                                 width: 5,
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  if (widget.userId.toString() ==
-                                      data[index].postowner!.id.toString()) {
-                                    controller.selectedIndex(4);
-                                  } else {
-                                    Get.to(() => User_Profile(
-                                          id: data[index]
+                              Column(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      if (widget.userId.toString() ==
+                                          data[index]
                                               .postowner!
                                               .id
-                                              .toString(),
-                                        ));
-                                  }
-                                },
-                                child: SizedBox(
-                                  width: 70.0.wp,
-                                  // color: Colors.amber,
-                                  child: Text(
-                                    data[index].postowner!.username.toString(),
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
-                                        fontSize: 10.5.sp,
-                                        color: buttonColor1_CL,
-                                        fontWeight: FontWeight.w500,
+                                              .toString()) {
+                                        controller.selectedIndex(4);
+                                      } else {
+                                        Get.to(() => User_Profile(
+                                              id: data[index]
+                                                  .postowner!
+                                                  .id
+                                                  .toString(),
+                                            ));
+                                      }
+                                    },
+                                    child: SizedBox(
+                                      width: 70.0.wp,
+                                      // color: Colors.amber,
+                                      child: Text(
+                                        data[index].username.toString(),
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                            fontSize: 10.5.sp,
+                                            color: buttonColor1_CL,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
+                                  data[index].postowner!.username !=
+                                          data[index].username
+                                      ? SizedBox(
+                                          width: 70.0.wp,
+                                          child: Text(
+                                            "posted by ${data[index].postowner!.username.toString()}",
+                                            overflow: TextOverflow.ellipsis,
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 10.0.sp,
+                                                color: buttonColor1_CL,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      : SizedBox()
+                                ],
                               ),
                               SizedBox(
-                                width: 4.0.wp,
+                                width: 5.0.wp,
                                 //  12,
                               ),
                               data[index].postowner!.id == widget.userId
@@ -262,7 +305,7 @@ class _AdminPostState extends State<AdminPost> {
                             key: Key(index.toString()),
                             child: GestureDetector(
                                 child: MediaWidget(
-                              mediaType: data[index].posttype!,
+                              mediaType: data[index].posttype.toString(),
                               source: data[index].addImagesOrVideos!,
                             )),
                             onVisibilityChanged: (visibilityInfo) {
@@ -443,7 +486,7 @@ class _AdminPostState extends State<AdminPost> {
                               title: data[index].postowner!.username.toString(),
                             ),
                             SizedBox(
-                              width: 57.0.wp,
+                              width: 50.0.wp,
                             ),
                             FavouriteIcon(
                               onTap: () => addToFavourite(

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/config/text_styles.dart';
 import 'package:animagieeui/utils/constance.dart';
 import 'package:animagieeui/view/club/views/club_join_request_list.dart';
 import 'package:animagieeui/view/communitypage/view/clubs/clubcreation/editdeletclub.dart';
@@ -95,7 +96,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 22.0.hp,
+                      height: 23.0.hp,
                       //  168,
                       child: Stack(children: [
                         data.clubbgicon!.isEmpty
@@ -113,7 +114,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                             bottomRight:
                                                 Radius.circular(15.0.sp))),
                                     width: MediaQuery.of(context).size.width,
-                                    height: 13.0.hp,
+                                    height: 15.0.hp,
                                     // 108,
                                   )
                                 : Container(
@@ -128,7 +129,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                             bottomRight:
                                                 Radius.circular(15.0.sp))),
                                     width: MediaQuery.of(context).size.width,
-                                    height: 13.0.hp,
+                                    height: 15.0.hp,
                                     // 108,
                                   ),
                         Container(
@@ -138,7 +139,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                   bottomLeft: Radius.circular(15.0.sp),
                                   bottomRight: Radius.circular(15.0.sp))),
                           width: MediaQuery.of(context).size.width,
-                          height: 13.0.hp,
+                          height: 15.0.hp,
                           // 108,
                         ),
                         data.clubicon!.contains('https')
@@ -177,18 +178,12 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                                 ),
                               ),
                         Padding(
-                          padding: EdgeInsets.all(50.0.sp),
+                          padding: EdgeInsets.only(top: 55.0.sp, left: 50.0.sp),
                           child: Container(
-                              margin: EdgeInsets.only(left: 58.0.sp),
+                              margin: EdgeInsets.only(left: 63.0.sp),
                               child: Text(
                                 data.clubName.toString(),
-                                style: GoogleFonts.jost(
-                                  textStyle: TextStyle(
-                                    fontSize: 19.5.sp,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
+                                style: GoogleFonts.jost(textStyle: profileNmae),
                               )),
                         ),
                         Padding(
@@ -371,7 +366,7 @@ class _Animals_Profiles_UIState extends State<Animals_Profiles_UI> {
                         data.clubDescription.toString(),
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 10.0.sp,
+                            fontSize: 11.0.sp,
                             color: dummycontent_Cl,
                             fontWeight: FontWeight.w400,
                           ),

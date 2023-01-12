@@ -23,8 +23,8 @@ class _Likes_UIState extends State<Likes_UI> {
     size: 20.0.sp,
   );
   final Icon unlike = Icon(
-    Icons.favorite_border,
-    size: 22.0.sp,
+    Icons.favorite_outline,
+    size: 20.0.sp,
   );
   bool click = false;
   @override

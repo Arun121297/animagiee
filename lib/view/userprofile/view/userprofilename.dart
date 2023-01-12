@@ -1,4 +1,5 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/config/text_styles.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,19 +23,12 @@ class _User_Profile_Name_UIState extends State<User_Profile_Name_UI> {
           itemCount: userPostProfileController.data.length,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
-              padding:
-                  EdgeInsets.only(left: 55.0.sp, top: 55.0.sp, bottom: 55.0.sp),
+              padding: EdgeInsets.only(left: 55.0.sp, top: 55.0.sp),
               child: Container(
-                  margin: EdgeInsets.only(left: 50.0.sp, top: 15.00.sp),
+                  margin: EdgeInsets.only(left: 63.0.sp, top: 6.00.sp),
                   child: Text(
                     userPostProfileController.data[index].username.toString(),
-                    style: GoogleFonts.jost(
-                      textStyle: TextStyle(
-                        fontSize: 14.0.sp,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    style: GoogleFonts.jost(textStyle: profileNmae),
                   )),
             );
           }),
