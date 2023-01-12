@@ -297,9 +297,13 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                       //   width: 15,
                       // ),
                       Comment_UI(
-                          // ontap: callback(''),
-                          // ontap: Get.to(CommentScreenDesign())
-                          ),
+                        postid: response.postid,
+                        userimage: response.postowner!.profileicon.toString(),
+                        username: response.postowner!.username.toString(),
+                        //     ontap: callback(
+                        //   data[index].postid,
+                        // )
+                      ),
                       const SizedBox(
                         width: 15,
                       ),

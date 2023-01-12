@@ -97,6 +97,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   sign_in_with_apple: ^4.3.0
   icons_launcher: ^2.0.6
+  comment_box: ^0.0.18
   # fluttertoast: 8.1.1
   # cached_network_image: ^3.2.3
 

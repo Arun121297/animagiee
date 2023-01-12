@@ -402,34 +402,40 @@ class _AdminPostState extends State<AdminPost> {
                                   id: data[index].postid.toString(),
                                   index: index),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  callback(
-                                      userimage: data[index]
-                                          .postowner!
-                                          .profileicon
-                                          .toString(),
-                                      username: data[index].postowner!.username,
-                                      postid: data[index].postid.toString());
-                                });
+                            // GestureDetector(
+                            //   onTap: () {
+                            //     setState(() {
+                            //       callback(
+                            //           userimage: data[index]
+                            //               .postowner!
+                            //               .profileicon
+                            //               .toString(),
+                            //           username: data[index].postowner!.username,
+                            //           postid: data[index].postid.toString());
+                            //     });
 
-                                // Get.to(CommentScreenDesign(postid: widget.ontap));
-                              },
-                              child: Container(
-                                height: 3.5.hp,
-                                width: 6.0.wp,
-                                child: SizedBox(
-                                    height: 2.0.hp,
-                                    width: 5.0.wp,
-                                    child: Image.asset("images/comment.png")),
-                              ),
+                            //     // Get.to(CommentScreenDesign(postid: widget.ontap));
+                            //   },
+                            //   child: Container(
+                            //     height: 3.5.hp,
+                            //     width: 6.0.wp,
+                            //     child: SizedBox(
+                            //         height: 2.0.hp,
+                            //         width: 5.0.wp,
+                            //         child: Image.asset("images/comment.png")),
+                            //   ),
+                            // ),
+
+                            Comment_UI(
+                              postid: data[index].postid,
+                              userimage:
+                                  data[index].postowner!.profileicon.toString(),
+                              username:
+                                  data[index].postowner!.username.toString(),
+                              //     ontap: callback(
+                              //   data[index].postid,
+                              // )
                             ),
-
-                            // Comment_UI(
-                            //     ontap: callback(
-                            //   data[index].postid,
-                            // )),
                             ShareHome(
                               desc: data[index].description.toString(),
                               id: data[index].postid!.toString(),
@@ -597,17 +603,17 @@ class _AdminPostState extends State<AdminPost> {
     );
   }
 
-  callback({userimage, postid, username}) {
-    Get.to(TestMe(
-      // userimage: userimage,
-      // username: username,
-      postid: postid,
-    )
-        //   CommentScreenDesign(
-        //   postid: data,
-        // )
-        );
-  }
+  // callback({userimage, postid, username}) {
+  //   Get.to(TestMe(
+  //     // userimage: userimage,
+  //     // username: username,
+  //     postid: postid,
+  //   )
+  //       //   CommentScreenDesign(
+  //       //   postid: data,
+  //       // )
+  //       );
+  // }
 
   userpostpopup(context, postid) {
     return showModalBottomSheet(
@@ -653,9 +659,12 @@ class _AdminPostState extends State<AdminPost> {
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-
+                  mypostDeletController.mydeletpost(postid).then((value) async {
+                    await userPostListController.getHome();
+                  });
                   mypostDeletController.mydeletpost(postid);
                   // upcomming(
+
                   //   'Delete Options Comming Soon',
                   // );
                   setState(() {});
@@ -673,22 +682,6 @@ class _AdminPostState extends State<AdminPost> {
                   ),
                 ),
               ),
-              // const Divider(
-              //   color: Colors.black,
-              //   endIndent: 30,
-              //   indent: 30,
-              //   // height: 5,
-              // ),
-              // Text(
-              //   "Block",
-              //   style: GoogleFonts.poppins(
-              //     textStyle: TextStyle(
-              //       fontSize: 10.0.sp,
-              //       color: club_Text_1,
-              //       fontWeight: FontWeight.w500,
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         );

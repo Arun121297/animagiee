@@ -19,6 +19,7 @@ import '../../homepage/view/commend.dart';
 import '../../homepage/view/commentscreen.dart';
 import '../../homepage/view/likes.dart';
 import '../../homepage/view/share.dart';
+import '../../homepage/widgets/share_home.dart';
 // import '../../homepage/bookmark.dart';
 // import '../../homepage/commend.dart';
 // import '../../homepage/likes.dart';
@@ -275,10 +276,18 @@ class _PostList_ContentState extends State<PostList_Content> {
                     status: data.liked!,
                   ),
                   Comment_UI(
-                      // ontap: callback(''),
-                      // ontap: Get.to(CommentScreenDesign())
-                      ),
-                  const Share_UI(),
+                    postid: data.postid,
+                    userimage: data.postowner!.profileicon.toString(),
+                    username: data.postowner!.username.toString(),
+                    //     ontap: callback(
+                    //   data[index].postid,
+                    // )
+                  ),
+                  ShareHome(
+                      desc: data.description.toString(),
+                      id: data.postid.toString(),
+                      image: data.addImagesOrVideos.toString(),
+                      title: data.postowner!.username.toString()),
                   Expanded(child: Container()),
                   FavouriteIcon(
                       onTap: () =>
@@ -429,7 +438,7 @@ class _PostList_ContentState extends State<PostList_Content> {
     );
   }
 
-  callback(variable) {
-    return variable;
+  callback() {
+    return null;
   }
 }

@@ -3,17 +3,18 @@ import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';
 
-import '../Service/createcommend.dart';
+// import '../Service/createcommend.dart';
 import '../controller/commendcomtrollerlist.dart';
+import '../controller/commentdeletcontroller.dart';
 import '../controller/createcommentcontroller.dart';
 
 class TestMe extends StatefulWidget {
   var postid;
-  // var username;
-  // var userimage;
-  TestMe({super.key, this.postid});
+  var username;
+  var userimage;
+  TestMe({super.key, this.postid, this.userimage, this.username});
   @override
   _TestMeState createState() => _TestMeState();
 }
@@ -24,32 +25,8 @@ class _TestMeState extends State<TestMe> {
   PostCommendListController postCommendListController =
       Get.put(PostCommendListController());
   CreateCommentController createCommend = Get.put(CreateCommentController());
-  List filedata = [
-    // {
-    //   'name': 'Chuks Okwuenu',
-    //   'pic': 'https://picsum.photos/300/30',
-    //   'message': 'I love to code',
-    //   'date': '2021-01-01 12:00:00'
-    // },
-    // {
-    //   'name': 'Biggi Man',
-    //   'pic': 'https://www.adeleyeayodeji.com/img/IMG_20200522_121756_834_2.jpg',
-    //   'message': 'Very cool',
-    //   'date': '2021-01-01 12:00:00'
-    // },
-    // {
-    //   'name': 'Tunde Martins',
-    //   'pic': 'assets/img/userpic.jpg',
-    //   'message': 'Very cool',
-    //   'date': '2021-01-01 12:00:00'
-    // },
-    // {
-    //   'name': 'Biggi Man',
-    //   'pic': 'https://picsum.photos/300/30',
-    //   'message': 'Very cool',
-    //   'date': '2021-01-01 12:00:00'
-    // },
-  ];
+  CommenddeletController commenddeletController =
+      Get.put(CommenddeletController());
   @override
   void initState() {
     // TODO: implement initState
@@ -95,10 +72,6 @@ class _TestMeState extends State<TestMe> {
   //     );
   //   });
   // }
-  date() async {
-    DateTime now = DateTime.now();
-    String formattedDate = DateFormat('kk:mm:ss \n EEE d MMM').format(now);
-  }
 
   back() {
     Get.back();
@@ -131,25 +104,20 @@ class _TestMeState extends State<TestMe> {
         child: Container(
           child: CommentBox(
               userImage: CommentBox.commentImageParser(
-                  imageURLorPath: 'images/emptyimage.jfif'),
+                  imageURLorPath: widget.userimage),
               labelText: 'Write a comment...',
               errorText: 'Comment cannot be blank',
               withBorder: false,
               sendButtonMethod: () {
                 if (formKey.currentState!.validate()) {
                   setState(() {
-                    // var value = {
-                    //   // 'username': widget.username,
-                    //   // 'profileicon': widget.userimage,
-                    //   // 'commandword': commentController.text,
-                    //   // 'createdAt': '2021-01-01 12:00:00'
-                    // };
-                    // filedata.add(value);
-                    createCommend.createcommentcontrollerfun(
-                        commandword: commentController.text,
-                        postid: widget.postid);
-
-                    // datas!.insert(0, value);
+                    createCommend
+                        .createcommentcontrollerfun(
+                            commandword: commentController.text,
+                            postid: widget.postid)
+                        .then((value) async {
+                      await postCommendListController.postcommed(widget.postid);
+                    });
                   });
                   commentController.clear();
                   FocusScope.of(context).unfocus();
@@ -252,7 +220,18 @@ class _TestMeState extends State<TestMe> {
                                     Icons.delete,
                                     color: Colors.red,
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    ///delete comment
+                                    setState(() {
+                                      commenddeletController
+                                          .mydeletcomment(
+                                              commandid: data[i]!.id.toString())
+                                          .then((value) async {
+                                        await postCommendListController
+                                            .postcommed(widget.postid);
+                                      });
+                                    });
+                                  },
                                 ),
                               ],
                             ),
@@ -271,19 +250,6 @@ class _TestMeState extends State<TestMe> {
                             ),
                           ],
                         ),
-
-                      // Padding(
-                      //   padding:
-                      //       const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
-                      //   // child: ListTile(
-                      //   //   leading:
-                      //   //   title:
-                      //   //   subtitle:
-                      //   //   trailing:
-                      //   //   // Text(data[i]!.createdAt.toString(),
-                      //   //   //     style: const TextStyle(fontSize: 10)),
-                      //   // ),
-                      // ),
                     ],
                   );
                 }

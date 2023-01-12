@@ -1,12 +1,17 @@
 import 'package:animagieeui/config/extension.dart';
+import 'package:animagieeui/view/comment/models/post_comment_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'commentscreen.dart';
 
 class Comment_UI extends StatefulWidget {
-  var ontap;
-  Comment_UI({Key? key, this.ontap}) : super(key: key);
+  // Function() ontap;
+  var postid;
+  var userimage;
+  var username;
+  Comment_UI({Key? key, this.postid, this.userimage, this.username})
+      : super(key: key);
 
   @override
   State<Comment_UI> createState() => _Comment_UIState();
@@ -16,10 +21,13 @@ class _Comment_UIState extends State<Comment_UI> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => widget.ontap,
-      //  {
-      //   Get.to(CommentScreenDesign(postid: widget.ontap));
-      // },
+      onTap: () {
+        Get.to(TestMe(
+          postid: widget.postid,
+          userimage: widget.userimage,
+          username: widget.username,
+        ));
+      },
       // => ontap,
       child: Container(
         height: 3.5.hp,

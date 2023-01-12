@@ -355,7 +355,14 @@ class _My_Post_UIState extends State<My_Post_UI> {
                                   },
                                   status: listData.liked!,
                                 ),
-                                Comment_UI(ontap: callback('')),
+                                Comment_UI(
+                                  postid: listData.postid,
+                                  userimage: listData.profileicon.toString(),
+                                  username: listData.username.toString(),
+                                  //     ontap: callback(
+                                  //   data[index].postid,
+                                  // )
+                                ),
                                 // const Share_UI(),
                                 ShareHome(
                                   desc: listData.description.toString(),

@@ -15,6 +15,7 @@ import '../../../../homeAppBar/view/appbar.dart';
 import '../../../../homepage/view/commend.dart';
 import '../../../../homepage/view/commentscreen.dart';
 import '../../../../homepage/view/share.dart';
+import '../../../../homepage/widgets/share_home.dart';
 import '../../../../userprofile/view/userprofile.dart';
 
 class My_Favourites_UI extends StatefulWidget {
@@ -418,10 +419,19 @@ class _My_Favourites_UIState extends State<My_Favourites_UI> {
                               width: 5,
                             ),
                             Comment_UI(
-                                // ontap: callback(''),
-                                // ontap: Get.to(CommentScreenDesign())
-                                ),
-                            const Share_UI(),
+                              postid: listData.postid,
+                              userimage:
+                                  listData.postowner!.profileicon.toString(),
+                              username: listData.postowner!.username.toString(),
+                              //     ontap: callback(
+                              //   data[index].postid,
+                              // )
+                            ),
+                            ShareHome(
+                                desc: listData.description.toString(),
+                                id: listData.postid.toString(),
+                                image: listData.addImagesOrVideos.toString(),
+                                title: listData.postowner!.username.toString()),
                             //   ],
                             // ),
                             // ),

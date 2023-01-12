@@ -18,6 +18,7 @@ import '../../homepage/view/commend.dart';
 import '../../homepage/view/commentscreen.dart';
 import '../../homepage/view/likes.dart';
 import '../../homepage/view/share.dart';
+import '../../homepage/widgets/share_home.dart';
 
 class UserProfile_Page1_UI extends StatefulWidget {
   String id;
@@ -256,7 +257,11 @@ class _UserProfile_Page1_UIState extends State<UserProfile_Page1_UI> {
                             // ontap: callback(''),
                             // ontap: Get.to(CommentScreenDesign())
                             ),
-                        const Share_UI(),
+                        ShareHome(
+                            desc: listData.description.toString(),
+                            id: listData.postid.toString(),
+                            image: listData.addImagesOrVideos.toString(),
+                            title: listData.username.toString()),
                         SizedBox(
                           width: 50.0.wp,
                         ),
