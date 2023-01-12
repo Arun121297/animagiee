@@ -42,7 +42,8 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
       // bottomNavigationBar: Customized_Bottom_Bar(),
       body: SafeArea(
           child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // PodCast_AppBar_UI(),
           AppbarContainer(
@@ -62,9 +63,24 @@ class _Audio_Podcast_UIState extends State<Audio_Podcast_UI> {
             fun: Home_Page(),
           ),
           SizedBox(
-            height: 25.0.hp,
+            height: 20.0.hp,
           ),
-          CommingZoon()
+
+          CommingZoon(),
+          SizedBox(
+            height: 2.0.hp,
+          ),
+
+          Text(
+            textAlign: TextAlign.center,
+            "We are coming soon with this\n feature...",
+            style: TextStyle(
+                height: 0.2.hp,
+                color: bg_color27,
+                fontSize: 23.00.sp,
+                fontWeight: FontWeight.w600),
+          )
+
           // Expanded(
           //     child: SingleChildScrollView(
           //         child: SizedBox(

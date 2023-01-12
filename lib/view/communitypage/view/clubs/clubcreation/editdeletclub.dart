@@ -462,7 +462,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                   ],
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
               GestureDetector(
                 onTap: () {
                   setState(() {
@@ -510,7 +510,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                 },
                 child: Container(
                   height: 43,
-                  width: 310,
+                  width: 300,
                   decoration: BoxDecoration(
                       color: buttonColor1_CL,
                       borderRadius: BorderRadius.circular(15)),
@@ -527,7 +527,14 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                   ),
                 ),
               ),
-              const Divider(),
+              SizedBox(
+                height: 2.0.hp,
+              ),
+              const Divider(
+                indent: 85,
+                endIndent: 85,
+                thickness: 1.5,
+              ),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -537,7 +544,7 @@ class _EditandDeleteMyClubState extends State<EditandDeleteMyClub> {
                       "Delete Group",
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: 10.0.sp,
+                          fontSize: 12.0.sp,
                           color: Colors.red,
                           fontWeight: FontWeight.w600,
                         ),

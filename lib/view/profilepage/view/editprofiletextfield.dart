@@ -88,7 +88,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 "Tell about yourself",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 10.0.sp,
+                    fontSize: 11.0.sp,
                     color: dummycontent_Cl,
                     fontWeight: FontWeight.w500,
                   ),
@@ -122,9 +122,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     onChanged: (val) {},
                     decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintStyle: GoogleFonts.jost(
-                          textStyle: const TextStyle(
-                            fontSize: 10,
+                        hintStyle: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            fontSize: 12.0.sp,
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
                           ),
@@ -144,7 +144,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 "First Name",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 9.5.sp,
+                    fontSize: 11.0.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -170,7 +170,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       border: InputBorder.none,
                       hintStyle: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: 9.5.sp,
+                          fontSize: 11.0.sp,
                           color: Colors.grey,
                           fontWeight: FontWeight.w400,
                         ),
@@ -192,7 +192,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 "Last Name",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 9.5.sp,
+                    fontSize: 11.0.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -218,7 +218,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                       border: InputBorder.none,
                       hintStyle: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: 9.5.sp,
+                          fontSize: 11.0.sp,
                           color: Colors.grey,
                           fontWeight: FontWeight.w400,
                         ),
@@ -240,7 +240,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 "Profession",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 9.5.sp,
+                    fontSize: 11.0.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -262,6 +262,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
 
                   // dropdown
                   DropdownButton(
+              
                 selectedItemBuilder: (BuildContext context) {
                   //<-- SEE HERE
                   return profession.map((String items) {
@@ -283,7 +284,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 value: professiondropvalue,
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 9.5.sp,
+                    fontSize: 11.0.sp,
                     color: Colors.grey,
                     //  Colors.grey,
                     fontWeight: FontWeight.w400,
@@ -295,6 +296,12 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
 
                 // Array list of items
                 items: profession.map((String items) {
+                  print(profession);
+                  var temp = profession.length;
+                  print(profession.elementAt(temp - 1));
+
+                  var prof = profession.elementAt(temp - 1);
+
                   return DropdownMenuItem(
                     value: items,
                     child: Column(
@@ -307,17 +314,20 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                               items,
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
+                                  // fontSize: 9.5.sp,
+                                  fontSize: 11.0.sp,
                                   color: Colors.black,
                                   //  Colors.grey,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                             )),
-                        Divider(
-                          height: 3.0.hp,
-                          color: const Color.fromRGBO(181, 181, 181, 1),
-                        )
+                        (prof != items)
+                            ? Divider(
+                                height: 3.0.hp,
+                                color: const Color.fromRGBO(181, 181, 181, 1),
+                              )
+                            : SizedBox(),
                       ],
                     ),
                   );
@@ -447,7 +457,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         "Gender",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.5.sp,
+                            fontSize: 11.0.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
@@ -465,12 +475,13 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                           border: Border.all(width: 1, color: Colors.grey),
                           borderRadius: BorderRadius.circular(5.0.sp)),
                       child: DropdownButton(
-                        hint: Center(
+                        hint: Padding(
+                          padding: const EdgeInsets.only(top: 15.0, left: 8.5),
                           child: Text(
                             "Select Gender",
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                fontSize: 9.5.sp,
+                                fontSize: 11.0.sp,
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -509,30 +520,45 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         icon: const Icon(Icons.keyboard_arrow_down),
 
                         // Array list of items
-                        items: gender.map((String items) {
+                        items: gender.map((String items1) {
+                          print(gender);
+                          var temp1 = gender.length;
+                          print(gender.elementAt(temp1 - 1));
+
+                          var gen = gender.elementAt(temp1 - 1);
                           return DropdownMenuItem(
-                            value: items,
+                            value: items1,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                    margin: const EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      items,
-                                      style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                          fontSize: 9.5.sp,
-                                          color: Colors.black,
-                                          //  Colors.grey,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                  margin: const EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    items1,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        // fontSize: 9.5.sp,
+                                        fontSize: 11.0.sp,
+                                        color: Colors.black,
+                                        //  Colors.grey,
+                                        fontWeight: FontWeight.w500,
                                       ),
-                                    )),
-                                Divider(
-                                  height: 3.0.hp,
-                                  color: const Color.fromRGBO(181, 181, 181, 1),
-                                )
+                                    ),
+                                  ),
+                                ),
+                                (gen != items1)
+                                    ? Divider(
+                                        height: 3.0.hp,
+                                        color: const Color.fromRGBO(
+                                            181, 181, 181, 1),
+                                      )
+                                    : SizedBox(),
+
+                                // Divider(
+                                //   height: 3.0.hp,
+                                //   color: const Color.fromRGBO(181, 181, 181, 1),
+                                // ) ,
                               ],
                             ),
                           );
@@ -558,7 +584,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         "Date of Birth",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.5.sp,
+                            fontSize: 11.0.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
@@ -587,9 +613,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                             controller: editScreenController.dob,
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintStyle: GoogleFonts.jost(
+                              hintStyle: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
+                                  fontSize: 11.0.sp,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -615,7 +641,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 "Email ID",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 9.5.sp,
+                    fontSize: 11.0.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -634,19 +660,19 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                   borderRadius: BorderRadius.circular(5.0.sp)),
               child: Padding(
                 padding: EdgeInsets.only(
-                    left: 8.0.sp, top: 0.0, bottom: 7.0.sp, right: 0.0),
+                    left: 8.0.sp, top: 0.0, bottom: 5.0.sp, right: 0.0),
                 child: TextField(
                     controller: editScreenController.email,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintStyle: GoogleFonts.jost(
+                      hintStyle: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: 9.5.sp,
+                          fontSize: 11.0.sp,
                           color: Colors.grey,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      hintText: "Email",
+                      hintText: "Email ID",
                       // hintText: "First Name"
                     )),
               ),
@@ -662,8 +688,8 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
               child: Text(
                 "Mobile Number",
                 style: GoogleFonts.poppins(
-                  textStyle: const TextStyle(
-                    fontSize: 11,
+                  textStyle: TextStyle(
+                    fontSize: 11.0.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -690,9 +716,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     // maxLengthEnforcement: MaxLengthEnforcement.enforced,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintStyle: GoogleFonts.jost(
+                      hintStyle: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: 9.5.sp,
+                          fontSize: 11.0.sp,
                           color: Colors.grey,
                           fontWeight: FontWeight.w400,
                         ),
@@ -714,7 +740,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 "Address",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 9.5.sp,
+                    fontSize: 11.0.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -738,9 +764,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     controller: editScreenController.address,
                     decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintStyle: GoogleFonts.jost(
+                        hintStyle: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.5.sp,
+                            fontSize: 11.0.sp,
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
                           ),
@@ -767,7 +793,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         "State",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.5.sp,
+                            fontSize: 11.0.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
@@ -804,7 +830,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         value: statedropdownvalue,
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.5.sp,
+                            fontSize: 11.0.sp,
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
                           ),
@@ -865,7 +891,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         "City",
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.5.sp,
+                            fontSize: 11.0.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
@@ -902,7 +928,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                         value: citydropdownvalue,
                         style: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.5.sp,
+                            fontSize: 11.0.sp,
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
                           ),
@@ -965,7 +991,7 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                 "Pin Code",
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 9.5.sp,
+                    fontSize: 11.0.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -990,9 +1016,9 @@ class _Edit_Profile_TextField_UIState extends State<Edit_Profile_TextField_UI> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintStyle: GoogleFonts.jost(
+                        hintStyle: GoogleFonts.poppins(
                           textStyle: TextStyle(
-                            fontSize: 9.5.sp,
+                            fontSize: 11.0.sp,
                             color: Colors.grey,
                             fontWeight: FontWeight.w400,
                           ),

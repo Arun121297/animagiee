@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/controller/controller.dart';
 import 'package:animagieeui/view/home.dart';
 import 'package:animagieeui/view/homepage/view/homepage.dart';
@@ -23,7 +24,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   }
 
   initialScreen() {
-    // log(widget.token ?? '');
+    log(widget.token ?? '');
     dashboardCOntroller.selectedIndex(0);
     Timer(
       const Duration(seconds: 3),
@@ -39,10 +40,17 @@ class _Splash_ScreenState extends State<Splash_Screen> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(microseconds: 200),
-      child: Container(
-          color: Colors.white, child: Image.asset("images/animagie_logo.png")),
+    return Scaffold(
+      body: AnimatedContainer(
+        duration: const Duration(microseconds: 200),
+        child: Center(
+          child: SizedBox(
+            height: 36.50.hp,
+            width: 80.00.wp,
+            child: Image.asset("images/splash_logo.png"),
+          ),
+        ),
+      ),
     );
   }
 }

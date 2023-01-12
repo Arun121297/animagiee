@@ -144,225 +144,237 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
           SizedBox(height: 3.0.hp
               // 15,
               ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              InkWell(
-                onTap: () {
-                  Get.to(const MyFollower());
-                },
-                child: Container(
-                  height: 4.0.hp,
-                  // 30,
-                  width: 33.0.wp,
-                  // 124,
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: animagiee_CL,
-                      ),
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        "Followers",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      const VerticalDivider(
-                        color: animagiee_CL,
-                      ),
-                      Text(
-                        data.followerUser!.length.toString(),
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Get.to(const MyFollowUser());
-                },
-                child: Container(
-                  height: 4.0.hp,
-                  // 30,
-                  width: 33.0.wp,
-                  // 124,
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: animagiee_CL,
-                      ),
-                      borderRadius: BorderRadius.circular(5)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        "Following",
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      const VerticalDivider(
-                        color: animagiee_CL,
-                      ),
-                      Text(
-                        data.followingUser!.length.toString(),
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.5.sp,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 2.0.hp,
-            // 15,
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
+          Padding(
+            padding: EdgeInsets.only(left: 5.0.wp, right: 5.0.wp),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
+                // SizedBox(
+                //   width: 5.5.wp,
+                // ),
+                InkWell(
                   onTap: () {
-                    Get.to(() => My_Post_UI(
-                          id: data.id,
-                        ));
+                    Get.to(const MyFollower());
                   },
-                  child: Card(
-                    elevation: 3,
-                    child: SizedBox(
-                        width: 45.0.wp,
-                        // 160,
-                        height: 5.0.hp,
-                        // 40,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            SizedBox(
-                              height: 3.0.hp,
-                              width: 7.0.wp,
-                              child: Image.asset(
-                                "images/profileframe.png",
-                              ),
+                  child: Container(
+                    height: 4.7.hp,
+                    // 30,
+                    // width: 33.0.wp,
+                    width: 41.5.wp,
+                    // 124,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1,
+                          color: animagiee_CL,
+                        ),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Followers",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 11.0.sp,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
                             ),
-                            // Icon(
-                            //   Icons.image_outlined,
-                            //   color: animagiee_CL,
-                            // ),
-                            Text(
-                              "Post",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
+                          ),
+                        ),
+                        const VerticalDivider(
+                          color: animagiee_CL,
+                        ),
+                        Text(
+                          data.followerUser!.length.toString(),
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 11.0.sp,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
                             ),
-                            const VerticalDivider(
-                              endIndent: 5,
-                              indent: 5,
-                              color: Colors.grey,
-                              thickness: 1,
-                              width: 2,
-                            ),
-                            Text(
-                              profileController.profileData[0].postCount
-                                  .toString(),
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            )
-                          ],
-                        )),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-                GestureDetector(
+                // SizedBox(
+                //   width: 3.3.wp,
+                // ),
+                InkWell(
                   onTap: () {
-                    Get.to(() => const My_Communities_UI());
+                    Get.to(const MyFollowUser());
                   },
-                  child: Card(
-                    elevation: 3,
-                    child: SizedBox(
-                        width: 45.0.wp,
-                        // 160,
-                        height: 5.0.hp,
-                        // 40,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            SizedBox(
-                              height: 3.0.hp,
-                              width: 7.0.wp,
-                              child: Image.asset(
-                                "images/grouplogo.png",
-                              ),
+                  child: Container(
+                    height: 4.7.hp,
+                    // 30,
+                    // width: 33.0.wp,
+                    width: 41.5.wp,
+                    // 124,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1,
+                          color: animagiee_CL,
+                        ),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "Following",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 11.0.sp,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
                             ),
-                            Text(
-                              "Community",
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
+                          ),
+                        ),
+                        const VerticalDivider(
+                          color: animagiee_CL,
+                        ),
+                        Text(
+                          data.followingUser!.length.toString(),
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 11.0.sp,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
                             ),
-                            const VerticalDivider(
-                              endIndent: 5,
-                              indent: 5,
-                              color: Colors.grey,
-                              thickness: 1,
-                              width: 2,
-                            ),
-                            Text(
-                              profileController.profileData[0].communityCount
-                                  .toString(),
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            )
-                          ],
-                        )),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
+          SizedBox(
+            height: 2.0.hp,
+            // 15,
+          ),
+          // SizedBox(
+          //   width: MediaQuery.of(context).size.width,
+          // child:
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => My_Post_UI(
+                        id: data.id,
+                      ));
+                },
+                child: Card(
+                  elevation: 3,
+                  child: SizedBox(
+                      width: 47.8.wp,
+                      // 160,
+                      height: 5.5.hp,
+                      // 40,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(
+                            height: 3.0.hp,
+                            width: 7.0.wp,
+                            child: Image.asset(
+                              "images/profileframe.png",
+                            ),
+                          ),
+                          // Icon(
+                          //   Icons.image_outlined,
+                          //   color: animagiee_CL,
+                          // ),
+                          Text(
+                            "Post",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 10.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          const VerticalDivider(
+                            endIndent: 5,
+                            indent: 5,
+                            color: Colors.grey,
+                            thickness: 1,
+                            width: 2,
+                          ),
+                          Text(
+                            profileController.profileData[0].postCount
+                                .toString(),
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 10.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          )
+                        ],
+                      )),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const My_Communities_UI());
+                },
+                child: Card(
+                  elevation: 3,
+                  child: SizedBox(
+                      width: 47.7.wp,
+                      // 160,
+                      height: 5.5.hp,
+                      // 40,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(
+                            height: 3.0.hp,
+                            width: 7.0.wp,
+                            child: Image.asset(
+                              "images/grouplogo.png",
+                            ),
+                          ),
+                          Text(
+                            "Community",
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 10.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          const VerticalDivider(
+                            endIndent: 5,
+                            indent: 5,
+                            color: Colors.grey,
+                            thickness: 1,
+                            width: 2,
+                          ),
+                          Text(
+                            profileController.profileData[0].communityCount
+                                .toString(),
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 10.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          )
+                        ],
+                      )),
+                ),
+              ),
+            ],
+          ),
+          // ),
           SizedBox(height: 3.0.hp
               // 25,
               ),
@@ -405,7 +417,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               "My Favourites",
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
+                                  fontSize: 11.0.sp,
                                   color: Settings_Text_CL,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -458,7 +470,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                             "Follow Requests",
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                fontSize: 9.5.sp,
+                                fontSize: 11.0.sp,
                                 color: Settings_Text_CL,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -678,7 +690,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               "Settings",
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
+                                  fontSize: 11.0.sp,
                                   color: Settings_Text_CL,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -734,7 +746,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                               "Logout",
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
-                                  fontSize: 9.5.sp,
+                                  fontSize: 11.0.sp,
                                   color: Settings_Text_CL,
                                   fontWeight: FontWeight.w500,
                                 ),
