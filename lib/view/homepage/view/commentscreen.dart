@@ -225,6 +225,8 @@ class _TestMeState extends State<TestMe> {
                                     setState(() {
                                       commenddeletController
                                           .mydeletcomment(
+                                              postid:
+                                                  data[i]!.postid.toString(),
                                               commandid: data[i]!.id.toString())
                                           .then((value) async {
                                         await postCommendListController

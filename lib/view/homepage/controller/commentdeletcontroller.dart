@@ -13,13 +13,13 @@ class CommenddeletController extends GetxController {
   RxBool isLoadingService = true.obs;
   UserPostListController controller = Get.find();
   // RxInt currentBanner1 = 0.obs;
-  mydeletcomment({commandid}) async {
+  mydeletcomment({commandid, postid}) async {
     isLoadingService(true);
 
     try {
       // data.clear();
-      final res =
-          await CommentDeletService.mycommentdeletservice(commandid: commandid);
+      final res = await CommentDeletService.mycommentdeletservice(
+          commandid: commandid, postid: postid);
       // isLoadingService(true);
       if (res != null) {
         // data.clear();

@@ -6,10 +6,13 @@ import 'package:animagieeui/utils/constance.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../model/commentdeletmodel.dart';
+
 class CommentDeletService {
   static final client = http.Client();
 
-  static Future mycommentdeletservice({commandid}) async {
+  static Future<Deletcommentmodel?> mycommentdeletservice(
+      {commandid, postid}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString(Constants.authToken);
     // String baseUrl = (prefs.getString('url') ?? Urls.baseUrl);
@@ -17,15 +20,17 @@ class CommentDeletService {
     try {
       final res = await client.post(Uri.parse(Urls.deletecomment),
           body: json.encode({
+            "postid": postid,
             "commandid": commandid,
           }),
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer $token',
           });
-      print(res.body);
+      print("postid->${res.body}");
       if (res.statusCode == 200) {
-        return (res.body);
+        var json = jsonDecode(res.body);
+        return Deletcommentmodel.fromJson(json);
       } else {
         return null;
       }
