@@ -1,3 +1,4 @@
+import 'package:animagieeui/config/extension.dart';
 import 'package:flutter/material.dart';
 
 const titleStyle = TextStyle(
@@ -7,3 +8,5 @@ const headerStyle =
 const subHeaderStyle = TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500);
 const bodyStyle1 = TextStyle(fontSize: 12.0, fontWeight: FontWeight.w500);
 const bodyStyle2 = TextStyle(fontSize: 14.0, color: Colors.black);
+var profileNmae = TextStyle(
+    fontSize: 19.0.sp, color: Colors.white, fontWeight: FontWeight.w500);

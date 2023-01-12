@@ -725,7 +725,7 @@ class ChatPageState extends State<ChatPage> {
                                   textEditingController.text, TypeMessage.text);
                             },
                             style: const TextStyle(
-                                color: animagiee_CL, fontSize: 15),
+                                color: Colors.black, fontSize: 15),
                             controller: textEditingController,
                             // decoration: InputDecoration(
                             //   hintText: 'Type your message...',

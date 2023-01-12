@@ -1,5 +1,6 @@
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/config/size_config.dart';
+import 'package:animagieeui/config/text_styles.dart';
 import 'package:animagieeui/view/home.dart';
 import 'package:animagieeui/view/homepage/view/followRequestGet.dart';
 import 'package:animagieeui/view/homepage/view/myFollowUser.dart';
@@ -50,7 +51,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           SizedBox(
             // color: Colors.black,
-            height: 21.0.hp,
+            height: 23.0.hp,
             //  168,
             child: Stack(children: [
               Container(
@@ -70,7 +71,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15))),
                 width: MediaQuery.of(context).size.width,
-                height: 14.0.hp,
+                height: 15.0.hp,
 
                 //  108,
               ),
@@ -81,7 +82,7 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15))),
                 width: MediaQuery.of(context).size.width,
-                height: 14.0.hp,
+                height: 15.0.hp,
                 //  108,
               ),
               Padding(
@@ -115,19 +116,13 @@ class _MY_Profile_Header_UIState extends State<MY_Profile_Header_UI> {
               Padding(
                 padding: EdgeInsets.all(48.0.sp),
                 child: Container(
-                    padding: EdgeInsets.only(left: 30.0.sp, top: 6.0.sp),
+                    padding: EdgeInsets.only(left: 30.0.sp, top: 10.0.sp),
                     margin: EdgeInsets.only(left: 30.0.sp),
                     child: Text(
                       data.firstName!.isEmpty
                           ? data.username.toString()
                           : data.firstName.toString(),
-                      style: GoogleFonts.jost(
-                        textStyle: TextStyle(
-                          fontSize: 19.5.sp,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+                      style: GoogleFonts.jost(textStyle: profileNmae),
                     )),
               ),
             ]),

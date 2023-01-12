@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:animagieeui/config/extension.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofie_viewController.dart';
 import 'package:animagieeui/view/instancepage/controller/userprofile_getpost.dart';
+import 'package:animagieeui/view/userprofile/view/followStatus.dart';
 import 'package:animagieeui/view/userprofile/view/page2communitie.dart';
 
 import 'package:animagieeui/view/userprofile/view/userprofdiscription.dart';
@@ -72,6 +73,7 @@ class _User_ProfileState extends State<User_Profile> {
           ),
           const User_Profile_Image_UI(),
           User_Profile_Name_UI(),
+          FollowStatus(id: widget.id, ind: index),
           Message_Button_UI(
             userId: widget.id,
           )
@@ -90,7 +92,7 @@ class _User_ProfileState extends State<User_Profile> {
               id: widget.id,
             ),
             Following_UI(id: widget.id),
-            const Setting_UI()
+            Setting_UI(id: widget.id)
           ]),
         ),
       ]);

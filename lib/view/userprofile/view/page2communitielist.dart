@@ -43,44 +43,47 @@ class _Page2_Communitie_ListState extends State<Page2_Communitie_List> {
               id: widget.id,
             ));
       },
-      child: Card(
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(9.0),
-              child: CircleAvatar(
-                backgroundImage: NetworkImage(widget.icon),
+      child: Padding(
+        padding: EdgeInsets.only(top: 10.0.sp),
+        child: Card(
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(9.0),
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(widget.icon),
+                ),
               ),
-            ),
-            Text(widget.name),
-            Expanded(child: Container()),
-            widget.myUserId.toString() == widget.clubOwner.toString()
-                ? const SizedBox()
-                : GestureDetector(
-                    onTap: widget.onTap,
-                    child: Container(
-                      height: 26,
-                      width: 90,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: animagiee_CL),
-                      child: Text(
-                        widget.status == "Joined" ? "Leave" : widget.status,
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                            fontSize: 9.0.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
+              Text(widget.name),
+              Expanded(child: Container()),
+              widget.myUserId.toString() == widget.clubOwner.toString()
+                  ? const SizedBox()
+                  : GestureDetector(
+                      onTap: widget.onTap,
+                      child: Container(
+                        height: 26,
+                        width: 90,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: animagiee_CL),
+                        child: Text(
+                          widget.status == "Joined" ? "Leave" : widget.status,
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              fontSize: 9.0.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-            const SizedBox(
-              width: 12,
-            )
-          ],
+              const SizedBox(
+                width: 12,
+              )
+            ],
+          ),
         ),
       ),
     );
