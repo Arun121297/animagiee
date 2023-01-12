@@ -285,8 +285,14 @@ class _AppbarContainerState extends State<AppbarContainer> {
                         ),
                         Visibility(
                             visible: widget.chat, child: const Chat_Icon_UI()),
+                        SizedBox(
+                          width: 4.5.wp,
+                        ),
                         Visibility(
                             visible: widget.podcast, child: const PodCast_UI()),
+                        SizedBox(
+                          width: 4.5.wp,
+                        ),
                         Visibility(
                             visible: widget.notification,
                             child: const Notification_UI()),

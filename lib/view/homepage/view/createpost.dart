@@ -91,15 +91,22 @@ class _CreatePostState extends State<CreatePost> {
                       width: 1,
                       color: Colors.grey.shade400,
                     )),
-                child: Text(
-                  "  Write something here...",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontSize: 9.0.sp,
-                      color: TextContent3_CL,
-                      fontWeight: FontWeight.w500,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 2.8.wp,
                     ),
-                  ),
+                    Text(
+                      "Write something here...",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 9.0.sp,
+                          color: TextContent3_CL,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
                 )),
             SizedBox(
               width: 3.0.wp,

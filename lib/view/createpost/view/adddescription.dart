@@ -36,7 +36,7 @@ class _EmogieDescriptionUIState extends State<EmogieDescriptionUI> {
           child: Card(
             elevation: 3,
             child: Container(
-              margin: EdgeInsets.only(left: 15.0.sp),
+              margin: EdgeInsets.only(left: 15.0.sp, top: 5.0.sp),
               height: 22.0.hp,
               //  150,
               width: 97.0.wp,
@@ -51,7 +51,7 @@ class _EmogieDescriptionUIState extends State<EmogieDescriptionUI> {
                     hintStyle: GoogleFonts.poppins(
                       height: 3,
                       textStyle: TextStyle(
-                        fontSize: 9.0.sp,
+                        fontSize: 10.50.sp,
                         color: descriptionText_CL,
                         fontWeight: FontWeight.w500,
                       ),

@@ -159,208 +159,224 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                     child: Text("No Club Created"),
                   );
                 } else {
-                  return SizedBox(
-                    height: 25.0.hp,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: createdClubController
-                            .getcreateclubdata[0].data!.length,
-                        itemBuilder: (context, index) {
-                          var listData = createdClubController
-                              .getcreateclubdata[0].data![index];
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: GestureDetector(
-                              //TODO: after complete group chat remove comment
-                              /*  onTap: () {
-                                // Fluttertoast.showToast(msg: "yes");
-                                FirebaseFirestore.instance
-                                    .collection(FirestoreConstants.group)
-                                    .doc(listData.clubid)
-                                    .get()
-                                    .then((doc) {
-                                  if (doc.exists) {
-                                    Get.to(() => GroupChatPage(
-                                          peerId: listData.clubid!,
-                                          peerAvatar: listData.clubicon!,
-                                          peerNickname: listData.clubName!,
-                                          currentUserId: listData.clubid!,
-                                        ));
-                                  } else {
-                                    //check other user updated the app?, if not show "This user doesn't have the updated version of the app to chat, "
-                                    showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) =>
-                                            StatefulBuilder(
-                                                builder: (context, setState) {
-                                              return Dialog(
-                                                child: SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height /
-                                                      6,
-                                                  child: Column(
-                                                    children: [
-                                                      Container(
-                                                        margin: EdgeInsets.only(
-                                                          bottom: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.04,
-                                                        ),
-                                                        height: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height /
-                                                            20,
-                                                        width: double.infinity,
-                                                        color: animagiee_CL,
-                                                        child: InkWell(
-                                                          onTap: () {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child: Align(
-                                                            alignment: Alignment
-                                                                .centerRight,
-                                                            child: Padding(
-                                                              padding: EdgeInsets.only(
-                                                                  right: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.03),
-                                                              child: const Icon(
-                                                                Icons.close,
-                                                                color: Colors
-                                                                    .white,
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: 1.7.hp,
+                      ),
+                      SizedBox(
+                        height: 25.0.hp,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: createdClubController
+                                .getcreateclubdata[0].data!.length,
+                            itemBuilder: (context, index) {
+                              var listData = createdClubController
+                                  .getcreateclubdata[0].data![index];
+                              return Padding(
+                                // padding: EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.only(
+                                  left: 8.0,
+                                  right: 8.0,
+                                ),
+                                child: GestureDetector(
+                                  //TODO: after complete group chat remove comment
+                                  /*  onTap: () {
+                                    // Fluttertoast.showToast(msg: "yes");
+                                    FirebaseFirestore.instance
+                                        .collection(FirestoreConstants.group)
+                                        .doc(listData.clubid)
+                                        .get()
+                                        .then((doc) {
+                                      if (doc.exists) {
+                                        Get.to(() => GroupChatPage(
+                                              peerId: listData.clubid!,
+                                              peerAvatar: listData.clubicon!,
+                                              peerNickname: listData.clubName!,
+                                              currentUserId: listData.clubid!,
+                                            ));
+                                      } else {
+                                        //check other user updated the app?, if not show "This user doesn't have the updated version of the app to chat, "
+                                        showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) =>
+                                                StatefulBuilder(
+                                                    builder: (context, setState) {
+                                                  return Dialog(
+                                                    child: SizedBox(
+                                                      height: MediaQuery.of(context)
+                                                              .size
+                                                              .height /
+                                                          6,
+                                                      child: Column(
+                                                        children: [
+                                                          Container(
+                                                            margin: EdgeInsets.only(
+                                                              bottom: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.04,
+                                                            ),
+                                                            height: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height /
+                                                                20,
+                                                            width: double.infinity,
+                                                            color: animagiee_CL,
+                                                            child: InkWell(
+                                                              onTap: () {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              },
+                                                              child: Align(
+                                                                alignment: Alignment
+                                                                    .centerRight,
+                                                                child: Padding(
+                                                                  padding: EdgeInsets.only(
+                                                                      right: MediaQuery.of(
+                                                                                  context)
+                                                                              .size
+                                                                              .width *
+                                                                          0.03),
+                                                                  child: const Icon(
+                                                                    Icons.close,
+                                                                    color: Colors
+                                                                        .white,
+                                                                  ),
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
+                                                          Text(
+                                                            'unable to chat with this club!',
+                                                            textAlign:
+                                                                TextAlign.center,
+                                                            style: TextStyle(
+                                                              fontSize: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.04,
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                      Text(
-                                                        'unable to chat with this club!',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontSize: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.04,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              );
-                                            }));
-                                  }
-                                });
+                                                    ),
+                                                  );
+                                                }));
+                                      }
+                                    });
 
-                                // Get.to(() => ChatListingScreen());
-                              },
+                                    // Get.to(() => ChatListingScreen());
+                                  },
  */
-                              onTap: () {
-                                Get.to(Animals_Profiles_UI(
-                                  id: createdClubController
-                                      .getcreateclubdata[0].data![index].clubid
-                                      .toString(),
-                                ));
-                              },
-                              child: Card(
-                                child: SizedBox(
-                                  height: 7.0.hp,
-                                  // 56,
-                                  child: Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 6.0.wp,
-                                        //  16,
-                                      ),
-                                      listData.clubicon!.contains("http")
-                                          ? CircleAvatar(
-                                              backgroundImage: NetworkImage(
-                                                  listData.clubicon.toString()),
-                                            )
-                                          : CircleAvatar(
-                                              backgroundImage: FileImage(File(
-                                                  listData.clubicon
-                                                      .toString())),
-                                            ),
-                                      SizedBox(width: 4.0.wp
-                                          //  13,
+                                  onTap: () {
+                                    Get.to(Animals_Profiles_UI(
+                                      id: createdClubController
+                                          .getcreateclubdata[0]
+                                          .data![index]
+                                          .clubid
+                                          .toString(),
+                                    ));
+                                  },
+                                  child: Card(
+                                    child: SizedBox(
+                                      height: 7.0.hp,
+                                      // 56,
+                                      child: Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 6.0.wp,
+                                            //  16,
                                           ),
-                                      Text(
-                                        listData.clubName.toString(),
-                                        style: GoogleFonts.poppins(
-                                          textStyle: TextStyle(
-                                            fontSize: 11.0.sp,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(child: Container()),
-                                      GestureDetector(
-                                        onTap: () {
-                                          ///ppass created club id
-                                          log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
-                                          // log("id-->${Constants.userId}");
-                                          // Get.to(MyClubCreation());
-                                          Get.to(Animals_Profiles_UI(
-                                            id: listData.clubid.toString(),
-                                          ));
-                                        },
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            // Expanded(child: SizedBox()),
-                                            Container(
-                                              height: 3.5.hp,
-                                              //  26,
-                                              width: 9.0.wp,
-                                              // 90,
-                                              alignment: Alignment.center,
-                                              // decoration: BoxDecoration(
-                                              //     color: animagiee_CL,
-                                              //     borderRadius:
-                                              //         BorderRadius.circular(
-                                              //             5.0.sp)),
-                                              child: Text(
-                                                "visit",
-                                                style: GoogleFonts.poppins(
-                                                  textStyle: TextStyle(
-                                                    fontSize: 9.5.sp,
-                                                    color: animagiee_CL,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                          listData.clubicon!.contains("http")
+                                              ? CircleAvatar(
+                                                  backgroundImage: NetworkImage(
+                                                      listData.clubicon
+                                                          .toString()),
+                                                )
+                                              : CircleAvatar(
+                                                  backgroundImage: FileImage(
+                                                      File(listData.clubicon
+                                                          .toString())),
                                                 ),
+                                          SizedBox(width: 4.0.wp
+                                              //  13,
+                                              ),
+                                          Text(
+                                            listData.clubName.toString(),
+                                            style: GoogleFonts.poppins(
+                                              textStyle: TextStyle(
+                                                fontSize: 11.0.sp,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w400,
                                               ),
                                             ),
-                                            const Icon(
-                                              Icons.arrow_forward_ios_rounded,
-                                              size: 10,
+                                          ),
+                                          Expanded(child: Container()),
+                                          GestureDetector(
+                                            onTap: () {
+                                              ///ppass created club id
+                                              log("id-->${createdClubController.getcreateclubdata[0].data![index].clubid}");
+                                              // log("id-->${Constants.userId}");
+                                              // Get.to(MyClubCreation());
+                                              Get.to(Animals_Profiles_UI(
+                                                id: listData.clubid.toString(),
+                                              ));
+                                            },
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                // Expanded(child: SizedBox()),
+                                                Container(
+                                                  height: 3.5.hp,
+                                                  //  26,
+                                                  width: 9.0.wp,
+                                                  // 90,
+                                                  alignment: Alignment.center,
+                                                  // decoration: BoxDecoration(
+                                                  //     color: animagiee_CL,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             5.0.sp)),
+                                                  child: Text(
+                                                    "visit",
+                                                    style: GoogleFonts.poppins(
+                                                      textStyle: TextStyle(
+                                                        fontSize: 9.5.sp,
+                                                        color: animagiee_CL,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                const Icon(
+                                                  Icons
+                                                      .arrow_forward_ios_rounded,
+                                                  size: 10,
+                                                ),
+                                                // Expanded(child: SizedBox()),
+                                              ],
                                             ),
-                                            // Expanded(child: SizedBox()),
-                                          ],
-                                        ),
+                                          ),
+                                          SizedBox(width: 3.0.wp
+                                              // 12,
+                                              )
+                                        ],
                                       ),
-                                      SizedBox(width: 3.0.wp
-                                          // 12,
-                                          )
-                                    ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                          );
-                        }),
+                              );
+                            }),
+                      ),
+                    ],
                   );
                 }
                 // Container();
@@ -381,6 +397,9 @@ class _MyClubs_UIState extends State<MyClubs_UI> {
                     ),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 1.3.hp,
               ),
               instanceContoroller.communitylist.isEmpty
                   ? Align(

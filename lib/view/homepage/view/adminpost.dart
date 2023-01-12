@@ -232,16 +232,20 @@ class _AdminPostState extends State<AdminPost> {
                             height: 1.0.hp,
                             //  12,
                           ),
-                          VisibilityDetector(
-                            key: Key(index.toString()),
-                            child: GestureDetector(
-                                child: MediaWidget(
-                              mediaType: data[index].posttype!,
-                              source: data[index].addImagesOrVideos!,
-                            )),
-                            onVisibilityChanged: (visibilityInfo) {
-                              // postView(id: data[index].postid, index: index);
-                            },
+
+                          Padding(
+                            padding: const EdgeInsets.all(7.0),
+                            child: VisibilityDetector(
+                              key: Key(index.toString()),
+                              child: GestureDetector(
+                                  child: MediaWidget(
+                                mediaType: data[index].posttype!,
+                                source: data[index].addImagesOrVideos!,
+                              )),
+                              onVisibilityChanged: (visibilityInfo) {
+                                // postView(id: data[index].postid, index: index);
+                              },
+                            ),
                           ),
 
                           /* userPostListController.data[index].posttype == "image"
@@ -375,6 +379,9 @@ class _AdminPostState extends State<AdminPost> {
                                   index: index),
                             ),
                             const Comment_UI(),
+                            SizedBox(
+                              width: 3.0.wp,
+                            ),
                             ShareHome(
                               desc: data[index].description.toString(),
                               id: data[index].postid!.toString(),
@@ -382,7 +389,7 @@ class _AdminPostState extends State<AdminPost> {
                               title: data[index].postowner!.username.toString(),
                             ),
                             SizedBox(
-                              width: 57.0.wp,
+                              width: 55.0.wp,
                             ),
                             FavouriteIcon(
                               onTap: () => addToFavourite(

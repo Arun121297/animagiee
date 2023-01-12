@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
+import '../../../config/colorconfig.dart';
 import '../../../controller/controller.dart';
 import '../../homeAppBar/view/appbar.dart';
 // import '../../homeAppBar/view/notification.dart';
@@ -48,10 +49,20 @@ class _Doctors_List_UIState extends State<Doctors_List_UI> {
             ),
 
             SizedBox(
-              height: 25.0.hp,
+              height: 20.0.hp,
               //  31,
             ),
-            CommingZoon()
+            CommingZoon(),
+
+            Text(
+              textAlign: TextAlign.center,
+              "We are coming soon with this\n feature...",
+              style: TextStyle(
+                  height: 0.2.hp,
+                  color: bg_color27,
+                  fontSize: 23.00.sp,
+                  fontWeight: FontWeight.w600),
+            )
             // SizedBox(
             //   height: MediaQuery.of(context).size.height - 189,
             //   child: ListView.builder(

@@ -28,7 +28,7 @@ class _MySubScriptState extends State<MySubScript> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: GestureDetector(
         onTap: () {
           setState(() {

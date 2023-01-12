@@ -286,6 +286,7 @@ class _SinglePostDesignState extends State<SinglePostDesign> {
                       // ignore: dead_code
 
                       const Comment_UI(),
+
                       const SizedBox(
                         width: 15,
                       ),

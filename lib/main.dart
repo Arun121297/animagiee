@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ],
       child: GetMaterialApp(
-        title: 'Splash Screen',
+        title: 'ash Screen',
         // theme: ThemeData(primarySwatch: Colors.),
         home: Splash_Screen(
           token: token,

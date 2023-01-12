@@ -206,7 +206,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                   floatingLabelAlignment: FloatingLabelAlignment.center,
                   hintStyle: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                      color: club_Text_1,
+                      color: const Color(0xffAAABAB),
                       fontSize: 9.0.sp,
                       fontWeight: FontWeight.w600,
                     ),
@@ -229,7 +229,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           color: club_Text_1,
-                          fontSize: 10.0.sp,
+                          fontSize: 11.0.sp,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -238,12 +238,22 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                   Card(
                       elevation: 3,
                       child: Container(
-                          margin: EdgeInsets.only(left: 7.0.sp),
+                          margin: EdgeInsets.only(
+                            left: 7.0.sp,
+                          ),
                           width: 88.0.wp,
-                          height: 5.0.hp,
+                          height: 6.0.hp,
                           child: TextField(
                               controller: clubController.clubName,
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
+                                hintText: "Enter club name",
+                                hintStyle: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    color: const Color(0xffB0B0B0),
+                                    fontSize: 11.0.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
                                 border: InputBorder.none,
                               )))),
                   Padding(
@@ -253,7 +263,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           color: club_Text_1,
-                          fontSize: 10.0.sp,
+                          fontSize: 11.0.sp,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -264,10 +274,18 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                       child: Container(
                           margin: EdgeInsets.only(left: 7.0.sp),
                           width: 88.0.wp,
-                          height: 5.0.hp,
+                          height: 6.0.hp,
                           child: TextField(
                               controller: clubController.clubDescription,
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
+                                hintText: "Enter club description",
+                                hintStyle: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                    color: const Color(0xffB0B0B0),
+                                    fontSize: 11.0.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
                                 border: InputBorder.none,
                               )))),
                   Padding(
@@ -277,7 +295,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                           color: club_Text_1,
-                          fontSize: 10.0.sp,
+                          fontSize: 11.0.sp,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -291,7 +309,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                       margin: const EdgeInsets.only(left: 10),
                       width: 87.5.wp,
                       // 320,
-                      height: 5.0.hp,
+                      height: 6.0.hp,
                       child: DropdownButton<String>(
                         isExpanded: true,
                         value: clubController.id.isEmpty
@@ -303,6 +321,16 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                         underline: Container(
                           height: 2,
                           color: Colors.transparent,
+                        ),
+                        hint: Text(
+                          "Select  Community",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              color: const Color(0xffB0B0B0),
+                              fontSize: 11.0.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ),
                         items: instanceContoroller.getinstancedata.isEmpty
                             ? null
@@ -333,7 +361,7 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               color: club_Text_1,
-                              fontSize: 10.0.sp,
+                              fontSize: 11.0.sp,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -358,9 +386,19 @@ class _Create_New_Club_UIState extends State<Create_New_Club_UI> {
                     child: Container(
                       margin: const EdgeInsets.only(left: 10),
                       width: 87.0.wp,
-                      height: 5.0.hp,
+                      height: 6.0.hp,
                       child: DropdownButton<String>(
                         isExpanded: true,
+                        hint: Text(
+                          "Select  Community Type",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              color: const Color(0xffB0B0B0),
+                              fontSize: 11.0.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
                         value: clubController.communityTypeisPrivat.value == ''
                             ? null
                             : clubController.communityTypeisPrivat.value,

@@ -216,7 +216,7 @@ class _PostState extends State<Post> {
                       ],
                     ),
                     SizedBox(
-                      width: 2.0.wp,
+                      width: 3.9.wp,
                     ),
                     GestureDetector(
                       onTap: () async {
